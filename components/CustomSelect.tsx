@@ -1,4 +1,5 @@
-import { ChangeEvent, RefObject, useEffect, useRef, useState } from "react";
+"use client";
+import { RefObject, useEffect, useRef, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import Image from "next/image";
@@ -9,7 +10,11 @@ type TArgs = {
   options: { name: string; value: string }[];
 };
 
-const CustomSelect = ({ selectedOption, handleSelect, options }: TArgs) => {
+export const CustomSelect = ({
+  selectedOption,
+  handleSelect,
+  options,
+}: TArgs) => {
   const [showOptions, setShowOptions] = useState(false);
   const selectRef: RefObject<HTMLDivElement> = useRef(null);
 
@@ -78,5 +83,3 @@ const CustomSelect = ({ selectedOption, handleSelect, options }: TArgs) => {
     </div>
   );
 };
-
-export default CustomSelect;

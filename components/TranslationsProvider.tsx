@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import initializeTranslations from "@/app/i18n";
 import { Resource, createInstance } from "i18next";
 
-export default function TranslationsProvider({
+export function TranslationsProvider({
   children,
   locale,
   namespaces,

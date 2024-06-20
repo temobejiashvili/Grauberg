@@ -1,12 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import i18nConfig from "@/i18nConfig";
-import { ChangeEvent } from "react";
-import Image from "next/image";
-import CustomSelect from "./CustomSelect";
+import { CustomSelect } from "@/components";
 
 const selectedOptions = {
   en: {

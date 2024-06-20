@@ -6,9 +6,8 @@ import { useState } from "react";
 import { IoIosMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
 import Image from "next/image";
-import CustomSelect from "./CustomSelect";
 
-export default function Navigation() {
+export function Navigation() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 

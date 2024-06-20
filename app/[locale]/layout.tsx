@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ReactNode } from "react";
 import { dir } from "i18next";
-import Navigation from "@/components/Navigation";
-import TranslationsProvider from "@/components/TranslationsProvider";
 import initializeTranslations from "../i18n";
+import { TranslationsProvider } from "@/components";
+import { Navigation } from "./components/Navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
