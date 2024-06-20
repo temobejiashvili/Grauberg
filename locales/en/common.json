@@ -2,5 +2,15 @@
   "home": "Home",
   "about": "About",
   "products": "Products",
-  "contact": "Contact"
+  "contact": "Contact",
+  "productTitle": "Our Premium Building Materials",
+  "productDescription": "High-Quality Products to Meet All Your Construction Needs",
+  "productsOneTitle": "Premium Portland Cement",
+  "productsOneDescription": "Our Our Premium Portland Cement offers excellent durability and high strength, making it ideal for a wide range of construction projects. Perfect for both residential and commercial use",
+  "productsTwoTitle": "High-Performance Concrete Mix",
+  "productsTwoDescription": "Our High-Performance Concrete Mix ensures superior workability and performance, suitable for complex structures and heavy-duty applications",
+  "productsThreeTitle": "Lightweight Aggregates",
+  "productsThreeDescription": "Our Lightweight Aggregates are perfect for reducing the overall weight of structures without compromising strength, ideal for high-rise buildings and long-span bridges",
+  "productsFourTitle": "Masonry Cement",
+  "productsFourDescription": "Our Masonry Cement is designed for exceptional bonding and workability, perfect for brickwork, stone masonry, and plastering applications"
 }
