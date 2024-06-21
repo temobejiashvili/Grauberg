@@ -12,6 +12,9 @@ const config: Config = {
         "hero-mobile": "url('/images/home-bg-mobile.png')",
         "hero-desktop": "url('/images/home-bg.png')",
       },
+      colors: {
+        primary: "#EE2E24",
+      },
     },
   },
   plugins: [],
