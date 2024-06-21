@@ -18,7 +18,9 @@ const selectedOptions = {
   },
 };
 
-export default function LocaleSwitcher() {
+type TArgs = { isHovered: boolean };
+
+export default function LocaleSwitcher({ isHovered }: TArgs) {
   const { i18n } = useTranslation();
   const currentLocale = i18n.language;
   const router = useRouter();
@@ -54,6 +56,9 @@ export default function LocaleSwitcher() {
         { name: "Eng", value: "en" },
         { name: "Geo", value: "ge" },
       ]}
+      bgAndTextColor={
+        isHovered ? "bg-[#ECECECCC] text-black" : "bg-[#494949CC] text-white"
+      }
       handleSelect={handleChangeLocale}
       selectedOption={selectedOptions[currentLocale === "en" ? "en" : "ge"]}
     />

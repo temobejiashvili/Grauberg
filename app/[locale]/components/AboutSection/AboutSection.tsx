@@ -8,7 +8,10 @@ function AboutSection() {
   const { t } = useTranslation("common");
 
   return (
-    <div className="my-10 p-3 items-center flex flex-col md:flex-row md:justify-evenly md:gap-0 gap-5">
+    <div
+      className="my-10 p-3 items-center flex flex-col md:flex-row md:justify-evenly md:gap-0 gap-5"
+      id="about"
+    >
       <div className="max-w-[500px] flex flex-col gap-5">
         <h1 className="text-[20px] text-primary font-bold">{t("about")}</h1>
         <div className="w-fit">

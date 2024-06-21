@@ -8,12 +8,14 @@ type TArgs = {
   selectedOption: { name: string; imageUrl: string; alt: string };
   handleSelect: (arg: string) => void;
   options: { name: string; value: string }[];
+  bgAndTextColor: string;
 };
 
 export const CustomSelect = ({
   selectedOption,
   handleSelect,
   options,
+  bgAndTextColor,
 }: TArgs) => {
   const [showOptions, setShowOptions] = useState(false);
   const selectRef: RefObject<HTMLDivElement> = useRef(null);
@@ -40,7 +42,7 @@ export const CustomSelect = ({
         <span className="rounded-md shadow-sm">
           <button
             type="button"
-            className="flex justify-between items-center w-[100px] h-12 rounded-xl border border-gray-300 shadow-sm px-1 bg-[#494949CC] text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+            className={`flex justify-between items-center w-[100px] h-12 rounded-xl  shadow-sm px-1 ${bgAndTextColor} text-sm font-medium `}
             onClick={() => setShowOptions(!showOptions)}
           >
             <Image
