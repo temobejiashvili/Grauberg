@@ -38,7 +38,7 @@ export const CustomSelect = ({
 
   return (
     <div className="relative inline-block text-left" ref={selectRef}>
-      <div>
+      <div className="w-40 md:w-auto">
         <span className="rounded-md shadow-sm">
           <button
             type="button"
@@ -62,7 +62,7 @@ export const CustomSelect = ({
         </span>
       </div>
       {showOptions && (
-        <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+        <div className="origin-top-right absolute right-[-60px] md:right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
           <div
             className="py-1"
             role="menu"
