@@ -8,9 +8,9 @@ async function Home({ params: { locale } }: { params: { locale: string } }) {
   return (
     <div>
       <HomeHero />
-      <FooterComponent />
       <AboutSection />
       <Products />
+      <FooterComponent />
     </div>
   );
 }

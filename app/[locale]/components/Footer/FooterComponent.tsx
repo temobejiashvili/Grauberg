@@ -9,7 +9,7 @@ export default function FooterComponent() {
   const { t } = useTranslation("common");
   return (
     <>
-      <div className="bg-[black] px-[56px]">
+      <div className="bg-[black] px-[56px] pt-[81px]">
         <div className=" bg-[white] py-[41px] md:py-[110px]  rounded-3xl flex flex-col items-center gap-[31px]">
           <h2 className="text-[40px] md:text-[64px] font-bold">
             {t("getInTouch")}
@@ -24,7 +24,7 @@ export default function FooterComponent() {
           </div>
         </div>
       </div>
-      <footer className="bg-[black] pt-[118px] relative overflow-hidden">
+      <footer className="bg-[black] pt-[10px] relative overflow-hidden">
         <ContainerDiv>
           <div className="bg-[black]">
             <div className="flex flex-col py-[19px]">
@@ -83,7 +83,7 @@ export default function FooterComponent() {
               <h6 className="text-[14px] font-normal text-[#fff]">
                 {t("allRightReserved")}
               </h6>
-              <div className="flex items-end space-x-2">
+              <div className="flex items-end space-x-2 ">
                 <Image
                   src="/images/Vector.png"
                   alt="Logo"
@@ -95,15 +95,15 @@ export default function FooterComponent() {
             </div>
           </div>
         </ContainerDiv>
-        <div className="w-full flex md:flex-row justify-center items-center absolute bottom-[-80px] text-justify">
+        <div className="w-full flex md:flex-row justify-center items-center mb-[-30px] md:mb-[-60px] lg:mb-[-85px]">
           <Image
             src="/images/BigVector.svg"
             alt="Logo"
             width={179}
             height={158}
-            className="opacity-60 w-[50px] h-[50px] sd:w-[100px] sd:h-[100px] md:w-[140px] md:h-[140px] lg:w-[179px] lg:h-[158px]"
+            className="opacity-60 w-[70px] h-[70px]  md:w-[140px] md:h-[140px] lg:w-[179px] lg:h-[158px]"
           />
-          <h2 className="text-[60px]  md:text-[100px] lg:text-[130px] text-white opacity-60">
+          <h2 className="text-[60px]  md:text-[120px] lg:text-[160px] text-white opacity-60">
             GRAUBERG
           </h2>
         </div>
