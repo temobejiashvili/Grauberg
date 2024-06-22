@@ -11,11 +11,11 @@ export default function FooterComponent() {
     <>
       <div className="bg-[black] px-[56px]">
         <div className=" bg-[white] py-[41px] md:py-[110px]  rounded-3xl flex flex-col items-center gap-[31px]">
-          <h2 className="text-[64px] font-bold">Get in touch</h2>
+          <h2 className="text-[40px] md:text-[64px] font-bold">
+            {t("getInTouch")}
+          </h2>
           <p className="font-normal w-[350px] md:w-[600px] text-center">
-            Have questions or need more information? Get in touch with us today
-            to discuss your project needs and discover how GRAUBERG can support
-            your construction goals. Were here to help
+            {t("getInTouchDescription")}
           </p>
           <div>
             <button className="bg-red-600 text-white text-[14px] px-[67px] py-[22px] rounded-md">
@@ -24,13 +24,13 @@ export default function FooterComponent() {
           </div>
         </div>
       </div>
-      <footer className="bg-[black] pt-[118px]">
+      <footer className="bg-[black] pt-[118px] relative overflow-hidden">
         <ContainerDiv>
           <div className="bg-[black]">
             <div className="flex flex-col py-[19px]">
               <div className="hidden md:flex md:flex-col items-center gap-6">
                 <h2 className="text-[white] font-bold text-[32px] capitalize">
-                  Get In Touch With Us
+                  {t("getInTouchWithUs")}
                 </h2>
                 <div>
                   <button className="bg-red-600 text-white text-[14px] px-[67px] py-[22px] rounded-md">
@@ -41,19 +41,19 @@ export default function FooterComponent() {
               <nav>
                 <div className="flex flex-col items-center gap-[24px] md:flex-row md:justify-center md:gap-[40px] md:mt-[31px]">
                   <a
-                    href="#"
+                    href="#home"
                     className="text-white md:text-[24px] md:font-normal font-semibold text-[16px]"
                   >
                     {t("home")}
                   </a>
                   <a
-                    href="#"
+                    href="#about"
                     className="text-white md:text-[24px] md:font-normal font-semibold text-[16px]"
                   >
                     {t("about")}
                   </a>
                   <a
-                    href="#"
+                    href="#products"
                     className="text-white md:text-[24px] md:font-normal font-semibold text-[16px]"
                   >
                     {t("products")}
@@ -81,7 +81,7 @@ export default function FooterComponent() {
             </div>
             <div className="mt-[54px] flex flex-col gap-6 md:mt-[19px] md:flex md:flex-col md:items-center ">
               <h6 className="text-[14px] font-normal text-[#fff]">
-                © 2023 Grauberg, All Rights Reserved
+                {t("allRightReserved")}
               </h6>
               <div className="flex items-end space-x-2">
                 <Image
@@ -95,7 +95,7 @@ export default function FooterComponent() {
             </div>
           </div>
         </ContainerDiv>
-        <div className="w-full flex md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+        <div className="w-full flex md:flex-row justify-center items-center absolute bottom-[-80px] text-justify">
           <Image
             src="/images/BigVector.svg"
             alt="Logo"
