@@ -9,8 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "hero-mobile": "url('/images/home-bg-mobile.png')",
+        "hero-mobile": "url('/images/home-b-mobile-1.png')",
         "hero-desktop": "url('/images/home-bg.png')",
+      },
+      colors: {
+        primary: "#EE2E24",
       },
     },
   },
