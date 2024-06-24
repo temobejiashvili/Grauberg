@@ -9,7 +9,7 @@ export default function FooterComponent() {
   const { t } = useTranslation("common");
   return (
     <>
-      <div className="bg-[black] px-[56px] pt-[81px]">
+      <div className="bg-[black] px-[56px] pt-[81px]" id="contact">
         <div className=" bg-[white] py-[41px] md:py-[110px]  rounded-3xl flex flex-col items-center gap-[31px]">
           <h2 className="text-[40px] md:text-[64px] font-bold">
             {t("getInTouch")}
@@ -19,7 +19,7 @@ export default function FooterComponent() {
           </p>
           <div>
             <button className="bg-red-600 text-white text-[14px] px-[67px] py-[22px] rounded-md">
-              {t("contact_us")}
+              {t("contact")}
             </button>
           </div>
         </div>
@@ -34,7 +34,7 @@ export default function FooterComponent() {
                 </h2>
                 <div>
                   <button className="bg-red-600 text-white text-[14px] px-[67px] py-[22px] rounded-md">
-                    {t("contact_us")}
+                    {t("contact")}
                   </button>
                 </div>
               </div>

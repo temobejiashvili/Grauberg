@@ -43,11 +43,11 @@ export function Navigation() {
 
   return (
     <nav
-      className={` px-6 py-4 fixed top-0 w-full z-50 ${bgColor}`}
+      className={` px-4 md:px-14 py-4 fixed top-0 w-full z-50 ${bgColor}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
+      <div className="mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <Image src="/images/Vector.png" alt="Logo" width={23} height={23} />
           <h2 className=" text-xl">GRAUBERG</h2>
@@ -61,7 +61,7 @@ export function Navigation() {
         <div className="hidden md:flex items-center space-x-4">
           <LocaleSwitcher isHovered={isHovered} />
           <button className="bg-red-600 text-white px-6 py-2 rounded-md">
-            {t("contact_us")}
+            {t("contact")}
           </button>
         </div>
         <div className="md:hidden flex items-center">
@@ -94,7 +94,7 @@ export function Navigation() {
           <LocaleSwitcher isHovered={isHovered} />
 
           <button className="bg-red-600  px-6 py-2 rounded-md w-40">
-            {t("contact_us")}
+            {t("contact")}
           </button>
         </div>
       )}
