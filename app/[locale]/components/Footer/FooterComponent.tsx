@@ -67,7 +67,7 @@ export default function FooterComponent() {
                     <FaInstagram className="text-[white] !w-[29px]" />
                   </div>
                 </a>
-                <a href="#">
+                <a href="https://wa.me/995591123123" target="blank">
                   <div className="w-[40px] h-[40px] rounded-[50%] bg-[#EE2E24] flex justify-center items-center">
                     <FaWhatsapp className="text-[white] !w-[29px]" />
                   </div>
