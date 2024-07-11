@@ -30,5 +30,14 @@
   "allRightReserved": "© 2023 Grauberg, All Rights Reserved",
   "heroTitle": "ვაშენებთ საქართველოს მომავალს ",
   "heroTitleSpan": "ხარისხიანი მასალებით",
-  "heroDescription": "მაღალი ხარისხის სამშენებლო მასალები კონკურენტულ ფასად"
+  "heroDescription": "მაღალი ხარისხის სამშენებლო მასალები კონკურენტულ ფასად",
+  "name": "სახელი",
+  "email": "ელფოსტა",
+  "phone": "ტელეფონი",
+  "note": "შენიშვნა",
+  "submitRequest": "მოთხოვნის გაგზავნა",
+  "message": "შეტყობინება",
+  "subject": "თემა",
+  "send": "გაგზავნა",
+  "contactUs": "დაგვიკავშირდით"
 }

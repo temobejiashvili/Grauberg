@@ -1,12 +1,27 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import { ContainerDiv } from "@/components";
 import { FaInstagram, FaWhatsapp, FaFacebook } from "react-icons/fa";
+import Modal from "@/components/CustomModal";
+import ContactForm from "./ContactForm";
+import RequestCallForm from "./RequestCallForm";
 
 export default function FooterComponent() {
   const { t } = useTranslation("common");
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isCallModalOpen, setIsCallModalOpen] = useState(false);
+
+  const handleContactSubmit = (event: MouseEvent) => {
+    event.preventDefault();
+    setIsContactModalOpen(false);
+  };
+
+  const handleCallSubmit = (event: MouseEvent) => {
+    event.preventDefault();
+    setIsCallModalOpen(false);
+  };
   return (
     <>
       <div className="bg-[black] px-[56px] pt-[81px]" id="contact">
@@ -18,7 +33,10 @@ export default function FooterComponent() {
             {t("getInTouchDescription")}
           </p>
           <div>
-            <button className="bg-red-600 text-white text-[14px] px-[67px] py-[22px] rounded-md">
+            <button
+              className="bg-red-600 text-white text-[14px] px-[67px] py-[22px] rounded-md"
+              onClick={() => setIsContactModalOpen(true)}
+            >
               {t("sendEmail")}
             </button>
           </div>
@@ -33,7 +51,10 @@ export default function FooterComponent() {
                   {t("getInTouchWithUs")}
                 </h2>
                 <div>
-                  <button className="bg-red-600 text-white text-[14px] px-[67px] py-[22px] rounded-md">
+                  <button
+                    className="bg-red-600 text-white text-[14px] px-[67px] py-[22px] rounded-md"
+                    onClick={() => setIsCallModalOpen(true)}
+                  >
                     {t("requestACall")}
                   </button>
                 </div>
@@ -62,17 +83,20 @@ export default function FooterComponent() {
               </nav>
 
               <div className="flex items-center justify-center gap-[18px] mt-[32px] md:mt-[28px]">
-                <a href="#">
+                {/* <a href="#">
                   <div className="w-[40px] h-[40px] rounded-[50%] bg-[#EE2E24] flex justify-center items-center">
                     <FaInstagram className="text-[white] !w-[29px]" />
                   </div>
-                </a>
-                <a href="https://wa.me/995591123123" target="blank">
+                </a> */}
+                <a href="https://wa.me/995595153333" target="blank">
                   <div className="w-[40px] h-[40px] rounded-[50%] bg-[#EE2E24] flex justify-center items-center">
                     <FaWhatsapp className="text-[white] !w-[29px]" />
                   </div>
                 </a>
-                <a href="#">
+                <a
+                  href="https://www.facebook.com/share/t4BT4uCviA8bnjh1/?mibextid=LQQJ4d"
+                  target="blank"
+                >
                   <div className="w-[40px] h-[40px] rounded-[50%] bg-[#EE2E24] flex justify-center items-center">
                     <FaFacebook className="text-[white] !w-[29px]" />
                   </div>
@@ -95,6 +119,21 @@ export default function FooterComponent() {
             </div>
           </div>
         </ContainerDiv>
+        <Modal
+          isOpen={isContactModalOpen}
+          onClose={() => setIsContactModalOpen(false)}
+          title="contactUs"
+        >
+          <ContactForm onSubmit={handleContactSubmit} />
+        </Modal>
+
+        <Modal
+          isOpen={isCallModalOpen}
+          onClose={() => setIsCallModalOpen(false)}
+          title="requestACall"
+        >
+          <RequestCallForm onSubmit={handleCallSubmit} />
+        </Modal>
         <div className="w-full flex md:flex-row justify-center items-center mb-[-30px] md:mb-[-60px] lg:mb-[-85px]">
           <Image
             src="/images/BigVector.svg"

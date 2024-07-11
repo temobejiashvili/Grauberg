@@ -30,5 +30,14 @@
   "allRightReserved": "© 2023 Grauberg, All Rights Reserved",
   "heroTitle": "Building Georgia's Future with ",
   "heroTitleSpan": "Quality Materials",
-  "heroDescription": "High-quality building materials at competitive prices"
+  "heroDescription": "High-quality building materials at competitive prices",
+  "name": "Name",
+  "email": "Email",
+  "phone": "Phone",
+  "note": "Note",
+  "submitRequest": "Submit Request",
+  "message": "Message",
+  "subject": "Subject",
+  "send": "Send",
+  "contactUs": "Contact Us"
 }
