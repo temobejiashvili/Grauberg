@@ -61,7 +61,9 @@ export function Navigation() {
         <div className="hidden md:flex items-center space-x-4">
           <LocaleSwitcher isHovered={isHovered} />
           <button className="bg-red-600 text-white px-6 py-2 rounded-md">
-            {t("contact")}
+            <a href="#contact" className="block ">
+              {t("contact")}
+            </a>
           </button>
         </div>
         <div className="md:hidden flex items-center">
@@ -94,7 +96,9 @@ export function Navigation() {
           <LocaleSwitcher isHovered={isHovered} />
 
           <button className="bg-red-600  px-6 py-2 rounded-md w-40">
-            {t("contact")}
+            <a href="#contact" className="block ">
+              {t("contact")}
+            </a>
           </button>
         </div>
       )}
