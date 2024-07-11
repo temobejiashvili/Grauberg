@@ -19,7 +19,7 @@ export default function FooterComponent() {
           </p>
           <div>
             <button className="bg-red-600 text-white text-[14px] px-[67px] py-[22px] rounded-md">
-              {t("contact")}
+              {t("sendEmail")}
             </button>
           </div>
         </div>
@@ -34,7 +34,7 @@ export default function FooterComponent() {
                 </h2>
                 <div>
                   <button className="bg-red-600 text-white text-[14px] px-[67px] py-[22px] rounded-md">
-                    {t("contact")}
+                    {t("requestACall")}
                   </button>
                 </div>
               </div>
