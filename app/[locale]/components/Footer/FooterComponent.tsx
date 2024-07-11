@@ -83,11 +83,14 @@ export default function FooterComponent() {
               </nav>
 
               <div className="flex items-center justify-center gap-[18px] mt-[32px] md:mt-[28px]">
-                {/* <a href="#">
+                <a
+                  href="https://www.instagram.com/grauberg.ge/"
+                  target="_blank"
+                >
                   <div className="w-[40px] h-[40px] rounded-[50%] bg-[#EE2E24] flex justify-center items-center">
                     <FaInstagram className="text-[white] !w-[29px]" />
                   </div>
-                </a> */}
+                </a>
                 <a href="https://wa.me/995595153333" target="blank">
                   <div className="w-[40px] h-[40px] rounded-[50%] bg-[#EE2E24] flex justify-center items-center">
                     <FaWhatsapp className="text-[white] !w-[29px]" />
