@@ -46,9 +46,9 @@ export default function FooterComponent() {
         <ContainerDiv>
           <div className="bg-[black]">
             <div className="flex flex-col py-[19px]">
-              <div className="hidden md:flex md:flex-col items-center gap-6">
+              <div className="flex flex-col items-center gap-6 mb-6 md:mb-0">
                 <h2 className="text-[white] font-bold text-[32px] capitalize">
-                  {t("getInTouchWithUs")}
+                  {t("getInTouch")}
                 </h2>
                 <div>
                   <button
@@ -127,7 +127,7 @@ export default function FooterComponent() {
           onClose={() => setIsContactModalOpen(false)}
           title="contactUs"
         >
-          <ContactForm onSubmit={handleContactSubmit} />
+          <ContactForm onClose={() => setIsContactModalOpen(false)} />
         </Modal>
 
         <Modal
@@ -135,7 +135,7 @@ export default function FooterComponent() {
           onClose={() => setIsCallModalOpen(false)}
           title="requestACall"
         >
-          <RequestCallForm onSubmit={handleCallSubmit} />
+          <RequestCallForm onClose={() => setIsCallModalOpen(false)} />
         </Modal>
         <div className="w-full flex md:flex-row justify-center items-center mb-[-30px] md:mb-[-60px] lg:mb-[-85px]">
           <Image

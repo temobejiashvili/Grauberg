@@ -39,5 +39,6 @@
   "message": "Message",
   "subject": "Subject",
   "send": "Send",
-  "contactUs": "Contact Us"
+  "contactUs": "Contact Us",
+  "required": "Required"
 }
