@@ -11,6 +11,7 @@ const config: Config = {
       fontFamily: {
         sans: ["Lato", "sans-serif"],
         roboto: ["Roboto", "sans-serif"],
+        notoGeorgian: ["Noto Sans Georgian", "sans-serif"],
       },
       backgroundImage: {
         "hero-mobile": "url('/images/home-b-mobile-1.png')",

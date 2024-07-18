@@ -43,7 +43,7 @@ export function Navigation() {
 
   return (
     <nav
-      className={` px-4 md:px-14 py-4 fixed top-0 w-full z-50 ${bgColor}`}
+      className={` px-4 md:px-14 py-4 fixed top-0 w-full z-50 ${bgColor} transition-colors `}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

@@ -1,6 +1,6 @@
 import i18nConfig from "@/i18nConfig";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Noto_Sans_Georgian } from "next/font/google";
 import { ReactNode } from "react";
 import { dir } from "i18next";
 import initializeTranslations from "../i18n";
@@ -8,6 +8,7 @@ import { TranslationsProvider } from "@/components";
 import { Navigation } from "./components/Navigation";
 
 const inter = Inter({ subsets: ["latin"] });
+const sans = Noto_Sans_Georgian({ subsets: ["georgian"] });
 
 const i18nNamespaces = ["common"];
 

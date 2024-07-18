@@ -11,12 +11,12 @@ export function HomeHero() {
       id="home"
     >
       <ContainerDiv>
-        <div className="w-full max-w-[1084px] text-white">
-          <h1 className="text-5xl md:text-8xl font-black font-roboto ">
+        <div className="w-full max-w-[1084px] text-white  ">
+          <h1 className="text-5xl md:text-8xl font-black font-roboto">
             {t("heroTitle")}
             <span className="text-primary">{t("heroTitleSpan")}</span>
           </h1>
-          <p className="font-normal text-2xl">{t("heroDescription")}</p>
+          <p className="font-normal text-2xl mt-4">{t("heroDescription")}</p>
         </div>
       </ContainerDiv>
     </div>
