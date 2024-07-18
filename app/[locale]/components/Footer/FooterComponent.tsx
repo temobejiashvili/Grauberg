@@ -24,12 +24,12 @@ export default function FooterComponent() {
   };
   return (
     <>
-      <div className="bg-[black] px-[56px] pt-[81px]" id="contact">
-        <div className=" bg-[white] py-[41px] md:py-[110px]  rounded-3xl flex flex-col items-center gap-[31px]">
+      <div className="bg-[black] px-4 md:px-[56px] pt-[81px]" id="contact">
+        <div className=" bg-[white] py-[41px] md:py-[110px] overflow-auto rounded-3xl flex flex-col items-center gap-[31px]">
           <h2 className="text-[40px] md:text-[64px] font-bold">
             {t("getInTouch")}
           </h2>
-          <p className="font-normal w-[350px] md:w-[600px] text-center">
+          <p className="font-normal max-w-[350px] md:w-[600px] text-center">
             {t("getInTouchDescription")}
           </p>
           <div>
