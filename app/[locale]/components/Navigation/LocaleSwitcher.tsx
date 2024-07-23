@@ -57,7 +57,7 @@ export default function LocaleSwitcher({ isHovered }: TArgs) {
         { name: "Geo", value: "ge" },
       ]}
       bgAndTextColor={
-        isHovered ? "bg-[#ECECECCC] text-black" : "bg-[#494949CC] text-white"
+        isHovered ? "bg-[#ECECECCC] text-black" : "bg-[#49494980]  text-white"
       }
       handleSelect={handleChangeLocale}
       selectedOption={selectedOptions[currentLocale === "en" ? "en" : "ge"]}

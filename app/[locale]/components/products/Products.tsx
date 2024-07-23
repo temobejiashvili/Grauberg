@@ -14,7 +14,7 @@ export function Products() {
       className="  bg-black rounded-tl-[32px] md:rounded-tl-[60px] rounded-tr-[32px] md:rounded-tr-[60px]  w-full text-white"
     >
       <ContainerDiv>
-        <div className="mt-[70px] md:mt-[120px] flex flex-col gap-4 text-center ">
+        <div className="pt-[70px] md:pt-[120px] flex flex-col gap-4 text-center ">
           <h2 className="text-[#EE2E24] text-xl font-black ">
             {t("products")}
           </h2>

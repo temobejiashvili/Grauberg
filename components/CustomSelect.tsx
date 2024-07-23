@@ -42,7 +42,7 @@ export const CustomSelect = ({
         <span className="rounded-md shadow-sm">
           <button
             type="button"
-            className={`flex justify-between items-center w-[100px] h-12 rounded-xl  shadow-sm px-1 ${bgAndTextColor} text-sm font-medium `}
+            className={`flex justify-center gap-[2px] items-center w-[147px] md:w-[100px] h-14  rounded-lg  shadow-sm px-1 ${bgAndTextColor} text-sm font-medium `}
             onClick={() => setShowOptions(!showOptions)}
           >
             <Image

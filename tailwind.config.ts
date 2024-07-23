@@ -16,6 +16,7 @@ const config: Config = {
       backgroundImage: {
         "hero-mobile": "url('/images/home-b-mobile-1.png')",
         "hero-desktop": "url('/images/home-bg.png')",
+        "contact-bg": "url('/images/contact-bg.png')",
       },
       colors: {
         primary: "#EE2E24",

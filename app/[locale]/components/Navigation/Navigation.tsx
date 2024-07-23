@@ -35,19 +35,20 @@ export function Navigation() {
 
   const { t } = useTranslation("common");
 
-  const hoveredStyles =
-    "bg-black bg-opacity-30 text-white md:bg-opacity-100 md:bg-white md:text-black";
-  const unHoveredStyles = "bg-black bg-opacity-30 text-white";
+  const isOpenBgColor = isOpen ? "bg-[#1D1D2180]" : "bg-black bg-opacity-30 ";
+
+  const hoveredStyles = `${isOpenBgColor}   text-white md:bg-opacity-100 md:bg-white md:text-black`;
+  const unHoveredStyles = `${isOpenBgColor}  text-white`;
 
   const bgColor = isHovered ? hoveredStyles : unHoveredStyles;
 
   return (
     <nav
-      className={` px-4 md:px-14 py-4 fixed top-0 w-full z-50 ${bgColor} transition-colors `}
+      className={` md:px-14 py-4 fixed top-0 w-full z-50 ${bgColor} transition-colors  `}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="mx-auto flex justify-between items-center">
+      <div className="px-4  mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <Image src="/images/Vector.png" alt="Logo" width={23} height={23} />
           <h2 className=" text-xl">GRAUBERG</h2>
@@ -60,7 +61,7 @@ export function Navigation() {
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <LocaleSwitcher isHovered={isHovered} />
-          <button className="bg-red-600 text-white px-6 py-2 rounded-md">
+          <button className="bg-red-600 text-white px-6 py-2  rounded-lg w-[148px] h-14">
             <a href="#contact" className="block ">
               {t("contact")}
             </a>
@@ -79,7 +80,7 @@ export function Navigation() {
       {isOpen && (
         <div
           ref={selectRef}
-          className="md:hidden text-white bg-custom-gray mt-4 p-4 space-y-4 flex flex-col items-start gap-2"
+          className="md:hidden text-white mt-4 p-4 space-y-4 flex flex-col items-center gap-2"
         >
           <a href="#home" className="block ">
             {t("home")}
@@ -95,7 +96,7 @@ export function Navigation() {
           </a>
           <LocaleSwitcher isHovered={isHovered} />
 
-          <button className="bg-red-600  px-6 py-2 rounded-md w-40">
+          <button className="bg-red-600 rounded-lg w-full h-14">
             <a href="#contact" className="block ">
               {t("contact")}
             </a>
