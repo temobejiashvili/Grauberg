@@ -37,21 +37,27 @@ export function Navigation() {
 
   const isOpenBgColor = isOpen ? "bg-[#1D1D2180]" : "bg-black bg-opacity-30 ";
 
-  const hoveredStyles = `${isOpenBgColor}   text-white md:bg-opacity-100 md:bg-white md:text-black`;
+  const hoveredStyles = `${isOpenBgColor}   text-white bg-opacity-100 md:bg-white md:text-black`;
   const unHoveredStyles = `${isOpenBgColor}  text-white`;
 
   const bgColor = isHovered ? hoveredStyles : unHoveredStyles;
 
   return (
     <nav
-      className={` md:px-14 py-4 fixed top-0 w-full z-50 ${bgColor} transition-colors  `}
+      className={` md:px-14 py-4 fixed top-0 w-full z-50 ${bgColor}   `}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="px-4  mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-2">
-          <Image src="/images/Vector.png" alt="Logo" width={23} height={23} />
-          <h2 className=" text-xl">GRAUBERG</h2>
+          <Image
+            src={isHovered ? "/images/nav-dark.png" : "/images/nav-logo.png"}
+            alt="Logo"
+            width={106}
+            height={14}
+            className="w-[106px] h-[14px] lg:w-[175px] lg:h-[24px]"
+          />
+          {/* <h2 className=" text-xl">GRAUBERG</h2> */}
         </div>
         <div className="hidden md:flex items-center space-x-8">
           <a href="#home">{t("home")}</a>
@@ -80,7 +86,7 @@ export function Navigation() {
       {isOpen && (
         <div
           ref={selectRef}
-          className="md:hidden text-white mt-4 p-4 space-y-4 flex flex-col items-center gap-2"
+          className="md:hidden  text-white mt-4 p-4 space-y-4 flex flex-col items-center gap-2"
         >
           <a href="#home" className="block ">
             {t("home")}

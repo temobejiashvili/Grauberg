@@ -112,12 +112,13 @@ export default function FooterComponent() {
               </h6>
               <div className="flex items-end space-x-2 ">
                 <Image
-                  src="/images/Vector.png"
+                  src="/images/nav-logo.png"
                   alt="Logo"
-                  width={23}
-                  height={23}
+                  width={106}
+                  height={14}
+                  className="w-[106px] h-[14px] lg:w-[175px] lg:h-[24px]"
                 />
-                <h2 className="text-white text-xl">GRAUBERG</h2>
+                {/* <h2 className="text-white text-xl">GRAUBERG</h2> */}
               </div>
             </div>
           </div>
@@ -137,17 +138,17 @@ export default function FooterComponent() {
         >
           <RequestCallForm onClose={() => setIsCallModalOpen(false)} />
         </Modal>
-        <div className="w-full flex md:flex-row justify-center items-center mb-[-30px] md:mb-[-60px] lg:mb-[-85px]">
+        <div className="w-full flex md:flex-row justify-center items-center mb-[-12px] md:mb-[-20px] lg:mb-[-45px] mt-[70px]">
           <Image
-            src="/images/BigVector.svg"
+            src="/images/footer-logo.png"
             alt="Logo"
-            width={179}
-            height={158}
-            className="w-[70px] h-[70px]  md:w-[140px] md:h-[140px] lg:w-[179px] lg:h-[158px]"
+            width={414}
+            height={50}
+            className="w-[414px] h-[50px]  md:w-[740px] md:h-[140px] lg:w-[1336px] lg:h-[160px]"
           />
-          <h2 className="text-[60px]  md:text-[120px] lg:text-[160px] text-white">
+          {/* <h2 className="text-[60px]  md:text-[120px] lg:text-[160px] text-white">
             GRAUBERG
-          </h2>
+          </h2> */}
         </div>
       </footer>
     </>
