@@ -13,20 +13,18 @@ function AboutSection() {
       className="my-10 p-3 items-center flex flex-col md:flex-row md:justify-evenly md:gap-0 gap-4"
       id="about"
     >
-      <div className="max-w-[500px] flex flex-col gap-5">
+      <div className="max-w-[500px] flex flex-col gap-4">
         <h1 className="text-[20px] md:text-2xl text-primary font-bold">
           {t("about")}
         </h1>
         <div className="w-fit">
-          <h2 className="text-2xl md:text-[32px] font-bold inline-block">
+          <h2 className="text-[32px] font-bold inline-block">
             {t("aboutSectionTitle")}
-          </h2>{" "}
-          <h2 className="text-[24px] font-bold text-primary inline-block">
-            {t("aboutSectionTitleHighQuality")}
-          </h2>{" "}
-          <h2 className="text-[24px] font-bold inline-block">
+            <span className="text-primary">
+              {t("aboutSectionTitleHighQuality")}
+            </span>
             {t("aboutSectionTitleBuildingMaterials")}
-          </h2>
+          </h2>{" "}
         </div>
         <AboutSectionDescriptions />
       </div>

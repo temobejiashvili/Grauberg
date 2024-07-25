@@ -42,7 +42,7 @@ export default function FooterComponent() {
           </div>
         </div>
       </div>
-      <footer className="bg-[black] pt-[10px] relative overflow-hidden">
+      <footer className="bg-[black] pt-14 md:pt-[120px] relative overflow-hidden">
         <ContainerDiv>
           <div className="bg-[black]">
             <div className="flex flex-col py-[19px]">
@@ -88,12 +88,12 @@ export default function FooterComponent() {
                   target="_blank"
                 >
                   <div className="w-[40px] h-[40px] rounded-[50%] bg-[#EE2E24] flex justify-center items-center">
-                    <FaInstagram className="text-[white] !w-[29px]" />
+                    <FaInstagram size={20} className="text-[white] !w-[29px]" />
                   </div>
                 </a>
                 <a href="https://wa.me/995595153333" target="blank">
                   <div className="w-[40px] h-[40px] rounded-[50%] bg-[#EE2E24] flex justify-center items-center">
-                    <FaWhatsapp className="text-[white] !w-[29px]" />
+                    <FaWhatsapp size={20} className="text-[white] !w-[29px]" />
                   </div>
                 </a>
                 <a
@@ -101,7 +101,7 @@ export default function FooterComponent() {
                   target="blank"
                 >
                   <div className="w-[40px] h-[40px] rounded-[50%] bg-[#EE2E24] flex justify-center items-center">
-                    <FaFacebook className="text-[white] !w-[29px]" />
+                    <FaFacebook size={20} className="text-[white] !w-[29px]" />
                   </div>
                 </a>
               </div>
@@ -143,9 +143,9 @@ export default function FooterComponent() {
             alt="Logo"
             width={179}
             height={158}
-            className="opacity-60 w-[70px] h-[70px]  md:w-[140px] md:h-[140px] lg:w-[179px] lg:h-[158px]"
+            className="w-[70px] h-[70px]  md:w-[140px] md:h-[140px] lg:w-[179px] lg:h-[158px]"
           />
-          <h2 className="text-[60px]  md:text-[120px] lg:text-[160px] text-white opacity-60">
+          <h2 className="text-[60px]  md:text-[120px] lg:text-[160px] text-white">
             GRAUBERG
           </h2>
         </div>

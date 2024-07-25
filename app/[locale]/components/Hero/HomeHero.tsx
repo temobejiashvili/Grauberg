@@ -11,19 +11,19 @@ export function HomeHero() {
       className="flex items-end h-[100vh] pb-[108px] md:pb-24 rounded-b-[24px] md:rounded-b-[40px]"
       id="home"
     >
-      <div className="absolute top-0 left-0 w-full h-[100vh] z-0 border-2">
-        <div className="relative md:hidden w-full h-full">
+      <div className="absolute top-0 left-0 w-full h-[100vh] z-0 rounded-b-[24px] md:rounded-b-[40px]">
+        <div className="relative md:hidden w-full h-full rounded-b-[24px] ">
           <Image
             src="/images/home-b-mobile-1.png"
             alt="background-image"
             fill={true}
             quality={60}
-            className="object-cover"
+            className="object-cover rounded-b-[24px]"
           />
-          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <div className="absolute inset-0 bg-black opacity-50 rounded-b-[24px]"></div>
         </div>
         <Image
-          className="hidden md:block object-cover"
+          className="hidden md:block object-cover rounded-b-[40px]"
           src="/images/home-bg.png"
           alt="background-image"
           fill={true}
