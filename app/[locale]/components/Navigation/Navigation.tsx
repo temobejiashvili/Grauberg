@@ -67,7 +67,7 @@ export function Navigation() {
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <LocaleSwitcher isHovered={isHovered} />
-          <button className="bg-red-600 text-white px-6 py-2  rounded-lg w-[148px] h-14">
+          <button className="bg-red-600 hover:bg-[#A9211A] text-white px-6 py-2  rounded-lg w-[148px] h-14">
             <a href="#contact" className="block ">
               {t("contact")}
             </a>
@@ -102,7 +102,7 @@ export function Navigation() {
           </a>
           <LocaleSwitcher isHovered={isHovered} />
 
-          <button className="bg-red-600 rounded-lg w-full h-14">
+          <button className="bg-red-600 rounded-lg hover:bg-[#A9211A] w-full h-14">
             <a href="#contact" className="block ">
               {t("contact")}
             </a>

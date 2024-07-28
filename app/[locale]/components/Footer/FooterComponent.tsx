@@ -34,7 +34,7 @@ export default function FooterComponent() {
           </p>
           <div>
             <button
-              className="bg-red-600 text-white text-[14px] px-[67px] py-[22px] rounded-lg"
+              className="bg-red-600 hover:bg-[#A9211A] text-white text-[14px] px-[67px] py-[22px] rounded-lg"
               onClick={() => setIsContactModalOpen(true)}
             >
               {t("sendEmail")}
@@ -52,7 +52,7 @@ export default function FooterComponent() {
                 </h2>
                 <div>
                   <button
-                    className="bg-red-600 text-white text-[14px] px-[67px] py-[22px] rounded-md"
+                    className="bg-red-600 hover:bg-[#A9211A] text-white text-[14px] px-[67px] py-[22px] rounded-md"
                     onClick={() => setIsCallModalOpen(true)}
                   >
                     {t("requestACall")}

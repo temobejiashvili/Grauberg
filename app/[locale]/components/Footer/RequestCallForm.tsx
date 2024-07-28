@@ -104,7 +104,7 @@ const RequestCallForm = ({ onClose }: TArgs) => {
       <div className="flex justify-end">
         <button
           type="submit"
-          className="px-4 py-2 bg-primary text-white rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2"
+          className="px-4 py-2 bg-primary hover:bg-[#A9211A] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2"
         >
           {t("submitRequest")}
         </button>
