@@ -10,6 +10,7 @@
   font-weight: 600;
   line-height: 68px;
   font-family: "Noto Sans Georgian", sans-serif; /* Fallback font added */
+  margin: 0;
 }
 
 @media (max-width: 768px) {
