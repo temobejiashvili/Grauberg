@@ -6,6 +6,7 @@ import { dir } from "i18next";
 import initializeTranslations from "../i18n";
 import { TranslationsProvider } from "@/components";
 import { Navigation } from "./components/Navigation";
+import styles from "./body.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 const sans = Noto_Sans_Georgian({ subsets: ["georgian"] });
@@ -31,15 +32,17 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={dir(locale)}>
-      <body className={inter.className}>
-        <TranslationsProvider
+      <body className={styles.body}>
+        {/* <TranslationsProvider
           namespaces={i18nNamespaces}
           locale={locale}
           resources={resources}
-        >
+          >
           <Navigation />
           {children}
-        </TranslationsProvider>
+          </TranslationsProvider> */}
+        <img src={"/images/logo.png"} style={{ maxWidth: "70%" }} />
+        <span>Coming Soon</span>
       </body>
     </html>
   );

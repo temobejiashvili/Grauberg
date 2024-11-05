@@ -1,0 +1,26 @@
+.body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  background-color: red;
+  font-weight: 600;
+  line-height: 68px;
+  font-family: "Noto Sans Georgian", sans-serif; /* Fallback font added */
+}
+
+@media (max-width: 768px) {
+  .body {
+    font-size: 30px; /* Smaller font size for mobile */
+    line-height: 40px; /* Adjust line height for mobile */
+  }
+}
+
+@media (min-width: 769px) {
+  .body {
+    font-size: 50px;
+  }
+}
