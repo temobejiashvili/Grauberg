@@ -41,8 +41,12 @@ export default async function RootLayout({
           <Navigation />
           {children}
           </TranslationsProvider> */}
-        <img src={"/images/logo.png"} style={{ maxWidth: "70%" }} />
-        <span>Coming Soon</span>
+        <img
+          alt="logo image"
+          src={"/images/logo.png"}
+          style={{ maxWidth: "70%" }}
+        />
+        <span style={{ textTransform: "uppercase" }}>Coming Soon</span>
       </body>
     </html>
   );
