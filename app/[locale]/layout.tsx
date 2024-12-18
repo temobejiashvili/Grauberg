@@ -33,20 +33,20 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={dir(locale)}>
       <body className={styles.body}>
-        {/* <TranslationsProvider
+        <TranslationsProvider
           namespaces={i18nNamespaces}
           locale={locale}
           resources={resources}
-          >
+        >
           <Navigation />
           {children}
-          </TranslationsProvider> */}
-        <img
+        </TranslationsProvider>
+        {/* <img
           alt="logo image"
           src={"/images/logo.png"}
           style={{ maxWidth: "70%" }}
         />
-        <span style={{ textTransform: "uppercase" }}>Coming Soon</span>
+        <span style={{ textTransform: "uppercase" }}>Coming Soon</span> */}
       </body>
     </html>
   );
