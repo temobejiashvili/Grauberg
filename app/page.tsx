@@ -2,10 +2,14 @@ import React from "react";
 import BlogSection from "@/components/blogSection/BlogComponent";
 import ProductCardComponent from "@/components/productCard/ProductCardComponent";
 import "./globals.css";
+import AboutCard from "@/components/aboutCard/AboutCard";
 
 const AxaliPage = () => {
   return (
     <>
+      <div className="relative">
+        <AboutCard />
+      </div>
       <h2 className="w-full uppercase flex font-bold  justify-center text-44">
         ჩვენი პროდუქტი
       </h2>

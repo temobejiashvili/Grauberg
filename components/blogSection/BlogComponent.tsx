@@ -64,16 +64,10 @@ const BlogSection = () => {
         <div className="text-center flex justify-center w-full bg-backgroundGrey absolute left-0 -bottom-159 rounded-b-60 pt-18 pb-87">
           <a
             href="/blog"
-            className="group px-52 py-4 flex items-center h-54 text-sm bg-white border border-stroke text-darkPrimary rounded-10 hover:bg-darkPrimary hover:text-white transition-colors"
+            className="group px-52 py-4 flex items-center h-54 text-sm bg-white border border-stroke transition-colors text-darkPrimary hover:text-white  rounded-10 hover:bg-darkPrimary"
           >
             {t("ყველა სიახლე")}
-            <Image
-              src={Arrow}
-              alt={">"}
-              width={22}
-              height={22}
-              className="w-2 object-cover ml-3 group-hover:filter group-hover:brightness-0 group-hover:invert"
-            />
+            <Arrow className="w-2 object-cover ml-3 group-hover:filter group-hover:brightness-0 group-hover:invert" />
           </a>
         </div>
       </div>

@@ -59,6 +59,15 @@ const config: Config = {
         "gradient-border":
           "linear-gradient(120.6deg, #F5F5F5 45.99%, #EE2E24 151.58%)",
       },
+      boxShadow: {
+        custom: "0px 14px 84px 0px rgba(0, 0, 0, 0.2)",
+      },
+      backdropBlur: {
+        custom: "12px",
+      },
+      borderRadius: {
+        "custom-top": "30px 30px 0 0",
+      },
       colors: {
         primary: "#EE2E24",
         darkPrimary: "#100F0F",
@@ -75,6 +84,11 @@ const config: Config = {
           0px 190px 76px 0px #00000003,
           0px 297px 83px 0px #00000000
         `,
+      },
+      screens: {
+        "max-1250": { max: "1250px" },
+        "max-1100": { max: "1100px" },
+        "max-900": { max: "900px" },
       },
     },
   },
