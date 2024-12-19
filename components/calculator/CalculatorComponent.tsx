@@ -2,7 +2,6 @@
 import Image from "next/image";
 import parallelepiped from "../../public/images/parallelepiped.png";
 import ValueInput from "./ValueInput";
-import { Button, Divider } from "@mui/material";
 import { useState } from "react";
 
 const CalculatorComponent = () => {
@@ -34,10 +33,6 @@ const CalculatorComponent = () => {
     // Calculate number of 40 kg pockets
     const pockets = Math.ceil(weight / 40); // Use Math.ceil to round up to the next whole pocket
     setPocket(pockets);
-
-    console.log(`Calculated volume: ${volume.toFixed(2)} cubic meters`);
-    console.log(`Calculated weight: ${weight.toFixed(2)} kg`);
-    console.log(`Required pockets: ${pockets}`);
   };
 
   return (
@@ -73,21 +68,12 @@ const CalculatorComponent = () => {
           value={height}
           onChange={setHeight}
         />
-        <Button
-          style={{
-            width: "241px",
-            height: "64px",
-            backgroundColor: "#100F0F",
-            borderRadius: "10px",
-            color: "white",
-            fontWeight: 400,
-            fontSize: "14px",
-            lineHeight: "20px",
-          }}
+        <button
+          className="w-[241px] h-[64px] bg-black text-white rounded-[10px] font-normal text-sm"
           onClick={handleCalculate}
         >
           გამოთვლა
-        </Button>
+        </button>
       </section>
       <div
         style={{
@@ -107,7 +93,7 @@ const CalculatorComponent = () => {
             {cubicMeters.toFixed(4)} კუბური მეტრი
           </h4>
         </div>
-        <Divider orientation="vertical" variant="middle" flexItem />
+        <div className="w-[1px] h-full bg-gray-300" />
         <div className="flex flex-col items-center justify-center gap-3 w-[406px]">
           <span className="text-darkSecondary font-normal text-sm">
             რამდენი ცალი Grauberg-ის ცემენტი დამჭირდება{" "}
