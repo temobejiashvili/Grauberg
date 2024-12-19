@@ -6,6 +6,38 @@ import CarouselComponent from "@/components/carousel/CarouselComponent";
 const Product = () => {
   return (
     <div>
+      <section className="flex gap-[56px]">
+        <div className="h-[724px] flex items-start">
+          <div className="h-[75%] w-[537px] bg-primary rounded-r-[40px]"></div>
+        </div>
+        <div>
+          <div>
+            <h3 className="font-bold text-44 text-darkPrimary">
+              პორტლანდცემენტი
+            </h3>
+            <p className="font-normal text-[16px] leading-[26px] text-darkPrimary">
+              სამშენებლო მასალების ქართულ ბაზარზე გრაუბერგს მრავალი წელია,
+              მნიშვნელოვანი მოთამაშის როლი აქვს. ცემენტის ქარხანა, რომელიც ქალაქ
+              ზუგდიდში მდებარეობს, უკვე დიდი ხანია, მომხმარებელს უახლესი
+              ტექნოლოგიით დამზადებულ უმაღლესი ხარისხის ცემენტსა და ბეტონს
+              სთავაზობს, ბოლო პერიოდში განხორციელებუული რებრენდინგის შემდგომ კი
+              ის გრაუბერგის სახელით პოზიციონირებს. კონკურენტულ გარემოში თავის
+              დამკვიდრების მიზნით, გრაუბერგის პროდუქციას ობიექტურად საუკეთესო
+              ფასი აქვს.
+            </p>
+          </div>
+          <div>
+            <span></span>
+            <div>
+              <h4>80-94% კლინკერი</h4>
+              <p>
+                შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპო
+                გრაფ იული ნაწარმის შემქმნელებს, რეალურთან მაქს
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
       <div
         style={{
           background: "linear-gradient(0deg, #FFFFFF 10%, #F5F5F5 100%)",
