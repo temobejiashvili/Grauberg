@@ -1,3 +1,7 @@
 .slick-list {
-  padding-bottom: 88px;
+  padding-bottom: 88px !important;
+}
+
+.slick-arrow {
+  display: none !important;
 }

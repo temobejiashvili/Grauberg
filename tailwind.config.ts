@@ -38,6 +38,7 @@ const config: Config = {
         "60": "60px",
         "10": "10px",
         "30": "30px",
+        "custom-top": "30px 30px 0 0",
       },
       fontSize: {
         "44": ["44px", "56px"],
@@ -61,12 +62,16 @@ const config: Config = {
       },
       boxShadow: {
         custom: "0px 14px 84px 0px rgba(0, 0, 0, 0.2)",
+        multi: `
+          0px 12px 26px 0px #0000001A,
+          0px 48px 48px 0px #00000017,
+          0px 107px 64px 0px #0000000D,
+          0px 190px 76px 0px #00000003,
+          0px 297px 83px 0px #00000000
+        `,
       },
       backdropBlur: {
         custom: "12px",
-      },
-      borderRadius: {
-        "custom-top": "30px 30px 0 0",
       },
       colors: {
         primary: "#EE2E24",
@@ -75,15 +80,6 @@ const config: Config = {
         backgroundGrey: "#F5F5F5",
         white: "#FFFFFF",
         stroke: "#D6D6D6",
-      },
-      boxShadow: {
-        multi: `
-          0px 12px 26px 0px #0000001A,
-          0px 48px 48px 0px #00000017,
-          0px 107px 64px 0px #0000000D,
-          0px 190px 76px 0px #00000003,
-          0px 297px 83px 0px #00000000
-        `,
       },
       screens: {
         "max-1250": { max: "1250px" },

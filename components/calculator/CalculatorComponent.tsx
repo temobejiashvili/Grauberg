@@ -36,7 +36,10 @@ const CalculatorComponent = () => {
   };
 
   return (
-    <section className="max-w-[1194px] relative h-513 pt-[54px] pl-[56px] pr-[55px] bg-backgroundGrey rounded-30 border border-stroke">
+    <section
+      style={{ border: "1px solid #D6D6D6" }}
+      className="max-w-[1194px] relative h-513 pt-[54px] pl-[56px] pr-[55px] bg-backgroundGrey rounded-30"
+    >
       <div className="flex pl-[9px]">
         <Image width={359} height={223} src={parallelepiped} alt="[]" />
         <div className="max-w-[516px] ml-[104px] mt-[43px]">
