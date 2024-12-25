@@ -20,7 +20,7 @@ interface FaqHeaderProps {
   factoryBackground?: boolean;
 }
 
-const FaqHeader: React.FC<FaqHeaderProps> = ({
+const Header: React.FC<FaqHeaderProps> = ({
   cover,
   isWhite,
   factoryBackground,
@@ -193,4 +193,4 @@ const FaqHeader: React.FC<FaqHeaderProps> = ({
   );
 };
 
-export default FaqHeader;
+export default Header;
