@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundColor: {
+        "black-opacity-60": "rgba(0, 0, 0, 0.6)",
+      },
       height: {
         "513": "513px",
         "300": "300px",
