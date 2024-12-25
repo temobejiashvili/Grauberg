@@ -2,9 +2,9 @@ import React from "react";
 import BlogSection from "@/components/blogSection/BlogComponent";
 import ProductCardComponent from "@/components/productCard/ProductCardComponent";
 import "./globals.css";
-import AboutCard from "@/components/aboutCard/AboutCard";
+import AboutCard from "@/components/AboutCard/AboutCard";
 
-const AxaliPage = () => {
+const MainPage = () => {
   return (
     <>
       <div className="relative">
@@ -21,4 +21,4 @@ const AxaliPage = () => {
   );
 };
 
-export default AxaliPage;
+export default MainPage;

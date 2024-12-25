@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import Header from "@/components/Header/Header";
 import FaqHeader from "@/components/FaqHeader/FaqHeader";
 
+import { ScrollProvider } from "./context/ScrollContext";
+
 const notoGeorgian = Noto_Sans_Georgian({
   subsets: ["latin"],
   weight: ["400", "700", "900"], // Specify weights you need
@@ -29,9 +31,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={notoGeorgian.className}>
       <body>
-        {isFaq ? <FaqHeader isWhite /> : <Header />}
-        <>{children}</>
-        <FooterComponent hasNotPadding={hasNotPadding} />
+        <ScrollProvider>
+          {isFaq ? <FaqHeader isWhite /> : <Header />}
+          <>{children}</>
+          <FooterComponent hasNotPadding={hasNotPadding} />
+        </ScrollProvider>
       </body>
     </html>
   );

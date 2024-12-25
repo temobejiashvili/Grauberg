@@ -4,6 +4,8 @@ import Link from "next/link";
 import styles from "./Header.module.css";
 import Image from "next/image";
 import { LangSwitcher } from "./LangSwitcher";
+import { useScrollContext } from "@/app/context/ScrollContext";
+import { useInView } from "react-intersection-observer";
 
 const NAV_LINKS = [
   { href: "/#", label: "მთავარი" },
@@ -31,6 +33,15 @@ const LANG_OPTIONS = [
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const { setActiveSection } = useScrollContext();
+  const { ref: headerRef, inView: isHeaderInView } = useInView({
+    threshold: 0.2,
+  });
+
+  if (isHeaderInView) {
+    setActiveSection("header");
+  }
+
   const openMenu = () => {
     setIsOpen(true);
   };
@@ -38,9 +49,11 @@ const Header: React.FC = () => {
   const closeMenu = () => {
     setIsOpen(false);
   };
+
   return (
     <div className={styles.mainWrapper}>
       <header
+        ref={headerRef}
         className={`${styles.headerWrapper} ${isOpen ? styles.headerOpen : ""}`}
       >
         <div className={styles.logoWrapper}>
