@@ -10,3 +10,13 @@
     rgba(48, 47, 47, 0) 100%
   );
 }
+
+@media only screen and (max-width: 1100px) {
+  .footer {
+    background: black;
+    background-image: url("../../public/images/shadowMobile.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+  }
+}

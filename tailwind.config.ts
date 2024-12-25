@@ -8,12 +8,34 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundColor: {
+        "black-opacity-60": "rgba(0, 0, 0, 0.6)",
+      },
       height: {
         "513": "513px",
         "300": "300px",
         "60": "60px",
         "58": "58px",
         "54": "54px",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        slideUp: {
+          "0%": { transform: "translateY(100%)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        floating: {
+          "0%, 100%": { transform: "translateY(-5px) translateX(-52%)" },
+          "50%": { transform: "translateY(5px) translateX(-48%)" },
+        },
+      },
+      animation: {
+        fadeIn: "fadeIn 1s ease-in-out forwards",
+        slideUp: "slideUp 0.8s ease-in-out forwards",
+        floating: "floating 3s ease-in-out infinite",
       },
       width: {
         "58": "58px",
@@ -85,6 +107,10 @@ const config: Config = {
         "max-1250": { max: "1250px" },
         "max-1100": { max: "1100px" },
         "max-900": { max: "900px" },
+        "max-600": { max: "600px" },
+      },
+      transitionTimingFunction: {
+        smooth: "cubic-bezier(0.4, 0.0, 0.2, 1)",
       },
     },
   },

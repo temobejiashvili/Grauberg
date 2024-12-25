@@ -7,9 +7,13 @@ type valueType = {
 
 const ValueInput = ({ title, unit, value, onChange }: valueType) => {
   return (
-    <div className="flex items-center border border-gray-300 rounded-[10px] w-[264px] h-[64px] bg-white">
+    <div
+      className="flex items-center border border-gray-300
+     rounded-[10px] w-[264px] h-[64px] bg-white
+     max-1100:w-full"
+    >
       {/* Left Side */}
-      <div className="flex flex-col justify-center px-4 py-[7px] w-[205px]">
+      <div className="flex flex-col justify-center px-4 py-[7px] w-[205px] max-1100:w-full">
         <label className="text-darkSecondary font-normal text-[12px] leading-[20px] text-xs">
           {title}
         </label>
@@ -24,7 +28,10 @@ const ValueInput = ({ title, unit, value, onChange }: valueType) => {
       {/* Divider */}
       <div className="h-[100%] w-[1px] bg-gray-300"></div>
       {/* Right Side */}
-      <div className="flex justify-center items-center w-[59px] font-normal text-darkPrimary text-[14px] leading-[20px]">
+      <div
+        className="flex justify-center items-center w-[59px] font-normal
+       text-darkPrimary text-[14px] leading-[20px]"
+      >
         {unit}.
       </div>
     </div>

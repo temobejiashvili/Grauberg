@@ -4,7 +4,8 @@ import "./globals.css"; // Global CSS file (if applicable)
 import { Noto_Sans_Georgian } from "@next/font/google";
 import { usePathname } from "next/navigation";
 import Header from "@/components/Header/Header";
-import FaqHeader from "@/components/FaqHeader/FaqHeader";
+
+import { ScrollProvider } from "./context/ScrollContext";
 
 const notoGeorgian = Noto_Sans_Georgian({
   subsets: ["latin"],
@@ -24,12 +25,22 @@ export default function RootLayout({
   const pathname = usePathname();
 
   const hasNotPadding = ["/product"].includes(pathname);
-  const isFaq = ["/contact"].includes(pathname);
+  const contact = ["/contact"].includes(pathname);
+  const blog = ["/blog"].includes(pathname);
+  const faq = ["/faq"].includes(pathname);
 
   return (
     <html lang="en" className={notoGeorgian.className}>
       <body>
-        {isFaq ? <FaqHeader isWhite /> : <Header />}
+        {contact ? (
+          <Header isWhite />
+        ) : blog ? (
+          <Header isWhite />
+        ) : faq ? (
+          <Header cover />
+        ) : (
+          <Header factoryBackground />
+        )}
         <>{children}</>
         <FooterComponent hasNotPadding={hasNotPadding} />
       </body>

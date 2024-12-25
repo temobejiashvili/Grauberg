@@ -36,9 +36,16 @@ export default function FooterComponent({ hasNotPadding }: FooterProps) {
       id="footer"
     >
       <div className="flex">
-        <div className="container ml-auto pl-4 pb-[62px] pt-[170px] flex flex-col md:flex-row justify-around items-start">
+        <div
+          className="w-full ml-auto pl-4 pb-[62px] pt-[170px] flex flex-row justify-around items-start
+        max-1100:flex-col max-1100:items-center
+        max-1100:pt-[139px] max-1100:pl-0"
+        >
           {/* Logo and Social Media */}
-          <div className="flex flex-col items-center md:items-start mb-8 md:mb-0">
+          <div
+            className="flex flex-col items-center md:items-start mb-8 md:mb-0
+          max-1100:mb-16"
+          >
             <Image
               src="/images/nav-logo.png"
               alt="Logo"
@@ -46,7 +53,7 @@ export default function FooterComponent({ hasNotPadding }: FooterProps) {
               height={34}
               className="w-[256px] h-[34px] mb-[34px]"
             />
-            <div className="flex space-x-[13px]">
+            <div className="flex space-x-[13px] max-1100:justify-center max-1100:w-full">
               <a
                 href="https://www.facebook.com/"
                 target="_blank"
@@ -130,7 +137,7 @@ export default function FooterComponent({ hasNotPadding }: FooterProps) {
           width={396}
           height={391}
           alt="shadow"
-          className="pb-[15px]"
+          className="pb-[15px] max-1100:hidden"
         />
       </div>
       <div className={` w-full h-[2px] ${styles.footerBottom}`}></div>
