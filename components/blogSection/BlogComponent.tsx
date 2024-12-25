@@ -1,11 +1,17 @@
 "use client";
-import React from "react";
+import React, { FC } from "react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
 import Arrow from "../../public/assets/arrow.svg";
 
-const BlogSection = () => {
+interface BlogProps {
+  style?: string;
+  needButton?: boolean;
+  headline?: string;
+}
+
+const BlogSection: React.FC<BlogProps> = ({ style, needButton, headline }) => {
   const { t } = useTranslation("common");
 
   const blogItems = [
@@ -34,10 +40,10 @@ const BlogSection = () => {
   ];
 
   return (
-    <section className="bg-backgroundGrey relative py-[46px] ">
-      <div className="container mx-auto">
-        <h2 className="text-44 font-bold text-center mb-[66px] text-darkPrimary">
-          {t("ბოლო სიახლეები")}
+    <section className={`bg-backgroundGrey ${style} relative py-[46px]`}>
+      <div className="container mx-auto flex flex-col justify-center items-center">
+        <h2 className="text-44 font-bold text-center mb-[66px] text-darkPrimary max-600:text-[28px] max-600:leading-[34px] max-600:max-w-[270px] ">
+          {headline ? headline : t("ბოლო სიახლეები")}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-11">
           {blogItems.map((item) => (
@@ -61,15 +67,17 @@ const BlogSection = () => {
             </div>
           ))}
         </div>
-        <div className="text-center flex justify-center w-full bg-backgroundGrey absolute left-0 -bottom-159 rounded-b-60 pt-18 pb-87">
-          <a
-            href="/blog"
-            className="group px-52 py-4 flex items-center h-54 text-sm bg-white border border-stroke transition-colors text-darkPrimary hover:text-white  rounded-10 hover:bg-darkPrimary"
-          >
-            {t("ყველა სიახლე")}
-            <Arrow className="w-2 object-cover ml-3 group-hover:filter group-hover:brightness-0 group-hover:invert" />
-          </a>
-        </div>
+        {!needButton && (
+          <div className="text-center flex justify-center w-full bg-backgroundGrey absolute left-0 -bottom-159 rounded-b-60 pt-18 pb-87">
+            <a
+              href="/blog"
+              className="group px-52 py-4 flex items-center h-54 text-sm bg-white border border-stroke transition-colors text-darkPrimary hover:text-white  rounded-10 hover:bg-darkPrimary"
+            >
+              {t("ყველა სიახლე")}
+              <Arrow className="w-2 object-cover ml-3 group-hover:filter group-hover:brightness-0 group-hover:invert" />
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );
