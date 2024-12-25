@@ -32,17 +32,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={notoGeorgian.className}>
       <body>
-        {contact ? (
-          <Header isWhite />
-        ) : blog ? (
-          <Header isWhite />
-        ) : faq ? (
-          <Header cover />
-        ) : (
-          <Header factoryBackground />
-        )}
-        <>{children}</>
-        <FooterComponent hasNotPadding={hasNotPadding} />
+        <ScrollProvider>
+          {contact ? (
+            <Header isWhite />
+          ) : blog ? (
+            <Header isWhite />
+          ) : faq ? (
+            <Header cover />
+          ) : (
+            <Header factoryBackground />
+          )}
+          <>{children}</>
+          <FooterComponent hasNotPadding={hasNotPadding} />
+        </ScrollProvider>
       </body>
     </html>
   );
