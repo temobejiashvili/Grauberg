@@ -1,9 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./Header.module.css";
 import Image from "next/image";
 import { LangSwitcher } from "./LangSwitcher";
+import AnimatedText from "./AnimatedText";
 
 const NAV_LINKS = [
   { href: "/#", label: "მთავარი" },
@@ -29,8 +30,19 @@ const LANG_OPTIONS = [
 ];
 
 const Header: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isTextVisible, setIsTextVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // For the menu
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+      setIsTextVisible(true); // Trigger fade-in after loading
+    }, 800); // Matches the faster animation time for loading
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Menu toggle functions
   const openMenu = () => {
     setIsOpen(true);
   };
@@ -38,6 +50,7 @@ const Header: React.FC = () => {
   const closeMenu = () => {
     setIsOpen(false);
   };
+
   return (
     <div className={styles.mainWrapper}>
       <header
@@ -131,9 +144,12 @@ const Header: React.FC = () => {
           objectFit="cover"
           style={{ zIndex: "0" }}
         />
-        <h2 className="relative w-[804px] text-center text-[56px] font-bold leading-[66px] text-[#f5f5f5] z-[2] -translate-y-[31px] max-900:w-[322px] max-900:text-[36px] max-900:leading-[44px] max-900:-translate-y-[44px]">
-          სიმტკიცე რომელზეც შეგიძლია დააშენო
-        </h2>
+
+        {/* Wrap the texts in a parent container */}
+        <div className="text-center space-y-4">
+          <AnimatedText time={700} data="სიმტკიცე რომელზეც" />
+          <AnimatedText time={950} data="შეგიძლია დააშენო" />
+        </div>
       </section>
     </div>
   );
