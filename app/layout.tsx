@@ -1,15 +1,15 @@
 "use client";
 import FooterComponent from "@/components/Footer/FooterComponent";
-import "./globals.css"; // Global CSS file (if applicable)
 import { Noto_Sans_Georgian } from "@next/font/google";
 import { usePathname } from "next/navigation";
 import Header from "@/components/Header/Header";
+import "./globals.css";
 
 import { ScrollProvider } from "./context/ScrollContext";
 
 const notoGeorgian = Noto_Sans_Georgian({
   subsets: ["latin"],
-  weight: ["400", "700", "900"], // Specify weights you need
+  weight: ["400", "700", "900"],
 });
 
 // export const metadata = {
@@ -26,6 +26,7 @@ export default function RootLayout({
 
   const hasNotPadding = ["/product"].includes(pathname);
   const contact = ["/contact"].includes(pathname);
+  const product = ["/product"].includes(pathname);
   const blog = ["/blog"].includes(pathname);
   const faq = ["/faq"].includes(pathname);
 
@@ -40,7 +41,7 @@ export default function RootLayout({
           ) : faq ? (
             <Header cover />
           ) : (
-            <Header factoryBackground />
+            <Header factoryBackground isProduct={product} />
           )}
           <>{children}</>
           <FooterComponent hasNotPadding={hasNotPadding} />

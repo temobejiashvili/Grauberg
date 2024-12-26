@@ -1,7 +1,15 @@
 import React from "react";
 import LogoMini from "../../public/assets/logoMini.svg";
 
-const AboutCardComponent: React.FC = () => {
+interface AboutCardComponentType {
+  title: string;
+  details: string;
+}
+
+const AboutCardComponent: React.FC<AboutCardComponentType> = ({
+  title,
+  details,
+}) => {
   return (
     <div className="max-w-3xl mx-auto rounded-lg shadow-md border border-gray-200 overflow-hidden bg-backgroundGrey">
       {/* Header Section */}
@@ -45,37 +53,17 @@ const AboutCardComponent: React.FC = () => {
           "
           >
             <h2 className="ml-3 w-full text-28 font-bold text-darkPrimary">
-              გრაუბერგის ხედვაა
+              {title}
             </h2>
           </div>
         </div>
       </div>
 
       {/* Content Section */}
-      <div className="px-6 py-4 text-darkPrimary text-16 leading-relaxed">
-        <p>
-          იყოს პროგრესის მაგალითი სამშენებლო ინდუსტრიაში და ჩამოყალიბდეს ბაზრის
-          ლიდერად, ჩვენმა პროდუქტებმა და სერვისებმა კი ხარისხისა და ინოვაციების
-          უმაღლესი სტანდარტი ასახოს. გრაუბერგი უარს ამბობს ნებისმიერ
-          კომპრომისზე, რომელიც, შესაძლოა, პროდუქციის ხარისხზე აისახოს. ჩვენი
-          მიზანია, რომ მნიშვნელოვანი წვლილი შევიტანოთ თქვენს მიერ შესრულებული
-          სამუშაოს ხარისხში და დავიცვათ ჩვენი ვალდებულება სამართლიანი ფასების,
-          დროული მიწოდებისა და უმაღლესი ხარისხის ყველა სტანდარტში.
-          <br />
-          <br />
-          გრაუბერგი ხელმძღვანელობს ხარისხის უზრუნველყოფისა და სოციალური
-          პასუხისმგებლობის ვალდებულებით. ჩვენ პრიორიტეტს ვანიჭებთ მომხმარებელთა
-          კმაყოფილებას, ეთიკურ ბიზნეს პრაქტიკას და აქტიურ მონაწილეობას CSR
-          ინიციატივებსა და მდგრადობის პოლიტიკაში, რაც ჩვენს საზოგადოებასა და
-          გარემოს სარგებელს მოუტანს.ჩვენ მზად ვართ ვაწარმოოთ ნამდვილი ქართული
-          პროდუქცია, მხარი დავუჭიროთ ადგილობრივ ინდუსტრიებს და აქტიური წვლილი
-          შევიტანოთ ჩვენი ქვეყნის ზრდასა და განვითარებაში. გრაუბერგი
-          მომხმარებელს საუკეთესო ფასად სთავაზობს გარანტირებულად ხარისხიან
-          პროდუქციას და უწევს საიმედო მომსახურებას.Ჩვენ მუდმივი გაუმჯობესების
-          ერთგულები ვართ, რათა ვიყოთ ყველაზე სასურველი არჩევანი საქართველოში
-          მიმდინარე ყველა სამშენებლო პროექტისთვის.
-        </p>
-      </div>
+      <div
+        className="px-6 py-4 text-darkPrimary text-16 leading-relaxed"
+        dangerouslySetInnerHTML={{ __html: details }}
+      />
     </div>
   );
 };

@@ -27,6 +27,10 @@ const config: Config = {
           "0%": { transform: "translateY(100%)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" },
         },
+        slideUpHalf: {
+          "0%": { transform: "translateY(50%)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
         floating: {
           "0%, 100%": { transform: "translateY(-5px) translateX(-52%)" },
           "50%": { transform: "translateY(5px) translateX(-48%)" },
@@ -35,6 +39,7 @@ const config: Config = {
       animation: {
         fadeIn: "fadeIn 1s ease-in-out forwards",
         slideUp: "slideUp 0.8s ease-in-out forwards",
+        slideUpHalf: "slideUpHalf 0.8s ease-in-out forwards",
         floating: "floating 3s ease-in-out infinite",
       },
       width: {
@@ -91,6 +96,7 @@ const config: Config = {
           0px 190px 76px 0px #00000003,
           0px 297px 83px 0px #00000000
         `,
+        little: "0px 5px 50px 0px rgba(0, 0, 0, 0.2)",
       },
       backdropBlur: {
         custom: "12px",
@@ -102,6 +108,8 @@ const config: Config = {
         backgroundGrey: "#F5F5F5",
         white: "#FFFFFF",
         stroke: "#D6D6D6",
+        gradientStart: "#F5F5F5",
+        gradientEnd: "#FFF4F3",
       },
       screens: {
         "max-1250": { max: "1250px" },
@@ -114,6 +122,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("@tailwindcss/line-clamp")],
+  plugins: [],
 };
 export default config;

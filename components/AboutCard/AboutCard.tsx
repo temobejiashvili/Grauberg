@@ -13,7 +13,6 @@ const AboutCard: React.FC = () => {
             alt="factoryImage"
             width={506}
             height={580}
-            layout="responsive"
           />
         </section>
         <section className="flex flex-col gap-[32px] pt-[62px] pb-[84px] pr-[56px] pl-[61px] max-1250:px-[30px] max-1250:pb-[60px] max-1100:gap-[25px] max-1100:pb-[30px] max-1100:px-[35px] max-900:px-[19px] max-900:py-[27px] max-900:gap-[30px]">
@@ -50,7 +49,6 @@ const AboutCard: React.FC = () => {
             alt="factoryImage"
             width={370}
             height={261}
-            layout="responsive"
             style={{ borderRadius: "30px" }}
           />
         </section>

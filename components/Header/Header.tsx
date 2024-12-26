@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { useScrollContext } from "@/app/context/ScrollContext";
 import { LangSwitcher } from "../LangSwitcher/LangSwitcher";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver/useIntersectionObserver";
 
 const NAV_LINKS = [
   { href: "/", label: "მთავარი" },
@@ -16,6 +17,7 @@ const NAV_LINKS = [
 
 interface FaqHeaderProps {
   cover?: boolean;
+  isProduct?: boolean;
   isWhite?: boolean;
   factoryBackground?: boolean;
 }
@@ -23,6 +25,7 @@ interface FaqHeaderProps {
 const Header: React.FC<FaqHeaderProps> = ({
   cover,
   isWhite,
+  isProduct,
   factoryBackground,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +35,13 @@ const Header: React.FC<FaqHeaderProps> = ({
     threshold: 0.2,
   });
 
-  if (isHeaderInView) {
+  const { ref, isVisible } = useIntersectionObserver({
+    threshold: 0.1,
+
+    rootMargin: "300px 0px",
+  });
+
+  if (isHeaderInView && isProduct) {
     setActiveSection("header");
   }
 
@@ -157,14 +166,14 @@ const Header: React.FC<FaqHeaderProps> = ({
             <Image
               src="/assets/images/faqBackground.png"
               alt="coverImage"
-              layout="fill"
+              fill
               style={{ zIndex: "0", objectFit: "fill" }}
               className="max-900:hidden"
             />
             <Image
               src="/assets/images/faqBackground2.png"
               alt="coverImage"
-              layout="fill"
+              fill
               style={{ zIndex: "0", objectFit: "fill" }}
               className="hidden max-900:block"
             />
@@ -176,15 +185,25 @@ const Header: React.FC<FaqHeaderProps> = ({
       )}
       {factoryBackground && (
         <section className="top-0 relative w-full h-[784px] overflow-hidden  flex justify-center items-center max-1250:h-[700px] max-900:h-[568px]  ">
-          <div className=" absolute top-0 left-0 w-full h-full bg-black-opacity-60 z-[1]"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-black-opacity-60 z-[1]"></div>
           <Image
             src="/assets/images/backgroundImage.png"
             alt="coverImage"
-            layout="fill"
+            fill
             objectFit="cover"
             style={{ zIndex: "0" }}
           />
-          <h2 className="relative w-[804px] text-center text-[56px] font-bold leading-[66px] text-[#f5f5f5] z-[2] -translate-y-[31px] max-900:w-[382px] max-900:text-[36px] max-900:leading-[44px] max-900:-translate-y-[44px]">
+          <h2
+            ref={ref}
+            className={`relative w-[804px] text-center text-[56px] font-bold
+              leading-[66px] text-[#f5f5f5] z-[2] -translate-y-[31px]
+              max-900:w-[382px] max-900:text-[36px] max-900:leading-[44px] max-900:-translate-y-[44px]
+              transition-all duration-400 ease-in-out ${
+                isVisible
+                  ? "animate-slideUpHalf"
+                  : "opacity-0 translate-y-[100%]"
+              }`}
+          >
             სიმტკიცე რომელზეც შეგიძლია დააშენო
           </h2>
         </section>

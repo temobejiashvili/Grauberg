@@ -35,38 +35,25 @@ export default function ScrollBox() {
   const is360 = windowWidth <= 360;
   const is344 = windowWidth <= 344;
 
-  const topPosition =
-    activeSection === "header"
-      ? is1100
-        ? "200px"
-        : "100px"
-      : is344
-      ? "144%"
-      : is360
-      ? "170%"
-      : is375
-      ? "180%"
-      : is390
-      ? "140%"
-      : is412
-      ? "119%"
-      : is430
-      ? "115%"
-      : is444
-      ? "125%"
-      : is540
-      ? "135%"
-      : is768
-      ? "90%"
-      : is820
-      ? "75%"
-      : is853
-      ? "72%"
-      : is1024
-      ? "185%"
-      : is1280
-      ? "100%"
-      : "calc(100% + 99px)";
+  const topPosition = (() => {
+    if (activeSection === "header") {
+      return windowWidth <= 1100 ? "200px" : "100px";
+    }
+    if (windowWidth <= 344) return "144%";
+    if (windowWidth <= 360) return "170%";
+    if (windowWidth <= 375) return "180%";
+    if (windowWidth <= 390) return "140%";
+    if (windowWidth <= 412) return "119%";
+    if (windowWidth <= 430) return "115%";
+    if (windowWidth <= 444) return "125%";
+    if (windowWidth <= 540) return "135%";
+    if (windowWidth <= 768) return "90%";
+    if (windowWidth <= 820) return "75%";
+    if (windowWidth <= 853) return "72%";
+    if (windowWidth <= 1024) return "185%";
+    if (windowWidth <= 1280) return "100%";
+    return "calc(100% + 99px)";
+  })();
 
   const leftPosition =
     activeSection === "header" ? "50%" : is1100 ? "50%" : "115px";
