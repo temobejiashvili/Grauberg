@@ -6,6 +6,7 @@ import { useInView } from "react-intersection-observer";
 import { useScrollContext } from "@/app/context/ScrollContext";
 import { LangSwitcher } from "../LangSwitcher/LangSwitcher";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver/useIntersectionObserver";
+import AnimatedText from "./AnimatedText";
 
 const NAV_LINKS = [
   { href: "/", label: "მთავარი" },
@@ -20,6 +21,7 @@ interface FaqHeaderProps {
   isProduct?: boolean;
   isWhite?: boolean;
   factoryBackground?: boolean;
+  whiteOverlay?: boolean;
 }
 
 const Header: React.FC<FaqHeaderProps> = ({
@@ -27,6 +29,7 @@ const Header: React.FC<FaqHeaderProps> = ({
   isWhite,
   isProduct,
   factoryBackground,
+  whiteOverlay,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -41,6 +44,7 @@ const Header: React.FC<FaqHeaderProps> = ({
     rootMargin: "300px 0px",
   });
 
+  console.log(isProduct, "here 1");
   if (isHeaderInView && isProduct) {
     setActiveSection("header");
   }
@@ -49,8 +53,10 @@ const Header: React.FC<FaqHeaderProps> = ({
     setIsOpen(!isOpen);
   };
 
+  console.log(isHeaderInView, "isHeaderInView");
+
   return (
-    <>
+    <header>
       <div
         ref={headerRef}
         className={`w-full flex justify-between items-center px-[120px] py-[32.14px] z-[100] ${
@@ -183,6 +189,42 @@ const Header: React.FC<FaqHeaderProps> = ({
           </h2>
         </section>
       )}
+      {whiteOverlay && (
+        <section className="flex flex-col items-center">
+          <div className="w-[calc(100%-66px)] h-[752px] flex justify-center max-1250:h-[700px] max-900:w-full  max-900:h-[568px]">
+            <div className="top-0 relative w-[calc(100%-3px)] h-[751px] overflow-hidden flex justify-center  max-1250:h-[700px] max-900:h-[568px] ">
+              <Image
+                src="/assets/images/Subtract.png"
+                alt="coverImage"
+                layout="fill"
+                style={{ zIndex: "0", objectFit: "fill" }}
+                className="max-900:hidden"
+              />
+              <Image
+                src="/assets/images/Subtract2.png"
+                alt="coverImage"
+                layout="fill"
+                style={{ zIndex: "0", objectFit: "fill" }}
+                className="hidden max-900:block"
+              />
+              <h2 className="w-[804px] text-center text-[70.56px] font-bold leading-[88px]  text-[#100F0F] z-[2] pt-[166px] max-1100:text-[56px] max-900:w-[382px] max-900:text-[36px] max-900:leading-[44px]">
+                სიმტკიცე რომელზეც შეგიძლია დააშენო
+              </h2>
+            </div>
+          </div>
+          <div className="w-full relative">
+            <div className="flex items-center justify-center absolute tra top-[-20px] left-1/2 transform -translate-x-1/2 w-[54px] h-[54px] rounded-[50%] bg-[#EE2E24] max-900:top-[-10px]">
+              <Image
+                src="/assets/icons/Arrow1.svg"
+                alt="coverImage"
+                width={16}
+                height={16}
+                style={{ zIndex: "0" }}
+              />
+            </div>
+          </div>
+        </section>
+      )}
       {factoryBackground && (
         <section className="top-0 relative w-full h-[784px] overflow-hidden  flex justify-center items-center max-1250:h-[700px] max-900:h-[568px]  ">
           <div className="absolute top-0 left-0 w-full h-full bg-black-opacity-60 z-[1]"></div>
@@ -204,11 +246,12 @@ const Header: React.FC<FaqHeaderProps> = ({
                   : "opacity-0 translate-y-[100%]"
               }`}
           >
-            სიმტკიცე რომელზეც შეგიძლია დააშენო
+            <AnimatedText time={700} data="სიმტკიცე რომელზეც" />
+            <AnimatedText time={950} data="შეგიძლია დააშენო" />
           </h2>
         </section>
       )}
-    </>
+    </header>
   );
 };
 

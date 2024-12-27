@@ -23,13 +23,13 @@ const config: Config = {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
-        slideUp: {
+        slideUpFull: {
           "0%": { transform: "translateY(100%)", opacity: "0" },
-          "100%": { transform: "translateY(0)", opacity: "1" },
+          "100%": { transform: "translateY(0%)", opacity: "1" },
         },
         slideUpHalf: {
           "0%": { transform: "translateY(50%)", opacity: "0" },
-          "100%": { transform: "translateY(0)", opacity: "1" },
+          "100%": { transform: "translateY(0%)", opacity: "1" },
         },
         floating: {
           "0%, 100%": { transform: "translateY(-5px) translateX(-52%)" },
@@ -122,6 +122,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };
 export default config;

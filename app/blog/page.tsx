@@ -183,6 +183,7 @@ const Blog = () => {
           style="bg-white"
           headline="შეიძლება ასევე დაგაინტერესოთ"
         />
+        <div className="w-full bg-white h-[140px] rounded-b-60 absolute"></div>
       </div>
     </>
   );

@@ -23,7 +23,7 @@ const AnimatedBox: React.FC<AnimatedBoxProps> = ({ children, isFadeIn }) => {
         isVisible
           ? isFadeIn
             ? "animate-fadeIn"
-            : "animate-slideUp"
+            : "animate-slideUpFull"
           : "opacity-0 translate-y-[100%]"
       }`}
     >

@@ -126,7 +126,7 @@ const Product = () => {
         <CalculatorComponent />
       </div>
       <AdvantagesCardComponent />
-      <div className="w-full bg-backgroundGrey h-[86px] rounded-b-60 absolute"></div>
+      <div className="w-full bg-backgroundGrey h-[140px] rounded-b-60 absolute"></div>
     </div>
   );
 };

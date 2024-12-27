@@ -1,21 +1,15 @@
 "use client";
 import FooterComponent from "@/components/Footer/FooterComponent";
 import { Noto_Sans_Georgian } from "@next/font/google";
-import { usePathname } from "next/navigation";
 import Header from "@/components/Header/Header";
-import "./globals.css";
-
 import { ScrollProvider } from "./context/ScrollContext";
+import "./globals.css";
+import { usePathname } from "next/navigation";
 
 const notoGeorgian = Noto_Sans_Georgian({
   subsets: ["latin"],
   weight: ["400", "700", "900"],
 });
-
-// export const metadata = {
-//   title: "Your App Title",
-//   description: "Your App Description",
-// };
 
 export default function RootLayout({
   children,
@@ -24,6 +18,7 @@ export default function RootLayout({
 }) {
   const pathname = usePathname();
 
+  const AboutUsCover = ["/about-us"].includes(pathname);
   const hasNotPadding = ["/product"].includes(pathname);
   const contact = ["/contact"].includes(pathname);
   const product = ["/product"].includes(pathname);
@@ -34,14 +29,18 @@ export default function RootLayout({
     <html lang="en" className={notoGeorgian.className}>
       <body>
         <ScrollProvider>
-          {contact ? (
+          {AboutUsCover ? (
+            <Header AboutUsCover />
+          ) : contact ? (
             <Header isWhite />
           ) : blog ? (
             <Header isWhite />
           ) : faq ? (
             <Header cover />
+          ) : product ? (
+            <Header isWhite whiteOverlay isProduct={product} />
           ) : (
-            <Header factoryBackground isProduct={product} />
+            <Header factoryBackground />
           )}
           <>{children}</>
           <FooterComponent hasNotPadding={hasNotPadding} />

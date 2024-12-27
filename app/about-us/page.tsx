@@ -1,4 +1,4 @@
-import AboutCardComponent from "@/components/AboutCard/AboutCardComponent";
+import AboutCardComponent from "@/components/aboutCardComponent/AboutCardComponent";
 import React from "react";
 
 const AboutUs = () => {
