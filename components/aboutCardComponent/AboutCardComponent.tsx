@@ -27,7 +27,8 @@ const AboutCardComponent: React.FC<AboutCardComponentType> = ({
          items-center
          rounded-tl-[23px]
          rounded-br-[34px]
-         bg-[#f5efef]"
+         bg-[#f5efef]
+         max-900:w-[78px] max-900:h-[74px]"
           >
             <div className="w-[41px] mt-[9px] h-[40px] flex-shrink-0  text-white flex items-center justify-center rounded-full">
               {/* Add the actual SVG or Icon */}
@@ -50,9 +51,13 @@ const AboutCardComponent: React.FC<AboutCardComponentType> = ({
           pl-7
           rounded-bl-[34px]
           bg-[#f5efef]
+          max-900:h-[74px]
           "
           >
-            <h2 className="ml-3 w-full text-28 font-bold text-darkPrimary">
+            <h2
+              className="ml-3 w-full text-28 font-bold text-darkPrimary
+            max-900:text-[20px] max-900:leading-[30px]"
+            >
               {title}
             </h2>
           </div>

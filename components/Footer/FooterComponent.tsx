@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import styles from "./footer.module.css";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navigation = [
   {
@@ -23,12 +24,10 @@ const navigation = [
   { name: "კონტაქტი", url: "/contact" },
 ];
 
-interface FooterProps {
-  hasNotPadding?: boolean; // Optional prop
-}
-
-export default function FooterComponent({ hasNotPadding }: FooterProps) {
+export default function FooterComponent() {
   const { t } = useTranslation("common");
+  const pathname = usePathname();
+  const hasNotPadding = ["/product"].includes(pathname);
 
   return (
     <footer

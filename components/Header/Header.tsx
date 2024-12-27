@@ -17,30 +17,18 @@ const NAV_LINKS = [
   { href: "/faq", label: "FAQ" },
 ];
 
-interface FaqHeaderProps {
-  cover?: boolean;
-  isProduct?: boolean;
-  isWhite?: boolean;
-  factoryBackground?: boolean;
-  whiteOverlay?: boolean;
-  AboutUsCover?: boolean;
-}
-
-const Header: React.FC<FaqHeaderProps> = ({
-  cover,
-  isWhite,
-  isProduct,
-  factoryBackground,
-  whiteOverlay,
-  AboutUsCover,
-}) => {
+const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    // Scroll to the top whenever the pathname changes
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathname]);
+
+  const AboutUsCover = ["/about-us"].includes(pathname);
+  const isWhite = ["/contact", "/blog", "/product"].includes(pathname);
+  const whiteOverlay = ["/product"].includes(pathname);
+  const cover = ["/faq"].includes(pathname);
 
   const { setActiveSection } = useScrollContext();
   const { ref: headerRef, inView: isHeaderInView } = useInView({
@@ -53,13 +41,16 @@ const Header: React.FC<FaqHeaderProps> = ({
     rootMargin: "300px 0px",
   });
 
-  console.log(isProduct, "here 1");
-  if (isHeaderInView && isProduct) {
+  if (isHeaderInView && whiteOverlay) {
     setActiveSection("header");
   }
 
   const openMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
   };
 
   console.log(isHeaderInView, "isHeaderInView");
@@ -165,6 +156,7 @@ const Header: React.FC<FaqHeaderProps> = ({
                       ? "border-solid border-b-[1px] border-[#D6D6D6] pb-[7px]"
                       : ""
                   }`}
+                  onClick={closeMenu}
                 >
                   {link.label}
                 </Link>
@@ -184,6 +176,7 @@ const Header: React.FC<FaqHeaderProps> = ({
               className={
                 "flex items-center justify-center w-[148px] h-[46px] bg-[#ee2e24] rounded-[60px] border-[0px] text-[#ffffff] text-[14px] max-1250:w-[100px] max-900:w-full max-900:bg-[#FFFFFF]  max-900:text-[#100F0F] max-900:h-[54px]"
               }
+              onClick={closeMenu}
             >
               კონტაქტი
             </Link>
@@ -250,7 +243,7 @@ const Header: React.FC<FaqHeaderProps> = ({
           </div>
         </section>
       )}
-      {factoryBackground && (
+      {!cover && !whiteOverlay && !isWhite && !AboutUsCover && (
         <section className="top-0 relative w-full h-[784px] overflow-hidden  flex justify-center items-center max-1250:h-[700px] max-900:h-[568px]  ">
           <div className="absolute top-0 left-0 w-full h-full bg-black-opacity-60 z-[1]"></div>
           <Image
