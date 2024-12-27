@@ -7,6 +7,7 @@ import { useScrollContext } from "@/app/context/ScrollContext";
 import { LangSwitcher } from "../LangSwitcher/LangSwitcher";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver/useIntersectionObserver";
 import AnimatedText from "./AnimatedText";
+import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
   { href: "/", label: "მთავარი" },
@@ -22,6 +23,7 @@ interface FaqHeaderProps {
   isWhite?: boolean;
   factoryBackground?: boolean;
   whiteOverlay?: boolean;
+  AboutUsCover?: boolean;
 }
 
 const Header: React.FC<FaqHeaderProps> = ({
@@ -30,6 +32,7 @@ const Header: React.FC<FaqHeaderProps> = ({
   isProduct,
   factoryBackground,
   whiteOverlay,
+  AboutUsCover,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -52,6 +55,9 @@ const Header: React.FC<FaqHeaderProps> = ({
   const openMenu = () => {
     setIsOpen(!isOpen);
   };
+  usePathname;
+
+  const pathname = usePathname();
 
   console.log(isHeaderInView, "isHeaderInView");
 
@@ -70,26 +76,31 @@ const Header: React.FC<FaqHeaderProps> = ({
         } `}
       >
         <div
-          className={`flex justify-between max-900:w-full ${
+          className={`flex justify-between max-900:w-full cursor-pointer ${
             isOpen ? "bg-[#FFFFFF] px-[20px] py-[19.4px]" : ""
           }`}
         >
-          <Image
-            src="/assets/logo.svg"
-            alt="Logo"
-            width={179}
-            height={23.73}
-            // className={`${isOpen ? "hidden" : "block"} `}
-            className={`${isWhite ? "hidden" : "block"}`}
-          />
-          <Image
-            src="/assets/logoBlack.svg"
-            alt="Logo"
-            width={160}
-            height={21.21}
-            // className={`${isOpen ? "max-900:block" : ""} hidden`}
-            className={`${!isWhite ? "hidden" : "block"}`}
-          />
+          <div>
+            <Link href={"/"}>
+              <Image
+                src="/assets/logo.svg"
+                alt="Logo"
+                width={179}
+                height={23.73}
+                // className={`${isOpen ? "hidden" : "block"} `}
+                className={`${isWhite ? "hidden" : "block"}`}
+              />
+              <Image
+                src="/assets/logoBlack.svg"
+                alt="Logo"
+                width={160}
+                height={21.21}
+                // className={`${isOpen ? "max-900:block" : ""} hidden`}
+                className={`${!isWhite ? "hidden" : "block"}`}
+              />
+            </Link>
+          </div>
+
           <Image
             src="/assets/burgerMenu.svg"
             alt="Logo"
@@ -98,6 +109,7 @@ const Header: React.FC<FaqHeaderProps> = ({
             className={`${isOpen ? "" : "max-900:block"} hidden`}
             onClick={openMenu}
           />
+
           <Image
             src="/assets/xMark.svg"
             alt="Logo"
@@ -114,7 +126,13 @@ const Header: React.FC<FaqHeaderProps> = ({
               <li key={index}>
                 <Link
                   href={link.href}
-                  className={`${isWhite ? "text-[#100F0F]" : "text-[#FFFFFF]"}`}
+                  className={`${
+                    isWhite ? "text-[#100F0F]" : "text-[#FFFFFF]"
+                  } ${
+                    pathname === link.href
+                      ? "border-solid border-b-[1px] border-[#D6D6D6] pb-[7px]"
+                      : ""
+                  }`}
                 >
                   {link.label}
                 </Link>
@@ -139,7 +157,11 @@ const Header: React.FC<FaqHeaderProps> = ({
               <li key={index} className="flex justify-between items-center">
                 <Link
                   href={link.href}
-                  className="text-[#FFFFFF] text-[20px] font-medium leading-[30px]"
+                  className={`text-[#FFFFFF] text-[20px] font-medium leading-[30px] ${
+                    pathname === link.href
+                      ? "border-solid border-b-[1px] border-[#D6D6D6] pb-[7px]"
+                      : ""
+                  }`}
                 >
                   {link.label}
                 </Link>
@@ -249,6 +271,40 @@ const Header: React.FC<FaqHeaderProps> = ({
             <AnimatedText time={700} data="სიმტკიცე რომელზეც" />
             <AnimatedText time={950} data="შეგიძლია დააშენო" />
           </h2>
+        </section>
+      )}
+      {AboutUsCover && (
+        <section className="w-full h-[703px]">
+          <div className="top-0 relative w-full h-full overflow-hidden flex justify-center items-center">
+            <Image
+              src="/assets/images/Subtttract.png"
+              alt="coverImage"
+              layout="fill"
+              style={{ zIndex: "0", objectFit: "fill" }}
+              className="max-900:hidden"
+            />
+            <Image
+              src="/assets/images/Subbbbtract.png"
+              alt="coverImage"
+              layout="fill"
+              style={{ zIndex: "0", objectFit: "fill" }}
+              className="hidden max-900:block"
+            />
+            <h2 className="text-[56px] font-bold leading-[66px] text-[#F5F5F5] z-[2] max-900:text-[36px] max-900:leading-[44px] -translate-y-[31px] max-900:-translate-y-[44px]">
+              ჩვენს შესახებ
+            </h2>
+          </div>
+          <div className="w-full relative">
+            <div className="flex items-center justify-center absolute tra top-[-20px] left-1/2 transform -translate-x-1/2 w-[54px] h-[54px] rounded-[50%] bg-[#EE2E24] max-900:top-[-10px]">
+              <Image
+                src="/assets/icons/Arrow1.svg"
+                alt="coverImage"
+                width={16}
+                height={16}
+                style={{ zIndex: "0" }}
+              />
+            </div>
+          </div>
         </section>
       )}
     </header>

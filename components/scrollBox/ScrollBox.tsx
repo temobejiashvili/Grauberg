@@ -20,24 +20,11 @@ export default function ScrollBox() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const is1280 = windowWidth <= 1280;
   const is1100 = windowWidth <= 1100;
-  const is1024 = windowWidth <= 1024;
-  const is853 = windowWidth <= 853;
-  const is820 = windowWidth <= 820;
-  const is768 = windowWidth <= 768;
-  const is540 = windowWidth <= 540;
-  const is444 = windowWidth <= 444;
-  const is430 = windowWidth <= 430;
-  const is412 = windowWidth <= 412;
-  const is390 = windowWidth <= 390;
-  const is375 = windowWidth <= 375;
-  const is360 = windowWidth <= 360;
-  const is344 = windowWidth <= 344;
 
   const topPosition = (() => {
     if (activeSection === "header") {
-      return windowWidth <= 1100 ? "200px" : "100px";
+      return windowWidth <= 1100 ? "200px" : "150px";
     }
     if (windowWidth <= 344) return "144%";
     if (windowWidth <= 360) return "170%";

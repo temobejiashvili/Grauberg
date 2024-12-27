@@ -112,6 +112,7 @@ const config: Config = {
         gradientEnd: "#FFF4F3",
       },
       screens: {
+        "max-1300": { max: "1300px" },
         "max-1250": { max: "1250px" },
         "max-1100": { max: "1100px" },
         "max-900": { max: "900px" },
