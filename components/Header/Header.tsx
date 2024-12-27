@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { useScrollContext } from "@/app/context/ScrollContext";
 import { LangSwitcher } from "../LangSwitcher/LangSwitcher";
@@ -35,6 +35,12 @@ const Header: React.FC<FaqHeaderProps> = ({
   AboutUsCover,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    // Scroll to the top whenever the pathname changes
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
 
   const { setActiveSection } = useScrollContext();
   const { ref: headerRef, inView: isHeaderInView } = useInView({
@@ -55,9 +61,6 @@ const Header: React.FC<FaqHeaderProps> = ({
   const openMenu = () => {
     setIsOpen(!isOpen);
   };
-  usePathname;
-
-  const pathname = usePathname();
 
   console.log(isHeaderInView, "isHeaderInView");
 
