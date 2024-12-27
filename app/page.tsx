@@ -2,7 +2,7 @@ import React from "react";
 import BlogSection from "@/components/blogSection/BlogComponent";
 import ProductCardComponent from "@/components/productCard/ProductCardComponent";
 import "./globals.css";
-import AboutCard from "@/components/AboutCard/AboutCard";
+import AboutCard from "@/components/aboutCard/AboutCard";
 
 const MainPage = () => {
   return (

@@ -56,19 +56,16 @@ const AboutCard: React.FC = () => {
         </section>
       </div>
 
-      {/* <div className="absolute top-[-111px] w-[1270px] h-[111px] bg-[#FFFFFF4D] left-1/2 transform -translate-x-1/2 rounded-t-[30px] z-[9] flex justify-center items-end"> */}
       <div
-        className="absolute top-[-111px] w-[1270px] h-[111px] bg-[#FFFFFF4D] left-1/2 transform -translate-x-1/2 rounded-t-[30px] z-[9]"
-        // className="w-[1266px] h-[109px] rounded-t-[30px]"
+        className="absolute top-[-112px] w-[1270px] h-[112px] left-1/2 transform -translate-x-1/2 rounded-t-[30px] z-[9] max-1300:w-[1250px] max-1250:w-[1080px] max-1100:w-[900px] max-1100:h-[100px]  max-1100:top-[-100px] max-900:hidden "
         style={{
           background: "rgba(255, 255, 255, 0.2)",
           boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-          backdropFilter: "blur(12px)",
-          WebkitBackdropFilter: "blur(12px)",
-          border: "1px solid rgba(255, 255, 255, 0.3)",
+          backdropFilter: "blur(10px)",
+          WebkitBackdropFilter: "blur(10px)",
+          border: "1px solid rgba(255, 255, 255, 0.1)",
         }}
       ></div>
-      {/* </div> */}
     </>
   );
 };
