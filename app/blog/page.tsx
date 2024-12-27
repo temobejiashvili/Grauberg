@@ -1,4 +1,3 @@
-"use client";
 import { FC } from "react";
 import Image from "next/image";
 import BlogSection from "@/components/blogSection/BlogComponent";
@@ -184,6 +183,7 @@ const Blog = () => {
           style="bg-white"
           headline="შეიძლება ასევე დაგაინტერესოთ"
         />
+        <div className="w-full bg-white h-[140px] rounded-b-60 absolute"></div>
       </div>
     </>
   );

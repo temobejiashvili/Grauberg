@@ -12,7 +12,6 @@ export const ScrollProvider = ({ children }: { children: ReactNode }) => {
   const [activeSection, setActiveSection] = useState<
     "header" | "target" | null
   >(null);
-  console.log(activeSection, "activeSection");
 
   return (
     <ScrollContext.Provider value={{ activeSection, setActiveSection }}>

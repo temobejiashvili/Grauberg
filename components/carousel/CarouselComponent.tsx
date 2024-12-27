@@ -1,6 +1,8 @@
-"use client"; // Next.js app router compatibility
+"use client";
+
 import React from "react";
 import Slider from "react-slick";
+import Image from "next/image";
 
 import "./carouselComponentStyles.css";
 import AnimatedBox from "../animatedBox/AnimatedBox";
@@ -60,9 +62,11 @@ const CarouselComponent = () => {
                 }}
               >
                 <div className="rounded-[20px] h-[454px] w-[338px]">
-                  <img
+                  <Image
                     src={image.src}
                     alt={`Image ${index + 1}`}
+                    width={200}
+                    height={400}
                     className="rounded-[16px]  object-cover w-full h-full"
                   />
                 </div>

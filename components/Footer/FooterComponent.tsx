@@ -88,8 +88,8 @@ export default function FooterComponent({ hasNotPadding }: FooterProps) {
             <h3 className="font-bold text-20 mb-3">{t("ნავიგაცია")}</h3>
             <div className="flex">
               <div className="flex flex-col gap-[10px] mr-[34px]">
-                {navigation.map((nav) => (
-                  <div className="flex ">
+                {navigation.map((nav, i) => (
+                  <div key={i} className="flex ">
                     <div className="flex items-center justify-center w-5 h-5 bg-transparent">
                       <span className="text-primary">&gt;</span>
                     </div>

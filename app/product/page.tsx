@@ -1,42 +1,34 @@
-"use client";
 import React from "react";
+import dynamic from "next/dynamic";
 import AdvantagesCardComponent from "@/components/advantagesCard/AdvantagesCardComponent";
-import CalculatorComponent from "@/components/calculator/CalculatorComponent";
-import CarouselComponent from "@/components/carousel/CarouselComponent";
 import AnimatedBox from "@/components/animatedBox/AnimatedBox";
 
 import ShopIcon from "@/public/assets/icons/shopIcon.svg";
 import ScrollBox from "@/components/scrollBox/ScrollBox";
-import { useScrollContext } from "../context/ScrollContext";
-import { useInView } from "react-intersection-observer";
+import RedBoxComponent from "./RedBoxComponent";
+
+const CarouselComponent = dynamic(
+  () => import("@/components/carousel/CarouselComponent"),
+  {
+    ssr: false,
+  }
+);
+
+const CalculatorComponent = dynamic(
+  () => import("@/components/calculator/CalculatorComponent"),
+  {
+    ssr: false,
+  }
+);
 
 const Product = () => {
-  const { setActiveSection } = useScrollContext();
-  const { ref: targetRef, inView: isTargetInView } = useInView({
-    threshold: 0.4,
-  });
-
-  if (isTargetInView) {
-    setActiveSection("target");
-  }
-
   return (
     <div className="pt-[147px]">
       <section
         className={`flex gap-[56px] max-1100:flex-col-reverse max-1100:gap-[162px]`}
       >
         <ScrollBox />
-        <div className="h-[724px] flex items-start max-1100:h-[414px]">
-          <div
-            className="h-[60%] w-[537px] bg-primary 
-          rounded-r-[40px]
-          max-1100:w-full
-          max-1100:rounded-r-none
-          max-1100:h-[414px]
-          "
-            ref={targetRef}
-          />
-        </div>
+        <RedBoxComponent />
         <div className="flex flex-col gap-[47px] max-w-[724px] max-1100:px-[22px]">
           <AnimatedBox isFadeIn={false}>
             <div>
@@ -134,7 +126,7 @@ const Product = () => {
         <CalculatorComponent />
       </div>
       <AdvantagesCardComponent />
-      <div className="w-full bg-backgroundGrey h-[86px] rounded-b-60 absolute"></div>
+      <div className="w-full bg-backgroundGrey h-[140px] rounded-b-60 absolute"></div>
     </div>
   );
 };

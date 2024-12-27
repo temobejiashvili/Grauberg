@@ -1,12 +1,54 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import BlogSection from "@/components/blogSection/BlogComponent";
 import ProductCardComponent from "@/components/productCard/ProductCardComponent";
 import "./globals.css";
-import AboutCard from "@/components/AboutCard/AboutCard";
+import AboutCard from "@/components/aboutCard/AboutCard";
 
 const MainPage = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadingScreen = document.querySelector(".loading-screen");
+
+    if (loadingScreen) {
+      const handleAnimationEnd = () => {
+        setIsLoading(false); // Hide the loading screen after the animation ends
+      };
+
+      // Attach the event listener to the loading screen
+      loadingScreen.addEventListener("animationend", handleAnimationEnd);
+
+      // Clean up the event listener
+      return () => {
+        loadingScreen.removeEventListener("animationend", handleAnimationEnd);
+      };
+    }
+  }, []);
+
   return (
     <>
+      {isLoading && (
+        <div className="fixed top-0 left-0 w-full h-full flex z-[9999] loading-screen">
+          {/* Logo that shrinks and fades */}
+          <div className="loading-logo">
+            <img src="/assets/images/Vector.png" alt="Logo" />
+          </div>
+
+          {/* Animated red sections, delayed one after the other */}
+          {Array.from({ length: 5 }).map((_, index) => (
+            <div
+              key={index}
+              className="loading-section"
+              style={{
+                animationDelay: `${(index / 2.1) * 0.183 + 0.65}s`, // Delay each section
+              }}
+            ></div>
+          ))}
+        </div>
+      )}
+
       <div className="relative">
         <AboutCard />
       </div>
