@@ -11,18 +11,28 @@ const MainPage = () => {
 
   useEffect(() => {
     const loadingScreen = document.querySelector(".loading-screen");
+    const animationElements = document.querySelectorAll(".loading-section");
 
-    if (loadingScreen) {
+    if (loadingScreen && animationElements.length > 0) {
+      let animationsCompleted = 0;
+
       const handleAnimationEnd = () => {
-        setIsLoading(false); // Hide the loading screen after the animation ends
+        animationsCompleted += 1;
+        if (animationsCompleted === animationElements.length) {
+          setIsLoading(false); // Hide the loading screen after all animations end
+        }
       };
 
-      // Attach the event listener to the loading screen
-      loadingScreen.addEventListener("animationend", handleAnimationEnd);
+      // Attach the event listener to all animated elements
+      animationElements.forEach((element) =>
+        element.addEventListener("animationend", handleAnimationEnd)
+      );
 
-      // Clean up the event listener
+      // Clean up the event listeners
       return () => {
-        loadingScreen.removeEventListener("animationend", handleAnimationEnd);
+        animationElements.forEach((element) =>
+          element.removeEventListener("animationend", handleAnimationEnd)
+        );
       };
     }
   }, []);
