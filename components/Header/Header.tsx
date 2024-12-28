@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { useScrollContext } from "@/app/context/ScrollContext";
+import { useScrollContext } from "@/components/context/ScrollContext";
 import { LangSwitcher } from "../LangSwitcher/LangSwitcher";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver/useIntersectionObserver";
 import AnimatedText from "./AnimatedText";

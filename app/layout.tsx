@@ -1,7 +1,7 @@
 import FooterComponent from "@/components/Footer/FooterComponent";
 import { Noto_Sans_Georgian } from "@next/font/google";
 import Header from "@/components/Header/Header";
-import { ScrollProvider } from "./context/ScrollContext";
+import { ScrollProvider } from "../components/context/ScrollContext";
 import "./globals.css";
 
 const notoGeorgian = Noto_Sans_Georgian({

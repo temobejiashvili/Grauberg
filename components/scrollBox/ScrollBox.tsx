@@ -1,5 +1,5 @@
 "use client";
-import { useScrollContext } from "@/app/context/ScrollContext";
+import { useScrollContext } from "@/components/context/ScrollContext";
 import Image from "next/image";
 import CementPocket from "@/public/images/cement.png";
 import { useEffect, useState } from "react";
