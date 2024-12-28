@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import LoaderComponent from "../loaderComponent/LoaderComponent";
 
 const ContactPage: React.FC = () => {
   return (
@@ -133,17 +134,19 @@ const ContactPage: React.FC = () => {
           </div>
         </aside>
       </section>
-      <section className="w-full h-[386px] border-[21px] border-solid border-[#FFFFFF] rounded-[30px] max-900:w-[370px] max-900:h-[473px]">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1539.526411855878!2d21.014668246839673!3d52.243065148393576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc6744146b3f%3A0x29d4dd8ead0dc6f6!2sPresidential%20Palace!5e0!3m2!1ska!2sge!4v1734501488978!5m2!1ska!2sge"
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </section>
+      <LoaderComponent>
+        <section className="w-full h-[386px] border-[21px] border-solid border-[#FFFFFF] rounded-[30px] max-900:w-[370px] max-900:h-[473px]">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1539.526411855878!2d21.014668246839673!3d52.243065148393576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc6744146b3f%3A0x29d4dd8ead0dc6f6!2sPresidential%20Palace!5e0!3m2!1ska!2sge!4v1734501488978!5m2!1ska!2sge"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </section>
+      </LoaderComponent>
     </div>
   );
 };

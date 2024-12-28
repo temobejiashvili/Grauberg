@@ -1,8 +1,17 @@
 import { FC } from "react";
 import Image from "next/image";
-import BlogSection from "@/components/blogSection/BlogComponent";
+import dynamic from "next/dynamic";
 
-const icons = [
+const BlogSection = dynamic(
+  () => import("@/components/blogSection/BlogComponent"),
+  { ssr: false }
+);
+const LoaderComponent = dynamic(
+  () => import("@/components/loaderComponent/LoaderComponent"),
+  { ssr: false }
+);
+
+const socialIcons = [
   {
     src: "/assets/icons/fbIcon.svg",
     alt: "Facebook Logo",
@@ -29,163 +38,136 @@ const icons = [
   },
 ];
 
-type SocialIconProps = {
+// Reusable SocialIcon component
+const SocialIcon: FC<{
   src: string;
   alt: string;
   width: number;
   height: number;
-};
-
-const SocialIcon: FC<SocialIconProps> = ({ src, alt, width, height }) => (
-  <div className="w-[48px] h-[48px] flex justify-center items-center border-solid border-[1px] border-[#D6D6D6] rounded-full max-600:w-[42px] max-600:h-[42px]">
+}> = ({ src, alt, width, height }) => (
+  <div className="w-12 h-12 flex justify-center items-center border border-gray-300 rounded-full max-600:w-10 max-600:h-10">
     <Image src={src} alt={alt} width={width} height={height} />
   </div>
 );
+
 const Blog = () => {
   return (
-    <>
-      <div className="bg-[#F5F5F5]">
-        <div className=" pt-[127px] mx-[268px] mb-[100px] max-1250:mx-[200px] max-1100:mx-[150px] max-900:mx-[22px]">
-          <div className="flex flex-col gap-[14px] items-start max-600:gap-[17px]">
-            <h2 className="text-[#100F0F] text-[36px] font-bold leading-[44px] max-w-[600px] max-900:text-[28px] max-900:leading-[34px] max-900:max-w-[320px]">
-              ბეტონის ტიპები და მათი გამოყენება
-            </h2>
-            <div className="w-full flex justify-between items-center max-600:flex-col max-600:items-start max-600:gap-[20px]">
-              <aside className="flex items-center gap-[34px] ">
-                <h4 className="text-[#5C5C5C] ">20 მარტი 2024</h4>
-                <div className="flex items-center gap-[8px]">
-                  <Image
-                    src="/assets/icons/time.svg"
-                    alt="Logo"
-                    width={20}
-                    height={20}
-                  />
-                  <h4 className="text-[#5C5C5C] ">5 წუთი</h4>
-                </div>
-              </aside>
-              <aside className="flex items-center gap-[13px]">
-                {icons.map((icon, index) => (
-                  <SocialIcon key={index} {...icon} />
-                ))}
-              </aside>
-            </div>
+    <div className="bg-gray-100">
+      {/* Main Blog Content */}
+      <div className="pt-32 mx-[268px] mb-24 max-1250:mx-48 max-1100:mx-36 max-900:mx-6">
+        <header className="flex flex-col gap-4 items-start max-600:gap-5">
+          <h2 className="text-black text-3xl font-bold leading-11 max-w-xl max-900:text-2xl max-900:leading-8 max-900:max-w-xs">
+            ბეტონის ტიპები და მათი გამოყენება
+          </h2>
+          <div className="w-full flex justify-between items-center max-600:flex-col max-600:items-start max-600:gap-5">
+            <aside className="flex items-center gap-8">
+              <h4 className="text-gray-600">20 მარტი 2024</h4>
+              <div className="flex items-center gap-2">
+                <Image
+                  src="/assets/icons/time.svg"
+                  alt="Time Icon"
+                  width={20}
+                  height={20}
+                />
+                <h4 className="text-gray-600">5 წუთი</h4>
+              </div>
+            </aside>
+            <aside className="flex items-center gap-3">
+              {socialIcons.map((icon, index) => (
+                <SocialIcon key={index} {...icon} />
+              ))}
+            </aside>
+          </div>
+        </header>
+
+        {/* Blog Sections */}
+        <section className="mt-7 flex flex-col gap-14 max-600:gap-7">
+          {/* Featured Image */}
+          <div className="max-600:max-h-80 self-center">
+            <Image
+              src="/assets/images/construction.png"
+              alt="Construction"
+              width={902}
+              height={529}
+            />
           </div>
 
-          <section className="mt-[27px] flex flex-col gap-[53px] max-600:gap-[30px] ">
-            <div className=" max-600:max-h-[342px] self-center">
-              <Image
-                src="/assets/images/construction.png"
-                alt="Construction"
-                width={902}
-                height={529}
-              />
-            </div>
-            <article className="flex flex-col gap-[30px]">
-              <h3 className="text-[#100F0F] font-bold text-[24px] leading-[32px]">
-                რა არის ცემენტი და როგორ მუშაობს?
-              </h3>
+          {/* Main Blog Article */}
+          <article className="flex flex-col gap-7">
+            <h3 className="text-black font-bold text-xl leading-8">
+              რა არის ცემენტი და როგორ მუშაობს?
+            </h3>
+            <p className="text-gray-900 font-medium leading-7">
+              ცემენტი ერთ-ერთი ყველაზე მნიშვნელოვანი სამშენებლო მასალაა...
+            </p>
+            <p className="text-gray-900 font-medium leading-7">
+              ცემენტი ფხვნილი მასალაა, რომელიც წყალთან და სხვა
+              ინგრედიენტებთან...
+            </p>
+          </article>
 
-              <p className=" font-medium text-[#100F0F] leading-[26px]">
-                ცემენტი ერთ-ერთი ყველაზე მნიშვნელოვანი სამშენებლო მასალაა,
-                რომელიც მნიშვნელოვან როლს თამაშობს თანამედროვე არქიტექტურასა და
-                კონსტრუქციაში. ის გამოიყენება ბეტონის, აგურებისა და სხვა
-                სამშენებლო კონსტრუქციების დასამზადებლად. ბეტონის დამზადებისთვის
-                ცემენტი შერეულია წყალსა და ინერტულ მასალებთან (ქვიშა და ხრეში),
-                რის შედეგადაც მიიღება ძლიერი და მდგრადი კონსტრუქციები.
-              </p>
-
-              <p className=" font-medium text-[#100F0F] leading-[26px]">
-                ცემენტი ფხვნილი მასალაა, რომელიც წყალთან და სხვა ინგრედიენტებთან
-                შერევისას ქმნის ნაერთს, რომელიც დროთა განმავლობაში მაგრდება. ეს
-                პროცესი ხდება ქიმიური რეაქციის შედეგად, რომელსაც ჰიდრატაცია
-                ეწოდება. მას შემდეგ, რაც ცემენტი დამშრალდება, იგი იძენს
-                გამძლეობას და სტრუქტურულ სიძლიერეს, რაც მას იდეალურ მასალად
-                აქცევს.
-              </p>
-            </article>
-            <article className="flex flex-col items-start justify-center gap-[30px]">
-              <h3 className="text-[#100F0F] font-bold text-[24px] leading-[32px]">
+          {/* Secondary Articles */}
+          <LoaderComponent>
+            <article className="flex flex-col items-start justify-center gap-7">
+              <h3 className="text-black font-bold text-xl leading-8">
                 ცემენტის ტიპები
               </h3>
-
-              <p className=" font-medium text-[#100F0F] leading-[26px]">
+              <p className="text-gray-900 font-medium leading-7">
                 <span className="font-bold">1. პორტლანდცემენტი:</span>{" "}
-                პორტლანდცემენტი ყველაზე ფართოდ გამოყენებადი ცემენტის ტიპია და ის
-                გამოიყენება ბეტონის, აგურების, ფილების დასამზადებლად. მისი
-                მთავარი მახასიათებელი არის სწრაფი გამყარება და მაღალი სიმტკიცე.
-                პორტლანდცემენტის შემადგენლობაში შედის კირქვა, თიხა და გიფსის
-                მცირე რაოდენობა. მისი მაღალი სიმტკიცე მას იდეალურს ხდის
-                ხანგრძლივი კონსტრუქციებისთვის, როგორიცაა ხიდები, სარდაფები და
-                საყრდენი კედლები.
+                პორტლანდცემენტი ყველაზე ფართოდ გამოყენებადი...
               </p>
-
-              <p className=" font-medium text-[#100F0F] leading-[26px]">
-                <span className="font-bold"> 2. თეთრი ცემენტი: </span>ეს არის
-                პორტლანდცემენტის მსგავსი პროდუქტი, თუმცა მისი დამზადების
-                პროცესში იშორებენ რკინის ოქსიდებს, რაც მისთვის თეთრ ფერს
-                უზრუნველყოფს. თეთრი ცემენტი ხშირად გამოიყენება დეკორატიული
-                მიზნებისთვის, რათა შენობების ფერი და ტექსტურა იყოს ესთეტიკური და
-                უნიკალური. ის ასევე კარგი ვარიანტია მოპირკეთებული ან გამჭვირვალე
-                ზედაპირებისთვის
+              <p className="text-gray-900 font-medium leading-7">
+                <span className="font-bold">2. თეთრი ცემენტი:</span> ეს არის
+                პორტლანდცემენტის მსგავსი პროდუქტი...
               </p>
-
-              <p className=" font-medium text-[#100F0F] leading-[26px]">
+              <p className="text-gray-900 font-medium leading-7">
                 <span className="font-bold">
-                  3. სწრაფად გამყარებადი ცემენტი:{" "}
+                  3. სწრაფად გამყარებადი ცემენტი:
                 </span>{" "}
-                ცემენტის ეს ტიპი შედარებით სწრაფად გამყარებას იწყებს და
-                გამოიყენება ისეთ სიტუაციებში, სადაც დრო გადამწყვეტია. მისი
-                მთავარი უპირატესობაა სწრაფი სიმტკიცე და გამძლეობა, რაც ამცირებს
-                მშენებლობის პროცესს და საშუალებას აძლევს მშენებელს, სწრაფად
-                მიაღწიოს სასურველ შედეგს.
+                ცემენტის ეს ტიპი შედარებით...
               </p>
-
-              <p className=" font-medium text-[#100F0F] leading-[26px]">
-                <span className="font-bold">4. ჰიდრავლიკური ცემენტი: </span>ეს
-                ცემენტი გამოირჩევა წყალში მდგრადობით და იდეალურია წყალთან მყოფი
-                კონსტრუქციებისთვის, როგორიცაა წყალსაცავები, ხიდები და სარდაფები.
-                ის ინარჩუნებს თავის სტრუქტურულ თვისებებს ტენიან გარემოშიც, რაც
-                მას უნიკალურ გამოყენებად აქცევს.
+              <p className="text-gray-900 font-medium leading-7">
+                <span className="font-bold">4. ჰიდრავლიკური ცემენტი:</span> ეს
+                ცემენტი გამოირჩევა წყალში...
               </p>
             </article>
+
+            {/* Secondary Image */}
             <Image
               src="/assets/images/construction2.png"
               alt="Construction"
               width={902}
               height={529}
-              style={{ alignSelf: "center" }}
+              className="self-center"
             />
-            <article className="flex flex-col  gap-[30px]">
-              <h3 className="text-[#100F0F] font-bold text-[24px] leading-[32px]">
+
+            {/* Conclusion */}
+            <article className="flex flex-col gap-7">
+              <h3 className="text-black font-bold text-xl leading-8">
                 დასკვნა
               </h3>
-              <p className=" font-medium text-[#100F0F] leading-[26px]">
-                ცემენტი არის სამშენებლო მასალა, რომლის გარეშე თანამედროვე
-                არქიტექტურა წარმოუდგენელია. მისი სიმტკიცე, გამძლეობა და
-                მრავალმხრივი გამოყენება მას შეუცვლელად აქცევს ნებისმიერი ტიპის
-                პროექტში. თითოეული ტიპი გამიზნულია კონკრეტული გამოყენებისთვის,
-                რაც საშუალებას აძლევს ინჟინრებს და მშენებლებს, ისარგებლონ
-                ცემენტის უპირატესობებით ნებისმიერი გარემოსა და საჭიროების
-                შესაბამისად.
+              <p className="text-gray-900 font-medium leading-7">
+                ცემენტი არის სამშენებლო მასალა, რომლის გარეშე თანამედროვე...
               </p>
-              <p className=" font-medium text-[#100F0F] leading-[26px]">
-                პროექტის წარმატებისთვის აუცილებელია სწორი ტიპის ცემენტის შერჩევა
-                – პორტლანდცემენტი იდეალურია ბეტონისთვის, თეთრი ცემენტი –
-                ესთეტიკური პროექტებისთვის, ხოლო ჰიდრავლიკური ცემენტი – წყალთან
-                დაკავშირებული პროექტებისთვის. ყურადღება მიაქციეთ ცემენტის
-                ხარისხს, წარმოების თარიღს და მის სწორად შენახვის პირობებს.
+              <p className="text-gray-900 font-medium leading-7">
+                პროექტის წარმატებისთვის აუცილებელია სწორი ტიპის ცემენტის
+                შერჩევა...
               </p>
             </article>
-          </section>
-        </div>
-        <BlogSection
-          needButton
-          style="bg-white"
-          headline="შეიძლება ასევე დაგაინტერესოთ"
-        />
-        <div className="w-full bg-white h-[140px] rounded-b-60 absolute"></div>
+          </LoaderComponent>
+        </section>
       </div>
-    </>
+
+      {/* Blog Suggestions Section */}
+      <BlogSection
+        needButton
+        style="bg-white"
+        headline="შეიძლება ასევე დაგაინტერესოთ"
+      />
+
+      {/* Footer */}
+      <div className="w-full bg-white h-36 rounded-b-lg absolute"></div>
+    </div>
   );
 };
 

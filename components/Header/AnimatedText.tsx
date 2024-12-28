@@ -1,17 +1,24 @@
 "use client";
 
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const AnimatedTextInvisibleBorder = (props) => {
+interface AnimatedTextInvisibleBorderProps {
+  time: number;
+  data: string;
+}
+
+const AnimatedTextInvisibleBorder: React.FC<
+  AnimatedTextInvisibleBorderProps
+> = ({ time, data }) => {
   const [showText, setShowText] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowText(true); // Trigger the animation
-    }, props.time); // Delay before the animation starts
+    }, time); // Delay before the animation starts
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [time]);
 
   return (
     <div className="text-border-container">
@@ -20,7 +27,7 @@ const AnimatedTextInvisibleBorder = (props) => {
           showText ? "fade-in-text" : ""
         }`}
       >
-        {props.data}
+        {data}
       </h1>
     </div>
   );
