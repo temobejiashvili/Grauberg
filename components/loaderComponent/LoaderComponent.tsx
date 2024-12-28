@@ -13,36 +13,11 @@ const LoaderComponent: React.FC<LoaderComponentProps> = ({ children }) => {
   const animationRefs = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
-    let animationsCompleted = 0;
-    const maxTimeout = 3000; // Fallback timeout in case animationend doesn't trigger
+    const timer = setTimeout(() => {
+      setIsLoading(false); // Simulate loading completion
+    }, 1400); // 3-second timeout
 
-    const handleAnimationEnd = () => {
-      animationsCompleted += 1;
-      if (animationsCompleted === animationRefs.current.length) {
-        setIsLoading(false);
-      }
-    };
-
-    const fallbackTimer = setTimeout(() => {
-      console.warn("Fallback triggered: Hiding loading screen.");
-      setIsLoading(false);
-    }, maxTimeout);
-
-    if (animationRefs.current.length > 0) {
-      animationRefs.current.forEach((element) =>
-        element.addEventListener("animationend", handleAnimationEnd)
-      );
-    } else {
-      console.warn("No loading sections found. Hiding loading screen.");
-      setIsLoading(false);
-    }
-
-    return () => {
-      animationRefs.current.forEach((element) =>
-        element.removeEventListener("animationend", handleAnimationEnd)
-      );
-      clearTimeout(fallbackTimer);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   return (
