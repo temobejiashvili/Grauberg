@@ -16,10 +16,12 @@ const AboutUs = () => {
         details={aboutUsContent.about}
       />
       <LoaderComponent>
-        <AboutCardComponent
-          title="გრაუბერგის მისია"
-          details={aboutUsContent.mission}
-        />
+        <div>
+          <AboutCardComponent
+            title="გრაუბერგის მისია"
+            details={aboutUsContent.mission}
+          />
+        </div>
         <AboutCardComponent
           title="გრაუბერგის ხედვაა"
           details={aboutUsContent.vision}

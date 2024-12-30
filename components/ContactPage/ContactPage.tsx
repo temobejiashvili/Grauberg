@@ -1,8 +1,50 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import LoaderComponent from "../loaderComponent/LoaderComponent";
 
 const ContactPage: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    note: "",
+    text: "",
+  });
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("https://grauberg.com.ge/main/contact-us", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const responseBody = await response.json();
+      console.log("Response Status:", response.status);
+      console.log("Response Body:", responseBody);
+
+      if (response.ok) {
+        alert("Message sent successfully!");
+        console.log("Message sent successfully!");
+      } else {
+        console.error("Failed to send message:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error during form submission:", error);
+    }
+  };
+
   return (
     <div className="flex flex-col gap-[93px] pt-[212px] max-900:pt-[94px] px-[123px] bg-[#F5F5F5] max-1250:px-[70px] max-900:items-center max-900:gap-[34px]">
       <section className="flex justify-between items-center max-1100:flex-col max-1100:gap-[52px]">
@@ -92,46 +134,62 @@ const ContactPage: React.FC = () => {
           </ul>
         </aside>
         <aside>
-          <div className="bg-[#FFF]  p-[1px] rounded-[24px] bg-gradient-to-t from-[#F5F5F5] to-[#ee2e24]">
-            <div className="bg-[#F5F5F5] backdrop-blur-[34px]  p-[18px] rounded-[24px]">
-              <div
-                className="border-solid border-[#D6D6D6] border-[1px] rounded-[12px] bg-[#FFFFFF] flex flex-col gap-[16px] py-[29px] px-[34px] z-[100]"
-                style={{
-                  boxShadow: `
-                    0px 12px 26px 0px rgba(0, 0, 0, 0.1),
-                    0px 48px 48px 0px rgba(0, 0, 0, 0.09),
-                    0px 107px 64px 0px rgba(0, 0, 0, 0.05),
-                    0px 190px 76px 0px rgba(0, 0, 0, 0.01),
-                    0px 297px 83px 0px rgba(0, 0, 0, 0)
-                  `,
-                }}
-              >
-                <input
-                  type="text"
-                  className="w-[398px] max-900:w-[299px] h-[56px] border-solid border-[#D6D6D6] border-[1px] rounded-[12px] text-[#5C5C5C] px-[21px]"
-                  placeholder="სახელი, გვარი"
-                />
-                <input
-                  type="text"
-                  className="w-[398px] max-900:w-[299px] h-[56px] border-solid border-[#D6D6D6] border-[1px] rounded-[12px] text-[#5C5C5C] px-[21px]"
-                  placeholder="ტელეფონის ნომერი"
-                />
-                <input
-                  type="text"
-                  className="w-[398px] max-900:w-[299px] h-[56px] border-solid border-[#D6D6D6] border-[1px] rounded-[12px] text-[#5C5C5C] px-[21px]"
-                  placeholder="მეილი"
-                />
-                <textarea
-                  name="text"
-                  className="w-[398px] max-900:w-[299px] h-[200px] border-solid border-[#D6D6D6] border-[1px] rounded-[12px] text-[#5C5C5C] px-[21px] py-[15px] resize-none"
-                  placeholder="კომენტარი"
-                />
-                <button className="h-[46px] rounded-[60px] text-[#FFFFFF] bg-[#EE2E24] mt-[7px]">
-                  გაგზავნა
-                </button>
+          <form onSubmit={handleSubmit}>
+            <div className="bg-[#FFF]  p-[1px] rounded-[24px] bg-gradient-to-t from-[#F5F5F5] to-[#ee2e24]">
+              <div className="bg-[#F5F5F5] backdrop-blur-[34px]  p-[18px] rounded-[24px]">
+                <div
+                  className="border-solid border-[#D6D6D6] border-[1px] rounded-[12px] bg-[#FFFFFF] flex flex-col gap-[16px] py-[29px] px-[34px] z-[100]"
+                  style={{
+                    boxShadow: `
+                      0px 12px 26px 0px rgba(0, 0, 0, 0.1),
+                      0px 48px 48px 0px rgba(0, 0, 0, 0.09),
+                      0px 107px 64px 0px rgba(0, 0, 0, 0.05),
+                      0px 190px 76px 0px rgba(0, 0, 0, 0.01),
+                      0px 297px 83px 0px rgba(0, 0, 0, 0)
+                    `,
+                  }}
+                >
+                  <input
+                    type="text"
+                    name="name"
+                    className="w-[398px] max-900:w-[299px] h-[56px] border-solid border-[#D6D6D6] border-[1px] rounded-[12px] text-[#5C5C5C] px-[21px]"
+                    placeholder="სახელი, გვარი"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                  />
+                  <input
+                    type="number"
+                    name="phone"
+                    className="w-[398px] max-900:w-[299px] h-[56px] border-solid border-[#D6D6D6] border-[1px] rounded-[12px] text-[#5C5C5C] px-[21px]"
+                    placeholder="ტელეფონის ნომერი"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    className="w-[398px] max-900:w-[299px] h-[56px] border-solid border-[#D6D6D6] border-[1px] rounded-[12px] text-[#5C5C5C] px-[21px]"
+                    placeholder="მეილი"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                  />
+                  <textarea
+                    name="note"
+                    className="w-[398px] max-900:w-[299px] h-[200px] border-solid border-[#D6D6D6] border-[1px] rounded-[12px] text-[#5C5C5C] px-[21px] py-[15px] resize-none"
+                    placeholder="კომენტარი"
+                    value={formData.text}
+                    onChange={handleInputChange}
+                  />
+                  <button
+                    type="submit"
+                    className="h-[46px] rounded-[60px] text-[#FFFFFF] bg-[#EE2E24] mt-[7px]"
+                  >
+                    გაგზავნა
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
         </aside>
       </section>
       <LoaderComponent>
@@ -150,4 +208,5 @@ const ContactPage: React.FC = () => {
     </div>
   );
 };
+
 export default ContactPage;
