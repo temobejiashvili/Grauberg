@@ -24,10 +24,11 @@ export default function RootLayout({
 }) {
   const pathname = usePathname();
 
-  const AboutUsCover = ["/about-us"].includes(pathname);
   const hasNotPadding = ["/product"].includes(pathname);
-  const contact = ["/contact"].includes(pathname);
+  const aboutUsCover = ["/about-us"].includes(pathname);
+  const catalog = ["/blog/catalog"].includes(pathname);
   const product = ["/product"].includes(pathname);
+  const contact = ["/contact"].includes(pathname);
   const blog = ["/blog"].includes(pathname);
   const faq = ["/faq"].includes(pathname);
 
@@ -35,8 +36,10 @@ export default function RootLayout({
     <html lang="en" className={notoGeorgian.className}>
       <body>
         <ScrollProvider>
-          {AboutUsCover ? (
-            <Header AboutUsCover />
+          {catalog ? (
+            <Header catalog />
+          ) : aboutUsCover ? (
+            <Header aboutUsCover />
           ) : contact ? (
             <Header isWhite />
           ) : blog ? (

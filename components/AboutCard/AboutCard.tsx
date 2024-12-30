@@ -40,7 +40,7 @@ const AboutCard: React.FC = () => {
             href="/blog"
             className="group flex justify-center items-center rounded-[10px] w-[240px] h-[54px] border-[1px] border-solid border-[#D6D6D6] hover:bg-primary transition-colors text-sm text-darkPrimary hover:text-white max-900:w-full max-1100:mt-[10px]"
           >
-            ყველა სიახლე
+            სრულად ნახვა
             <Arrow className="w-2 object-cover ml-3 group-hover:filter group-hover:brightness-0 group-hover:invert" />
           </a>
         </section>

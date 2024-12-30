@@ -91,9 +91,11 @@ const config: Config = {
           0px 190px 76px 0px #00000003,
           0px 297px 83px 0px #00000000
         `,
+        little: "0px 5px 50px 0px rgba(0, 0, 0, 0.2)",
       },
       backdropBlur: {
         custom: "12px",
+        "84px": "84px",
       },
       colors: {
         primary: "#EE2E24",
@@ -104,6 +106,7 @@ const config: Config = {
         stroke: "#D6D6D6",
       },
       screens: {
+        "max-1400": { max: "1400px" },
         "max-1300": { max: "1300px" },
         "max-1250": { max: "1250px" },
         "max-1100": { max: "1100px" },
