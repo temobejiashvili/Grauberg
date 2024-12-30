@@ -10,13 +10,14 @@ interface BlogCardProps {
 
 const BlogCard: React.FC<BlogCardProps> = ({ image, alt, title, text }) => {
   return (
-    <div className="w-[375px] max-900:w-[370px] hover:shadow-little">
+    <div className="w-[375px] max-900:w-[370px] hover:shadow-little rounded-[16px]">
       <aside className="w-full h-[292px] overflow-hidden rounded-tl-[16px] rounded-tr-[16px]">
         <Image
           src={`${image}`}
           alt={`${alt}`}
           width={381}
           height={292}
+          className="transition-transform duration-300 ease-in-out hover:scale-110"
           style={{
             width: "100%",
             height: "292px",
