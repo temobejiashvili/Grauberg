@@ -34,6 +34,9 @@ const Header: React.FC = () => {
   const { ref: headerRef, inView: isHeaderInView } = useInView({
     threshold: 0.2,
   });
+  const { ref: headerImageRef, inView: isHeaderImageInView } = useInView({
+    threshold: 0.2,
+  });
 
   const { ref, isVisible } = useIntersectionObserver({
     threshold: 0.1,
@@ -53,20 +56,17 @@ const Header: React.FC = () => {
     setIsOpen(false);
   };
 
-  console.log(isHeaderInView, "isHeaderInView");
-
   return (
     <header>
       <div
-        ref={headerRef}
         className={`w-full flex justify-between items-center px-[120px] py-[32.14px] z-[100] ${
           isOpen
             ? "bg-[#EE2E24] fixed top-0 left-0 w-full h-screen flex-col items-center max-900:px-0 max-900:py-0 "
             : `${
-                isWhite
-                  ? "bg-[#FFFFFF] h-[60px] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.05)"
-                  : "bg-transparent"
-              } max-1250:px-[25px] absolute ]`
+                !isHeaderImageInView || isWhite
+                  ? "bg-[#FFFFFF] fixed top-0 left-0 h-[60px] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.05)"
+                  : "bg-transparent absolute"
+              } max-1250:px-[25px]`
         } `}
       >
         <div
@@ -74,7 +74,7 @@ const Header: React.FC = () => {
             isOpen ? "bg-[#FFFFFF] px-[20px] py-[19.4px]" : ""
           }`}
         >
-          <div>
+          <div className="flex items-center">
             <Link href={"/"}>
               <Image
                 src="/assets/logo.svg"
@@ -82,7 +82,9 @@ const Header: React.FC = () => {
                 width={179}
                 height={23.73}
                 // className={`${isOpen ? "hidden" : "block"} `}
-                className={`${isWhite ? "hidden" : "block"}`}
+                className={`${
+                  !isHeaderImageInView || isWhite || isOpen ? "hidden" : "block"
+                }`}
               />
               <Image
                 src="/assets/logoBlack.svg"
@@ -90,7 +92,9 @@ const Header: React.FC = () => {
                 width={160}
                 height={21.21}
                 // className={`${isOpen ? "max-900:block" : ""} hidden`}
-                className={`${!isWhite ? "hidden" : "block"}`}
+                className={`${
+                  !isHeaderImageInView || isWhite || isOpen ? "block" : "hidden"
+                }`}
               />
             </Link>
           </div>
@@ -121,11 +125,13 @@ const Header: React.FC = () => {
                 <Link
                   href={link.href}
                   className={`${
-                    isWhite ? "text-[#100F0F]" : "text-[#FFFFFF]"
+                    !isHeaderImageInView || isWhite
+                      ? "text-[#100F0F]"
+                      : "text-[#FFFFFF]"
                   } ${
                     pathname === link.href
                       ? "border-solid border-b-[1px] border-[#D6D6D6] pb-[7px]"
-                      : ""
+                      : "hover:border-solid hover:border-b-[1px] hover:border-[#D6D6D6] hover:pb-[7px]"
                   }`}
                 >
                   {link.label}
@@ -180,7 +186,7 @@ const Header: React.FC = () => {
             >
               კონტაქტი
             </Link>
-            <LangSwitcher noWhite={isWhite} />
+            <LangSwitcher noWhite={!isHeaderImageInView || isWhite} />
           </div>
         </div>
       </div>
@@ -202,7 +208,10 @@ const Header: React.FC = () => {
               className="hidden max-900:block"
             />
           </div>
-          <h2 className="text-center text-[44px] absolute font-bold leading-[56px] text-[#FFFFFF] z-[11] max-900:text-[28px] max-900:leading-[34px] max-900:w-[300px] pt-[174px] max-900:pt-[110px]">
+          <h2
+            ref={headerImageRef}
+            className="text-center text-[44px] absolute font-bold leading-[56px] text-[#FFFFFF] z-[11] max-900:text-[28px] max-900:leading-[34px] max-900:w-[300px] pt-[174px] max-900:pt-[110px]"
+          >
             ხშირად დასმული კითხვები
           </h2>
         </section>
@@ -211,6 +220,7 @@ const Header: React.FC = () => {
         <section className="flex flex-col items-center">
           <div className="w-[calc(100%-66px)] h-[752px] flex justify-center max-1250:h-[700px] max-900:w-full  max-900:h-[568px]">
             <div className="top-0 relative w-[calc(100%-3px)] h-[751px] overflow-hidden flex justify-center  max-1250:h-[700px] max-900:h-[568px] ">
+              <span className="w-[1px] h-[1px]" ref={headerRef}></span>
               <Image
                 src="/assets/images/Subtract.png"
                 alt="coverImage"
@@ -225,7 +235,10 @@ const Header: React.FC = () => {
                 style={{ zIndex: "0", objectFit: "fill" }}
                 className="hidden max-900:block"
               />
-              <h2 className="w-[804px] text-center text-[70.56px] font-bold leading-[88px]  text-[#100F0F] z-[2] pt-[166px] max-1100:text-[56px] max-900:w-[382px] max-900:text-[36px] max-900:leading-[44px]">
+              <h2
+                ref={headerImageRef}
+                className="w-[804px] text-center text-[70.56px] font-bold leading-[88px]  text-[#100F0F] z-[2] pt-[166px] max-1100:text-[56px] max-900:w-[382px] max-900:text-[36px] max-900:leading-[44px]"
+              >
                 სიმტკიცე რომელზეც შეგიძლია დააშენო
               </h2>
             </div>
@@ -247,6 +260,7 @@ const Header: React.FC = () => {
         <section className="top-0 relative w-full h-[784px] overflow-hidden  flex justify-center items-center max-1250:h-[700px] max-900:h-[568px]  ">
           <div className="absolute top-0 left-0 w-full h-full bg-black-opacity-60 z-[1]"></div>
           <Image
+            ref={headerImageRef}
             src="/assets/images/backgroundImage.png"
             alt="coverImage"
             fill
@@ -286,7 +300,10 @@ const Header: React.FC = () => {
               style={{ zIndex: "0", objectFit: "fill" }}
               className="hidden max-900:block"
             />
-            <h2 className="text-[56px] font-bold leading-[66px] text-[#F5F5F5] z-[2] max-900:text-[36px] max-900:leading-[44px] -translate-y-[31px] max-900:-translate-y-[44px]">
+            <h2
+              ref={headerImageRef}
+              className="text-[56px] font-bold leading-[66px] text-[#F5F5F5] z-[2] max-900:text-[36px] max-900:leading-[44px] -translate-y-[31px] max-900:-translate-y-[44px]"
+            >
               ჩვენს შესახებ
             </h2>
           </div>
