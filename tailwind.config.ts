@@ -100,6 +100,7 @@ const config: Config = {
       },
       backdropBlur: {
         custom: "12px",
+        "84px": "84px",
       },
       colors: {
         primary: "#EE2E24",
@@ -112,6 +113,7 @@ const config: Config = {
         gradientEnd: "#FFF4F3",
       },
       screens: {
+        "max-1400": { max: "1400px" },
         "max-1300": { max: "1300px" },
         "max-1250": { max: "1250px" },
         "max-1100": { max: "1100px" },
