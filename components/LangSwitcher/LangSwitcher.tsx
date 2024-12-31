@@ -9,12 +9,6 @@ const LANG_OPTIONS = [
     imageUrl: "/assets/flagOfGeorgia.svg",
     alt: "Georgia Logo",
   },
-  {
-    name: "Eng",
-    value: "en",
-    imageUrl: "/assets/flagOfTheUk.svg",
-    alt: "United Kingdom Logo",
-  },
 ];
 
 interface LangSwitcherProps {

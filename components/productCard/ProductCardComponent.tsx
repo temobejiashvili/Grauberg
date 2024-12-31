@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Truck from "../../public/images/truck.png";
 import AnimatedBox from "../animatedBox/AnimatedBox";
 import Link from "next/link";
 
@@ -43,7 +42,7 @@ const ProductCardComponent = ({ isCement }: ProductCardProps) => {
                 <Image
                   width={100}
                   height={100}
-                  src={"/images/truck.png"}
+                  src={"/assets/graubergTruck.gif"}
                   alt="Concrete Mixer Truck"
                   className="w-full h-auto max-h-284"
                 />

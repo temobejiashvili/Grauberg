@@ -16,6 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={notoGeorgian.className}>
+      <head>
+        <link rel="icon" href="/images/vector.png" />
+      </head>
       <body>
         <ScrollProvider>
           <Header />
