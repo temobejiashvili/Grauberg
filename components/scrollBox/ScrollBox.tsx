@@ -53,7 +53,7 @@ export default function ScrollBox() {
 
   return (
     <div
-      className={`rounded-lg drop-shadow-[-20px_14px_94px_rgba(0,0,0,0.45)]
+      className={`rounded-lg 
          z-[1] transition-all duration-1000 ease-out ${
            activeSection === "header" ? "animate-floating" : ""
          }`}

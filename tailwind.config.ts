@@ -83,7 +83,6 @@ const config: Config = {
       backgroundImage: {
         "hero-mobile": "url('/images/home-b-mobile-1.png')",
         "hero-desktop": "url('/images/home-bg.png')",
-        "contact-bg": "url('/images/contact-bg.png')",
         "gradient-border":
           "linear-gradient(120.6deg, #F5F5F5 45.99%, #EE2E24 151.58%)",
       },

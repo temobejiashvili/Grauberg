@@ -260,15 +260,18 @@ const Header: React.FC = () => {
       )}
       {!cover && !whiteOverlay && !isWhite && !AboutUsCover && !catalog && (
         <section className="top-0 relative w-full h-[784px] overflow-hidden  flex justify-center items-center max-1250:h-[700px] max-900:h-[568px]  ">
-          <div className="absolute top-0 left-0 w-full h-full bg-black-opacity-60 z-[1]"></div>
-          <Image
+          <video
             ref={headerImageRef}
-            src="/assets/images/backgroundImage.png"
-            alt="coverImage"
-            fill
-            objectFit="cover"
-            style={{ zIndex: "0" }}
-          />
+            className="absolute top-0 left-0 w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src="/assets/backgroundVideo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className="absolute top-0 left-0 w-full h-full bg-black-opacity-60 z-[1]"></div>
           <h2
             ref={ref}
             className={`relative w-[804px] text-center text-[56px] font-bold

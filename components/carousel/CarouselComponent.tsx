@@ -33,10 +33,26 @@ const CarouselComponent = () => {
   };
 
   const images = [
-    { src: "/images/factory.png", rotation: "-1.32deg", offset: "20px" },
-    { src: "/images/factory.png", rotation: "1.89deg", offset: "-15px" },
-    { src: "/images/factory.png", rotation: "0.44deg", offset: "10px" },
-    { src: "/images/factory.png", rotation: "-2.99deg", offset: "-20px" },
+    {
+      src: "/assets/images/carouselImage1.png",
+      rotation: "-1.32deg",
+      offset: "20px",
+    },
+    {
+      src: "/assets/images/carouselImage2.png",
+      rotation: "1.89deg",
+      offset: "-15px",
+    },
+    {
+      src: "/assets/images/carouselImage3.png",
+      rotation: "0.44deg",
+      offset: "10px",
+    },
+    {
+      src: "/assets/images/carouselImage4.png",
+      rotation: "-2.99deg",
+      offset: "-20px",
+    },
   ];
 
   return (
