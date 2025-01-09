@@ -4,6 +4,7 @@ const i18nConfig: Config = {
   locales: ["ge", "en"],
   defaultLocale: "ge",
   localeDetection: false,
+  noPrefix: true,
 };
 
 export default i18nConfig;
