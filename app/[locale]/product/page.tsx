@@ -26,6 +26,7 @@ const LoaderComponent = dynamic(
 );
 
 import ShopIcon from "@/public/assets/icons/shopIcon.svg";
+import { TranslateText } from "@/components/translateText/TranslateText";
 
 const Product = () => {
   return (
@@ -39,17 +40,10 @@ const Product = () => {
           <AnimatedBox isFadeIn={false}>
             <div>
               <h3 className="font-bold text-44 text-darkPrimary pb-6 break-words max-1100:text-28">
-                პორტლანდცემენტი
+                <TranslateText text="portlandcement" />
               </h3>
               <p className="font-normal text-[16px] leading-[26px] text-darkPrimary text-justify max-1100:text-sm">
-                სამშენებლო მასალების ქართულ ბაზარზე გრაუბერგს მრავალი წელია,
-                მნიშვნელოვანი მოთამაშის როლი აქვს. ცემენტის ქარხანა, რომელიც
-                ქალაქ ზუგდიდში მდებარეობს, უკვე დიდი ხანია, მომხმარებელს უახლესი
-                ტექნოლოგიით დამზადებულ უმაღლესი ხარისხის ცემენტსა და ბეტონს
-                სთავაზობს. ბოლო პერიოდში განხორციელებული რებრენდინგის შემდეგ, ის
-                პოზიციონირებს გრაუბერგის სახელით. კონკურენტულ გარემოში თავის
-                დამკვიდრების მიზნით, გრაუბერგის პროდუქციას ობიექტურად საუკეთესო
-                ფასი აქვს.
+                <TranslateText text="portlandText" />
               </p>
             </div>
           </AnimatedBox>
@@ -80,15 +74,12 @@ const Product = () => {
           <div className="flex flex-col items-center w-full gap-7 pt-11">
             <AnimatedBox isFadeIn={false}>
               <h1 className="max-w-[1002px] font-bold text-44 text-darkPrimary text-center">
-                ჩვენი ცემენტის გამოყენება
+                <TranslateText text="ourCementUsage" />
               </h1>
             </AnimatedBox>
             <AnimatedBox isFadeIn={false}>
               <p className="max-w-[975px] font-normal text-[16px] leading-[26px] text-darkPrimary text-center">
-                Grauberg CEM II/A-P 42.5 N სერია იდეალურია სამოქალაქო და
-                ინდუსტრიული სამშენებლო პროექტებისთვის, როგორიცაა გზები, ხიდები,
-                საცხოვრებელი შენობები და ინფრასტრუქტურული ობიექტები, სადაც
-                აუცილებელია ძლიერი და გრძელვადიანი მასალები.
+                <TranslateText text="cementUsageInfo" />
               </p>
             </AnimatedBox>
           </div>

@@ -1,14 +1,12 @@
-import { NextRequest, NextResponse } from "next/server";
+import { i18nRouter } from "next-i18n-router";
+import i18nConfig from "./i18nConfig";
+import { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  const url = request.nextUrl.clone();
-
-  // Inject pathname into the headers for server-side access
-  url.searchParams.set("pathname", url.pathname);
-
-  return NextResponse.rewrite(url);
+  return i18nRouter(request, i18nConfig);
 }
 
+// only applies this middleware to files in the app directory
 export const config = {
-  matcher: "/:path*", // Apply middleware to all app routes
+  matcher: "/((?!api|static|.*\\..*|_next).*)",
 };

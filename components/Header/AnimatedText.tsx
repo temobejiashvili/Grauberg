@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface AnimatedTextInvisibleBorderProps {
   time: number;
@@ -10,6 +11,7 @@ interface AnimatedTextInvisibleBorderProps {
 const AnimatedTextInvisibleBorder: React.FC<
   AnimatedTextInvisibleBorderProps
 > = ({ time, data }) => {
+  const { t } = useTranslation();
   const [showText, setShowText] = useState(false);
 
   useEffect(() => {
@@ -27,7 +29,7 @@ const AnimatedTextInvisibleBorder: React.FC<
           showText ? "fade-in-text" : ""
         }`}
       >
-        {data}
+        {t(data)}
       </h1>
     </div>
   );
