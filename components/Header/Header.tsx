@@ -28,11 +28,11 @@ const Header: React.FC = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathname]);
 
-  const AboutUsCover = ["/about-us"].includes(pathname);
-  const isWhite = ["/contact", "/blog", "/product"].includes(pathname);
-  const whiteOverlay = ["/product"].includes(pathname);
-  const cover = ["/faq"].includes(pathname);
-  const catalog = ["/blog/catalog"].includes(pathname);
+  const AboutUsCover = ["/en/about-us"].includes(pathname);
+  const isWhite = ["/en/contact", "/en/blog", "/en/product"].includes(pathname);
+  const whiteOverlay = ["/en/product"].includes(pathname);
+  const cover = ["/en/faq"].includes(pathname);
+  const catalog = ["en//blog/catalog"].includes(pathname);
 
   const { setActiveSection } = useScrollContext();
   const { ref: headerRef, inView: isHeaderInView } = useInView({
@@ -127,7 +127,9 @@ const Header: React.FC = () => {
             {NAV_LINKS.map((link, index) => (
               <li key={index}>
                 <Link
-                  href={link.href}
+                  href={{ pathname: link.href }}
+                  replace={true}
+                  locale={false}
                   className={`${
                     !isHeaderImageInView || isWhite
                       ? "text-[#100F0F]"

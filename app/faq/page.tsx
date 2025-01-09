@@ -1,4 +1,4 @@
-import "../../globals.css";
+import "../globals.css";
 import Faq from "@/components/Faq/Faq";
 
 export default function TestPage() {

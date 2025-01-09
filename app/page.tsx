@@ -1,7 +1,7 @@
 import React from "react";
 import BlogSection from "@/components/blogSection/BlogComponent";
 import ProductCardComponent from "@/components/productCard/ProductCardComponent";
-import "../globals.css";
+import "./globals.css";
 import AboutCard from "@/components/aboutCard/AboutCard";
 import LoaderComponent from "@/components/loaderComponent/LoaderComponent";
 import { TranslateText } from "@/components/translateText/TranslateText";
