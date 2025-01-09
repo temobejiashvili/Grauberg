@@ -13,7 +13,7 @@ const LANG_OPTIONS = [
   {
     name: "Eng",
     value: "en",
-    imageUrl: "/assets/flagOfTheUk.svg",
+    imageUrl: "/assets/flagOfTheUK.svg",
     alt: "UK Flag",
   },
 ];
