@@ -127,7 +127,9 @@ const Header: React.FC = () => {
             {NAV_LINKS.map((link, index) => (
               <li key={index}>
                 <Link
-                  href={link.href}
+                  href={{ pathname: link.href }}
+                  replace={true}
+                  locale={false}
                   className={`${
                     !isHeaderImageInView || isWhite
                       ? "text-[#100F0F]"

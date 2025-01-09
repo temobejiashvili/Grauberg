@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import { useScrollContext } from "../../../components/context/ScrollContext";
+import { useScrollContext } from "../../components/context/ScrollContext";
 
 const RedBoxComponent = () => {
   const { setActiveSection } = useScrollContext();
