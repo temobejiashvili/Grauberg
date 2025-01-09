@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import { dir } from "i18next";
 import i18nConfig from "@/i18nConfig";
 import type { Metadata } from "next";
 import FooterComponent from "@/components/Footer/FooterComponent";
@@ -38,7 +37,7 @@ export default async function RootLayout({
   const { t, resources } = await initializeTranslations(locale, i18nNamespaces);
 
   return (
-    <html lang={locale} dir={dir(locale)} className={notoGeorgian.className}>
+    <html lang={locale} className={notoGeorgian.className}>
       <head>
         <link rel="icon" href="/images/Vector.png" />
       </head>
