@@ -3,6 +3,7 @@ import Image from "next/image";
 import parallelepiped from "../../public/images/parallelepiped.png";
 import ValueInput from "./ValueInput";
 import { useState } from "react";
+import { TranslateText } from "../translateText/TranslateText";
 
 const CalculatorComponent = () => {
   const [thickness, setThickness] = useState("");
@@ -63,7 +64,10 @@ const CalculatorComponent = () => {
            max-1100:flex max-1100:flex-col
            max-1100:items-center max-1100:mb-[14px]"
           >
-            ცემენტის<span className="text-primary pl-3">კალკულატორი</span>
+            <TranslateText text="cementS" />
+            <span className="text-primary pl-3">
+              <TranslateText text="calculator" />
+            </span>
           </h1>
           <p
             className="font-normal text-darkPrimary 
@@ -82,20 +86,20 @@ const CalculatorComponent = () => {
       max-1100:pt-[26px]"
       >
         <ValueInput
-          title="სისქე"
-          unit="სმ"
+          title="thickness"
+          unit="sm"
           value={thickness}
           onChange={setThickness}
         />
         <ValueInput
-          title="სიგრძე"
-          unit="სმ"
+          title="length"
+          unit="sm"
           value={length}
           onChange={setLength}
         />
         <ValueInput
-          title="სიმაღლე"
-          unit="სმ"
+          title="height"
+          unit="sm"
           value={height}
           onChange={setHeight}
         />
@@ -105,7 +109,7 @@ const CalculatorComponent = () => {
           max-1100:w-full"
           onClick={handleCalculate}
         >
-          გამოთვლა
+          <TranslateText text="calculate" />
         </button>
       </section>
       <div
@@ -126,10 +130,10 @@ const CalculatorComponent = () => {
       >
         <div className="flex flex-col items-center justify-center gap-3 w-[406px] max-1100:w-full">
           <span className="text-darkSecondary font-normal text-sm">
-            საჭირო ცემენტის მოცულობა
+            <TranslateText text="cementNeeded" />
           </span>
           <h4 className="text-darkPrimary font-bold text-2xl">
-            {cubicMeters.toFixed(4)} კუბური მეტრი
+            {cubicMeters.toFixed(4)} <TranslateText text="cubicMeters" />
           </h4>
         </div>
         <div
@@ -138,10 +142,10 @@ const CalculatorComponent = () => {
         />
         <div className="flex flex-col items-center justify-center gap-3 w-[406px] max-1100:w-full">
           <span className="text-darkSecondary font-normal text-sm">
-            რამდენი ცალი Grauberg-ის ცემენტი დამჭირდება{" "}
+            <TranslateText text="howMuchCement" />{" "}
           </span>
           <h4 className="text-darkPrimary font-bold text-2xl">
-            {pocket} ცემენტის ტომარა
+            {pocket} <TranslateText text="cementPocket" />
           </h4>
         </div>
       </div>

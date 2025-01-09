@@ -1,13 +1,20 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 const LANG_OPTIONS = [
   {
     name: "Geo",
     value: "ge",
     imageUrl: "/assets/flagOfGeorgia.svg",
-    alt: "Georgia Logo",
+    alt: "Georgia Flag",
+  },
+  {
+    name: "Eng",
+    value: "en",
+    imageUrl: "/assets/flagOfTheUk.svg",
+    alt: "UK Flag",
   },
 ];
 
@@ -16,14 +23,18 @@ interface LangSwitcherProps {
 }
 
 export const LangSwitcher: React.FC<LangSwitcherProps> = ({ noWhite }) => {
-  const [activeLang, setActiveLang] = useState<string>(LANG_OPTIONS[0].value);
+  const { i18n } = useTranslation();
+
+  const [activeLang, setActiveLang] = useState<string>(i18n.language || "ge");
 
   const handleButtonClick = (value: string) => {
     setActiveLang(value);
+    i18n.changeLanguage(value);
   };
+
   return (
     <div
-      className={`relative w-[131px] h-[48px] flex justify-center items-center border-[0.5px] border-solid border-[#f5f5f5] rounded-[50px] max-1250:w-[100px] max-900:bg-transparent max-900:w-[131px]  ${
+      className={`relative w-[131px] h-[48px] flex justify-center items-center border-[0.5px] border-solid border-[#f5f5f5] rounded-[50px] max-1250:w-[100px] max-900:bg-transparent max-900:w-[131px] ${
         noWhite ? "bg-[#F5F5F5]" : ""
       }`}
       role="menu"

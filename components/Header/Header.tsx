@@ -9,18 +9,20 @@ import { useIntersectionObserver } from "@/hooks/useIntersectionObserver/useInte
 import AnimatedText from "./AnimatedText";
 import { usePathname } from "next/navigation";
 import Arrow from "../../public/assets/arrow.svg";
+import { useTranslation } from "react-i18next";
 
 const NAV_LINKS = [
-  { href: "/", label: "მთავარი" },
-  { href: "/about-us", label: "ჩვენს შესახებ" },
-  { href: "/product", label: "პროდუქტები" },
-  { href: "/blog", label: "ბლოგი" },
+  { href: "/", label: "home" },
+  { href: "/about-us", label: "about" },
+  { href: "/product", label: "products" },
+  { href: "/blog", label: "blog" },
   { href: "/faq", label: "FAQ" },
 ];
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const { t } = useTranslation();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -136,7 +138,7 @@ const Header: React.FC = () => {
                       : "hover:border-solid hover:border-b-[1px] hover:border-[#D6D6D6] hover:pb-[7px]"
                   }`}
                 >
-                  {link.label}
+                  {t(link.label)}
                 </Link>
               </li>
             ))}
@@ -186,9 +188,9 @@ const Header: React.FC = () => {
               }
               onClick={closeMenu}
             >
-              კონტაქტი
+              {t("contact")}
             </Link>
-            <LangSwitcher noWhite={!isHeaderImageInView || isWhite} />
+            <LangSwitcher />
           </div>
         </div>
       </div>
@@ -214,7 +216,7 @@ const Header: React.FC = () => {
             ref={headerImageRef}
             className="text-center text-[44px] absolute font-bold leading-[56px] text-[#FFFFFF] z-[11] max-900:text-[28px] max-900:leading-[34px] max-900:w-[300px] pt-[174px] max-900:pt-[110px]"
           >
-            ხშირად დასმული კითხვები
+            {t("frequentlyAskedQuestions")}
           </h2>
         </section>
       )}
@@ -241,7 +243,7 @@ const Header: React.FC = () => {
                 ref={headerImageRef}
                 className="w-[804px] text-center text-[70.56px] font-bold leading-[88px]  text-[#100F0F] z-[2] pt-[166px] max-1100:text-[56px] max-900:w-[382px] max-900:text-[36px] max-900:leading-[44px]"
               >
-                სიმტკიცე რომელზეც შეგიძლია დააშენო
+                {t("strengthYou")} {t("canBuildOn")}
               </h2>
             </div>
           </div>
@@ -283,8 +285,8 @@ const Header: React.FC = () => {
                   : "opacity-0 translate-y-[100%]"
               }`}
           >
-            <AnimatedText time={700} data="სიმტკიცე რომელზეც" />
-            <AnimatedText time={950} data="შეგიძლია დააშენო" />
+            <AnimatedText time={700} data="strengthYou" />
+            <AnimatedText time={950} data="canBuildOn" />
           </h2>
         </section>
       )}
@@ -309,7 +311,7 @@ const Header: React.FC = () => {
               ref={headerImageRef}
               className="text-[56px] font-bold leading-[66px] text-[#F5F5F5] z-[2] max-900:text-[36px] max-900:leading-[44px] -translate-y-[31px] max-900:-translate-y-[44px]"
             >
-              ჩვენს შესახებ
+              {t("about")}
             </h2>
           </div>
           <div className="w-full relative">
@@ -349,11 +351,11 @@ const Header: React.FC = () => {
                 href="#"
                 className="text-[12px] text-[#FFFFFF] leading-[20px] px-[22px] py-[6px] rounded-[60px] bg-[#5C5C5C] w-fit "
               >
-                პოპულარული ბლოგი
+                {t("popularBlog")}
               </Link>
               <article className="mt-[32px] mb-[40px] max-900:my-[19px]">
                 <h2 className="text-[#F5F5F5] text-[28px] font-bold leading-[34px] max-900:text-[24px] max-900:leading-[32px]">
-                  ბეტონის ტიპები და მათი გამოყენება
+                  {t("betonTypes")}
                 </h2>
                 <p className="text-[#FFFFFF] leading-[26px] mt-[21px] max-900:text-[14px] max-900:leading-[20px]">
                   შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და
@@ -365,7 +367,7 @@ const Header: React.FC = () => {
                 href="/blog"
                 className="group bg-[#D6D6D6] flex justify-center items-center rounded-[10px] w-[240px] h-[54px] border-[1px] border-solid border-[#D6D6D6] hover:bg-primary transition-colors text-sm text-darkPrimary hover:text-white max-900:w-full max-1100:mt-[10px] max-900:mt-[0px]"
               >
-                სრულად ნახვა
+                {t("viewAll")}
                 <Arrow className="w-2 object-cover ml-3 group-hover:filter group-hover:brightness-0 group-hover:invert" />
               </Link>
             </aside>
