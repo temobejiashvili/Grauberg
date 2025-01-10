@@ -5,7 +5,6 @@ import AnimatedBox from "@/components/animatedBox/AnimatedBox";
 import ScrollBox from "@/components/scrollBox/ScrollBox";
 import RedBoxComponent from "./RedBoxComponent";
 
-// Dynamic imports to reduce initial JavaScript payload
 const CarouselComponent = dynamic(
   () => import("@/components/carousel/CarouselComponent"),
   {
@@ -30,12 +29,10 @@ import ShopIcon from "@/public/assets/icons/shopIcon.svg";
 const Product = () => {
   return (
     <div className="pt-[147px]">
-      {/* Header Section */}
       <section className="flex gap-14 max-1100:flex-col-reverse max-1100:gap-40">
         <ScrollBox />
         <RedBoxComponent />
         <div className="flex flex-col gap-12 max-w-[724px] max-1100:px-6">
-          {/* Animated Header Content */}
           <AnimatedBox isFadeIn={false}>
             <div>
               <h3 className="font-bold text-44 text-darkPrimary pb-6 break-words max-1100:text-28">
@@ -54,7 +51,6 @@ const Product = () => {
             </div>
           </AnimatedBox>
 
-          {/* Highlight Box */}
           <AnimatedBox isFadeIn={false}>
             <div className="flex flex-col gap-12 border border-stroke h-[237px] rounded-3xl py-5 px-8 max-1100:h-auto">
               <span className="bg-black flex items-center justify-center w-[58px] h-[58px] rounded-full">
@@ -74,7 +70,6 @@ const Product = () => {
         </div>
       </section>
 
-      {/* Usage Section */}
       <LoaderComponent>
         <div className="bg-gradient-to-t from-white to-gray-100">
           <div className="flex flex-col items-center w-full gap-7 pt-11">
@@ -96,15 +91,12 @@ const Product = () => {
         </div>
       </LoaderComponent>
 
-      {/* Calculator Section */}
       <div className="w-full flex justify-center mb-40 max-1100:px-6">
         <CalculatorComponent />
       </div>
 
-      {/* Advantages Section */}
       <AdvantagesCardComponent />
 
-      {/* Footer Section */}
       <div className="w-full bg-backgroundGrey h-[140px] rounded-b-60 absolute"></div>
     </div>
   );
