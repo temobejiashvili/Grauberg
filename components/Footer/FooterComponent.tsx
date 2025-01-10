@@ -27,7 +27,7 @@ const navigation = [
 export default function FooterComponent() {
   const { t } = useTranslation("common");
   const pathname = usePathname();
-  const hasNotPadding = ["/en/product"].includes(pathname);
+  const hasNotPadding = ["/product"].includes(pathname);
 
   return (
     <footer
