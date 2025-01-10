@@ -1,3 +1,6 @@
+"use client";
+import { useTranslation } from "react-i18next";
+
 type valueType = {
   title: string;
   unit: string;
@@ -6,6 +9,7 @@ type valueType = {
 };
 
 const ValueInput = ({ title, unit, value, onChange }: valueType) => {
+  const { t } = useTranslation();
   return (
     <div
       className="flex items-center border border-gray-300
@@ -15,7 +19,7 @@ const ValueInput = ({ title, unit, value, onChange }: valueType) => {
       {/* Left Side */}
       <div className="flex flex-col justify-center px-4 py-[7px] w-[205px] max-1100:w-full">
         <label className="text-darkSecondary font-normal text-[12px] leading-[20px] text-xs">
-          {title}
+          {t(title)}
         </label>
         <input
           type="number"
@@ -32,7 +36,7 @@ const ValueInput = ({ title, unit, value, onChange }: valueType) => {
         className="flex justify-center items-center w-[59px] font-normal
        text-darkPrimary text-[14px] leading-[20px]"
       >
-        {unit}.
+        {t(unit)}.
       </div>
     </div>
   );

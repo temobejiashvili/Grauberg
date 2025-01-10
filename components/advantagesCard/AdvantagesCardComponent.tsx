@@ -5,6 +5,7 @@ import AdvantagesInfo from "./AdvantagesInfo";
 import AnimatedBox from "../animatedBox/AnimatedBox";
 
 import adventagesImage from "../../public/images/advantagesImage.png";
+import { TranslateText } from "../translateText/TranslateText";
 
 const AdvantagesCardComponent = () => {
   return (
@@ -24,30 +25,21 @@ const AdvantagesCardComponent = () => {
       <div className="pt-[47px] pl-[54px] max-600:pl-[22px] max-600:pr-[22px]">
         <AnimatedBox isFadeIn>
           <h1 className="font-bold max-w-[672px] text-36 mb-[35px] text-darkPrimary opacity-0 animate-fadeIn">
-            რა უპირატესობები აქვს ჩვენს ცემენტს
+            <TranslateText text="cementAdventages" />
           </h1>
         </AnimatedBox>
         <AnimatedBox isFadeIn={false}>
           <div className="bg-white rounded-30 max-w-[621px] w-full p-[30px]">
             <AdvantagesInfo
-              title={"მაღალი ხარისხი"}
-              info={
-                "ჩვენი პროდუქცია საერთაშორისო სტანდარტების შესაბამისად გახლავთ დამზადებული, რაც მასალების გამძლეობასა და საიმედოობას უზრუნველყოფს."
-              }
+              title={"highQuality"}
+              info={"internationalStandards"}
             />
             <div className="w-full bg-stroke h-[1px] my-[25px]" />
-            <AdvantagesInfo
-              title={"გამძლეობა"}
-              info={
-                "გრაუბერგის ცემენტი და ბეტონი მაღალი გამძლეობითა და ექსტრემალურ კლიმატურ პირობებთან წინააღმდეგობის უნარით ხასიათდება."
-              }
-            />
+            <AdvantagesInfo title={"endurance"} info={"extremeClimatic"} />
             <div className="w-full bg-stroke h-[1px] my-[25px]" />
             <AdvantagesInfo
-              title={"ეკოლოგიური სტანდარტები"}
-              info={
-                "ჩვენი პროდუქცია შეესაბამება ეკოლოგიური სტანდარტების მოთხოვნებს, რაც იმას ნიშნავს, რომ ის უსაფრთხოა როგორც გარემოსთვის, ასევე მომხმარებლისთვის."
-              }
+              title={"ecologicStandards"}
+              info={"ecologicStandardsInfo"}
             />
           </div>
         </AnimatedBox>

@@ -1,14 +1,27 @@
+import { i18nRouter } from "next-i18n-router";
+import i18nConfig from "./i18nConfig";
 import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(request: NextRequest) {
-  const url = request.nextUrl.clone();
+  const { pathname } = request.nextUrl;
+  const defaultLocale = i18nConfig.defaultLocale; // "ge"
 
-  // Inject pathname into the headers for server-side access
-  url.searchParams.set("pathname", url.pathname);
+  // Handle root URL `/`
+  if (pathname === "/") {
+    const newUrl = request.nextUrl.clone();
+    newUrl.pathname = "/";
+    newUrl.searchParams.set("locale", defaultLocale);
+    return NextResponse.rewrite(newUrl);
+  } else {
+    const newUrl = request.nextUrl.clone();
+    newUrl.searchParams.set("locale", defaultLocale);
+    return NextResponse.rewrite(newUrl);
+  }
 
-  return NextResponse.rewrite(url);
+  // return i18nRouter(request, i18nConfig); // Pass to i18nRouter for further handling
 }
 
+// Apply middleware only to app-specific routes
 export const config = {
-  matcher: "/:path*", // Apply middleware to all app routes
+  matcher: ["/((?!api|static|.*\\..*|_next).*)"], // Apply only to app-specific routes
 };

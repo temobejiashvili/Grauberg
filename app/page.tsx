@@ -4,8 +4,9 @@ import ProductCardComponent from "@/components/productCard/ProductCardComponent"
 import "./globals.css";
 import AboutCard from "@/components/aboutCard/AboutCard";
 import LoaderComponent from "@/components/loaderComponent/LoaderComponent";
+import { TranslateText } from "@/components/translateText/TranslateText";
 
-const MainPage = () => {
+const Home = () => {
   return (
     <>
       {/* Content when loading is finished */}
@@ -15,7 +16,7 @@ const MainPage = () => {
         </div>
         <div className="mt-[632px] flex flex-col gap-[125px] max-900:mt-[860px]">
           <h2 className="text-[44px] font-bold leading-[56px] text-center text-[#100F0F] ">
-            ჩვენი პროდუქტი
+            <TranslateText text={"ourProduct"} />
           </h2>
           <LoaderComponent>
             <div className="flex justify-center items-center gap-[46px] max-900:flex-col max-900:gap-[42px]">
@@ -31,4 +32,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default Home;

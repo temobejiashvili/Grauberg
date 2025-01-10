@@ -1,4 +1,5 @@
 import ShopIcon from "../../public/assets/shopIcon.svg";
+import { TranslateText } from "../translateText/TranslateText";
 
 type advantagesInfoType = {
   title: string;
@@ -13,9 +14,11 @@ const AdvantagesInfo = ({ title, info }: advantagesInfoType) => {
       </div>
       <div className="pl-[29px]">
         <h1 className="font-bold text-2xl pb-[10px] text-darkPrimary">
-          {title}
+          <TranslateText text={title} />
         </h1>
-        <p className="text-darkPrimary">{info}</p>
+        <p className="text-darkPrimary">
+          <TranslateText text={info} />
+        </p>
       </div>
     </div>
   );
