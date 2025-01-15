@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import AdvantagesCardComponent from "@/components/advantagesCard/AdvantagesCardComponent";
 import AnimatedBox from "@/components/animatedBox/AnimatedBox";
 import ScrollBox from "@/components/scrollBox/ScrollBox";
-import RedBoxComponent from "./RedBoxComponent";
+import RedBoxComponent from "../RedBoxComponent";
 
 const CarouselComponent = dynamic(
   () => import("@/components/carousel/CarouselComponent"),

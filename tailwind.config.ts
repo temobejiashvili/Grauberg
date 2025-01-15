@@ -11,6 +11,12 @@ const config: Config = {
       backgroundColor: {
         "black-opacity-60": "rgba(0, 0, 0, 0.6)",
       },
+      borderColor: {
+        triangle: "transparent transparent #ffffff transparent",
+      },
+      borderWidth: {
+        triangle: "0 13px 26px 13px",
+      },
       height: {
         "513": "513px",
         "300": "300px",
