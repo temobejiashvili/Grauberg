@@ -8,8 +8,6 @@ const AboutCardComponent = dynamic(
   () => import("@/components/aboutCardComponent/AboutCardComponent")
 );
 
-import Card from "@/components/card";
-
 type ScrollCardData = {
   title: string;
   text: string;
@@ -32,32 +30,23 @@ const scrollCardData: ScrollCardData[] = [
 
 const AboutUs = () => {
   return (
-    // <section className="flex flex-col gap-16 pt-24 h-full relative">
-    //   <AboutCardComponent
-    //     title="გრაუბერგის შესახებ"
-    //     details={aboutUsContent.about}
-    //   />
-    //   <LoaderComponent>
-    //     <div>
-    //       <AboutCardComponent
-    //         title="გრაუბერგის მისია"
-    //         details={aboutUsContent.mission}
-    //       />
-    //     </div>
-    //     <AboutCardComponent
-    //       title="გრაუბერგის ხედვაა"
-    //       details={aboutUsContent.vision}
-    //     />
-    //     <div className="absolute inset-x-0 bottom-[-159px] h-40 bg-white rounded-b-lg"></div>
-    //   </LoaderComponent>
-    // </section>
-    <>
-      <main className="mt-[50px] mb-[100px]">
-        {scrollCardData.map((data, index) => (
-          <Card key={index} {...data} />
-        ))}
-      </main>
-    </>
+    <section className="flex flex-col gap-16 pt-24 h-full relative">
+      <AboutCardComponent
+        title="გრაუბერგის შესახებ"
+        details={aboutUsContent.about}
+      />
+      <AboutCardComponent
+        title="გრაუბერგის მისია"
+        details={aboutUsContent.mission}
+      />
+      <LoaderComponent>
+        <AboutCardComponent
+          title="გრაუბერგის ხედვაა"
+          details={aboutUsContent.vision}
+        />
+        <div className="absolute inset-x-0 bottom-[-159px] h-40 bg-white rounded-b-lg"></div>
+      </LoaderComponent>
+    </section>
   );
 };
 

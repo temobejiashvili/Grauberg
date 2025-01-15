@@ -14,13 +14,15 @@ import { useTranslation } from "react-i18next";
 const NAV_LINKS = [
   { href: "/", label: "home" },
   { href: "/about-us", label: "about" },
-  { href: "/product", label: "products" },
+  { href: "/product/cement", label: "products" },
   { href: "/blog", label: "blog" },
   { href: "/faq", label: "FAQ" },
 ];
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isProductPopupOpen, setIsProductPopupOpen] = useState(false);
+  const [isProductDropDownOpen, setIsProductDropDownOpen] = useState(false);
   const pathname = usePathname();
   const { t } = useTranslation();
 
@@ -29,10 +31,27 @@ const Header: React.FC = () => {
   }, [pathname]);
 
   const AboutUsCover = ["/about-us"].includes(pathname);
-  const isWhite = ["/contact", "/blog", "/product"].includes(pathname);
-  const whiteOverlay = ["/product"].includes(pathname);
+  const isWhite = [
+    "/contact",
+    "/blog",
+    "/product/cement",
+    "/product/concrete",
+  ].includes(pathname);
+  const whiteOverlay = ["/product/cement", "/product/concrete"].includes(
+    pathname
+  );
   const cover = ["/faq"].includes(pathname);
   const catalog = ["/blog/catalog"].includes(pathname);
+
+  const handleProductMouseEnter = () => setIsProductPopupOpen(true);
+
+  const handleClickOutside = () => {
+    setIsProductPopupOpen(false);
+  };
+
+  const handleProductDropDown = () => {
+    setIsProductDropDownOpen((prev) => !prev);
+  };
 
   const { setActiveSection } = useScrollContext();
   const { ref: headerRef, inView: isHeaderInView } = useInView({
@@ -61,7 +80,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header>
+    <header onClick={handleClickOutside}>
       <div
         className={`w-full flex justify-between items-center px-[120px] py-[32.14px] z-[100] ${
           isOpen
@@ -124,26 +143,102 @@ const Header: React.FC = () => {
 
         <div className={`max-900:hidden ${isOpen ? "hidden" : ""}`}>
           <ul className="flex justify-center items-center gap-[36px] whitespace-nowrap max-1250:gap-[22px] px-[20px]">
-            {NAV_LINKS.map((link, index) => (
-              <li key={index}>
-                <Link
-                  href={{ pathname: link.href }}
-                  replace={true}
-                  locale={false}
-                  className={`${
-                    !isHeaderImageInView || isWhite
-                      ? "text-[#100F0F]"
-                      : "text-[#FFFFFF]"
-                  } ${
-                    pathname === link.href
-                      ? "border-solid border-b-[1px] border-[#D6D6D6] pb-[7px]"
-                      : "hover:border-solid hover:border-b-[1px] hover:border-[#D6D6D6] hover:pb-[7px]"
-                  }`}
+            {NAV_LINKS.map((link, index) =>
+              link.label === "products" ? (
+                <li
+                  key={index}
+                  onMouseEnter={handleProductMouseEnter}
+                  className="relative"
                 >
-                  {t(link.label)}
-                </Link>
-              </li>
-            ))}
+                  <span
+                    className={`cursor-pointer ${
+                      !isHeaderImageInView || isWhite
+                        ? "text-[#100F0F]"
+                        : "text-[#FFFFFF]"
+                    } ${
+                      pathname === link.href
+                        ? "border-solid border-b-[1px] border-[#D6D6D6] pb-[7px]"
+                        : "hover:border-solid hover:border-b-[1px] hover:border-[#D6D6D6] hover:pb-[7px]"
+                    }`}
+                  >
+                    {t(link.label)}
+                  </span>
+                  {isProductPopupOpen && (
+                    <div
+                      className="absolute top-[55px] mt-2 left-[-224px]
+                    bg-white shadow-lg rounded-lg p-4
+                      z-50 flex gap-4 w-[556px] h-[220px]
+                      border border-gray-300"
+                    >
+                      <div
+                        className="absolute top-[-15px] left-1/2
+                       transform -translate-x-1/2 w-0 h-0 border-[0,13px,26px,13px]
+                       border-triangle border-solid rotate-0"
+                      />
+
+                      <Link
+                        href="/product/cement"
+                        replace={true}
+                        locale={false}
+                        className="flex flex-col items-center justify-center w-1/2 p-4 border-r border-gray-300"
+                      >
+                        <Image
+                          src="/images/cement.png"
+                          alt="Cement"
+                          width={65}
+                          height={98}
+                          className="mb-2"
+                        />
+                        <span className="text-[16px] leading-[26px] font-medium text-darkPrimary">
+                          {t("portlandcement")}
+                        </span>
+                      </Link>
+
+                      <Link
+                        href="/product/concrete"
+                        replace={true}
+                        locale={false}
+                        className="flex flex-col items-center justify-center w-1/2 p-4"
+                      >
+                        <Image
+                          src="/assets/graubergTruck.gif"
+                          alt="Concrete"
+                          width={190}
+                          height={120}
+                          className="mb-2"
+                        />
+                        <span
+                          className="text-[16px] leading-[26px]
+                         font-medium text-darkPrimary
+                         max-w-[226px]"
+                        >
+                          {t("highFirmness")}
+                        </span>
+                      </Link>
+                    </div>
+                  )}
+                </li>
+              ) : (
+                <li key={index}>
+                  <Link
+                    href={{ pathname: link.href }}
+                    replace={true}
+                    locale={false}
+                    className={`${
+                      !isHeaderImageInView || isWhite
+                        ? "text-[#100F0F]"
+                        : "text-[#FFFFFF]"
+                    } ${
+                      pathname === link.href
+                        ? "border-solid border-b-[1px] border-[#D6D6D6] pb-[7px]"
+                        : "hover:border-solid hover:border-b-[1px] hover:border-[#D6D6D6] hover:pb-[7px]"
+                    }`}
+                  >
+                    {t(link.label)}
+                  </Link>
+                </li>
+              )
+            )}
           </ul>
         </div>
 
@@ -159,28 +254,66 @@ const Header: React.FC = () => {
               isOpen ? "max-900:flex" : "hidden"
             }`}
           >
-            {NAV_LINKS.map((link, index) => (
-              <li key={index} className="flex justify-between items-center">
-                <Link
-                  href={link.href}
-                  className={`text-[#FFFFFF] text-[20px] font-medium leading-[37px] ${
-                    pathname === link.href
-                      ? "border-solid border-b-[1px] border-[#D6D6D6] "
-                      : ""
-                  }`}
-                  onClick={closeMenu}
+            {NAV_LINKS.map((link, index) =>
+              link.label === "products" ? (
+                <li
+                  key={index}
+                  onClick={handleProductDropDown}
+                  className="relative"
                 >
-                  {link.label}
-                </Link>
-                <Image
-                  src="/assets/arrowRight.svg"
-                  alt="Logo"
-                  width={17}
-                  height={1}
-                  className={`${isOpen ? "block" : "hidden"}`}
-                />
-              </li>
-            ))}
+                  <span
+                    className={`text-[#FFFFFF] text-[20px] font-medium leading-[37px]`}
+                  >
+                    {t(link.label)}
+                  </span>
+                  {isProductDropDownOpen && (
+                    <div className="flex flex-col">
+                      <Link
+                        href={"/product/cement"}
+                        className={`text-[#FFFFFF] text-[20px] font-medium leading-[37px] ${
+                          pathname === "/product/cement"
+                            ? "border-solid border-b-[1px] border-[#D6D6D6] "
+                            : ""
+                        }`}
+                      >
+                        {t("cement")}
+                      </Link>
+                      <Link
+                        href={"/product/concrete"}
+                        className={`text-[#FFFFFF] text-[20px] font-medium leading-[37px] ${
+                          pathname === "/product/concrete"
+                            ? "border-solid border-b-[1px] border-[#D6D6D6] "
+                            : ""
+                        }`}
+                      >
+                        {t("concrete")}
+                      </Link>
+                    </div>
+                  )}
+                </li>
+              ) : (
+                <li key={index} className="flex justify-between items-center">
+                  <Link
+                    href={link.href}
+                    className={`text-[#FFFFFF] text-[20px] font-medium leading-[37px] ${
+                      pathname === link.href
+                        ? "border-solid border-b-[1px] border-[#D6D6D6] "
+                        : ""
+                    }`}
+                    onClick={closeMenu}
+                  >
+                    {t(link.label)}
+                  </Link>
+                  <Image
+                    src="/assets/arrowRight.svg"
+                    alt="Logo"
+                    width={17}
+                    height={1}
+                    className={`${isOpen ? "block" : "hidden"}`}
+                  />
+                </li>
+              )
+            )}
           </ul>
           <div className="flex items-center justify-center gap-[22px] max-900:flex-col max-900:gap-[87px] max-900:w-full max-1100:gap-[10px]">
             <Link
