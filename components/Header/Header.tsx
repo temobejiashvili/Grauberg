@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { useScrollContext } from "@/components/context/ScrollContext";
 import { LangSwitcher } from "../LangSwitcher/LangSwitcher";
@@ -15,12 +15,21 @@ const NAV_LINKS = [
   { href: "/", label: "home" },
   { href: "/about-us", label: "about" },
   { href: "/product", label: "products" },
-  { href: "/blog", label: "blog" },
+  {
+    href: "#",
+    label: "blog",
+    subLinks: [
+      { href: "/blog", label: "blog" },
+      { href: "/blog/catalog", label: "catalog" },
+    ],
+  },
   { href: "/faq", label: "FAQ" },
 ];
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const dropdownRef = useRef<HTMLUListElement>(null); // Reference for the dropdown
   const pathname = usePathname();
   const { t } = useTranslation();
 
@@ -58,7 +67,28 @@ const Header: React.FC = () => {
 
   const closeMenu = () => {
     setIsOpen(false);
+    setActiveDropdown(null);
   };
+
+  const toggleDropdown = (label: string) => {
+    setActiveDropdown(activeDropdown === label ? null : label); // Toggle dropdown
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setActiveDropdown(null); // Close the dropdown on outside click
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
 
   return (
     <header>
@@ -85,7 +115,6 @@ const Header: React.FC = () => {
                 alt="Logo"
                 width={179}
                 height={23.73}
-                // className={`${isOpen ? "hidden" : "block"} `}
                 className={`${
                   !isHeaderImageInView || isWhite || isOpen ? "hidden" : "block"
                 }`}
@@ -95,7 +124,6 @@ const Header: React.FC = () => {
                 alt="Logo"
                 width={160}
                 height={21.21}
-                // className={`${isOpen ? "max-900:block" : ""} hidden`}
                 className={`${
                   !isHeaderImageInView || isWhite || isOpen ? "block" : "hidden"
                 }`}
@@ -111,7 +139,6 @@ const Header: React.FC = () => {
             className={`${isOpen ? "" : "max-900:block"} hidden`}
             onClick={openMenu}
           />
-
           <Image
             src="/assets/xMark.svg"
             alt="Logo"
@@ -125,9 +152,9 @@ const Header: React.FC = () => {
         <div className={`max-900:hidden ${isOpen ? "hidden" : ""}`}>
           <ul className="flex justify-center items-center gap-[36px] whitespace-nowrap max-1250:gap-[22px] px-[20px]">
             {NAV_LINKS.map((link, index) => (
-              <li key={index}>
+              <li key={index} className="relative group">
                 <Link
-                  href={{ pathname: link.href }}
+                  href={link.href}
                   replace={true}
                   locale={false}
                   className={`${
@@ -137,11 +164,30 @@ const Header: React.FC = () => {
                   } ${
                     pathname === link.href
                       ? "border-solid border-b-[1px] border-[#D6D6D6] pb-[7px]"
-                      : "hover:border-solid hover:border-b-[1px] hover:border-[#D6D6D6] hover:pb-[7px]"
+                      : "hover:border-solid hover:border-b-[1px] hover:border-[#ee2e24] hover:pb-[7px]"
                   }`}
                 >
                   {t(link.label)}
                 </Link>
+
+                {link.subLinks && (
+                  <ul className="absolute top-[40px] left-0 w-[200px] py-[5px] bg-[#FFF] rounded-[10px] shadow-md opacity-0 group-hover:opacity-100 group-hover:visible transition-opacity duration-200 z-10">
+                    {link.subLinks.map((subLink, subIndex) => (
+                      <li
+                        key={subIndex}
+                        className="border-b border-gray-200 last:border-0"
+                      >
+                        <Link
+                          href={subLink.href}
+                          className="block px-[10px] py-1 hover:font-semibold text-black-opacity"
+                          onClick={closeMenu}
+                        >
+                          {t(subLink.label)}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
           </ul>
@@ -155,30 +201,82 @@ const Header: React.FC = () => {
           }`}
         >
           <ul
+            ref={dropdownRef}
             className={`w-full flex flex-col gap-[30px]  ${
               isOpen ? "max-900:flex" : "hidden"
             }`}
           >
             {NAV_LINKS.map((link, index) => (
-              <li key={index} className="flex justify-between items-center">
-                <Link
-                  href={link.href}
-                  className={`text-[#FFFFFF] text-[20px] font-medium leading-[37px] ${
-                    pathname === link.href
-                      ? "border-solid border-b-[1px] border-[#D6D6D6] "
-                      : ""
-                  }`}
-                  onClick={closeMenu}
-                >
-                  {link.label}
-                </Link>
-                <Image
-                  src="/assets/arrowRight.svg"
-                  alt="Logo"
-                  width={17}
-                  height={1}
-                  className={`${isOpen ? "block" : "hidden"}`}
-                />
+              <li key={index} className="flex flex-col">
+                {link.subLinks ? (
+                  <>
+                    <div
+                      className="flex justify-between items-center cursor-pointer"
+                      onClick={() =>
+                        setActiveDropdown(
+                          activeDropdown === link.label ? null : link.label
+                        )
+                      }
+                    >
+                      <span
+                        className={`text-[#FFFFFF] text-[20px] font-medium leading-[37px] ${
+                          pathname === link.href
+                            ? "border-solid border-b-[1px] border-[#D6D6D6]"
+                            : ""
+                        }`}
+                      >
+                        {t(link.label)}
+                      </span>
+                      <Image
+                        src="/assets/arrowRight.svg"
+                        alt="Expand"
+                        width={17}
+                        height={1}
+                        className={`${
+                          activeDropdown === link.label ? "rotate-90" : ""
+                        } transition-transform`}
+                      />
+                    </div>
+                    {activeDropdown === link.label && (
+                      <ul className="mt-2 pl-4">
+                        {link.subLinks.map((subLink, subIndex) => (
+                          <li key={subIndex}>
+                            <Link
+                              href={subLink.href}
+                              className="text-[#D6D6D6] text-[18px] font-medium leading-[30px]"
+                              onClick={closeMenu}
+                            >
+                              {t(subLink.label)}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </>
+                ) : (
+                  <div className="flex justify-between items-center cursor-pointer">
+                    <Link
+                      href={link.href}
+                      className={`text-[#FFFFFF] text-[20px] font-medium leading-[37px] ${
+                        pathname === link.href
+                          ? "border-solid border-b-[1px] border-[#D6D6D6]"
+                          : ""
+                      }`}
+                      onClick={closeMenu}
+                    >
+                      {t(link.label)}
+                    </Link>
+                    <Image
+                      src="/assets/arrowRight.svg"
+                      alt="Expand"
+                      width={17}
+                      height={1}
+                      className={`${
+                        activeDropdown === link.label ? "rotate-90" : ""
+                      } transition-transform`}
+                    />
+                  </div>
+                )}
               </li>
             ))}
           </ul>

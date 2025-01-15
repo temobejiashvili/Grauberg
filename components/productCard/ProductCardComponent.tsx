@@ -2,16 +2,23 @@ import React from "react";
 import Image from "next/image";
 import AnimatedBox from "../animatedBox/AnimatedBox";
 import Link from "next/link";
+import { TranslateText } from "../translateText/TranslateText";
 
 type ProductCardProps = {
   isCement?: boolean;
 };
 
 const ProductCardComponent = ({ isCement }: ProductCardProps) => {
-  const title = isCement ? "პორტლანდცემენტი" : "მაღალი სიმტკიცის ბეტონი";
-  const info = isCement
-    ? "ყველაზე გავრცელებული ცემენტის ტიპი, რომელიც მრავალ სამშენებლო პროექტში გამოიყენება."
-    : "აქვს განსაკუთრებული გამძლეობა და გამოიყენება მრავალ ინფრასტრუქტურულ პროქტებში";
+  const title = isCement ? (
+    <TranslateText text="portlandcement" />
+  ) : (
+    <TranslateText text="Duracon" />
+  );
+  const info = isCement ? (
+    <TranslateText text="UniCem" />
+  ) : (
+    <TranslateText text="DuraBuild" />
+  );
 
   return (
     <AnimatedBox isFadeIn={true}>

@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Arrow from "../../public/assets/arrow.svg";
 import { BiBorderRadius } from "react-icons/bi";
+import { TranslateText } from "../translateText/TranslateText";
 
 const AboutCard: React.FC = () => {
   return (
@@ -17,21 +18,18 @@ const AboutCard: React.FC = () => {
         </section>
         <section className="flex flex-col gap-[32px] pt-[62px] pb-[84px] pr-[56px] pl-[61px] max-1250:px-[30px] max-1250:pb-[60px] max-1100:gap-[25px] max-1100:pb-[30px] max-1100:px-[35px] max-900:px-[19px] max-900:py-[27px] max-900:gap-[30px]">
           <h2 className="text-[44px] max-900:text-[28px] max-1100:text-[37px] text-[#100F0F] font-bold ">
-            რა არის <span className="text-[#EE2E24]">გრაუბერგი?</span>
+            <TranslateText text="what" />
+            <span className="text-[#EE2E24]">
+              <TranslateText text="grauberg" />
+            </span>
           </h2>
           <div className="flex flex-col justify-between h-[260px] max-w-[571px] max-1250:h-[300px] max-1100:h-[355px] max-900:h-[300px] max-w-900:w-[327px]">
             <p className="text-[#5C5C5C] leading-[26px] max-900:text-[14px] max-900:leading-[20px]">
-              სამშენებლო მასალების ქართულ ბაზარზე გრაუბერგს მრავალი წელია,
-              მნიშვნელოვანი მოთამაშის როლი აქვს. ცემენტის ქარხანა, რომელიც ქალაქ
-              ზუგდიდში მდებარეობს, უკვე დიდი ხანია, მომხმარებელს უახლესი
-              ტექნოლოგიით დამზადებულ უმაღლესი ხარისხის ცემენტსა და ბეტონს
-              სთავაზობს, ბოლო პერიოდში განხორციელებუული რებრენდინგის შემდგომ კი
-              ის გრაუბერგის სახელით პოზიციონირებს.
+              <TranslateText text="graubergStory" />
             </p>
 
             <p className="text-[#5C5C5C] leading-[26px] max-900:text-[14px] max-900:leading-[20px]">
-              კონკურენტულ გარემოში თავის დამკვიდრების მიზნით, გრაუბერგის
-              პროდუქციას ობიექტურად საუკეთესო ფასი აქვს.
+              <TranslateText text="aboutPrice" />
             </p>
           </div>
 
@@ -39,7 +37,7 @@ const AboutCard: React.FC = () => {
             href="/blog"
             className="group flex justify-center items-center rounded-[10px] w-[240px] h-[54px] border-[1px] border-solid border-[#D6D6D6] hover:bg-primary transition-colors text-sm text-darkPrimary hover:text-white max-900:w-full max-1100:mt-[10px]"
           >
-            სრულად ნახვა
+            <TranslateText text="viewAll" />
             <Arrow className="w-2 object-cover ml-3 group-hover:filter group-hover:brightness-0 group-hover:invert" />
           </a>
         </section>
