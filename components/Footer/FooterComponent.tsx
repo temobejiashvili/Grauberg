@@ -8,20 +8,20 @@ import { usePathname } from "next/navigation";
 
 const navigation = [
   {
-    name: "მთავარი",
+    name: "home",
     url: "/",
   },
   {
-    name: "ჩვენს შესახებ",
+    name: "about",
     url: "about-us",
   },
-  { name: "პროდუქტი", url: "/product" },
+  { name: "products", url: "/product" },
 
-  { name: "ბლოგი", url: "/blog" },
+  { name: "blog", url: "/blog" },
 
-  { name: "ხშირად დასმული კითხვები", url: "/faq" },
+  { name: "frequentlyAskedQuestions", url: "/faq" },
 
-  { name: "კონტაქტი", url: "/contact" },
+  { name: "contact", url: "/contact" },
 ];
 
 export default function FooterComponent() {
@@ -40,7 +40,6 @@ export default function FooterComponent() {
         max-1100:flex-col max-1100:items-center
         max-1100:pt-[139px] max-1100:pl-0"
         >
-          {/* Logo and Social Media */}
           <div
             className="flex flex-col items-center md:items-start mb-8 md:mb-0
           max-1100:mb-16"
@@ -82,9 +81,8 @@ export default function FooterComponent() {
             </div>
           </div>
 
-          {/* Navigation Links */}
           <div className="md:flex-row text-white text-sm">
-            <h3 className="font-bold text-20 mb-3">{t("ნავიგაცია")}</h3>
+            <h3 className="font-bold text-20 mb-3">{t("navigation")}</h3>
             <div className="flex">
               <div className="flex flex-col gap-[10px] mr-[34px]">
                 {navigation.map((nav, i) => (
@@ -97,7 +95,7 @@ export default function FooterComponent() {
                       href={nav.url}
                       className="hover:text-red-600 font-normal text-stroke text-sm ml-[5px]"
                     >
-                      {nav.name}
+                      {t(nav.name)}
                     </Link>
                   </div>
                 ))}
@@ -112,7 +110,7 @@ export default function FooterComponent() {
                       href="#section5"
                       className="hover:text-red-600 text-stroke ml-[5px]"
                     >
-                      {t("წესები და პირობები")}
+                      {t("termsAndConditions")}
                     </a>
                   </div>
                   <div className="flex">
@@ -123,7 +121,7 @@ export default function FooterComponent() {
                       href="#section6"
                       className="hover:text-red-600 text-stroke ml-[5px]"
                     >
-                      {t("პერსონალური მონაცემები")}
+                      {t("rulesAndConditions")}
                     </a>
                   </div>
                 </div>

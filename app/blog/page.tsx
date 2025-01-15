@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { TranslateText } from "@/components/translateText/TranslateText";
 
 const BlogSection = dynamic(
   () => import("@/components/blogSection/BlogComponent"),
@@ -57,11 +58,13 @@ const Blog = () => {
       <div className="pt-32 mx-[268px] mb-24 max-1250:mx-48 max-1100:mx-36 max-900:mx-6">
         <header className="flex flex-col gap-4 items-start max-600:gap-5">
           <h2 className="text-black text-3xl font-bold leading-11 max-w-xl max-900:text-2xl max-900:leading-8 max-900:max-w-xs">
-            ბეტონის ტიპები და მათი გამოყენება
+            <TranslateText text="betonTypes" />
           </h2>
           <div className="w-full flex justify-between items-center max-600:flex-col max-600:items-start max-600:gap-5">
             <aside className="flex items-center gap-8">
-              <h4 className="text-gray-600">20 მარტი 2024</h4>
+              <h4 className="text-gray-600">
+                <TranslateText text="march20" />
+              </h4>
               <div className="flex items-center gap-2">
                 <Image
                   src="/assets/icons/time.svg"
@@ -69,7 +72,9 @@ const Blog = () => {
                   width={20}
                   height={20}
                 />
-                <h4 className="text-gray-600">5 წუთი</h4>
+                <h4 className="text-gray-600">
+                  <TranslateText text="minute5" />
+                </h4>
               </div>
             </aside>
             <aside className="flex items-center gap-3">
@@ -79,10 +84,7 @@ const Blog = () => {
             </aside>
           </div>
         </header>
-
-        {/* Blog Sections */}
         <section className="mt-7 flex flex-col gap-14 max-600:gap-7">
-          {/* Featured Image */}
           <div className="max-600:max-h-80 self-center">
             <Image
               src="/assets/images/construction.png"
@@ -91,48 +93,48 @@ const Blog = () => {
               height={529}
             />
           </div>
-
-          {/* Main Blog Article */}
           <article className="flex flex-col gap-7">
             <h3 className="text-black font-bold text-xl leading-8">
-              რა არის ცემენტი და როგორ მუშაობს?
+              <TranslateText text="cementBasics" />
             </h3>
             <p className="text-gray-900 font-medium leading-7">
-              ცემენტი ერთ-ერთი ყველაზე მნიშვნელოვანი სამშენებლო მასალაა...
+              <TranslateText text="coreCement" />
             </p>
             <p className="text-gray-900 font-medium leading-7">
-              ცემენტი ფხვნილი მასალაა, რომელიც წყალთან და სხვა
-              ინგრედიენტებთან...
+              <TranslateText text="cementEssentials" />
             </p>
           </article>
-
-          {/* Secondary Articles */}
           <LoaderComponent>
             <article className="flex flex-col items-start justify-center gap-7">
               <h3 className="text-black font-bold text-xl leading-8">
-                ცემენტის ტიპები
+                <TranslateText text="cementTypes" />
               </h3>
               <p className="text-gray-900 font-medium leading-7">
-                <span className="font-bold">1. პორტლანდცემენტი:</span>{" "}
-                პორტლანდცემენტი ყველაზე ფართოდ გამოყენებადი...
-              </p>
-              <p className="text-gray-900 font-medium leading-7">
-                <span className="font-bold">2. თეთრი ცემენტი:</span> ეს არის
-                პორტლანდცემენტის მსგავსი პროდუქტი...
+                <span className="font-bold">
+                  1. <TranslateText text="portlandcement" />:
+                </span>
+                <TranslateText text="cementVarietie" />
               </p>
               <p className="text-gray-900 font-medium leading-7">
                 <span className="font-bold">
-                  3. სწრაფად გამყარებადი ცემენტი:
-                </span>{" "}
-                ცემენტის ეს ტიპი შედარებით...
+                  2. <TranslateText text="whiteCement" />:
+                </span>
+                <TranslateText text="whiteCementOverview" />
               </p>
               <p className="text-gray-900 font-medium leading-7">
-                <span className="font-bold">4. ჰიდრავლიკური ცემენტი:</span> ეს
-                ცემენტი გამოირჩევა წყალში...
+                <span className="font-bold">
+                  3. <TranslateText text="quickSetCement" />:
+                </span>
+                <TranslateText text="cementTypesExplained" />
+              </p>
+              <p className="text-gray-900 font-medium leading-7">
+                <span className="font-bold">
+                  4. <TranslateText text="hydroCem" />:
+                </span>
+                <TranslateText text="AquaCem" />
               </p>
             </article>
 
-            {/* Secondary Image */}
             <Image
               src="/assets/images/construction2.png"
               alt="Construction"
@@ -141,31 +143,25 @@ const Blog = () => {
               className="self-center"
             />
 
-            {/* Conclusion */}
             <article className="flex flex-col gap-7">
               <h3 className="text-black font-bold text-xl leading-8">
-                დასკვნა
+                <TranslateText text="conclusion" />
               </h3>
               <p className="text-gray-900 font-medium leading-7">
-                ცემენტი არის სამშენებლო მასალა, რომლის გარეშე თანამედროვე...
+                <TranslateText text="cementCore" />
               </p>
               <p className="text-gray-900 font-medium leading-7">
-                პროექტის წარმატებისთვის აუცილებელია სწორი ტიპის ცემენტის
-                შერჩევა...
+                <TranslateText text="rightCementChoice" />
               </p>
             </article>
           </LoaderComponent>
         </section>
       </div>
-
-      {/* Blog Suggestions Section */}
       <BlogSection
         needButton
         style="bg-white"
-        headline="შეიძლება ასევე დაგაინტერესოთ"
+        headline={<TranslateText text="relatedTopics" />}
       />
-
-      {/* Footer */}
       <div className="w-full bg-white h-36 rounded-b-lg absolute"></div>
     </div>
   );

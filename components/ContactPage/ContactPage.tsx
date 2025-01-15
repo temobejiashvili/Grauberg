@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import LoaderComponent from "../loaderComponent/LoaderComponent";
+import { useTranslation } from "react-i18next";
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ const ContactPage: React.FC = () => {
     note: "",
     text: "",
   });
+  const { t } = useTranslation("");
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -51,7 +53,7 @@ const ContactPage: React.FC = () => {
         <aside className="flex flex-col  gap-[77px] max-900:gap-[32px] max-900:w-[410px]">
           <div className="flex flex-col gap-[12px]">
             <h2 className="text-[#100F0F] text-[44px] leading-[56px] font-bold max-900:text-[28px] max-900:leading-[34px]">
-              კონტაქტი
+              {t("contact")}
             </h2>
             <p className="text-[#100F0F] text-[16px] leading-[26px] max-w-[522px] max-900:text-[14px] max-900:leading-[20px] max-900:max-w-[370px]">
               შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპო გრაფ
@@ -128,7 +130,7 @@ const ContactPage: React.FC = () => {
                 />
               </div>
               <a className="font-medium leading-[26px] text-[#100F0F]" href="#">
-                ქ.თბილისი ჭავჭავაძის 61ა
+                {t("address")}
               </a>
             </li>
           </ul>
@@ -153,7 +155,7 @@ const ContactPage: React.FC = () => {
                     type="text"
                     name="name"
                     className="w-[398px] max-900:w-[299px] h-[56px] border-solid border-[#D6D6D6] border-[1px] rounded-[12px] text-[#5C5C5C] px-[21px]"
-                    placeholder="სახელი, გვარი"
+                    placeholder={t("firstAndLustName")}
                     value={formData.name}
                     onChange={handleInputChange}
                   />
@@ -161,7 +163,7 @@ const ContactPage: React.FC = () => {
                     type="number"
                     name="phone"
                     className="w-[398px] max-900:w-[299px] h-[56px] border-solid border-[#D6D6D6] border-[1px] rounded-[12px] text-[#5C5C5C] px-[21px]"
-                    placeholder="ტელეფონის ნომერი"
+                    placeholder={t("phoneNumber")}
                     value={formData.phone}
                     onChange={handleInputChange}
                   />
@@ -169,14 +171,14 @@ const ContactPage: React.FC = () => {
                     type="email"
                     name="email"
                     className="w-[398px] max-900:w-[299px] h-[56px] border-solid border-[#D6D6D6] border-[1px] rounded-[12px] text-[#5C5C5C] px-[21px]"
-                    placeholder="მეილი"
+                    placeholder={t("email")}
                     value={formData.email}
                     onChange={handleInputChange}
                   />
                   <textarea
                     name="note"
                     className="w-[398px] max-900:w-[299px] h-[200px] border-solid border-[#D6D6D6] border-[1px] rounded-[12px] text-[#5C5C5C] px-[21px] py-[15px] resize-none"
-                    placeholder="კომენტარი"
+                    placeholder={t("comment")}
                     value={formData.text}
                     onChange={handleInputChange}
                   />
@@ -184,7 +186,7 @@ const ContactPage: React.FC = () => {
                     type="submit"
                     className="h-[46px] rounded-[60px] text-[#FFFFFF] bg-[#EE2E24] mt-[7px]"
                   >
-                    გაგზავნა
+                    {t("send")}
                   </button>
                 </div>
               </div>
