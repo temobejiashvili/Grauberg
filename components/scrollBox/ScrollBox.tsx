@@ -2,19 +2,22 @@
 import { useScrollContext } from "@/components/context/ScrollContext";
 import Image from "next/image";
 import CementPocket from "@/public/images/cement.png";
+import CementTruck from "@/public/assets/graubergTruck.gif";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function ScrollBox() {
   const { activeSection } = useScrollContext();
-
+  const pathname = usePathname();
   const [windowWidth, setWindowWidth] = useState(0);
+  const isCement = pathname === "/product/cement";
 
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
 
-    handleResize(); // Initialize on component mount
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
@@ -24,7 +27,7 @@ export default function ScrollBox() {
 
   const topPosition = (() => {
     if (activeSection === "header") {
-      return windowWidth <= 1100 ? "200px" : "150px";
+      return windowWidth <= 1100 || !isCement ? "200px" : "150px";
     }
     if (windowWidth <= 320) return "225%";
     if (windowWidth <= 344) return "144%";
@@ -66,10 +69,10 @@ export default function ScrollBox() {
       }}
     >
       <Image
-        src={CementPocket}
+        src={isCement ? CementPocket : CementTruck}
         alt="Cement"
-        width={is1100 ? 211 : 306}
-        height={is1100 ? 319 : 462}
+        width={is1100 ? 211 : isCement ? 306 : 380}
+        height={is1100 ? 319 : isCement ? 462 : 500}
       />
     </div>
   );

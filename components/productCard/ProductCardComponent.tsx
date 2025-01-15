@@ -22,7 +22,7 @@ const ProductCardComponent = ({ isCement }: ProductCardProps) => {
 
   return (
     <AnimatedBox isFadeIn={true}>
-      <Link href={"/product"}>
+      <Link href={isCement ? "/product/cement" : "/product/concrete"}>
         <div
           className="w-[575px] cursor-pointer relative h-[513px] 
         bg-backgroundGrey rounded-[30px] shadow-md border border-gray-200 
