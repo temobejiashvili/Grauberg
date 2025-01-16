@@ -491,7 +491,7 @@ const Header: React.FC = () => {
                 </p>
               </article>
               <Link
-                href="/blog"
+                href="/blog/article"
                 className="group bg-[#D6D6D6] flex justify-center items-center rounded-[10px] w-[240px] h-[54px] border-[1px] border-solid border-[#D6D6D6] hover:bg-primary transition-colors text-sm text-darkPrimary hover:text-white max-900:w-full max-1100:mt-[10px] max-900:mt-[0px]"
               >
                 {t("viewAll")}
