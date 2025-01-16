@@ -21,6 +21,7 @@ const Catalog = () => {
                   alt={blog.alt}
                   title={blog.title}
                   text={blog.text}
+                  url={blog.url}
                 />
               ))}
             </div>
