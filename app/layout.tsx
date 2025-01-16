@@ -1,9 +1,8 @@
 import React, { ReactNode } from "react";
-import type { Metadata } from "next";
 import FooterComponent from "@/components/Footer/FooterComponent";
 import { Noto_Sans_Georgian } from "next/font/google";
 import Header from "@/components/Header/Header";
-import { ScrollProvider } from "../components/context/ScrollContext";
+import { ScrollProvider } from "@/components/context/ScrollContext";
 import initializeTranslations from "./i18n";
 import "./globals.css";
 import { TranslationsProvider } from "@/components";
@@ -15,17 +14,18 @@ const notoGeorgian = Noto_Sans_Georgian({
 
 const i18nNamespaces = ["common"];
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Grauberg",
 };
 
 export default async function RootLayout({
   children,
-  params: { locale = "ge" },
+  params,
 }: {
   children: ReactNode;
-  params: { locale: string };
+  params: { locale?: string };
 }) {
+  const locale = params.locale || "ge";
   const { resources } = await initializeTranslations(locale, i18nNamespaces);
 
   return (
@@ -34,17 +34,17 @@ export default async function RootLayout({
         <link rel="icon" href="/images/Vector.png" />
       </head>
       <body>
-        <TranslationsProvider
-          namespaces={i18nNamespaces}
-          locale={locale}
-          resources={resources}
-        >
-          <ScrollProvider>
+        <ScrollProvider>
+          <TranslationsProvider
+            namespaces={i18nNamespaces}
+            locale={locale}
+            resources={resources}
+          >
             <Header />
             {children}
             <FooterComponent />
-          </ScrollProvider>
-        </TranslationsProvider>
+          </TranslationsProvider>
+        </ScrollProvider>
       </body>
     </html>
   );

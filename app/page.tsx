@@ -9,25 +9,26 @@ import { TranslateText } from "@/components/translateText/TranslateText";
 const Home = () => {
   return (
     <>
-      {/* Content when loading is finished */}
-      <>
-        <div className="relative">
-          <AboutCard />
-        </div>
-        <div className="mt-[632px] flex flex-col gap-[125px] max-900:mt-[860px]">
-          <h2 className="text-[44px] font-bold leading-[56px] text-center text-[#100F0F] ">
-            <TranslateText text={"ourProduct"} />
-          </h2>
-          <LoaderComponent>
-            <div className="flex justify-center items-center gap-[46px] max-900:flex-col max-900:gap-[42px]">
-              <ProductCardComponent isCement />
-              <ProductCardComponent />
-            </div>
-          </LoaderComponent>
-        </div>
-        <div className="h-24 w-full"></div>
-        <BlogSection />
-      </>
+      <div className="relative">
+        <AboutCard />
+      </div>
+
+      <section className="mt-[40rem] flex flex-col gap-[8rem] max-900:mt-[53.75rem]">
+        <h2 className="text-4xl font-bold leading-[1.3] text-center text-primary">
+          <TranslateText text="ourProduct" />
+        </h2>
+
+        <LoaderComponent>
+          <div className="flex justify-center items-center gap-12 max-900:flex-col max-900:gap-10">
+            <ProductCardComponent isCement />
+            <ProductCardComponent />
+          </div>
+        </LoaderComponent>
+      </section>
+
+      <div className="h-24"></div>
+
+      <BlogSection />
     </>
   );
 };

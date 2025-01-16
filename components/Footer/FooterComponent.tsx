@@ -5,24 +5,7 @@ import { useTranslation } from "react-i18next";
 import styles from "./footer.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-const navigation = [
-  {
-    name: "home",
-    url: "/",
-  },
-  {
-    name: "about",
-    url: "about-us",
-  },
-  { name: "products", url: "/product" },
-
-  { name: "blog", url: "/blog" },
-
-  { name: "frequentlyAskedQuestions", url: "/faq" },
-
-  { name: "contact", url: "/contact" },
-];
+import { navigation } from "@/content/navigation";
 
 export default function FooterComponent() {
   const { t } = useTranslation("common");
