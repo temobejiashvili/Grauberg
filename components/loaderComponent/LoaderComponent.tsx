@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState, useRef, ReactNode } from "react";
 
 interface LoaderComponentProps {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 const LoaderComponent: React.FC<LoaderComponentProps> = ({ children }) => {

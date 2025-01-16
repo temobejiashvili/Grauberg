@@ -9,7 +9,7 @@ export const navigation = [
   },
   { name: "products", url: "/product" },
 
-  { name: "blog", url: "/blog" },
+  { name: "blog", url: "/blog/catalog" },
 
   { name: "frequentlyAskedQuestions", url: "/faq" },
 
