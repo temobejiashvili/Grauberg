@@ -28,17 +28,13 @@ const BlogSection: React.FC<BlogProps> = ({ style, needButton, headline }) => {
       id: 2,
       image: "/images/factory.png",
       title: t("PrimeStandards"),
-      description: t(
-        "ბეტონის ქარხანა არის წარმოების ობიექტი, სადაც ბეტონი სპეციალური ტექნოლოგიით მზადდება და სხვადასხვა სამშენებლო პროე..."
-      ),
+      description: t("buildMix"),
     },
     {
       id: 3,
       image: "/images/block.png",
       title: t("CemGuide"),
-      description: t(
-        "ცცემენტის სწორად გამოყენება მშენებლობაში დიდ მნიშვნელობას ატარებს, რადგან ის განსაზღვრავს საბოლოო სტრუქტურის სიმტ..."
-      ),
+      description: t("cemStrength"),
     },
   ];
 

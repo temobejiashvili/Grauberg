@@ -52,7 +52,8 @@ const Product = () => {
               </span>
               <div>
                 <h4 className="font-bold text-2xl text-darkPrimary">
-                  80-94% კლინკერი
+                  80-94%
+                  <TranslateText text="klinker" />
                 </h4>
                 <p className="font-normal text-[16px] leading-[26px] text-darkPrimary">
                   შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპო

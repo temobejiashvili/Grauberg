@@ -30,7 +30,6 @@ const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLUListElement>(null); // Reference for the dropdown
-  const [isProductPopupOpen, setIsProductPopupOpen] = useState(false);
   const [isProductDropDownOpen, setIsProductDropDownOpen] = useState(false);
   const pathname = usePathname();
   const { t } = useTranslation();
@@ -51,12 +50,6 @@ const Header: React.FC = () => {
   );
   const cover = ["/faq"].includes(pathname);
   const catalog = ["/blog/catalog"].includes(pathname);
-
-  const handleProductMouseEnter = () => setIsProductPopupOpen(true);
-
-  const handleClickOutside = () => {
-    setIsProductPopupOpen(false);
-  };
 
   const handleProductDropDown = () => {
     setIsProductDropDownOpen((prev) => !prev);
@@ -95,7 +88,7 @@ const Header: React.FC = () => {
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node)
       ) {
-        setActiveDropdown(null); // Close the dropdown on outside click
+        setActiveDropdown(null);
       }
     };
 
@@ -106,7 +99,7 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header onClick={handleClickOutside}>
+    <header>
       <div
         className={`w-full flex justify-between items-center px-[120px] py-[32.14px] z-[100] ${
           isOpen

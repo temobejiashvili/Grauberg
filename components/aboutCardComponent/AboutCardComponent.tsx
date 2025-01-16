@@ -1,18 +1,22 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import LogoMini from "../../public/assets/logoMini.svg";
+import { useTranslation } from "react-i18next";
 
 interface AboutCardComponentType {
   title: string;
   details: string;
+  anotherParagraph?: string;
 }
 
 const AboutCardComponent: React.FC<AboutCardComponentType> = ({
   title,
   details,
+  anotherParagraph,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement | null>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -88,17 +92,22 @@ const AboutCardComponent: React.FC<AboutCardComponentType> = ({
               className="ml-3 w-full text-28 font-bold text-darkPrimary
               max-900:text-[20px] max-900:leading-[30px]"
             >
-              {title}
+              {t(title)}
             </h2>
           </div>
         </div>
       </div>
 
-      {/* Content Section */}
       <div
-        className="px-6 py-4 text-darkPrimary text-16 leading-relaxed"
-        dangerouslySetInnerHTML={{ __html: details }}
+        className="px-6 py-[47px] text-darkPrimary text-16 leading-relaxed"
+        dangerouslySetInnerHTML={{ __html: t(details) }}
       />
+      {anotherParagraph && (
+        <div
+          className="px-6 pb-[47px] text-darkPrimary text-16 leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: t(anotherParagraph) }}
+        />
+      )}
     </div>
   );
 };
