@@ -1,16 +1,27 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface BlogCardProps {
   image?: string;
   alt?: string;
   title?: string;
   text?: string;
+  url: string;
 }
 
-const BlogCard: React.FC<BlogCardProps> = ({ image, alt, title, text }) => {
+const BlogCard: React.FC<BlogCardProps> = ({
+  image,
+  alt,
+  title,
+  text,
+  url,
+}) => {
   return (
-    <div className="w-[375px] max-900:w-[370px] hover:shadow-little rounded-[16px]">
+    <Link
+      href={url}
+      className="w-[375px] max-900:w-[370px] hover:shadow-little rounded-[16px]"
+    >
       <aside className="w-full h-[292px] overflow-hidden rounded-tl-[16px] rounded-tr-[16px]">
         <Image
           src={`${image}`}
@@ -33,7 +44,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ image, alt, title, text }) => {
           {text}
         </p>
       </aside>
-    </div>
+    </Link>
   );
 };
 
