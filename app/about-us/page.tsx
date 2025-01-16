@@ -30,23 +30,23 @@ const scrollCardData: ScrollCardData[] = [
 
 const AboutUs = () => {
   return (
-    <section className="flex flex-col gap-16 pt-24 h-full relative">
-      <AboutCardComponent
-        title="გრაუბერგის შესახებ"
-        details={aboutUsContent.about}
-      />
-      <AboutCardComponent
-        title="გრაუბერგის მისია"
-        details={aboutUsContent.mission}
-      />
-      <LoaderComponent>
+    <LoaderComponent>
+      <section className="flex flex-col gap-16 pt-24 h-full relative">
+        <AboutCardComponent
+          title="გრაუბერგის შესახებ"
+          details={aboutUsContent.about}
+        />
+        <AboutCardComponent
+          title="გრაუბერგის მისია"
+          details={aboutUsContent.mission}
+        />
         <AboutCardComponent
           title="გრაუბერგის ხედვაა"
           details={aboutUsContent.vision}
         />
         <div className="absolute inset-x-0 bottom-[-159px] h-40 bg-white rounded-b-lg"></div>
-      </LoaderComponent>
-    </section>
+      </section>
+    </LoaderComponent>
   );
 };
 
