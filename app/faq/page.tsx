@@ -9,5 +9,3 @@ export default function TestPage() {
     </div>
   );
 }
-
-// <div className="relative">{/* <AboutCard /> */}</div>

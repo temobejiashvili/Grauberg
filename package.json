@@ -6,13 +6,14 @@
     "dev": "HOST=0.0.0.0 next dev -p 4444",
     "devv": "next dev -p 4444",
     "build": "next build",
-    "build:analyze": "cross-env ANALYZE=true npm run build",
+    "build:analyze": "cross-env ANALYZE=true next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@next/bundle-analyzer": "^15.1.4",
     "@next/font": "^14.2.15",
     "@tailwindcss/line-clamp": "^0.4.4",
     "framer-motion": "^11.15.0",
