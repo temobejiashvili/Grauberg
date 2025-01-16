@@ -5,7 +5,6 @@ import { useEffect, useState, useRef } from "react";
 export const useIntersectionObserver = (options: IntersectionObserverInit) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [hasTriggered, setHasTriggered] = useState(false);
 
   useEffect(() => {
     if (!ref.current) return;
@@ -14,7 +13,7 @@ export const useIntersectionObserver = (options: IntersectionObserverInit) => {
       setIsVisible(entry.isIntersecting);
     }, options);
 
-    const currentRef = ref.current; // Prevent null issues during cleanup
+    const currentRef = ref.current;
     observer.observe(currentRef);
 
     return () => {

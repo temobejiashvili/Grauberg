@@ -27,8 +27,8 @@ const AboutUs = () => {
             aboutUsContent.vision.qualityResponsibilityandGrowth
           }
         />
-        <div className="absolute inset-x-0 bottom-[-159px] h-40 bg-white rounded-b-lg"></div>
       </LoaderComponent>
+      <div className="absolute inset-x-0 bottom-[-159px] h-40 bg-white rounded-b-lg"></div>
     </section>
   );
 };

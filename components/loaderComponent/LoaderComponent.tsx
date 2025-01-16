@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState, useRef, ReactNode } from "react";
 
 interface LoaderComponentProps {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 const LoaderComponent: React.FC<LoaderComponentProps> = ({ children }) => {
@@ -14,8 +14,8 @@ const LoaderComponent: React.FC<LoaderComponentProps> = ({ children }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(false); // Simulate loading completion
-    }, 1400); // 3-second timeout
+      setIsLoading(false);
+    }, 1400);
 
     return () => clearTimeout(timer);
   }, []);

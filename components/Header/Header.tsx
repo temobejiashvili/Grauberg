@@ -16,19 +16,14 @@ const NAV_LINKS = [
   { href: "/about-us", label: "about" },
   { href: "/product/cement", label: "products" },
   {
-    href: "#",
+    href: "/blog/catalog",
     label: "blog",
-    subLinks: [
-      { href: "/blog", label: "blog" },
-      { href: "/blog/catalog", label: "catalog" },
-    ],
   },
   { href: "/faq", label: "FAQ" },
 ];
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLUListElement>(null); // Reference for the dropdown
   const [isProductDropDownOpen, setIsProductDropDownOpen] = useState(false);
   const pathname = usePathname();
@@ -41,7 +36,7 @@ const Header: React.FC = () => {
   const AboutUsCover = ["/about-us"].includes(pathname);
   const isWhite = [
     "/contact",
-    "/blog",
+    "/blog/article",
     "/product/cement",
     "/product/concrete",
   ].includes(pathname);
@@ -79,24 +74,7 @@ const Header: React.FC = () => {
 
   const closeMenu = () => {
     setIsOpen(false);
-    setActiveDropdown(null);
   };
-
-  useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setActiveDropdown(null);
-      }
-    };
-
-    document.addEventListener("mousedown", handleOutsideClick);
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, []);
 
   return (
     <header>
@@ -247,29 +225,6 @@ const Header: React.FC = () => {
                   >
                     {t(link.label)}
                   </Link>
-
-                  {link.subLinks && (
-                    <ul
-                      className="absolute top-[40px] left-0 w-[200px] py-[5px] bg-[#FFF] rounded-[10px]
-                     shadow-md opacity-0 group-hover:opacity-100
-                      group-hover:visible transition-opacity duration-200 z-[100]"
-                    >
-                      {link.subLinks.map((subLink, subIndex) => (
-                        <li
-                          key={subIndex}
-                          className="border-b border-gray-200 last:border-0"
-                        >
-                          <Link
-                            href={subLink.href}
-                            className="block px-[10px] py-1 hover:font-semibold text-black-opacity"
-                            onClick={closeMenu}
-                          >
-                            {t(subLink.label)}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
                 </li>
               )
             )}
@@ -310,6 +265,7 @@ const Header: React.FC = () => {
                             ? "border-solid border-b-[1px] border-[#D6D6D6] "
                             : ""
                         }`}
+                        onClick={closeMenu}
                       >
                         {t("cement")}
                       </Link>
@@ -320,57 +276,13 @@ const Header: React.FC = () => {
                             ? "border-solid border-b-[1px] border-[#D6D6D6] "
                             : ""
                         }`}
+                        onClick={closeMenu}
                       >
                         {t("concrete")}
                       </Link>
                     </div>
                   )}
                 </li>
-              ) : link.subLinks ? (
-                <>
-                  <div
-                    className="flex justify-between items-center cursor-pointer"
-                    onClick={() =>
-                      setActiveDropdown(
-                        activeDropdown === link.label ? null : link.label
-                      )
-                    }
-                  >
-                    <span
-                      className={`text-[#FFFFFF] text-[20px] font-medium leading-[37px] ${
-                        pathname === link.href
-                          ? "border-solid border-b-[1px] border-[#D6D6D6]"
-                          : ""
-                      }`}
-                    >
-                      {t(link.label)}
-                    </span>
-                    <Image
-                      src="/assets/arrowRight.svg"
-                      alt="Expand"
-                      width={17}
-                      height={1}
-                      className={`${
-                        activeDropdown === link.label ? "rotate-90" : ""
-                      } transition-transform`}
-                    />
-                  </div>
-                  {activeDropdown === link.label && (
-                    <ul className="mt-2 pl-4">
-                      {link.subLinks.map((subLink, subIndex) => (
-                        <li key={subIndex}>
-                          <Link
-                            href={subLink.href}
-                            className="text-[#D6D6D6] text-[18px] font-medium leading-[30px]"
-                            onClick={closeMenu}
-                          >
-                            {t(subLink.label)}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </>
               ) : (
                 <li key={index} className="flex justify-between items-center">
                   <Link
@@ -579,7 +491,7 @@ const Header: React.FC = () => {
                 </p>
               </article>
               <Link
-                href="/blog"
+                href="/blog/article"
                 className="group bg-[#D6D6D6] flex justify-center items-center rounded-[10px] w-[240px] h-[54px] border-[1px] border-solid border-[#D6D6D6] hover:bg-primary transition-colors text-sm text-darkPrimary hover:text-white max-900:w-full max-1100:mt-[10px] max-900:mt-[0px]"
               >
                 {t("viewAll")}

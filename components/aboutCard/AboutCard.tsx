@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import Arrow from "../../public/assets/arrow.svg";
-import { BiBorderRadius } from "react-icons/bi";
 import { TranslateText } from "../translateText/TranslateText";
 
 const AboutCard: React.FC = () => {
