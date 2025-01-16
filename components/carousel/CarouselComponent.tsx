@@ -15,7 +15,7 @@ const CarouselComponent = () => {
     slidesToScroll: 1,
     slidesToShow: 3.5,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 1000,
     responsive: [
       {
         breakpoint: 1024,
