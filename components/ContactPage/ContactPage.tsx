@@ -55,7 +55,7 @@ const ContactPage: React.FC = () => {
             <h2 className="text-black text-4xl font-bold max-900:text-2xl">
               {t("contact")}
             </h2>
-            <p className="text-black text-lg leading-7 max-w-lg max-900:text-sm">
+            <p className="text-black max-w-lg max-900:text-[14px] mt-[12px]">
               {t("contactDescription")}
             </p>
           </header>
