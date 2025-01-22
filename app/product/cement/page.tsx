@@ -1,40 +1,46 @@
 import React from "react";
 import dynamic from "next/dynamic";
-import AdvantagesCardComponent from "@/components/advantagesCard/AdvantagesCardComponent";
-import AnimatedBox from "@/components/animatedBox/AnimatedBox";
-import ScrollBox from "@/components/scrollBox/ScrollBox";
 import RedBoxComponent from "../RedBoxComponent";
-
-const CarouselComponent = dynamic(
-  () => import("@/components/carousel/CarouselComponent"),
-  {
-    ssr: false,
-  }
-);
-const CalculatorComponent = dynamic(
-  () => import("@/components/calculator/CalculatorComponent"),
-  {
-    ssr: false,
-  }
-);
-const LoaderComponent = dynamic(
-  () => import("@/components/loaderComponent/LoaderComponent"),
-  {
-    ssr: false,
-  }
-);
-
 import ShopIcon from "@/public/assets/icons/shopIcon.svg";
 import { TranslateText } from "@/components/translateText/TranslateText";
+
+// Dynamic Imports for Code Splitting
+const dynamicImports = {
+  ScrollBox: dynamic(() => import("@/components/scrollBox/ScrollBox"), {
+    ssr: false,
+    loading: () => <p>Loading...</p>,
+  }),
+  CarouselComponent: dynamic(
+    () => import("@/components/carousel/CarouselComponent"),
+    { ssr: false, loading: () => <p>Loading...</p> }
+  ),
+  AnimatedBox: dynamic(() => import("@/components/animatedBox/AnimatedBox"), {
+    ssr: false,
+    loading: () => <p>Loading...</p>,
+  }),
+  AdvantagesCardComponent: dynamic(
+    () => import("@/components/advantagesCard/AdvantagesCardComponent"),
+    { ssr: false, loading: () => <p>Loading...</p> }
+  ),
+  CalculatorComponent: dynamic(
+    () => import("@/components/calculator/CalculatorComponent"),
+    { ssr: false, loading: () => <p>Loading...</p> }
+  ),
+  LoaderComponent: dynamic(
+    () => import("@/components/loaderComponent/LoaderComponent"),
+    { ssr: false, loading: () => <p>Loading...</p> }
+  ),
+};
 
 const Product = () => {
   return (
     <div className="pt-[147px]">
+      {/* Product Details Section */}
       <section className="flex gap-14 max-1100:flex-col-reverse max-1100:gap-40">
-        <ScrollBox />
+        <dynamicImports.ScrollBox />
         <RedBoxComponent />
         <div className="flex flex-col gap-12 max-w-[724px] max-1100:px-6">
-          <AnimatedBox isFadeIn={false}>
+          <dynamicImports.AnimatedBox isFadeIn={false}>
             <div>
               <h3 className="font-bold text-44 text-darkPrimary pb-6 break-words max-1100:text-28">
                 <TranslateText text="portlandcement" />
@@ -43,17 +49,16 @@ const Product = () => {
                 <TranslateText text="portlandText" />
               </p>
             </div>
-          </AnimatedBox>
+          </dynamicImports.AnimatedBox>
 
-          <AnimatedBox isFadeIn={false}>
+          <dynamicImports.AnimatedBox isFadeIn={false}>
             <div className="flex flex-col gap-12 border border-stroke h-[237px] rounded-3xl py-5 px-8 max-1100:h-auto">
               <span className="bg-black flex items-center justify-center w-[58px] h-[58px] rounded-full">
                 <ShopIcon />
               </span>
               <div>
                 <h4 className="font-bold text-2xl text-darkPrimary">
-                  80-94%
-                  <TranslateText text="klinker" />
+                  80-94% <TranslateText text="klinker" />
                 </h4>
                 <p className="font-normal text-[16px] leading-[26px] text-darkPrimary">
                   შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპო
@@ -61,34 +66,36 @@ const Product = () => {
                 </p>
               </div>
             </div>
-          </AnimatedBox>
+          </dynamicImports.AnimatedBox>
         </div>
       </section>
 
-      <LoaderComponent>
-        <div className="bg-gradient-to-t from-white to-gray-100">
-          <div className="flex flex-col items-center w-full gap-7 pt-11">
-            <AnimatedBox isFadeIn={false}>
-              <h1 className="max-w-[1002px] font-bold text-44 text-darkPrimary text-center">
-                <TranslateText text="ourCementUsage" />
-              </h1>
-            </AnimatedBox>
-            <AnimatedBox isFadeIn={false}>
-              <p className="max-w-[975px] font-normal text-[16px] leading-[26px] text-darkPrimary text-center">
-                <TranslateText text="cementUsageInfo" />
-              </p>
-            </AnimatedBox>
-          </div>
-          <CarouselComponent />
+      {/* Cement Usage Section */}
+      <dynamicImports.LoaderComponent>
+        <div className="bg-gradient-to-t from-white to-gray-100 flex flex-col items-center w-full gap-7 pt-11">
+          <dynamicImports.AnimatedBox isFadeIn={false}>
+            <h1 className="max-w-[1002px] font-bold text-44 text-darkPrimary text-center">
+              <TranslateText text="ourCementUsage" />
+            </h1>
+          </dynamicImports.AnimatedBox>
+          <dynamicImports.AnimatedBox isFadeIn={false}>
+            <p className="max-w-[975px] font-normal text-[16px] leading-[26px] text-darkPrimary text-center">
+              <TranslateText text="cementUsageInfo" />
+            </p>
+          </dynamicImports.AnimatedBox>
+          <dynamicImports.CarouselComponent />
         </div>
-      </LoaderComponent>
+      </dynamicImports.LoaderComponent>
 
+      {/* Calculator Section */}
       <div className="w-full flex justify-center mb-40 max-1100:px-6">
-        <CalculatorComponent />
+        <dynamicImports.CalculatorComponent />
       </div>
 
-      <AdvantagesCardComponent />
+      {/* Advantages Section */}
+      <dynamicImports.AdvantagesCardComponent />
 
+      {/* Footer Background */}
       <div className="w-full bg-backgroundGrey h-[140px] rounded-b-60 absolute"></div>
     </div>
   );

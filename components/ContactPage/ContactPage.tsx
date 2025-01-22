@@ -1,9 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import LoaderComponent from "../loaderComponent/LoaderComponent";
+import dynamic from "next/dynamic";
 import { useTranslation } from "react-i18next";
 import { contactInfo } from "@/content/contactInfo";
+import Link from "next/link";
+
+const LoaderComponent = dynamic(
+  () => import("../loaderComponent/LoaderComponent"),
+  { ssr: false, loading: () => <p>Loading...</p> }
+);
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -32,6 +38,7 @@ const ContactPage: React.FC = () => {
 
       if (response.ok) {
         alert(t("messageSentSuccess"));
+        setFormData({ name: "", phone: "", email: "", note: "" });
       } else {
         console.error("Failed to send message:", response.statusText);
       }
@@ -58,51 +65,38 @@ const ContactPage: React.FC = () => {
                 <div className="w-14 h-14 rounded-lg bg-red-600 flex justify-center items-center shadow-md">
                   <Image src={icon} alt={alt} width={26} height={26} />
                 </div>
-                <a className="font-medium text-black leading-7" href={href}>
+                <Link className="font-medium text-black leading-7" href={href}>
                   {t(value)}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
         </aside>
-
         <aside>
           <form
             onSubmit={handleSubmit}
-            className="bg-white p-1 rounded-xl shadow-lg"
+            className="bg-white p-6 rounded-xl shadow-lg flex flex-col gap-4"
           >
-            <div className="bg-gray-100 p-6 rounded-xl">
-              <div className="border border-gray-300 rounded-lg bg-white flex flex-col gap-4 p-6">
-                {["name", "phone", "email"].map((field) => (
-                  <input
-                    key={field}
-                    type={field === "email" ? "email" : "text"}
-                    name={field}
-                    className="w-96 max-900:w-72 h-14 border border-gray-300 rounded-md px-4 text-gray-700"
-                    placeholder={t(field)}
-                    value={formData[field as keyof typeof formData]}
-                    onChange={handleInputChange}
-                  />
-                ))}
-                <textarea
-                  name="note"
-                  className="w-96 max-900:w-72 h-48 border border-gray-300 rounded-md px-4 py-3 resize-none text-gray-700"
-                  placeholder={t("comment")}
-                  value={formData.note}
-                  onChange={handleInputChange}
-                />
-                <button
-                  type="submit"
-                  className="h-12 rounded-full text-white bg-red-600"
-                >
-                  {t("send")}
-                </button>
-              </div>
-            </div>
+            {Object.keys(formData).map((field) => (
+              <input
+                key={field}
+                type={field === "email" ? "email" : "text"}
+                name={field}
+                className="w-96 max-900:w-72 h-14 border border-gray-300 rounded-md px-4 text-gray-700"
+                placeholder={t(field)}
+                value={formData[field as keyof typeof formData]}
+                onChange={handleInputChange}
+              />
+            ))}
+            <button
+              type="submit"
+              className="h-12 rounded-full text-white bg-red-600"
+            >
+              {t("send")}
+            </button>
           </form>
         </aside>
       </section>
-
       <LoaderComponent>
         <section className="w-full h-96 border-4 border-white rounded-xl max-900:w-96 max-900:h-[30rem]">
           <iframe

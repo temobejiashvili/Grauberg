@@ -1,11 +1,20 @@
 import React, { ReactNode } from "react";
-import FooterComponent from "@/components/Footer/FooterComponent";
 import { Noto_Sans_Georgian } from "next/font/google";
-import Header from "@/components/Header/Header";
 import { ScrollProvider } from "@/components/context/ScrollContext";
 import initializeTranslations from "./i18n";
 import "./globals.css";
 import { TranslationsProvider } from "@/components";
+import dynamic from "next/dynamic";
+
+const Header = dynamic(() => import("@/components/Header/Header"), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+});
+
+const FooterComponent = dynamic(
+  () => import("@/components/Footer/FooterComponent"),
+  { ssr: false, loading: () => <p>Loading...</p> }
+);
 
 const notoGeorgian = Noto_Sans_Georgian({
   subsets: ["latin"],

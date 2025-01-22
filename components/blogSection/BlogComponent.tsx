@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 
 import Arrow from "../../public/assets/arrow.svg";
 import AnimatedBox from "../animatedBox/AnimatedBox";
+import Link from "next/link";
 
 interface BlogProps {
   style?: string;
@@ -74,13 +75,13 @@ const BlogSection: React.FC<BlogProps> = ({ style, needButton, headline }) => {
         {!needButton && (
           <div className="text-center flex justify-center w-full bg-backgroundGrey absolute left-0 -bottom-159 rounded-b-60 pt-18 pb-87">
             <AnimatedBox isFadeIn>
-              <a
+              <Link
                 href="/blog/catalog"
                 className="group px-52 py-4 flex items-center h-54 text-sm bg-white border border-stroke transition-colors text-darkPrimary hover:text-white  rounded-10 hover:bg-darkPrimary"
               >
                 {t("news")}
                 <Arrow className="w-2 object-cover ml-3 group-hover:filter group-hover:brightness-0 group-hover:invert" />
-              </a>
+              </Link>
             </AnimatedBox>
           </div>
         )}
