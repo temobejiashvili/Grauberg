@@ -35,7 +35,7 @@ export default function FooterComponent() {
               className="w-[256px] h-[34px] mb-[34px]"
             />
             <div className="flex space-x-[13px] max-1100:justify-center max-1100:w-full">
-              <a
+              <Link
                 href="https://www.facebook.com/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -47,8 +47,8 @@ export default function FooterComponent() {
                   height={44}
                   className="w-11 h-11"
                 />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="https://www.instagram.com/grauberg.ge/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -60,7 +60,7 @@ export default function FooterComponent() {
                   height={44}
                   className="w-11 h-11"
                 />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -69,46 +69,42 @@ export default function FooterComponent() {
             <div className="flex">
               <div className="flex flex-col gap-[10px] mr-[34px]">
                 {navigation.map((nav, i) => (
-                  <div key={i} className="flex ">
-                    <div className="flex items-center justify-center w-5 h-5 bg-transparent">
-                      <span className="text-primary">&gt;</span>
-                    </div>
-
-                    <Link
-                      href={nav.url}
-                      className="hover:text-red-600 font-normal text-stroke text-sm ml-[5px]"
-                    >
-                      {t(nav.name)}
-                    </Link>
-                  </div>
+                  <Link
+                    key={i}
+                    href={nav.url}
+                    className="flex items-center hover:text-red-600"
+                  >
+                    <span className="text-primary mr-1">&gt;</span>{" "}
+                    {t(nav.name)}
+                  </Link>
                 ))}
               </div>
-              <div className="flex flex-col">
+              {/* <div className="flex flex-col">
                 <div className="flex flex-col gap-[10px]">
                   <div className="flex">
                     <div className="flex items-center justify-center w-5 h-5 bg-transparent">
                       <span className="text-primary">&gt;</span>
                     </div>
-                    <a
+                    <Link
                       href="#section5"
                       className="hover:text-red-600 text-stroke ml-[5px]"
                     >
                       {t("termsAndConditions")}
-                    </a>
+                    </Link>
                   </div>
                   <div className="flex">
                     <div className="flex items-center justify-center w-5 h-5 bg-transparent">
                       <span className="text-primary">&gt;</span>
                     </div>
-                    <a
+                    <Link
                       href="#section6"
                       className="hover:text-red-600 text-stroke ml-[5px]"
                     >
                       {t("rulesAndConditions")}
-                    </a>
+                    </Link>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -122,7 +118,6 @@ export default function FooterComponent() {
       </div>
       <div className={` w-full h-[2px] ${styles.footerBottom}`}></div>
 
-      {/* Footer Bottom */}
       <div
         className={`pt-[19px] pb-5 text-white text-center font-medium text-sm`}
       >

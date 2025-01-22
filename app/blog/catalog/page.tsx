@@ -1,7 +1,17 @@
-import BlogCard from "@/components/blogCard/BlogCard";
-import LoaderComponent from "@/components/loaderComponent/LoaderComponent";
 import { TranslateText } from "@/components/translateText/TranslateText";
 import { blogs } from "@/content/blogsContent";
+import dynamic from "next/dynamic";
+
+const dynamicImports = {
+  LoaderComponent: dynamic(
+    () => import("@/components/loaderComponent/LoaderComponent"),
+    { ssr: false, loading: () => <p>Loading...</p> }
+  ),
+  BlogCard: dynamic(() => import("@/components/blogCard/BlogCard"), {
+    ssr: false,
+    loading: () => <p>Loading...</p>,
+  }),
+};
 
 const Catalog = () => {
   return (
@@ -13,20 +23,13 @@ const Catalog = () => {
             <TranslateText text="allBlogs" />
           </h3>
 
-          <LoaderComponent>
+          <dynamicImports.LoaderComponent>
             <div className="flex justify-center items-center gap-[38px] flex-wrap z-[40] max-900:gap-[26px]">
               {blogs.map((blog, index) => (
-                <BlogCard
-                  key={index}
-                  image={blog.image}
-                  alt={blog.alt}
-                  title={blog.title}
-                  text={blog.text}
-                  url={blog.url}
-                />
+                <dynamicImports.BlogCard key={index} {...blog} />
               ))}
             </div>
-          </LoaderComponent>
+          </dynamicImports.LoaderComponent>
         </div>
       </div>
       <div className="w-full bg-white h-[140px] rounded-b-60 absolute"></div>

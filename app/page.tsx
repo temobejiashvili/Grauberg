@@ -1,10 +1,27 @@
 import React from "react";
-import BlogSection from "@/components/blogSection/BlogComponent";
-import ProductCardComponent from "@/components/productCard/ProductCardComponent";
 import "./globals.css";
-import AboutCard from "@/components/aboutCard/AboutCard";
-import LoaderComponent from "@/components/loaderComponent/LoaderComponent";
 import { TranslateText } from "@/components/translateText/TranslateText";
+import dynamic from "next/dynamic";
+
+const AboutCard = dynamic(() => import("@/components/aboutCard/AboutCard"), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+});
+
+const LoaderComponent = dynamic(
+  () => import("@/components/loaderComponent/LoaderComponent"),
+  { ssr: false }
+);
+
+const ProductCardComponent = dynamic(
+  () => import("@/components/productCard/ProductCardComponent"),
+  { ssr: false, loading: () => <p>Loading...</p> }
+);
+
+const BlogSection = dynamic(
+  () => import("@/components/blogSection/BlogComponent"),
+  { ssr: false, loading: () => <p>Loading...</p> }
+);
 
 const Home = () => {
   return (

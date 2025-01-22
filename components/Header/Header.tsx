@@ -9,7 +9,10 @@ import { useIntersectionObserver } from "@/hooks/useIntersectionObserver/useInte
 import AnimatedText from "./AnimatedText";
 import { usePathname } from "next/navigation";
 import Arrow from "../../public/assets/arrow.svg";
+import subtract1 from "../../public/assets/images/Subtttract.png";
+import subtract2 from "../../public/assets/images/Subbbbtract.png";
 import { useTranslation } from "react-i18next";
+import { HeaderProductItem } from "./HeaderProductItem";
 
 const NAV_LINKS = [
   { href: "/", label: "home" },
@@ -96,24 +99,21 @@ const Header: React.FC = () => {
         >
           <div className="flex items-center">
             <Link href={"/"}>
-              <Image
-                src="/assets/logo.svg"
-                alt="Logo"
-                width={179}
-                height={23.73}
-                className={`${
-                  !isHeaderImageInView || isWhite || isOpen ? "hidden" : "block"
-                }`}
-              />
-              <Image
-                src="/assets/logoBlack.svg"
-                alt="Logo"
-                width={160}
-                height={21.21}
-                className={`${
-                  !isHeaderImageInView || isWhite || isOpen ? "block" : "hidden"
-                }`}
-              />
+              {!isHeaderImageInView || isWhite || isOpen ? (
+                <Image
+                  src="/assets/logoBlack.svg"
+                  alt="Logo"
+                  width={160}
+                  height={21.21}
+                />
+              ) : (
+                <Image
+                  src="/assets/logo.svg"
+                  alt="Logo"
+                  width={179}
+                  height={23.73}
+                />
+              )}
             </Link>
           </div>
 
@@ -139,74 +139,13 @@ const Header: React.FC = () => {
           <ul className="flex justify-center items-center gap-[36px] whitespace-nowrap max-1250:gap-[22px] px-[20px]">
             {NAV_LINKS.map((link, index) =>
               link.label === "products" ? (
-                <li key={index} className="relative group">
-                  <span
-                    className={`cursor-pointer ${
-                      !isHeaderImageInView || isWhite
-                        ? "text-[#100F0F]"
-                        : "text-[#FFFFFF]"
-                    } ${
-                      pathname === link.href
-                        ? "border-solid border-b-[1px] border-[#D6D6D6] pb-[7px]"
-                        : "hover:border-solid hover:border-b-[1px] hover:border-[#D6D6D6] hover:pb-[7px]"
-                    }`}
-                  >
-                    {t(link.label)}
-                  </span>
-                  <div
-                    className="absolute top-[55px] mt-2 left-[-224px]
-                    bg-white shadow-lg rounded-lg p-4
-                      z-50 flex gap-4 w-[556px] h-[220px]
-                      border border-gray-300 opacity-0 group-hover:opacity-100
-                      group-hover:visible"
-                  >
-                    <div
-                      className="absolute top-[-15px] left-1/2
-                       transform -translate-x-1/2 w-0 h-0 border-[0,13px,26px,13px]
-                       border-triangle border-solid rotate-0"
-                    />
-
-                    <Link
-                      href="/product/cement"
-                      replace={true}
-                      locale={false}
-                      className="flex flex-col items-center justify-center w-1/2 p-4 border-r border-gray-300"
-                    >
-                      <Image
-                        src="/images/cement.png"
-                        alt="Cement"
-                        width={65}
-                        height={98}
-                        className="mb-2"
-                      />
-                      <span className="text-[16px] leading-[26px] font-medium text-darkPrimary">
-                        {t("portlandcement")}
-                      </span>
-                    </Link>
-
-                    <Link
-                      href="/product/concrete"
-                      replace={true}
-                      locale={false}
-                      className="flex flex-col items-center justify-center w-1/2 p-4"
-                    >
-                      <Image
-                        src="/assets/graubergTruck.gif"
-                        alt="Concrete"
-                        width={190}
-                        height={120}
-                        className="mb-2"
-                      />
-                      <span
-                        className="text-[16px] leading-[26px]
-                         font-medium text-darkPrimary
-                         max-w-[226px]"
-                      >
-                        {t("highFirmness")}
-                      </span>
-                    </Link>
-                  </div>
-                </li>
+                <HeaderProductItem
+                  key={index}
+                  isHeaderImageInView={isHeaderImageInView}
+                  isWhite={isWhite}
+                  isSamePath={pathname === link.href}
+                  link={link}
+                />
               ) : (
                 <li key={index} className="relative group">
                   <Link
@@ -421,18 +360,20 @@ const Header: React.FC = () => {
         <section className="w-full h-[703px]">
           <div className="top-0 relative w-full h-full overflow-hidden flex justify-center items-center">
             <Image
-              src="/assets/images/Subtttract.png"
+              src={subtract1}
               alt="coverImage"
               layout="fill"
-              style={{ zIndex: "0", objectFit: "fill" }}
+              objectFit="cover"
               className="max-900:hidden"
+              placeholder="blur"
             />
             <Image
-              src="/assets/images/Subbbbtract.png"
+              src={subtract2}
               alt="coverImage"
               layout="fill"
-              style={{ zIndex: "0", objectFit: "fill" }}
+              objectFit="cover"
               className="hidden max-900:block"
+              placeholder="blur"
             />
             <h2
               ref={headerImageRef}
@@ -445,7 +386,7 @@ const Header: React.FC = () => {
             <div className="flex items-center justify-center absolute tra top-[-20px] left-1/2 transform -translate-x-1/2 w-[54px] h-[54px] rounded-[50%] bg-[#EE2E24] max-900:top-[-10px]">
               <Image
                 src="/assets/icons/Arrow1.svg"
-                alt="coverImage"
+                alt="arrow"
                 width={16}
                 height={16}
                 style={{ zIndex: "0" }}

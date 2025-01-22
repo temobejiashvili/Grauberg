@@ -27,8 +27,7 @@ const ProductCardComponent = ({ isCement }: ProductCardProps) => {
           className="w-[575px] cursor-pointer relative h-[513px] 
         bg-backgroundGrey rounded-[30px] shadow-md border border-gray-200 
         hover:bg-gradient-to-b hover:from-gradientStart hover:to-gradientEnd 
-        hover:scale-110
-        transition-transform transition-all duration-300 
+        hover:scale-110 transition-all duration-300 
         max-1100:w-full max-1100:hover:scale-105"
         >
           {/* Image Section */}
