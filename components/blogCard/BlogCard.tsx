@@ -35,7 +35,6 @@ const BlogCard: React.FC<BlogCardProps> = ({
             height: "292px",
             objectFit: "cover",
           }}
-          placeholder="blur"
         />
       </aside>
       <aside className="py-[20px] px-[17px] border-[1px] border-solid border-[#D6D6D6] rounded-bl-[16px] rounded-br-[16px]">
