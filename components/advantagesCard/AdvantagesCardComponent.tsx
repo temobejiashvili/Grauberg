@@ -19,6 +19,7 @@ const AdvantagesCardComponent = () => {
           width={634}
           src={adventagesImage}
           alt="adv"
+          placeholder="blur"
           className="rounded-tl-[50px] max-600:rounded-tl-[0px] max-600:w-full max-600:h-[465px]"
         />
       </div>

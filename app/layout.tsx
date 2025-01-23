@@ -8,12 +8,11 @@ import dynamic from "next/dynamic";
 
 const Header = dynamic(() => import("@/components/Header/Header"), {
   ssr: false,
-  loading: () => <p>Loading...</p>,
 });
 
 const FooterComponent = dynamic(
   () => import("@/components/Footer/FooterComponent"),
-  { ssr: false, loading: () => <p>Loading...</p> }
+  { ssr: false }
 );
 
 const notoGeorgian = Noto_Sans_Georgian({

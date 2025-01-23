@@ -5,16 +5,38 @@ import { TranslateText } from "@/components/translateText/TranslateText";
 import { socialIcons } from "@/content/socialIcons";
 
 import constructionImage1 from "@/public/assets/images/construction.png";
-
 import constructionImage2 from "@/public/assets/images/construction2.png";
+import loaderBackground from "@/public/assets/images/loaderBackground.png";
 
 const BlogSection = dynamic(
   () => import("@/components/blogSection/BlogComponent"),
-  { ssr: false }
+  {
+    ssr: false,
+    loading: () => (
+      <Image
+        src={loaderBackground}
+        alt="Loading"
+        width={1000}
+        height={1000}
+        className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
+      />
+    ),
+  }
 );
 const LoaderComponent = dynamic(
   () => import("@/components/loaderComponent/LoaderComponent"),
-  { ssr: false }
+  {
+    ssr: false,
+    loading: () => (
+      <Image
+        src={loaderBackground}
+        alt="Loading"
+        width={1000}
+        height={1000}
+        className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
+      />
+    ),
+  }
 );
 
 const SocialIcon: FC<{

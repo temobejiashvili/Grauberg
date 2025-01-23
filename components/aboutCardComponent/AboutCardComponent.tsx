@@ -48,7 +48,7 @@ const AboutCardComponent: React.FC<AboutCardComponentType> = ({
     <div
       ref={cardRef}
       className={`max-w-6xl mx-auto rounded-lg border border-gray-200 overflow-hidden bg-backgroundGrey transition-all duration-700 delay-200 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+        isVisible ? "opacity-100 translate-y-0" : "opacity-20 translate-y-5"
       }`}
     >
       <div className="flex items-center ">

@@ -54,6 +54,7 @@ const CalculatorComponent = () => {
           src={parallelepiped}
           alt="[]"
           className="max-1100:w-[234px] max-1100:h-[145px]"
+          placeholder="blur"
         />
         <div
           className="max-w-[516px] ml-[104px] mt-[43px]

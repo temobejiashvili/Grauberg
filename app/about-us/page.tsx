@@ -1,15 +1,40 @@
 import dynamic from "next/dynamic";
 import { aboutUsContent } from "@/content/aboutUsContent";
 
+import loaderBackground from "@/public/assets/images/loaderBackground.png";
+import Image from "next/image";
+
 // Dynamic Imports
 const dynamicImports = {
   LoaderComponent: dynamic(
     () => import("@/components/loaderComponent/LoaderComponent"),
-    { ssr: false, loading: () => <p>loading...</p> }
+    {
+      ssr: false,
+      loading: () => (
+        <Image
+          src={loaderBackground}
+          alt="Loading"
+          width={1000}
+          height={1000}
+          className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
+        />
+      ),
+    }
   ),
   AboutCardComponent: dynamic(
     () => import("@/components/aboutCardComponent/AboutCardComponent"),
-    { ssr: false, loading: () => <p>loading...</p> }
+    {
+      ssr: false,
+      loading: () => (
+        <Image
+          src={loaderBackground}
+          alt="Loading"
+          width={1000}
+          height={1000}
+          className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
+        />
+      ),
+    }
   ),
 };
 
