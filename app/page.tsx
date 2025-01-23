@@ -2,25 +2,68 @@ import React from "react";
 import "./globals.css";
 import { TranslateText } from "@/components/translateText/TranslateText";
 import dynamic from "next/dynamic";
-
-const AboutCard = dynamic(() => import("@/components/aboutCard/AboutCard"), {
-  ssr: false,
-  loading: () => <p>Loading...</p>,
-});
+import loaderBackground from "@/public/assets/images/loaderBackground.png";
+import Image from "next/image";
 
 const LoaderComponent = dynamic(
   () => import("@/components/loaderComponent/LoaderComponent"),
-  { ssr: false }
+  {
+    ssr: false,
+    loading: () => (
+      <Image
+        src={loaderBackground}
+        alt="Loading"
+        width={1000}
+        height={1000}
+        className="absolute w-[100vw] h-[100vh] top-0 left-0"
+      />
+    ),
+  }
 );
+
+const AboutCard = dynamic(() => import("@/components/aboutCard/AboutCard"), {
+  ssr: false,
+  loading: () => (
+    <Image
+      src={loaderBackground}
+      alt="Loading"
+      width={1000}
+      height={1000}
+      className="absolute w-[100vw] h-[100vh] top-0 left-0"
+    />
+  ),
+});
 
 const ProductCardComponent = dynamic(
   () => import("@/components/productCard/ProductCardComponent"),
-  { ssr: false, loading: () => <p>Loading...</p> }
+  {
+    ssr: false,
+    loading: () => (
+      <Image
+        src={loaderBackground}
+        alt="Loading"
+        width={1000}
+        height={1000}
+        className="absolute w-[100vw] h-[100vh] top-0 left-0"
+      />
+    ),
+  }
 );
 
 const BlogSection = dynamic(
   () => import("@/components/blogSection/BlogComponent"),
-  { ssr: false, loading: () => <p>Loading...</p> }
+  {
+    ssr: false,
+    loading: () => (
+      <Image
+        src={loaderBackground}
+        alt="Loading"
+        width={1000}
+        height={1000}
+        className="absolute w-[100vw] h-[100vh] top-0 left-0"
+      />
+    ),
+  }
 );
 
 const Home = () => {

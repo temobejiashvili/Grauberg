@@ -55,6 +55,7 @@ export const LangSwitcher: React.FC<LangSwitcherProps> = ({ noWhite }) => {
             alt={option.alt}
             width={26}
             height={26}
+            placeholder="blur"
             className="rounded-full"
           />
         </button>

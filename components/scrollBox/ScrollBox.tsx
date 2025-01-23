@@ -73,6 +73,7 @@ export default function ScrollBox() {
         alt="Cement"
         width={is1100 ? 211 : isCement ? 306 : 380}
         height={is1100 ? 319 : isCement ? 462 : 500}
+        placeholder={CementTruck ? "empty" : "blur"}
       />
     </div>
   );

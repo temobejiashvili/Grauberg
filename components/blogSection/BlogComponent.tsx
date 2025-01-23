@@ -59,6 +59,7 @@ const BlogSection: React.FC<BlogProps> = ({ style, needButton, headline }) => {
                   width={300}
                   height={300}
                   className="w-full h-300 object-cover"
+                  placeholder="blur"
                 />
                 <div className="p-4">
                   <h3 className="text-2xl font-bold text-darkPrimary mb-2">

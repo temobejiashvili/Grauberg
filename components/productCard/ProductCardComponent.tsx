@@ -4,6 +4,9 @@ import AnimatedBox from "../animatedBox/AnimatedBox";
 import Link from "next/link";
 import { TranslateText } from "../translateText/TranslateText";
 
+import cementImage from "@/public/images/cement.png";
+import graubergTruck from "@/public/assets/graubergTruck.gif";
+
 type ProductCardProps = {
   isCement?: boolean;
 };
@@ -37,8 +40,9 @@ const ProductCardComponent = ({ isCement }: ProductCardProps) => {
                 <Image
                   width={211}
                   height={320}
-                  src={"/images/cement.png"}
+                  src={cementImage}
                   alt="Cement"
+                  placeholder="blur"
                   className="w-[211px]
                drop-shadow-[-20px_14px_94px_rgba(0,0,0,0.45)] 
                rotate-[-3.76deg] h-[320px] max-h-[320px] absolute
@@ -48,7 +52,7 @@ const ProductCardComponent = ({ isCement }: ProductCardProps) => {
                 <Image
                   width={100}
                   height={100}
-                  src={"/assets/graubergTruck.gif"}
+                  src={graubergTruck}
                   alt="Concrete Mixer Truck"
                   className="w-full h-auto max-h-284"
                 />

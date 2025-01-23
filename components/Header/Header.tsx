@@ -8,11 +8,21 @@ import { LangSwitcher } from "../LangSwitcher/LangSwitcher";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver/useIntersectionObserver";
 import AnimatedText from "./AnimatedText";
 import { usePathname } from "next/navigation";
+
+import { useTranslation } from "react-i18next";
+import { HeaderProductItem } from "./HeaderProductItem";
+
 import Arrow from "../../public/assets/arrow.svg";
 import subtract1 from "../../public/assets/images/Subtttract.png";
 import subtract2 from "../../public/assets/images/Subbbbtract.png";
-import { useTranslation } from "react-i18next";
-import { HeaderProductItem } from "./HeaderProductItem";
+import faqbackground from "@/public/assets/images/faqBackground.png";
+import faqbackground2 from "@/public/assets/images/faqBackground2.png";
+import subtract from "@/public/assets/images/Subtract.png";
+import subtract3 from "@/public/assets/images/Subtract2.png";
+import rectangle from "@/public/assets/images/Rectangle334.png";
+import rectangle1 from "@/public/assets/images/Rectangle3463531.png";
+import maskGroup from "@/public/assets/images/MaskGroup.png";
+import maskGroup1 from "@/public/assets/images/MaskGroup1.png";
 
 const NAV_LINKS = [
   { href: "/", label: "home" },
@@ -264,17 +274,19 @@ const Header: React.FC = () => {
         <section className="top-0 relative w-full flex justify-center bg-[#F5F5F5]">
           <div className="relative w-full h-[438px] max-h-[438px] max-900:h-[334px] max-900:max-h-[334px] ">
             <Image
-              src="/assets/images/faqBackground.png"
+              src={faqbackground}
               alt="coverImage"
               fill
               style={{ zIndex: "0", objectFit: "fill" }}
+              placeholder="blur"
               className="max-900:hidden"
             />
             <Image
-              src="/assets/images/faqBackground2.png"
+              src={faqbackground2}
               alt="coverImage"
               fill
               style={{ zIndex: "0", objectFit: "fill" }}
+              placeholder="blur"
               className="hidden max-900:block"
             />
           </div>
@@ -292,17 +304,19 @@ const Header: React.FC = () => {
             <div className="top-0 relative w-[calc(100%-3px)] h-[751px] overflow-hidden flex justify-center  max-1250:h-[700px] max-900:h-[568px] ">
               <span className="w-[1px] h-[1px]" ref={headerRef}></span>
               <Image
-                src="/assets/images/Subtract.png"
+                src={subtract}
                 alt="coverImage"
                 layout="fill"
                 style={{ zIndex: "0", objectFit: "fill" }}
+                placeholder="blur"
                 className="max-900:hidden"
               />
               <Image
-                src="/assets/images/Subtract2.png"
+                src={subtract3}
                 alt="coverImage"
                 layout="fill"
                 style={{ zIndex: "0", objectFit: "fill" }}
+                placeholder="blur"
                 className="hidden max-900:block"
               />
               <h2
@@ -399,17 +413,19 @@ const Header: React.FC = () => {
         <section className="w-full h-[764px] overflow-hidden max-1300:h-[745px] max-1100:h-[700px] max-900:h-[802px]">
           <div className="w-full h-full relative overflow-hidden">
             <Image
-              src="/assets/images/Rectangle334.png"
+              src={rectangle}
               alt="coverImage"
               layout="fill"
               style={{ zIndex: "0" }}
+              placeholder="blur"
               className="max-900:hidden"
             />
             <Image
-              src="/assets/images/Rectangle3463531.png"
+              src={rectangle1}
               alt="coverImage"
               layout="fill"
               style={{ zIndex: "0" }}
+              placeholder="blur"
               className="hidden max-900:block"
             />
           </div>
@@ -441,19 +457,21 @@ const Header: React.FC = () => {
             </aside>
             <aside>
               <Image
-                src="/assets/images/MaskGroup.png"
+                src={maskGroup}
                 alt="coverImage"
                 width={752}
                 height={676}
                 style={{ zIndex: "0" }}
+                placeholder="blur"
                 className="max-900:hidden max-1300:h-[657px] max-1300:w-[640px] max-1100:w-[560px] max-1100:h-[610px]"
               />
               <Image
-                src="/assets/images/MaskGroup1.png"
+                src={maskGroup1}
                 alt="coverImage"
                 width={371}
                 height={327}
                 style={{ zIndex: "0" }}
+                placeholder="blur"
                 className="hidden max-900:block"
               />
             </aside>

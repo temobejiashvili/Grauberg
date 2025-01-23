@@ -83,6 +83,7 @@ const CarouselComponent = () => {
                     alt={`Image ${index + 1}`}
                     width={200}
                     height={400}
+                    placeholder="blur"
                     className="rounded-[16px]  object-cover w-full h-full"
                   />
                 </div>

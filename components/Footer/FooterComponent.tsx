@@ -7,6 +7,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navigation } from "@/content/navigation";
 
+import navLogo from "@/public/images/nav-logo.png";
+import shadow from "@/public/assets/shadow.png";
+
 export default function FooterComponent() {
   const { t } = useTranslation("common");
   const pathname = usePathname();
@@ -28,15 +31,16 @@ export default function FooterComponent() {
           max-1100:mb-16"
           >
             <Image
-              src="/images/nav-logo.png"
+              src={navLogo}
               alt="Logo"
               width={256}
               height={34}
+              placeholder="blur"
               className="w-[256px] h-[34px] mb-[34px]"
             />
             <div className="flex space-x-[13px] max-1100:justify-center max-1100:w-full">
               <Link
-                href="https://www.facebook.com/"
+                href="https://www.facebook.com/profile.php?id=61560890423910"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -109,10 +113,11 @@ export default function FooterComponent() {
           </div>
         </div>
         <Image
-          src={"/assets/shadow.png"}
+          src={shadow}
           width={396}
           height={391}
           alt="shadow"
+          placeholder="blur"
           className="pb-[15px] max-1100:hidden"
         />
       </div>
