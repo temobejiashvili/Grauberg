@@ -377,7 +377,6 @@ const Header: React.FC = () => {
               src={subtract1}
               alt="coverImage"
               layout="fill"
-              objectFit="cover"
               className="max-900:hidden"
               placeholder="blur"
             />
@@ -385,7 +384,6 @@ const Header: React.FC = () => {
               src={subtract2}
               alt="coverImage"
               layout="fill"
-              objectFit="cover"
               className="hidden max-900:block"
               placeholder="blur"
             />
