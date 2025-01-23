@@ -4,8 +4,8 @@ import RedBoxComponent from "../RedBoxComponent";
 import { TranslateText } from "@/components/translateText/TranslateText";
 import Image from "next/image";
 
-import ShopIcon from "@/public/assets/icons/shopIcon.svg";
-import loaderBackground from "@/public/assets/images/loaderBackground.png";
+import ShopIcon from "../../../public/assets/icons/shopIcon.svg";
+import loaderBackground from "../../../public/assets/images/loaderBackground.png";
 
 // Dynamic Imports for Code Splitting
 const dynamicImports = {

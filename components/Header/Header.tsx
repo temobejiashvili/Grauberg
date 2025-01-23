@@ -15,14 +15,14 @@ import { HeaderProductItem } from "./HeaderProductItem";
 import Arrow from "../../public/assets/arrow.svg";
 import subtract1 from "../../public/assets/images/Subtttract.png";
 import subtract2 from "../../public/assets/images/Subbbbtract.png";
-import faqbackground from "@/public/assets/images/faqBackground.png";
-import faqbackground2 from "@/public/assets/images/faqBackground2.png";
-import subtract from "@/public/assets/images/Subtract.png";
-import subtract3 from "@/public/assets/images/Subtract2.png";
-import rectangle from "@/public/assets/images/Rectangle334.png";
-import rectangle1 from "@/public/assets/images/Rectangle3463531.png";
-import maskGroup from "@/public/assets/images/MaskGroup.png";
-import maskGroup1 from "@/public/assets/images/MaskGroup1.png";
+import faqbackground from "../../public/assets/images/faqBackground.png";
+import faqbackground2 from "../../public/assets/images/faqBackground2.png";
+import subtract from "../../public/assets/images/Subtract.png";
+import subtract3 from "../../public/assets/images/Subtract2.png";
+import rectangle from "../../public/assets/images/Rectangle334.png";
+import rectangle1 from "../../public/assets/images/Rectangle3463531.png";
+import maskGroup from "../../public/assets/images/MaskGroup.png";
+import maskGroup1 from "../../public/assets/images/MaskGroup1.png";
 
 const NAV_LINKS = [
   { href: "/", label: "home" },

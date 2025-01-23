@@ -3,7 +3,7 @@ import { blogs } from "@/content/blogsContent";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
-import loaderBackground from "@/public/assets/images/loaderBackground.png";
+import loaderBackground from "../../../public/assets/images/loaderBackground.png";
 
 const dynamicImports = {
   LoaderComponent: dynamic(

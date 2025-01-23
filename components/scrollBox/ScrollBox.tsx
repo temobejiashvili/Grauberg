@@ -1,8 +1,8 @@
 "use client";
 import { useScrollContext } from "@/components/context/ScrollContext";
 import Image from "next/image";
-import CementPocket from "@/public/images/cement.png";
-import CementTruck from "@/public/assets/graubergTruck.gif";
+import CementPocket from "../../public/images/cement.png";
+import CementTruck from "../../public/assets/graubergTruck.gif";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 

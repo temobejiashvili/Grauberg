@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import { aboutUsContent } from "@/content/aboutUsContent";
 
-import loaderBackground from "@/public/assets/images/loaderBackground.png";
+import loaderBackground from "../../public/assets/images/loaderBackground.png";
 import Image from "next/image";
 
 // Dynamic Imports

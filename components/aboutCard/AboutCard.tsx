@@ -4,8 +4,8 @@ import Arrow from "../../public/assets/arrow.svg";
 import { TranslateText } from "../translateText/TranslateText";
 import Link from "next/link";
 
-import factoryImage from "@/public/assets/images/factoryImage.png";
-import factoryImage2 from "@/public/assets/images/image8.png";
+import factoryImage from "../../public/assets/images/factoryImage.png";
+import factoryImage2 from "../../public/assets/images/image8.png";
 
 const AboutCard: React.FC = () => {
   return (

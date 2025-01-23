@@ -2,7 +2,7 @@ import React from "react";
 import "./globals.css";
 import { TranslateText } from "@/components/translateText/TranslateText";
 import dynamic from "next/dynamic";
-import loaderBackground from "@/public/assets/images/loaderBackground.png";
+import loaderBackground from "../public/assets/images/loaderBackground.png";
 import Image from "next/image";
 
 const LoaderComponent = dynamic(

@@ -4,9 +4,9 @@ import dynamic from "next/dynamic";
 import { TranslateText } from "@/components/translateText/TranslateText";
 import { socialIcons } from "@/content/socialIcons";
 
-import constructionImage1 from "@/public/assets/images/construction.png";
-import constructionImage2 from "@/public/assets/images/construction2.png";
-import loaderBackground from "@/public/assets/images/loaderBackground.png";
+import constructionImage1 from "../../../public/assets/images/construction.png";
+import constructionImage2 from "../../../public/assets/images/construction2.png";
+import loaderBackground from "../../../public/assets/images/loaderBackground.png";
 
 const BlogSection = dynamic(
   () => import("@/components/blogSection/BlogComponent"),
