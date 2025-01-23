@@ -4,7 +4,7 @@ import Link from "next/link";
 import { TranslateText } from "../translateText/TranslateText";
 
 interface BlogCardProps {
-  image?: StaticImageData | string;
+  image: StaticImageData | string;
   alt?: string;
   title: string;
   text: string;
@@ -25,7 +25,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
     >
       <aside className="w-full h-[292px] overflow-hidden rounded-tl-[16px] rounded-tr-[16px]">
         <Image
-          src={`${image}`}
+          src={image}
           alt={`${alt}`}
           width={381}
           height={292}

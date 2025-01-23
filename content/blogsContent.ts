@@ -1,9 +1,9 @@
-import beton from "../public/images/beton.png";
-import factory from "../public/images/factory.png";
-import wall from "../public/assets/images/wall.png";
-import building from "../public/assets/images/building.png";
-import image431 from "../public/assets/images/image431.png";
-import image432 from "../public/assets/images/image432.png";
+import beton from "@/public/images/beton.png";
+import factory from "@/public/images/factory.png";
+import wall from "@/public/assets/images/wall.png";
+import building from "@/public/assets/images/building.png";
+import image431 from "@/public/assets/images/image431.png";
+import image432 from "@/public/assets/images/image432.png";
 
 export const blogs = [
   {
