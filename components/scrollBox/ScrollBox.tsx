@@ -27,7 +27,7 @@ export default function ScrollBox() {
 
   const topPosition = (() => {
     if (activeSection === "header") {
-      return windowWidth <= 1100 || !isCement ? "200px" : "150px";
+      return windowWidth <= 1100 || !isCement ? "400px" : "150px";
     }
     if (windowWidth <= 320) return "225%";
     if (windowWidth <= 344) return "144%";
@@ -45,7 +45,13 @@ export default function ScrollBox() {
   })();
 
   const leftPosition =
-    activeSection === "header" ? "50%" : is1100 ? "50%" : "115px";
+    activeSection === "header"
+      ? "50%"
+      : is1100
+      ? "50%"
+      : isCement
+      ? "115px"
+      : "30px";
 
   const transformStyle =
     activeSection === "header"
@@ -71,8 +77,8 @@ export default function ScrollBox() {
       <Image
         src={isCement ? CementPocket : CementTruck}
         alt="Cement"
-        width={is1100 ? 211 : isCement ? 306 : 380}
-        height={is1100 ? 319 : isCement ? 462 : 500}
+        width={is1100 ? 211 : isCement ? 306 : 500}
+        height={is1100 ? 319 : isCement ? 462 : 700}
         placeholder={CementTruck ? "empty" : "blur"}
       />
     </div>

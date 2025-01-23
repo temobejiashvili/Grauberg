@@ -1,14 +1,25 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import RedBoxComponent from "../RedBoxComponent";
-import ShopIcon from "@/public/assets/icons/shopIcon.svg";
 import { TranslateText } from "@/components/translateText/TranslateText";
+import Image from "next/image";
+
+import ShopIcon from "@/public/assets/icons/shopIcon.svg";
+import loaderBackground from "@/public/assets/images/loaderBackground.png";
 
 // Dynamic Imports for Code Splitting
 const dynamicImports = {
   ScrollBox: dynamic(() => import("@/components/scrollBox/ScrollBox"), {
     ssr: false,
-    loading: () => <p>Loading...</p>,
+    loading: () => (
+      <Image
+        src={loaderBackground}
+        alt="Loading"
+        width={1000}
+        height={1000}
+        className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
+      />
+    ),
   }),
   CarouselComponent: dynamic(
     () => import("@/components/carousel/CarouselComponent"),
@@ -16,19 +27,60 @@ const dynamicImports = {
   ),
   AnimatedBox: dynamic(() => import("@/components/animatedBox/AnimatedBox"), {
     ssr: false,
-    loading: () => <p>Loading...</p>,
+    loading: () => (
+      <Image
+        src={loaderBackground}
+        alt="Loading"
+        width={1000}
+        height={1000}
+        className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
+      />
+    ),
   }),
   AdvantagesCardComponent: dynamic(
     () => import("@/components/advantagesCard/AdvantagesCardComponent"),
-    { ssr: false, loading: () => <p>Loading...</p> }
+    {
+      ssr: false,
+      loading: () => (
+        <Image
+          src={loaderBackground}
+          alt="Loading"
+          width={1000}
+          height={1000}
+          className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
+        />
+      ),
+    }
   ),
   CalculatorComponent: dynamic(
     () => import("@/components/calculator/CalculatorComponent"),
-    { ssr: false, loading: () => <p>Loading...</p> }
+    {
+      ssr: false,
+      loading: () => (
+        <Image
+          src={loaderBackground}
+          alt="Loading"
+          width={1000}
+          height={1000}
+          className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
+        />
+      ),
+    }
   ),
   LoaderComponent: dynamic(
     () => import("@/components/loaderComponent/LoaderComponent"),
-    { ssr: false, loading: () => <p>Loading...</p> }
+    {
+      ssr: false,
+      loading: () => (
+        <Image
+          src={loaderBackground}
+          alt="Loading"
+          width={1000}
+          height={1000}
+          className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
+        />
+      ),
+    }
   ),
 };
 const Product = () => {
