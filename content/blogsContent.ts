@@ -1,41 +1,48 @@
+import beton from "../public/images/beton.png";
+import factory from "../public/images/factory.png";
+import wall from "../public/assets/images/wall.png";
+import building from "../public/assets/images/building.png";
+import image431 from "../public/assets/images/image431.png";
+import image432 from "../public/assets/images/image432.png";
+
 export const blogs = [
   {
-    image: "/images/beton.png",
+    image: beton,
     alt: "betton",
     title: "betonTypes",
     text: "concreteInArchitectureEngineering",
     url: "/blog/article",
   },
   {
-    image: "/images/factory.png",
+    image: factory,
     alt: "factory",
     title: "factoryStandardsBenefits",
     text: "buildMix",
     url: "/blog/article",
   },
   {
-    image: "/assets/images/wall.png",
+    image: wall,
     alt: "betton",
     title: "CemGuide",
     text: "cemStrength",
     url: "/blog/article",
   },
   {
-    image: "/assets/images/building.png",
+    image: building,
     alt: "building",
     title: "qualityConcreteHomes",
     text: "factoryConcreteMixing",
     url: "/blog/article",
   },
   {
-    image: "/assets/images/image431.png",
+    image: image431,
     alt: "betton",
     title: "concreteStrengthCementRole",
     text: "concreteStrengthDurability",
     url: "/blog/article",
   },
   {
-    image: "/assets/images/image432.png",
+    image: image432,
     alt: "betton",
     title: "constructionProcessSafety",
     text: "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპო გრაფ იული ნაწარმის შემქმნელებს...",

@@ -1,10 +1,10 @@
 import React from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { TranslateText } from "../translateText/TranslateText";
 
 interface BlogCardProps {
-  image?: string;
+  image?: StaticImageData | string;
   alt?: string;
   title: string;
   text: string;

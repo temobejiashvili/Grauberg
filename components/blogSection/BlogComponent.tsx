@@ -3,9 +3,13 @@ import React, { FC } from "react";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
-import Arrow from "../../public/assets/arrow.svg";
 import AnimatedBox from "../animatedBox/AnimatedBox";
 import Link from "next/link";
+
+import Arrow from "../../public/assets/arrow.svg";
+import beton from "../../public/images/beton.png";
+import factory from "../../public/images/factory.png";
+import block from "../../public/images/block.png";
 
 interface BlogProps {
   style?: string;
@@ -19,7 +23,7 @@ const BlogSection: React.FC<BlogProps> = ({ style, needButton, headline }) => {
   const blogItems = [
     {
       id: 1,
-      image: "/images/beton.png",
+      image: beton,
       title: t("betonTypes"),
       description: t(
         "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპო გრაფ იული ნაწარმის შემქმნელებს ასფოი ასკფჯოკას ფსაფსფა საფასფსაფ"
@@ -27,13 +31,13 @@ const BlogSection: React.FC<BlogProps> = ({ style, needButton, headline }) => {
     },
     {
       id: 2,
-      image: "/images/factory.png",
+      image: factory,
       title: t("PrimeStandards"),
       description: t("buildMix"),
     },
     {
       id: 3,
-      image: "/images/block.png",
+      image: block,
       title: t("CemGuide"),
       description: t("cemStrength"),
     },

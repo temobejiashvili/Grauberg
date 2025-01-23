@@ -4,8 +4,8 @@ import AnimatedBox from "../animatedBox/AnimatedBox";
 import Link from "next/link";
 import { TranslateText } from "../translateText/TranslateText";
 
-import cementImage from "@/public/images/cement.png";
-import graubergTruck from "@/public/assets/graubergTruck.gif";
+import cementImage from "../../public/images/cement.png";
+import graubergTruck from "../../public/assets/graubergTruck.gif";
 
 type ProductCardProps = {
   isCement?: boolean;

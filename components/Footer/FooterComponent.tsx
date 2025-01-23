@@ -7,8 +7,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navigation } from "@/content/navigation";
 
-import navLogo from "@/public/images/nav-logo.png";
-import shadow from "@/public/assets/shadow.png";
+import navLogo from "../../public/images/nav-logo.png";
+import shadow from "../../public/assets/shadow.png";
 
 export default function FooterComponent() {
   const { t } = useTranslation("common");
