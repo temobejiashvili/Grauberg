@@ -16,7 +16,7 @@ import Arrow from "../../public/assets/arrow.svg";
 import subtract1 from "../../public/assets/images/Subtttract.png";
 import subtract2 from "../../public/assets/images/Subbbbtract.png";
 import faqbackground from "../../public/assets/images/faqBackground.png";
-import faqbackground2 from "../../public/assets/images/faqBackground2.png";
+import faqbackground2 from "../../public/assets/images/FaqBackground2.png";
 import subtract from "../../public/assets/images/Subtract.png";
 import subtract3 from "../../public/assets/images/Subtract2.png";
 import rectangle from "../../public/assets/images/Rectangle334.png";
