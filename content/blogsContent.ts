@@ -1,5 +1,5 @@
-import beton from "@/public/images/beton.png";
-import factory from "@/public/images/factory.png";
+import beton from "@/public/images/beton.webp";
+import factory from "@/public/images/factory.webp";
 import wall from "@/public/assets/images/wall.png";
 import building from "@/public/assets/images/building.png";
 import image431 from "@/public/assets/images/image431.png";

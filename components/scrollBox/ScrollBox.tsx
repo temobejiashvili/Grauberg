@@ -1,16 +1,16 @@
 "use client";
 import { useScrollContext } from "@/components/context/ScrollContext";
 import Image from "next/image";
-import CementPocket from "../../public/images/cement.png";
-import CementTruck from "../../public/assets/graubergTruck.gif";
-import { useEffect, useState } from "react";
+import CementPocket from "@/public/images/cement.webp";
+import CementTruck from "@/public/assets/graubergTruck.webp";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function ScrollBox() {
   const { activeSection } = useScrollContext();
   const pathname = usePathname();
-  const [windowWidth, setWindowWidth] = useState(0);
   const isCement = pathname === "/product/cement";
+  const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -20,7 +20,9 @@ export default function ScrollBox() {
     handleResize();
     window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const is1100 = windowWidth <= 1100;

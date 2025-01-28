@@ -1,22 +1,29 @@
-import React from "react";
 import Image from "next/image";
-import Arrow from "../../public/assets/arrow.svg";
 import { TranslateText } from "../translateText/TranslateText";
 import Link from "next/link";
 
-import factoryImage from "../../public/assets/images/factoryImage.png";
-import factoryImage2 from "../../public/assets/images/image8.png";
+import Arrow from "@/public/assets/arrow.svg";
+import factoryImage from "@/public/assets/images/factoryImage.webp";
+import factoryImage2 from "@/public/assets/images/image8.webp";
 
-const AboutCard: React.FC = () => {
+const AboutCard = () => {
   return (
     <>
-      <div className="flex items-end shadow-custom bg-[#FFF] rounded-[30px] absolute top-[-66px] left-1/2 transform -translate-x-1/2 z-[11] w-[1194px] h-[580px]  max-1250:w-[1000px]  max-1100:w-[850px] max-1100:justify-center max-900:flex-col max-900:h-[778px] max-900:w-[370px] max-900:top-[-98px]">
+      <div
+        className="flex items-end shadow-custom
+   bg-[#FFF] rounded-[30px] absolute
+    top-[-66px] left-1/2 transform
+    min-h-[580px]
+     -translate-x-1/2 z-[11] w-[1194px] h-[580px]"
+      >
         <section className="bg-[#fff] w-[506px] h-[580px] flex  rounded-[30px] max-900:hidden">
           <Image
             src={factoryImage}
             alt="factoryImage"
             width={506}
             height={580}
+            priority={true}
+            layout="intrinsic"
             placeholder="blur"
           />
         </section>
@@ -39,7 +46,7 @@ const AboutCard: React.FC = () => {
 
           <Link
             href="/about-us"
-            className="group flex justify-center items-center rounded-[10px] w-[240px] h-[54px] border-[1px] border-solid border-[#D6D6D6] hover:bg-primary transition-colors text-sm text-darkPrimary hover:text-white max-900:w-full max-1100:mt-[10px]"
+            className="group flex justify-center items-center rounded-[10px] w-[240px] h-[54px] border-[1px] border-solid border-transparent hover:border-[#D6D6D6] hover:bg-primary transition-colors text-sm text-darkPrimary hover:text-white"
           >
             <TranslateText text="viewAll" />
             <Arrow className="w-2 object-cover ml-3 group-hover:filter group-hover:brightness-0 group-hover:invert" />
@@ -51,7 +58,9 @@ const AboutCard: React.FC = () => {
             alt="factoryImage"
             width={370}
             height={261}
+            priority={true}
             style={{ borderRadius: "30px" }}
+            layout="intrinsic"
             placeholder="blur"
           />
         </section>

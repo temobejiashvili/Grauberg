@@ -4,8 +4,8 @@ import RedBoxComponent from "../RedBoxComponent";
 import { TranslateText } from "@/components/translateText/TranslateText";
 import Image from "next/image";
 
-import ShopIcon from "../../../public/assets/icons/shopIcon.svg";
-import loaderBackground from "../../../public/assets/images/loaderBackground.png";
+import ShopIcon from "@/public/assets/icons/shopIcon.svg";
+import loaderBackground from "@/public/assets/images/loaderBackground.webp";
 
 // Dynamic Imports for Code Splitting
 const dynamicImports = {
@@ -26,7 +26,7 @@ const dynamicImports = {
     { ssr: false, loading: () => <p>Loading...</p> }
   ),
   AnimatedBox: dynamic(() => import("@/components/animatedBox/AnimatedBox"), {
-    ssr: false,
+    ssr: true,
     loading: () => (
       <Image
         src={loaderBackground}
@@ -41,30 +41,12 @@ const dynamicImports = {
     () => import("@/components/advantagesCard/AdvantagesCardComponent"),
     {
       ssr: false,
-      loading: () => (
-        <Image
-          src={loaderBackground}
-          alt="Loading"
-          width={1000}
-          height={1000}
-          className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
-        />
-      ),
     }
   ),
   CalculatorComponent: dynamic(
     () => import("@/components/calculator/CalculatorComponent"),
     {
       ssr: false,
-      loading: () => (
-        <Image
-          src={loaderBackground}
-          alt="Loading"
-          width={1000}
-          height={1000}
-          className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
-        />
-      ),
     }
   ),
   LoaderComponent: dynamic(

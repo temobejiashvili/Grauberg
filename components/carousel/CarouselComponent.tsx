@@ -6,10 +6,10 @@ import Image from "next/image";
 
 import "./carouselComponentStyles.css";
 import AnimatedBox from "../animatedBox/AnimatedBox";
-import carouselImage1 from "../../public/assets/images/carouselImage1.png";
-import carouselImage2 from "../../public/assets/images/carouselImage2.png";
-import carouselImage3 from "../../public/assets/images/carouselImage3.png";
-import carouselImage4 from "../../public/assets/images/carouselImage4.png";
+import carouselImage1 from "@/public/assets/images/carouselImage1.png";
+import carouselImage2 from "@/public/assets/images/carouselImage2.png";
+import carouselImage3 from "@/public/assets/images/carouselImage3.png";
+import carouselImage4 from "@/public/assets/images/carouselImage4.png";
 
 const CarouselComponent = () => {
   const settings = {
