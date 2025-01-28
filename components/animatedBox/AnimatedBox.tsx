@@ -1,6 +1,5 @@
 "use client";
-
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver/useIntersectionObserver";
 
@@ -9,7 +8,7 @@ interface AnimatedBoxProps {
   isFadeIn: boolean;
 }
 
-const AnimatedBox: React.FC<AnimatedBoxProps> = ({ children, isFadeIn }) => {
+const AnimatedBox = ({ children, isFadeIn }: AnimatedBoxProps) => {
   const { ref, isVisible } = useIntersectionObserver({
     threshold: 0.1,
 

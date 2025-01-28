@@ -6,7 +6,7 @@ import { socialIcons } from "@/content/socialIcons";
 
 import constructionImage1 from "../../../public/assets/images/construction.png";
 import constructionImage2 from "../../../public/assets/images/construction2.png";
-import loaderBackground from "../../../public/assets/images/loaderBackground.png";
+import loaderBackground from "../../../public/assets/images/loaderBackground.webp";
 
 const BlogSection = dynamic(
   () => import("@/components/blogSection/BlogComponent"),
@@ -93,7 +93,6 @@ const Blog = () => {
               alt="Construction"
               width={902}
               height={529}
-              priority={true}
               className="self-center max-600:max-h-80"
               placeholder="blur"
             />
@@ -126,7 +125,6 @@ const Blog = () => {
               layout="responsive"
               width={902}
               height={529}
-              priority={true}
               placeholder="blur"
             />
 

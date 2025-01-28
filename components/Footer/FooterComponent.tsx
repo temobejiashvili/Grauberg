@@ -7,20 +7,20 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navigation } from "@/content/navigation";
 
-import navLogo from "../../public/images/nav-logo.png";
-import shadow from "../../public/assets/shadow.png";
+import navLogo from "@/public/images/nav-logo.webp";
+import shadow from "@/public/assets/shadow.webp";
 
 export default function FooterComponent() {
   const { t } = useTranslation("common");
   const pathname = usePathname();
-  const hasNotPadding = ["/product"].includes(pathname);
+  const hasNotPadding = pathname.startsWith("/product");
 
   return (
     <footer
       className={`${styles.footer} ${hasNotPadding ? "pt-0" : "pt-[87px]"}`}
       id="footer"
     >
-      <div className="flex">
+      <div className="flex max-1100:items-center">
         <div
           className="w-full ml-auto pl-4 pb-[62px] pt-[170px] flex flex-row justify-around items-start
         max-1100:flex-col max-1100:items-center
@@ -32,21 +32,23 @@ export default function FooterComponent() {
           >
             <Image
               src={navLogo}
-              alt="Logo"
+              alt="Grauberg Logo"
               width={256}
               height={34}
               placeholder="blur"
               className="w-[256px] h-[34px] mb-[34px]"
             />
+
             <div className="flex space-x-[13px] max-1100:justify-center max-1100:w-full">
               <Link
                 href="https://www.facebook.com/profile.php?id=61560890423910"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Facebook"
               >
                 <Image
                   src="/assets/facebookRed.svg"
-                  alt="facebook"
+                  alt="Facebook"
                   width={44}
                   height={44}
                   className="w-11 h-11"
@@ -56,10 +58,11 @@ export default function FooterComponent() {
                 href="https://www.instagram.com/grauberg.ge/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram"
               >
                 <Image
                   src="/assets/instagramRed.svg"
-                  alt="instagram"
+                  alt="Instagram"
                   width={44}
                   height={44}
                   className="w-11 h-11"
@@ -67,7 +70,6 @@ export default function FooterComponent() {
               </Link>
             </div>
           </div>
-
           <div className="md:flex-row text-white text-sm">
             <h3 className="font-bold text-20 mb-3">{t("navigation")}</h3>
             <div className="flex">
@@ -83,32 +85,6 @@ export default function FooterComponent() {
                   </Link>
                 ))}
               </div>
-              {/* <div className="flex flex-col">
-                <div className="flex flex-col gap-[10px]">
-                  <div className="flex">
-                    <div className="flex items-center justify-center w-5 h-5 bg-transparent">
-                      <span className="text-primary">&gt;</span>
-                    </div>
-                    <Link
-                      href="#section5"
-                      className="hover:text-red-600 text-stroke ml-[5px]"
-                    >
-                      {t("termsAndConditions")}
-                    </Link>
-                  </div>
-                  <div className="flex">
-                    <div className="flex items-center justify-center w-5 h-5 bg-transparent">
-                      <span className="text-primary">&gt;</span>
-                    </div>
-                    <Link
-                      href="#section6"
-                      className="hover:text-red-600 text-stroke ml-[5px]"
-                    >
-                      {t("rulesAndConditions")}
-                    </Link>
-                  </div>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>
@@ -116,17 +92,18 @@ export default function FooterComponent() {
           src={shadow}
           width={396}
           height={391}
-          alt="shadow"
+          alt="Shadow"
           placeholder="blur"
           className="pb-[15px] max-1100:hidden"
         />
       </div>
-      <div className={` w-full h-[2px] ${styles.footerBottom}`}></div>
-
+      <div className={`w-full h-[2px] ${styles.footerBottom}`}></div>
       <div
         className={`pt-[19px] pb-5 text-white text-center font-medium text-sm`}
       >
-        © 2024 GRAUBERG. All rights reserved
+        <div className="pt-[19px] pb-5 text-white text-center font-medium text-sm">
+          © 2024 GRAUBERG. All rights reserved
+        </div>
       </div>
     </footer>
   );

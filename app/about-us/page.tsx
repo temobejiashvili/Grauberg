@@ -1,10 +1,10 @@
 import dynamic from "next/dynamic";
 import { aboutUsContent } from "@/content/aboutUsContent";
 
-import loaderBackground from "../../public/assets/images/loaderBackground.png";
+import loaderBackground from "@/public/assets/images/loaderBackground.webp";
 import Image from "next/image";
+import { VisibilityProvider } from "@/components/context/VisibilityContext";
 
-// Dynamic Imports
 const dynamicImports = {
   LoaderComponent: dynamic(
     () => import("@/components/loaderComponent/LoaderComponent"),
@@ -16,7 +16,7 @@ const dynamicImports = {
           alt="Loading"
           width={1000}
           height={1000}
-          className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
+          className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50 object-cover aspect-auto"
         />
       ),
     }
@@ -25,44 +25,38 @@ const dynamicImports = {
     () => import("@/components/aboutCardComponent/AboutCardComponent"),
     {
       ssr: false,
-      loading: () => (
-        <Image
-          src={loaderBackground}
-          alt="Loading"
-          width={1000}
-          height={1000}
-          className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
-        />
-      ),
     }
   ),
 };
 
 const AboutUs = () => {
   return (
-    <section className="flex flex-col gap-16 pt-24 h-full relative">
-      {Object.entries(aboutUsContent).map(([key, details]) =>
-        typeof details === "string" ? (
+    <dynamicImports.LoaderComponent>
+      <section className="flex flex-col gap-16 pt-24 h-full relative">
+        {Object.entries(aboutUsContent).map(([key, details], index) =>
+          typeof details === "string" ? (
+            <VisibilityProvider key={index}>
+              <dynamicImports.AboutCardComponent
+                title={key}
+                details={details}
+              />
+            </VisibilityProvider>
+          ) : null
+        )}
+        <VisibilityProvider>
           <dynamicImports.AboutCardComponent
-            key={key}
-            title={key}
-            details={details}
+            title="graubergVision"
+            details={
+              aboutUsContent.graubergVision.settingNewStandardsinConstruction
+            }
+            anotherParagraph={
+              aboutUsContent.graubergVision.qualityResponsibilityandGrowth
+            }
           />
-        ) : null
-      )}
-      <dynamicImports.LoaderComponent>
-        <dynamicImports.AboutCardComponent
-          title="graubergVision"
-          details={
-            aboutUsContent.graubergVision.settingNewStandardsinConstruction
-          }
-          anotherParagraph={
-            aboutUsContent.graubergVision.qualityResponsibilityandGrowth
-          }
-        />
-      </dynamicImports.LoaderComponent>
-      <div className="absolute inset-x-0 bottom-[-159px] h-40 bg-white rounded-b-lg"></div>
-    </section>
+        </VisibilityProvider>
+        <div className="absolute inset-x-0 bottom-[-159px] h-40 bg-white rounded-b-lg"></div>
+      </section>
+    </dynamicImports.LoaderComponent>
   );
 };
 

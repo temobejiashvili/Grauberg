@@ -1,11 +1,10 @@
-import React from "react";
 import Image from "next/image";
 import AnimatedBox from "../animatedBox/AnimatedBox";
 import Link from "next/link";
 import { TranslateText } from "../translateText/TranslateText";
 
-import cementImage from "../../public/images/cement.png";
-import graubergTruck from "../../public/assets/graubergTruck.gif";
+import cementImage from "@/public/images/cement.webp";
+import graubergTruck from "@/public/assets/graubergTruck.webp";
 
 type ProductCardProps = {
   isCement?: boolean;
@@ -53,6 +52,7 @@ const ProductCardComponent = ({ isCement }: ProductCardProps) => {
                   width={100}
                   height={100}
                   src={graubergTruck}
+                  placeholder="empty"
                   alt="Concrete Mixer Truck"
                   className="w-full h-auto max-h-284"
                 />

@@ -1,8 +1,7 @@
-import React from "react";
 import "./globals.css";
 import { TranslateText } from "@/components/translateText/TranslateText";
 import dynamic from "next/dynamic";
-import loaderBackground from "../public/assets/images/loaderBackground.png";
+import loaderBackground from "@/public/assets/images/loaderBackground.webp";
 import Image from "next/image";
 
 const LoaderComponent = dynamic(
@@ -13,8 +12,6 @@ const LoaderComponent = dynamic(
       <Image
         src={loaderBackground}
         alt="Loading"
-        width={1000}
-        height={1000}
         className="absolute w-[100vw] h-[100vh] top-0 left-0"
       />
     ),
@@ -23,30 +20,12 @@ const LoaderComponent = dynamic(
 
 const AboutCard = dynamic(() => import("@/components/aboutCard/AboutCard"), {
   ssr: false,
-  loading: () => (
-    <Image
-      src={loaderBackground}
-      alt="Loading"
-      width={1000}
-      height={1000}
-      className="absolute w-[100vw] h-[100vh] top-0 left-0"
-    />
-  ),
 });
 
 const ProductCardComponent = dynamic(
   () => import("@/components/productCard/ProductCardComponent"),
   {
     ssr: false,
-    loading: () => (
-      <Image
-        src={loaderBackground}
-        alt="Loading"
-        width={1000}
-        height={1000}
-        className="absolute w-[100vw] h-[100vh] top-0 left-0"
-      />
-    ),
   }
 );
 
@@ -54,22 +33,13 @@ const BlogSection = dynamic(
   () => import("@/components/blogSection/BlogComponent"),
   {
     ssr: false,
-    loading: () => (
-      <Image
-        src={loaderBackground}
-        alt="Loading"
-        width={1000}
-        height={1000}
-        className="absolute w-[100vw] h-[100vh] top-0 left-0"
-      />
-    ),
   }
 );
 
 const Home = () => {
   return (
     <>
-      <div className="relative">
+      <div className="flex relative flex-col gap-[65px] pt-[100px] h-full">
         <AboutCard />
       </div>
 
@@ -86,7 +56,7 @@ const Home = () => {
         </LoaderComponent>
       </section>
 
-      <div className="h-24"></div>
+      <div className="h-24" />
 
       <BlogSection />
     </>
