@@ -3,7 +3,6 @@ import { useScrollContext } from "@/components/context/ScrollContext";
 import Image from "next/image";
 import CementPocket from "@/public/images/cement.webp";
 import CementTruck from "@/public/assets/graubergTruck.webp";
-import { useWindowDimensions } from "../context/WindowDimensionContext";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
