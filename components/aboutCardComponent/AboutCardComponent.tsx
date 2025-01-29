@@ -1,6 +1,6 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
 import LogoMini from "../../public/assets/logoMini.svg";
+import { useVisibility } from "@/components/context/VisibilityContext";
 import { useTranslation } from "react-i18next";
 
 interface AboutCardComponentType {
@@ -14,41 +14,14 @@ const AboutCardComponent: React.FC<AboutCardComponentType> = ({
   details,
   anotherParagraph,
 }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const cardRef = useRef<HTMLDivElement | null>(null);
+  const { isVisible, ref } = useVisibility();
   const { t } = useTranslation();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        } else {
-          setIsVisible(false);
-        }
-      },
-      {
-        threshold: 0.5,
-        rootMargin: "0px 0px -100px 0px",
-      }
-    );
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
-      }
-    };
-  }, []);
 
   return (
     <div
-      ref={cardRef}
+      ref={ref}
       className={`max-w-6xl mx-auto rounded-lg border border-gray-200 overflow-hidden bg-backgroundGrey transition-all duration-700 delay-200 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+        isVisible ? "opacity-100 translate-y-0" : "opacity-20 translate-y-5"
       }`}
     >
       <div className="flex items-center ">

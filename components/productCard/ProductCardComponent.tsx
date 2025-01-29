@@ -1,8 +1,10 @@
-import React from "react";
 import Image from "next/image";
 import AnimatedBox from "../animatedBox/AnimatedBox";
 import Link from "next/link";
 import { TranslateText } from "../translateText/TranslateText";
+
+import cementImage from "@/public/images/cement.webp";
+import graubergTruck from "@/public/assets/graubergTruck.webp";
 
 type ProductCardProps = {
   isCement?: boolean;
@@ -27,8 +29,7 @@ const ProductCardComponent = ({ isCement }: ProductCardProps) => {
           className="w-[575px] cursor-pointer relative h-[513px] 
         bg-backgroundGrey rounded-[30px] shadow-md border border-gray-200 
         hover:bg-gradient-to-b hover:from-gradientStart hover:to-gradientEnd 
-        hover:scale-110
-        transition-transform transition-all duration-300 
+        hover:scale-110 transition-all duration-300 
         max-1100:w-full max-1100:hover:scale-105"
         >
           {/* Image Section */}
@@ -38,8 +39,9 @@ const ProductCardComponent = ({ isCement }: ProductCardProps) => {
                 <Image
                   width={211}
                   height={320}
-                  src={"/images/cement.png"}
+                  src={cementImage}
                   alt="Cement"
+                  placeholder="blur"
                   className="w-[211px]
                drop-shadow-[-20px_14px_94px_rgba(0,0,0,0.45)] 
                rotate-[-3.76deg] h-[320px] max-h-[320px] absolute
@@ -49,7 +51,8 @@ const ProductCardComponent = ({ isCement }: ProductCardProps) => {
                 <Image
                   width={100}
                   height={100}
-                  src={"/assets/graubergTruck.gif"}
+                  src={graubergTruck}
+                  placeholder="empty"
                   alt="Concrete Mixer Truck"
                   className="w-full h-auto max-h-284"
                 />

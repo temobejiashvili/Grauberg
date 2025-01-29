@@ -8,9 +8,10 @@ interface AnimatedTextInvisibleBorderProps {
   data: string;
 }
 
-const AnimatedTextInvisibleBorder: React.FC<
-  AnimatedTextInvisibleBorderProps
-> = ({ time, data }) => {
+const AnimatedText: React.FC<AnimatedTextInvisibleBorderProps> = ({
+  time,
+  data,
+}) => {
   const { t } = useTranslation();
   const [showText, setShowText] = useState(false);
 
@@ -35,4 +36,4 @@ const AnimatedTextInvisibleBorder: React.FC<
   );
 };
 
-export default AnimatedTextInvisibleBorder;
+export default AnimatedText;

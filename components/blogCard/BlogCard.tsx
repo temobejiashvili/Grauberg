@@ -1,10 +1,10 @@
 import React from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { TranslateText } from "../translateText/TranslateText";
 
 interface BlogCardProps {
-  image?: string;
+  image: StaticImageData | string;
   alt?: string;
   title: string;
   text: string;
@@ -25,7 +25,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
     >
       <aside className="w-full h-[292px] overflow-hidden rounded-tl-[16px] rounded-tr-[16px]">
         <Image
-          src={`${image}`}
+          src={image}
           alt={`${alt}`}
           width={381}
           height={292}
@@ -35,6 +35,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
             height: "292px",
             objectFit: "cover",
           }}
+          placeholder="blur"
         />
       </aside>
       <aside className="py-[20px] px-[17px] border-[1px] border-solid border-[#D6D6D6] rounded-bl-[16px] rounded-br-[16px]">

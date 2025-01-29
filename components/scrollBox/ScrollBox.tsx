@@ -1,16 +1,16 @@
 "use client";
 import { useScrollContext } from "@/components/context/ScrollContext";
 import Image from "next/image";
-import CementPocket from "@/public/images/cement.png";
-import CementTruck from "@/public/assets/graubergTruck.gif";
-import { useEffect, useState } from "react";
+import CementPocket from "@/public/images/cement.webp";
+import CementTruck from "@/public/assets/graubergTruck.webp";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function ScrollBox() {
   const { activeSection } = useScrollContext();
   const pathname = usePathname();
-  const [windowWidth, setWindowWidth] = useState(0);
   const isCement = pathname === "/product/cement";
+  const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -20,14 +20,16 @@ export default function ScrollBox() {
     handleResize();
     window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const is1100 = windowWidth <= 1100;
 
   const topPosition = (() => {
     if (activeSection === "header") {
-      return windowWidth <= 1100 || !isCement ? "200px" : "150px";
+      return windowWidth <= 1100 || !isCement ? "400px" : "150px";
     }
     if (windowWidth <= 320) return "225%";
     if (windowWidth <= 344) return "144%";
@@ -45,7 +47,13 @@ export default function ScrollBox() {
   })();
 
   const leftPosition =
-    activeSection === "header" ? "50%" : is1100 ? "50%" : "115px";
+    activeSection === "header"
+      ? "50%"
+      : is1100
+      ? "50%"
+      : isCement
+      ? "115px"
+      : "30px";
 
   const transformStyle =
     activeSection === "header"
@@ -71,8 +79,9 @@ export default function ScrollBox() {
       <Image
         src={isCement ? CementPocket : CementTruck}
         alt="Cement"
-        width={is1100 ? 211 : isCement ? 306 : 380}
-        height={is1100 ? 319 : isCement ? 462 : 500}
+        width={is1100 ? 211 : isCement ? 306 : 500}
+        height={is1100 ? 319 : isCement ? 462 : 700}
+        placeholder={CementTruck ? "empty" : "blur"}
       />
     </div>
   );

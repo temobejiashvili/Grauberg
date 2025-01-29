@@ -1,11 +1,14 @@
 import Image from "next/image";
-import React from "react";
+import dynamic from "next/dynamic";
 
 import AdvantagesInfo from "./AdvantagesInfo";
-import AnimatedBox from "../animatedBox/AnimatedBox";
 
-import adventagesImage from "../../public/images/advantagesImage.png";
+import adventagesImage from "@/public/images/advantagesImage.png";
 import { TranslateText } from "../translateText/TranslateText";
+
+const AnimatedBox = dynamic(() => import("../animatedBox/AnimatedBox"), {
+  ssr: true,
+});
 
 const AdvantagesCardComponent = () => {
   return (
@@ -19,6 +22,7 @@ const AdvantagesCardComponent = () => {
           width={634}
           src={adventagesImage}
           alt="adv"
+          placeholder="blur"
           className="rounded-tl-[50px] max-600:rounded-tl-[0px] max-600:w-full max-600:h-[465px]"
         />
       </div>

@@ -1,7 +1,7 @@
 export const aboutUsContent = {
-  about: "graubergConstructionMaterials",
-  mission: "qualityConstructionforProgress",
-  vision: {
+  aboutGrauberg: "graubergConstructionMaterials",
+  graubergMission: "qualityConstructionforProgress",
+  graubergVision: {
     settingNewStandardsinConstruction: "settingNewStandardsinConstruction",
     qualityResponsibilityandGrowth: "qualityResponsibilityandGrowth",
   },

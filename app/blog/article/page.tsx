@@ -2,15 +2,41 @@ import { FC } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { TranslateText } from "@/components/translateText/TranslateText";
-import { socialIcons } from "@/content/socialIcons"; // Extracted to a separate file
+import { socialIcons } from "@/content/socialIcons";
+
+import constructionImage1 from "../../../public/assets/images/construction.png";
+import constructionImage2 from "../../../public/assets/images/construction2.png";
+import loaderBackground from "../../../public/assets/images/loaderBackground.webp";
 
 const BlogSection = dynamic(
   () => import("@/components/blogSection/BlogComponent"),
-  { ssr: false }
+  {
+    ssr: false,
+    loading: () => (
+      <Image
+        src={loaderBackground}
+        alt="Loading"
+        width={1000}
+        height={1000}
+        className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
+      />
+    ),
+  }
 );
 const LoaderComponent = dynamic(
   () => import("@/components/loaderComponent/LoaderComponent"),
-  { ssr: false }
+  {
+    ssr: false,
+    loading: () => (
+      <Image
+        src={loaderBackground}
+        alt="Loading"
+        width={1000}
+        height={1000}
+        className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
+      />
+    ),
+  }
 );
 
 const SocialIcon: FC<{
@@ -62,15 +88,14 @@ const Blog = () => {
           </header>
 
           <section className="mt-7 flex flex-col gap-14">
-            <div className="self-center max-600:max-h-80">
-              <Image
-                src="/assets/images/construction.png"
-                alt="Construction"
-                width={902}
-                height={529}
-                priority={false}
-              />
-            </div>
+            <Image
+              src={constructionImage1}
+              alt="Construction"
+              width={902}
+              height={529}
+              className="self-center max-600:max-h-80"
+              placeholder="blur"
+            />
 
             <article className="flex flex-col gap-7 text-gray-900 font-medium leading-7">
               <h3 className="text-black font-bold text-xl">
@@ -95,12 +120,12 @@ const Blog = () => {
             </article>
 
             <Image
-              src="/assets/images/construction2.png"
+              src={constructionImage2}
               alt="Construction"
+              layout="responsive"
               width={902}
               height={529}
-              className="self-center"
-              priority={false}
+              placeholder="blur"
             />
 
             <article className="flex flex-col gap-7">
@@ -118,7 +143,6 @@ const Blog = () => {
           style="bg-white"
           headline={<TranslateText text="relatedTopics" />}
         />
-
         <div className="w-full bg-white h-36 rounded-b-lg absolute"></div>
       </LoaderComponent>
     </section>

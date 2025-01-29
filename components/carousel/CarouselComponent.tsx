@@ -6,6 +6,10 @@ import Image from "next/image";
 
 import "./carouselComponentStyles.css";
 import AnimatedBox from "../animatedBox/AnimatedBox";
+import carouselImage1 from "@/public/assets/images/carouselImage1.png";
+import carouselImage2 from "@/public/assets/images/carouselImage2.png";
+import carouselImage3 from "@/public/assets/images/carouselImage3.png";
+import carouselImage4 from "@/public/assets/images/carouselImage4.png";
 
 const CarouselComponent = () => {
   const settings = {
@@ -34,22 +38,22 @@ const CarouselComponent = () => {
 
   const images = [
     {
-      src: "/assets/images/carouselImage1.png",
+      src: carouselImage1,
       rotation: "-1.32deg",
       offset: "20px",
     },
     {
-      src: "/assets/images/carouselImage2.png",
+      src: carouselImage2,
       rotation: "1.89deg",
       offset: "-15px",
     },
     {
-      src: "/assets/images/carouselImage3.png",
+      src: carouselImage3,
       rotation: "0.44deg",
       offset: "10px",
     },
     {
-      src: "/assets/images/carouselImage4.png",
+      src: carouselImage4,
       rotation: "-2.99deg",
       offset: "-20px",
     },
@@ -57,7 +61,7 @@ const CarouselComponent = () => {
 
   return (
     <div className="w-full">
-      <AnimatedBox isFadeIn={false}>
+      <AnimatedBox isFadeIn={false} rootMargin="400px 0px">
         <Slider {...settings} className="h-full">
           {images.map((image, index) => (
             <div
@@ -83,6 +87,7 @@ const CarouselComponent = () => {
                     alt={`Image ${index + 1}`}
                     width={200}
                     height={400}
+                    placeholder="blur"
                     className="rounded-[16px]  object-cover w-full h-full"
                   />
                 </div>
