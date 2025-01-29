@@ -6,7 +6,11 @@ import parallelepiped from "../../public/images/parallelepiped.png";
 import ValueInput from "./ValueInput";
 import { TranslateText } from "../translateText/TranslateText";
 
-const CalculatorComponent = () => {
+interface CalculatorComponentProps {
+  cement?: boolean;
+}
+
+const CalculatorComponent = ({ cement }: CalculatorComponentProps) => {
   const [values, setValues] = useState({
     thickness: "",
     length: "",
@@ -14,6 +18,9 @@ const CalculatorComponent = () => {
   });
   const [cubicMeters, setCubicMeters] = useState(0);
   const [pocket, setPocket] = useState(0);
+
+  const [cementVolume, setCementVolume] = useState(0);
+  const [cementBags, setCementBags] = useState(0);
 
   const handleChange = (key: string, value: string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -35,7 +42,11 @@ const CalculatorComponent = () => {
     const weight = volume * 1440; // 1440 kg/m³ is the density of cement
     const pockets = Math.ceil(weight / 40);
 
+    const bags = Math.ceil(volume * 28.8);
+
+    setCementVolume(volume);
     setCubicMeters(volume);
+    setCementBags(bags);
     setPocket(pockets);
   };
 
@@ -53,7 +64,7 @@ const CalculatorComponent = () => {
         />
         <div className="max-w-[516px] ml-[104px] mt-[43px] max-1100:ml-0 max-1100:mt-[26px] max-1100:px-[18px]">
           <h1 className="font-bold text-darkPrimary text-36 mb-5 max-1100:flex max-1100:flex-col max-1100:items-center max-1100:mb-[14px]">
-            <TranslateText text="cementS" />
+            <TranslateText text={cement ? "cementS" : "concretS"} />
             <span className="text-primary pl-3">
               <TranslateText text="calculator" />
             </span>
@@ -100,10 +111,14 @@ const CalculatorComponent = () => {
         {[
           {
             label: "cementNeeded",
-            value: cubicMeters.toFixed(4),
+            value: cement ? cubicMeters.toFixed(4) : cementVolume.toFixed(4),
             unit: "cubicMeters",
           },
-          { label: "howMuchCement", value: pocket, unit: "cementPocket" },
+          {
+            label: "howMuchCement",
+            value: cement ? pocket : cementBags,
+            unit: "cementPocket",
+          },
         ].map(({ label, value, unit }) => (
           <div
             key={label}

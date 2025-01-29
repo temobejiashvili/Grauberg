@@ -6,13 +6,14 @@ import { useIntersectionObserver } from "@/hooks/useIntersectionObserver/useInte
 interface AnimatedBoxProps {
   children: ReactNode;
   isFadeIn: boolean;
+  rootMargin?: string;
 }
 
-const AnimatedBox = ({ children, isFadeIn }: AnimatedBoxProps) => {
+const AnimatedBox = ({ children, isFadeIn, rootMargin }: AnimatedBoxProps) => {
   const { ref, isVisible } = useIntersectionObserver({
     threshold: 0.1,
 
-    rootMargin: "300px 0px",
+    rootMargin: rootMargin || "300px 0px",
   });
 
   return (

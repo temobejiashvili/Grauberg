@@ -117,7 +117,7 @@ const Product = () => {
 
       {/* Calculator Section */}
       <div className="w-full flex justify-center mb-40 max-1100:px-6">
-        <dynamicImports.CalculatorComponent />
+        <dynamicImports.CalculatorComponent cement />
       </div>
 
       {/* Advantages Section */}
