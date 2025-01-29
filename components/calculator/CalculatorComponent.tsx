@@ -5,12 +5,21 @@ import ValueInput from "./ValueInput";
 import { useState } from "react";
 import { TranslateText } from "../translateText/TranslateText";
 
-const CalculatorComponent = () => {
+interface CalculatorComponentProps {
+  cement?: boolean;
+}
+
+const CalculatorComponent: React.FC<CalculatorComponentProps> = ({
+  cement,
+}) => {
   const [thickness, setThickness] = useState("");
   const [length, setLength] = useState("");
   const [height, setHeight] = useState("");
   const [cubicMeters, setCubicMeters] = useState(0);
   const [pocket, setPocket] = useState(0);
+
+  const [cementVolume, setCementVolume] = useState(0);
+  const [cementBags, setCementBags] = useState(0);
 
   const handleCalculate = () => {
     const thicknessInMeters = parseFloat(thickness) / 100;
@@ -28,10 +37,14 @@ const CalculatorComponent = () => {
 
     const volume = thicknessInMeters * lengthInMeters * heightInMeters;
     setCubicMeters(volume);
+    setCementVolume(volume);
+
     const weight = volume * 1440; // 1440 kg/m³ is the density of cement
+    const bags = Math.ceil(volume * 28.8); // Each bag of cement is ~0.035 m³ (or 28.8 bags/m³)
 
     const pockets = Math.ceil(weight / 40);
     setPocket(pockets);
+    setCementBags(bags);
   };
 
   return (
@@ -64,7 +77,7 @@ const CalculatorComponent = () => {
            max-1100:flex max-1100:flex-col
            max-1100:items-center max-1100:mb-[14px]"
           >
-            <TranslateText text="cementS" />
+            <TranslateText text={cement ? "cementS" : "concretS"} />
             <span className="text-primary pl-3">
               <TranslateText text="calculator" />
             </span>
@@ -133,7 +146,8 @@ const CalculatorComponent = () => {
             <TranslateText text="cementNeeded" />
           </span>
           <h4 className="text-darkPrimary font-bold text-2xl">
-            {cubicMeters.toFixed(4)} <TranslateText text="cubicMeters" />
+            {cement ? cubicMeters.toFixed(4) : cementVolume.toFixed(4)}
+            <TranslateText text="cubicMeters" />
           </h4>
         </div>
         <div
@@ -142,10 +156,10 @@ const CalculatorComponent = () => {
         />
         <div className="flex flex-col items-center justify-center gap-3 w-[406px] max-1100:w-full">
           <span className="text-darkSecondary font-normal text-sm">
-            <TranslateText text="howMuchCement" />{" "}
+            <TranslateText text="howMuchCement" />
           </span>
           <h4 className="text-darkPrimary font-bold text-2xl">
-            {pocket} <TranslateText text="cementPocket" />
+            {cement ? pocket : cementBags} <TranslateText text="cementPocket" />
           </h4>
         </div>
       </div>

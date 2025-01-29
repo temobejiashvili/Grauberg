@@ -84,7 +84,7 @@ const Product = () => {
       </LoaderComponent>
 
       <div className="w-full flex justify-center mb-40 max-1100:px-6">
-        <CalculatorComponent />
+        <CalculatorComponent cement />
       </div>
 
       <AdvantagesCardComponent />

@@ -27,7 +27,7 @@ const Header: React.FC = () => {
   const dropdownRef = useRef<HTMLUListElement>(null); // Reference for the dropdown
   const [isProductDropDownOpen, setIsProductDropDownOpen] = useState(false);
   const pathname = usePathname();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -341,7 +341,13 @@ const Header: React.FC = () => {
           </div>
           <h2
             ref={headerImageRef}
-            className="text-center text-[44px] absolute font-bold leading-[56px] text-[#FFFFFF] z-[11] max-900:text-[28px] max-900:leading-[34px] max-900:w-[300px] pt-[174px] max-900:pt-[110px]"
+            className={`text-center absolute font-bold text-[#FFFFFF] z-[11] max-900:text-[28px] max-900:leading-[34px] max-900:w-[300px] pt-[174px] max-900:pt-[110px]
+              ${
+                i18n.language === "en"
+                  ? "text-[48px]"
+                  : "text-[44px] leading-[56px]"
+              }
+              `}
           >
             {t("frequentlyAskedQuestions")}
           </h2>
@@ -368,7 +374,11 @@ const Header: React.FC = () => {
               />
               <h2
                 ref={headerImageRef}
-                className="w-[804px] text-center text-[70.56px] font-bold leading-[88px]  text-[#100F0F] z-[2] pt-[166px] max-1100:text-[56px] max-900:w-[382px] max-900:text-[36px] max-900:leading-[44px]"
+                className={`w-[804px] text-center font-bold text-[#100F0F] z-[2] pt-[166px] max-1100:text-[56px] max-900:w-[382px] max-900:leading-[44px] ${
+                  i18n.language === "en"
+                    ? "text-[78px]"
+                    : "text-[70.56px] leading-[88px]"
+                }`}
               >
                 {t("strengthYou")} {t("canBuildOn")}
               </h2>
@@ -403,14 +413,20 @@ const Header: React.FC = () => {
           <div className="absolute top-0 left-0 w-full h-full bg-black-opacity-60 z-[1]"></div>
           <h2
             ref={ref}
-            className={`relative w-[804px] text-center text-[56px] font-bold
-              leading-[66px] text-[#f5f5f5] z-[2] -translate-y-[31px]
+            className={`relative w-[804px] text-center font-bold
+              text-[#f5f5f5] z-[2] -translate-y-[31px]
               max-900:w-[382px] max-900:text-[36px] max-900:leading-[44px] max-900:-translate-y-[44px]
               transition-all duration-400 ease-in-out ${
                 isVisible
                   ? "animate-slideUpHalf"
                   : "opacity-0 translate-y-[100%]"
-              }`}
+              }
+              ${
+                i18n.language === "en"
+                  ? "text-[60px]"
+                  : "text-[56px] leading-[66px]"
+              }
+              `}
           >
             <AnimatedText time={700} data="strengthYou" />
             <AnimatedText time={950} data="canBuildOn" />
@@ -436,7 +452,13 @@ const Header: React.FC = () => {
             />
             <h2
               ref={headerImageRef}
-              className="text-[56px] font-bold leading-[66px] text-[#F5F5F5] z-[2] max-900:text-[36px] max-900:leading-[44px] -translate-y-[31px] max-900:-translate-y-[44px]"
+              className={`font-bold text-[#F5F5F5] z-[2] max-900:text-[36px] max-900:leading-[44px] -translate-y-[31px] max-900:-translate-y-[44px]
+                ${
+                  i18n.language === "en"
+                    ? "text-[60px]"
+                    : "text-[56px] leading-[66px]"
+                }
+                `}
             >
               {t("about")}
             </h2>
