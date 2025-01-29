@@ -54,7 +54,10 @@ const Catalog = () => {
           </dynamicImports.LoaderComponent>
         </div>
       </div>
-      <div className="w-full bg-white h-[140px] rounded-b-60 absolute"></div>
+      <div
+        className="w-full bg-white h-[140px]
+       rounded-b-60 absolute max-900:h-[100px]"
+      ></div>
     </>
   );
 };

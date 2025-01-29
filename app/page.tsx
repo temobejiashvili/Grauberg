@@ -12,6 +12,7 @@ const LoaderComponent = dynamic(
       <Image
         src={loaderBackground}
         alt="Loading"
+        priority
         className="absolute w-[100vw] h-[100vh] top-0 left-0"
       />
     ),
