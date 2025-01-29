@@ -4,6 +4,7 @@ import { TranslateText } from "@/components/translateText/TranslateText";
 
 import subtract1 from "@/public/assets/images/Subtttract.webp";
 import subtract2 from "@/public/assets/images/Subbbbtract.webp";
+import AnimatedText from "../AnimatedText";
 
 interface HeaderAboutUsProps {
   is900: boolean;
@@ -38,7 +39,7 @@ const HeaderAboutUs = ({ is900, headerImageRef }: HeaderAboutUsProps) => {
             max-900:leading-[44px] -translate-y-[31px]
              max-900:-translate-y-[44px]"
         >
-          <TranslateText text="about" />
+          <AnimatedText time={950} data="about" />
         </span>
       </div>
       <div className="w-full relative">

@@ -61,7 +61,7 @@ const CarouselComponent = () => {
 
   return (
     <div className="w-full">
-      <AnimatedBox isFadeIn={false}>
+      <AnimatedBox isFadeIn={false} rootMargin="400px 0px">
         <Slider {...settings} className="h-full">
           {images.map((image, index) => (
             <div

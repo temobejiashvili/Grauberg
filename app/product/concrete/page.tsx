@@ -7,7 +7,6 @@ import Image from "next/image";
 import ShopIcon from "@/public/assets/icons/shopIcon.svg";
 import loaderBackground from "@/public/assets/images/loaderBackground.webp";
 
-// Dynamic Imports for Code Splitting
 const dynamicImports = {
   ScrollBox: dynamic(() => import("@/components/scrollBox/ScrollBox"), {
     ssr: false,

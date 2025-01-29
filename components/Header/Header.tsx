@@ -64,7 +64,7 @@ const Header: React.FC = () => {
   const dropdownRef = useRef<HTMLUListElement>(null);
   const [windowWidth, setWindowWidth] = useState(0);
   const pathname = usePathname();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -239,6 +239,7 @@ const Header: React.FC = () => {
         <dynamicImports.HeaderFAQ
           is900={is900}
           headerImageRef={headerImageRef}
+          i18n={i18n}
         />
       )}
       {whiteOverlay && (
@@ -246,10 +247,14 @@ const Header: React.FC = () => {
           is900={is900}
           headerRef={headerRef}
           headerImageRef={headerImageRef}
+          i18n={i18n}
         />
       )}
       {!cover && !whiteOverlay && !isWhite && !AboutUsCover && !catalog && (
-        <dynamicImports.HeaderMain headerImageRef={headerImageRef} />
+        <dynamicImports.HeaderMain
+          headerImageRef={headerImageRef}
+          i18n={i18n}
+        />
       )}
       {AboutUsCover && (
         <dynamicImports.HeaderAboutUs

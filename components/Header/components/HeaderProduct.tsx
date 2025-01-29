@@ -8,12 +8,14 @@ interface HeaderProductProps {
   is900: boolean;
   headerRef: any;
   headerImageRef: any;
+  i18n: any;
 }
 
 const HeaderProduct = ({
   is900,
   headerRef,
   headerImageRef,
+  i18n,
 }: HeaderProductProps) => {
   return (
     <section className="flex flex-col items-center">
@@ -29,7 +31,17 @@ const HeaderProduct = ({
           />
           <h2
             ref={headerImageRef}
-            className="w-[804px] text-center text-[70.56px] font-bold leading-[88px]  text-[#100F0F] z-[2] pt-[166px] max-1100:text-[56px] max-900:w-[382px] max-900:text-[36px] max-900:leading-[44px]"
+            className={`w-[804px] text-center text-[70.56px]
+             font-bold leading-[88px]  text-[#100F0F]
+              z-[2] pt-[166px] max-1100:text-[56px]
+               max-900:w-[382px] max-900:text-[36px]
+                max-900:leading-[44px]
+                ${
+                  i18n.language === "en"
+                    ? "text-[78px]"
+                    : "text-[70.56px] leading-[88px]"
+                }
+                `}
           >
             <TranslateText text="strengthYou" />
             <TranslateText text="canBuildOn" />
