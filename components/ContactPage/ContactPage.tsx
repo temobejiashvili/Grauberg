@@ -53,9 +53,14 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-[93px] pt-[212px] max-900:pt-[94px] px-[123px] bg-[#F5F5F5] max-1250:px-[70px] max-900:items-center max-900:gap-[34px]">
+    <div
+      className="flex flex-col gap-[93px] pt-[212px]
+     max-900:pt-[94px] px-[123px] bg-[#F5F5F5]
+      max-1250:px-[70px] max-900:items-center
+       max-900:gap-[34px] max-600:px-2"
+    >
       <section className="flex justify-between items-center max-1100:flex-col max-1100:gap-[52px]">
-        <aside className="flex flex-col  gap-[77px] max-900:gap-[32px] max-900:w-[410px]">
+        <aside className="flex flex-col  gap-[77px] max-900:gap-[32px] max-900:max-w-[410px]">
           <div className="flex flex-col gap-[12px]">
             <h2 className="text-[#100F0F] text-[44px] leading-[56px] font-bold max-900:text-[28px] max-900:leading-[34px]">
               {t("contact")}
@@ -143,9 +148,16 @@ const ContactPage: React.FC = () => {
         <aside>
           <form onSubmit={handleSubmit}>
             <div className="bg-[#FFF]  p-[1px] rounded-[24px] bg-gradient-to-t from-[#F5F5F5] to-[#ee2e24]">
-              <div className="bg-[#F5F5F5] backdrop-blur-[34px]  p-[18px] rounded-[24px]">
+              <div
+                className="bg-[#F5F5F5] backdrop-blur-[34px]
+                p-[18px] rounded-[24px] max-600:p-2"
+              >
                 <div
-                  className="border-solid border-[#D6D6D6] border-[1px] rounded-[12px] bg-[#FFFFFF] flex flex-col gap-[16px] py-[29px] px-[34px] z-[100]"
+                  className="border-solid border-[#D6D6D6]
+                   border-[1px] rounded-[12px]
+                    bg-[#FFFFFF] flex flex-col gap-[16px]
+                     py-[29px] px-[34px] z-[100]
+                    max-600:px-3"
                   style={{
                     boxShadow: `
                       0px 12px 26px 0px rgba(0, 0, 0, 0.1),

@@ -7,7 +7,7 @@ import { useScrollContext } from "../../components/context/ScrollContext";
 const RedBoxComponent = () => {
   const { setActiveSection } = useScrollContext();
   const { ref: targetRef, inView: isTargetInView } = useInView({
-    threshold: 0.4,
+    threshold: 0.7,
   });
 
   useEffect(() => {

@@ -7,7 +7,7 @@ export const navigation = [
     name: "about",
     url: "about-us",
   },
-  { name: "products", url: "/product" },
+  { name: "products", url: "/product/cement" },
 
   { name: "blog", url: "/blog/catalog" },
 
