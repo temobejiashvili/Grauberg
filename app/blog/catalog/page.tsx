@@ -16,7 +16,9 @@ const dynamicImports = {
           alt="Loading"
           width={1000}
           height={1000}
-          className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
+          placeholder="blur"
+          priority
+          className="fixed object-cover w-[100vw] h-[100vh] top-0 left-0 z-50"
         />
       ),
     }
@@ -29,7 +31,9 @@ const dynamicImports = {
         alt="Loading"
         width={1000}
         height={1000}
-        className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
+        placeholder="blur"
+        priority
+        className="fixed object-cover w-[100vw] h-[100vh] top-0 left-0 z-50"
       />
     ),
   }),

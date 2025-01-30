@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { TranslateText } from "../../translateText/TranslateText";
@@ -26,48 +26,50 @@ const HeaderProductItem = ({
   link,
 }: ProductItemPropsType) => {
   const [isOpen, setIsOpen] = useState(false);
-  const popupRef = useRef<HTMLDivElement | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const openPopup = () => setIsOpen(true);
-
-  const handleOutsideClick = (event: MouseEvent) => {
-    if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
-      setIsOpen(false);
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
     }
+    setIsOpen(true);
   };
 
-  useEffect(() => {
-    if (isOpen) {
-      document.addEventListener("mousedown", handleOutsideClick);
-    } else {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    }
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, [isOpen]);
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 300);
+  };
 
   return (
-    <li className="relative" onClick={openPopup}>
-      <span
-        className={`cursor-pointer ${
-          !isHeaderImageInView || isWhite ? "text-[#100F0F]" : "text-[#FFFFFF]"
-        } ${
-          isSamePath
-            ? "border-solid border-b-[1px] border-[#D6D6D6] pb-[7px]"
-            : "hover:border-solid hover:border-b-[1px] hover:border-[#D6D6D6] hover:pb-[7px]"
-        }`}
-      >
-        <TranslateText text={link.label} />
-      </span>
-      {/* Popup with ref for detecting outside clicks */}
+    <div
+      className="relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <li>
+        <span
+          className={`cursor-pointer ${
+            !isHeaderImageInView || isWhite
+              ? "text-[#100F0F]"
+              : "text-[#FFFFFF]"
+          } ${
+            isSamePath
+              ? "border-solid border-b-[1px] border-[#D6D6D6] pb-[7px]"
+              : "hover:border-solid hover:border-b-[1px] hover:border-[#D6D6D6] hover:pb-[7px]"
+          }`}
+        >
+          <TranslateText text={link.label} />
+        </span>
+      </li>
       {isOpen && (
         <div
-          ref={popupRef}
           className="absolute top-[55px] mt-2 left-[-224px]
                     bg-white shadow-lg rounded-lg p-4
                     z-50 gap-4 w-[556px] h-[220px]
                     border border-gray-300 flex"
+          onMouseEnter={handleMouseEnter} // Keep popup open when hovering over it
+          onMouseLeave={handleMouseLeave} // Close popup when leaving it
         >
           <div
             className="absolute top-[-15px] left-1/2
@@ -117,7 +119,7 @@ const HeaderProductItem = ({
           </Link>
         </div>
       )}
-    </li>
+    </div>
   );
 };
 

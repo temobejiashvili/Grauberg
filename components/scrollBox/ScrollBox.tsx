@@ -29,21 +29,40 @@ export default function ScrollBox() {
 
   const topPosition = (() => {
     if (activeSection === "header") {
-      return windowWidth <= 1100 || !isCement ? "400px" : "150px";
+      if (windowWidth <= 1100 && isCement) {
+        return "150px";
+      } else if (windowWidth <= 1100 && !isCement) {
+        return "350px";
+      } else if (!isCement) {
+        return "400px";
+      } else {
+        return "150px";
+      }
     }
-    if (windowWidth <= 320) return "225%";
-    if (windowWidth <= 344) return "144%";
-    if (windowWidth <= 360) return "170%";
+    if (windowWidth <= 320 && isCement) return "225%";
+    if (windowWidth <= 344 && isCement) return "144%";
+    if (windowWidth <= 344 && !isCement) return "195%";
+    if (windowWidth <= 360 && isCement) return "170%";
     if (windowWidth <= 375) return "190%";
-    if (windowWidth <= 390) return "185%";
-    if (windowWidth <= 444) return "175%";
-    if (windowWidth <= 600) return "160%";
-    if (windowWidth <= 768) return "152%";
-    if (windowWidth <= 820) return "155%";
-    if (windowWidth <= 853) return "150%";
-    if (windowWidth <= 1024) return "175%";
-    if (windowWidth <= 1280) return "125%";
-    return "calc(100% + 99px)";
+    if (windowWidth <= 390 && isCement) return "185%";
+    if (windowWidth <= 390 && !isCement) return "180%";
+    if (windowWidth <= 444 && isCement) return "175%";
+    if (windowWidth <= 444 && !isCement) return "165%";
+    if (windowWidth <= 600 && isCement) return "160%";
+    if (windowWidth <= 600 && !isCement) return "150%";
+    if (windowWidth <= 768 && isCement) return "152%";
+    if (windowWidth <= 768 && !isCement) return "135%";
+    if (windowWidth <= 820 && isCement) return "155%";
+    if (windowWidth <= 820 && !isCement) return "130%";
+    if (windowWidth <= 853 && isCement) return "150%";
+    if (windowWidth <= 853 && !isCement) return "130%";
+    if (windowWidth <= 1024 && isCement) return "175%";
+    if (windowWidth <= 1024 && !isCement) return "145%";
+    if (windowWidth <= 1280 && isCement) return "125%";
+    if (windowWidth >= 2700) return "70%";
+    if (windowWidth >= 2200) return "85%";
+    if (windowWidth >= 2000) return "100%";
+    return isCement ? "calc(100% + 99px)" : "calc(100% + 40px)";
   })();
 
   const leftPosition =
@@ -73,13 +92,13 @@ export default function ScrollBox() {
         top: topPosition,
         left: leftPosition,
         transform: transformStyle,
-        rotate: activeSection === "header" ? "9.92deg" : "0deg",
+        rotate: activeSection === "header" && isCement ? "9.92deg" : "0deg",
       }}
     >
       <Image
         src={isCement ? CementPocket : CementTruck}
         alt="Cement"
-        width={is1100 ? 211 : isCement ? 306 : 500}
+        width={is1100 ? (isCement ? 211 : 400) : isCement ? 306 : 500}
         height={is1100 ? 319 : isCement ? 462 : 700}
         placeholder={CementTruck ? "empty" : "blur"}
       />

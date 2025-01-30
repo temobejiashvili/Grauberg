@@ -14,6 +14,8 @@ const dynamicImports = {
         <Image
           src={loaderBackground}
           alt="Loading"
+          placeholder="blur"
+          priority
           width={1000}
           height={1000}
           className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50 object-cover aspect-auto"
