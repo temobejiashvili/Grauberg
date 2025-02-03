@@ -46,6 +46,7 @@ export default function ScrollBox() {
     if (windowWidth <= 375) return "190%";
     if (windowWidth <= 390 && isCement) return "185%";
     if (windowWidth <= 390 && !isCement) return "180%";
+    if (windowWidth <= 440 && isCement) return "130%";
     if (windowWidth <= 444 && isCement) return "175%";
     if (windowWidth <= 444 && !isCement) return "165%";
     if (windowWidth <= 600 && isCement) return "160%";
@@ -59,6 +60,7 @@ export default function ScrollBox() {
     if (windowWidth <= 1024 && isCement) return "175%";
     if (windowWidth <= 1024 && !isCement) return "145%";
     if (windowWidth <= 1280 && isCement) return "125%";
+    if (windowWidth <= 1600 && !isCement) return "140%";
     if (windowWidth >= 2700) return "70%";
     if (windowWidth >= 2200) return "85%";
     if (windowWidth >= 2000) return "100%";

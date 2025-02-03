@@ -85,6 +85,19 @@ export default function FooterComponent() {
                   </Link>
                 ))}
               </div>
+              {/* <div className="flex flex-col">
+                <Link
+                  href={"/terms-conditions"}
+                  className="hover:text-red-600 mb-[10px]"
+                >
+                  <span className="text-primary mr-1">&gt;</span>{" "}
+                  {t("termsAndConditions")}
+                </Link>
+                <Link href={"/personal-details"} className="hover:text-red-600">
+                  <span className="text-primary mr-1">&gt;</span>{" "}
+                  {t("rulesAndConditions")}
+                </Link>
+              </div> */}
             </div>
           </div>
         </div>
