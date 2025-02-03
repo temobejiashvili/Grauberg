@@ -64,7 +64,7 @@ const AboutCard = () => {
           </div>
 
           <Link
-            href="/about-us"
+            href="/about-grauberg"
             className="group flex justify-center items-center
              rounded-[10px] w-[240px] h-[54px]
               border-[1px] border-solid border-stroke hover:border-[#D6D6D6] hover:bg-primary transition-colors text-sm text-darkPrimary hover:text-white"

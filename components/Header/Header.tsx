@@ -87,7 +87,7 @@ const Header: React.FC = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathname]);
 
-  const AboutUsCover = ["/about-us"].includes(pathname);
+  const AboutUsCover = ["/about-us", "/about-grauberg"].includes(pathname);
   const isWhite = [
     "/contact",
     "/blog/article",

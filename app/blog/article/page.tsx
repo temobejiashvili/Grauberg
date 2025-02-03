@@ -54,11 +54,21 @@ const SocialIcon: FC<{
   </div>
 );
 
+const cementMaking = [
+  { key: "rawMaterials", desc: "rawMaterialsDesc" },
+  { key: "materials", desc: "materialsDesc" },
+  { key: "oven", desc: "ovenDesc" },
+  { key: "grinding", desc: "grindingDesc" },
+  { key: "distribution", desc: "distributionDesc" },
+];
+
 const cementTypes = [
   { key: "portlandcement", desc: "cementVarietie" },
-  { key: "whiteCement", desc: "whiteCementOverview" },
+  { key: "Portland Pozzolana Cement (PPC)", desc: "pozzolanaDesc" },
   { key: "quickSetCement", desc: "cementTypesExplained" },
-  { key: "hydroCem", desc: "AquaCem" },
+  { key: "sulphatResistannce", desc: "sulphatDesc" },
+  { key: "whiteCement", desc: "whiteCementOverview" },
+  { key: "hydroCem", desc: "aquaCem" },
 ];
 
 const Blog = () => {
@@ -106,7 +116,21 @@ const Blog = () => {
                 <TranslateText text="cementBasics" />
               </h3>
               <TranslateText text="coreCement" />
-              <TranslateText text="cementEssentials" />
+              {/* <TranslateText text="cementEssentials" /> */}
+            </article>
+
+            <article className="flex flex-col gap-7">
+              <h3 className="text-black font-bold text-xl">
+                <TranslateText text="makingCement" />
+              </h3>
+              {cementMaking.map(({ key, desc }, index) => (
+                <p key={index} className="text-gray-900 font-medium leading-7">
+                  <span className="font-bold">
+                    {index + 1}. <TranslateText text={key} />:
+                  </span>{" "}
+                  <TranslateText text={desc} />
+                </p>
+              ))}
             </article>
 
             <article className="flex flex-col gap-7">
