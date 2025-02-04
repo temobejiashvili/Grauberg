@@ -8,7 +8,7 @@ const AboutGraubergPage = () => {
   return (
     <div className="w-full relative min-h-[1000px] h-full">
       <LoaderComponent>
-        <section className="flex flex-col max-w-[1200px] mx-auto justify-center items-center mt-10 px-4">
+        <section className="flex flex-col max-w-[1200px] mx-auto justify-center items-center mt-[80px] px-4">
           <h4 className="w-fit text-4xl font-bold mb-5">
             <TranslateText text="graubergFactory" />
           </h4>
