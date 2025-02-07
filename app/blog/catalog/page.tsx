@@ -1,5 +1,6 @@
 import { TranslateText } from "@/components/translateText/TranslateText";
 import dynamic from "next/dynamic";
+import { blogs } from "@/content/blogsContent";
 import Image from "next/image";
 
 import loaderBackground from "@/public/assets/images/loaderBackground.webp";
@@ -24,17 +25,7 @@ const dynamicImports = {
   ),
   BlogCard: dynamic(() => import("@/components/blogCard/BlogCard"), {
     ssr: false,
-    loading: () => (
-      <Image
-        src={loaderBackground}
-        alt="Loading"
-        width={1000}
-        height={1000}
-        placeholder="blur"
-        priority
-        className="fixed object-cover w-[100vw] h-[100vh] top-0 left-0 z-50"
-      />
-    ),
+    loading: () => <p>Loading...</p>,
   }),
 };
 
@@ -65,19 +56,19 @@ const Catalog = async () => {
             <TranslateText text="allBlogs" />
           </h3>
 
-          <dynamicImports.LoaderComponent>
-            <div className="flex justify-center items-center gap-[38px] flex-wrap z-[40] max-900:gap-[26px]">
-              {data.data.map((blog, index) => (
-                <dynamicImports.BlogCard key={index} {...blog} />
-              ))}
-            </div>
-          </dynamicImports.LoaderComponent>
+          <div className="flex justify-center items-center gap-[38px] flex-wrap z-[40] max-900:gap-[26px]">
+            {blogs.map((blog, index) => (
+              <dynamicImports.BlogCard key={index} {...blog} />
+            ))}
+          </div>
         </div>
       </div>
-      <div
-        className="w-full bg-white h-[140px]
-       rounded-b-60 absolute max-900:h-[100px]"
-      ></div>
+      <dynamicImports.LoaderComponent>
+        <div
+          className="w-full bg-white h-[140px]
+        rounded-b-60 absolute max-900:h-[100px]"
+        ></div>
+      </dynamicImports.LoaderComponent>
     </>
   );
 };
