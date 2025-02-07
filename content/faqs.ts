@@ -76,4 +76,16 @@ export const faqs = [
     question: "quest19",
     answer: "answ19",
   },
+  {
+    question: "quest20",
+    answer: "answ20",
+  },
+  {
+    question: "quest21",
+    answer: "answ21",
+  },
+  {
+    question: "quest22",
+    answer: "answ22",
+  },
 ];

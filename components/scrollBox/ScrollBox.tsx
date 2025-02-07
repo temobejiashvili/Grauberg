@@ -31,40 +31,13 @@ export default function ScrollBox() {
     if (activeSection === "header") {
       if (windowWidth <= 1100 && isCement) {
         return "150px";
-      } else if (windowWidth <= 1100 && !isCement) {
-        return "350px";
-      } else if (!isCement) {
-        return "400px";
       } else {
-        return "150px";
+        return "360px";
       }
     }
-    if (windowWidth <= 320 && isCement) return "225%";
-    if (windowWidth <= 344 && isCement) return "144%";
-    if (windowWidth <= 344 && !isCement) return "195%";
-    if (windowWidth <= 360 && isCement) return "170%";
-    if (windowWidth <= 375) return "190%";
-    if (windowWidth <= 390 && isCement) return "185%";
-    if (windowWidth <= 390 && !isCement) return "180%";
-    if (windowWidth <= 440 && isCement) return "130%";
-    if (windowWidth <= 444 && isCement) return "175%";
-    if (windowWidth <= 444 && !isCement) return "165%";
-    if (windowWidth <= 600 && isCement) return "160%";
-    if (windowWidth <= 600 && !isCement) return "150%";
-    if (windowWidth <= 768 && isCement) return "152%";
-    if (windowWidth <= 768 && !isCement) return "135%";
-    if (windowWidth <= 820 && isCement) return "155%";
-    if (windowWidth <= 820 && !isCement) return "130%";
-    if (windowWidth <= 853 && isCement) return "150%";
-    if (windowWidth <= 853 && !isCement) return "130%";
-    if (windowWidth <= 1024 && isCement) return "175%";
-    if (windowWidth <= 1024 && !isCement) return "145%";
-    if (windowWidth <= 1280 && isCement) return "125%";
-    if (windowWidth <= 1600 && !isCement) return "140%";
-    if (windowWidth >= 2700) return "70%";
-    if (windowWidth >= 2200) return "85%";
-    if (windowWidth >= 2000) return "100%";
-    return isCement ? "calc(100% + 99px)" : "calc(100% + 40px)";
+    if (windowWidth <= 1100 && isCement) return "1100px";
+    if (windowWidth <= 1100 && !isCement) return "1250px";
+    return isCement ? "calc(100% + 20px)" : "calc(100% + 40px)";
   })();
 
   const leftPosition =
@@ -100,8 +73,8 @@ export default function ScrollBox() {
       <Image
         src={isCement ? CementPocket : CementTruck}
         alt="Cement"
-        width={is1100 ? (isCement ? 211 : 400) : isCement ? 306 : 500}
-        height={is1100 ? 319 : isCement ? 462 : 700}
+        width={is1100 ? (isCement ? 211 : 400) : isCement ? 240 : 500}
+        height={is1100 ? 319 : isCement ? 310 : 700}
         placeholder={CementTruck ? "empty" : "blur"}
       />
     </div>

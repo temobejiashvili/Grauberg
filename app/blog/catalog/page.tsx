@@ -1,5 +1,4 @@
 import { TranslateText } from "@/components/translateText/TranslateText";
-import { blogs } from "@/content/blogsContent";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
@@ -39,7 +38,24 @@ const dynamicImports = {
   }),
 };
 
-const Catalog = () => {
+async function getBlogs(page: number = 1, pageSize: number = 10) {
+  const res = await fetch(
+    `https://grauberg.com.ge/main/get-posts?page=${page}&pageSize=${pageSize}`,
+    {
+      cache: "no-cache",
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+const Catalog = async () => {
+  const data = await getBlogs();
+
   return (
     <>
       <div className="flex relative justify-center min-h-[1200px] max-1300:h-[1700px] max-900:h-[3300px]">
@@ -51,7 +67,7 @@ const Catalog = () => {
 
           <dynamicImports.LoaderComponent>
             <div className="flex justify-center items-center gap-[38px] flex-wrap z-[40] max-900:gap-[26px]">
-              {blogs.map((blog, index) => (
+              {data.data.map((blog, index) => (
                 <dynamicImports.BlogCard key={index} {...blog} />
               ))}
             </div>

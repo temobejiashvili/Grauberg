@@ -160,6 +160,12 @@
   "answ18": "Our goal is to ensure maximum customer satisfaction. If the product is damaged, you can request a replacement; however, sold products cannot be returned.",
   "quest19": "How can I get consultation regarding Grauberg's products?",
   "answ19": "To receive consultation, please visit our website, click on the contact button, and fill in the necessary fields. Enter your first name, last name, phone number, email, and add any comments if needed. The Grauberg customer support team will contact you as soon as possible. Our employees will provide personalized advice for your project, assist you in selecting the right products, and explain the proper usage of Grauberg cement and concrete in detail.",
+  "quest20": "What types of strength concrete are there?",
+  "answ20": "According to the strength, concrete is divided into the following stamps: upper – 100-200 kg / cm2 (10-20 MPa); Heavy – 100-800 kg / cm2 (10-80 MPa); Light – 10-400 kg / cm2 (1-",
+  "quest21": "How to choose a concrete type?",
+  "answ21": "The type of concrete is also chosen according to the purpose: 1. For the construction of heavy (ordinary) – buildings and structures; 2 .For hydraulic – hydraulic building; 3. Road – for road construction; 4.Biological – Radiation Protective Concrete; 5. Firefighting; 6.Decorative; 7. Chemical – acid and tutegammon concrete; 8. Fast-paced and so on.",
+  "quest22": "What does concrete consist of?",
+  "answ22": "Concrete is an artificial stone obtained by mixing natural and artificial materials. Concrete consists of several basic materials: sand, pork, cement, water, cement filler and various types of plasticizers.",
   "highFirmness": "High Firmness Concrete",
   "cement": "Cement",
   "concrete": "Concrete",
@@ -202,5 +208,9 @@
   "regulatoryLawJurisdiction": "Regulatory Law and Jurisdiction",
   "regulatoryLawJurisdictionDesc": "These terms and conditions are regulated by the legislation of Georgia. A possible dispute should be ruled out by the common courts system of Georgia The invalidity of a particular provision shall not affect other provisions to the terms and conditions.",
   "contactInformation": "Contact information",
-  "contactDesc": "Please read these terms and conditions carefully. If you do not consent, please let us know by sending an e-mail at: ------------"
+  "contactDesc": "Please read these terms and conditions carefully. If you do not consent, please let us know by sending an e-mail at: ------------",
+  "concreteDetails": "The Gruberg plant, located in the city of Zugdidi, offers customers the highest quality concrete made with the latest technology. Concrete is an artificial stone obtained by mixing natural and artificial materials. In the production of modern concrete we use different types of plasticizers, taking into account the type of construction, the environment and specifications.",
+  "concreteIngredients": "Concrete consists of several basic materials: sand, pork, cement, water, cement filler and various types of plasticizers.",
+  "ourConcreteUsage": "Our concrete is used",
+  "concreteUsageDetails": "Grauberg concrete is ideal for any type of construction, including: for infrastructure buildings, for the construction of commercial and industrial facilities, roads, bridges and tunnels."
 }
