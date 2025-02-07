@@ -80,10 +80,10 @@ const Product = () => {
           <dynamicImports.AnimatedBox isFadeIn={false}>
             <div>
               <h3 className="font-bold text-44 text-darkPrimary pb-6 break-words max-1100:text-28">
-                <TranslateText text="portlandcement" />
+                <TranslateText text="concrete" />
               </h3>
               <p className="font-normal text-[16px] leading-[26px] text-darkPrimary text-justify max-1100:text-sm">
-                <TranslateText text="portlandText" />
+                <TranslateText text="concreteDetails" />
               </p>
             </div>
           </dynamicImports.AnimatedBox>
@@ -94,10 +94,9 @@ const Product = () => {
                 <ShopIcon />
               </span>
               <div>
-                <h4 className="font-bold text-2xl text-darkPrimary">90-90</h4>
+                {/* <h4 className="font-bold text-2xl text-darkPrimary">90-90</h4> */}
                 <p className="font-normal text-[16px] leading-[26px] text-darkPrimary">
-                  შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპო
-                  გრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქს.
+                  <TranslateText text="concreteIngredients" />
                 </p>
               </div>
             </div>
@@ -110,12 +109,12 @@ const Product = () => {
           <div className="flex flex-col items-center w-full gap-7 pt-11">
             <dynamicImports.AnimatedBox isFadeIn={false}>
               <h1 className="max-w-[1002px] font-bold text-44 text-darkPrimary text-center">
-                <TranslateText text="ourCementUsage" />
+                <TranslateText text="ourConcreteUsage" />
               </h1>
             </dynamicImports.AnimatedBox>
             <dynamicImports.AnimatedBox isFadeIn={false}>
               <p className="max-w-[975px] font-normal text-[16px] leading-[26px] text-darkPrimary text-center">
-                <TranslateText text="cementUsageInfo" />
+                <TranslateText text="concreteUsageDetails" />
               </p>
             </dynamicImports.AnimatedBox>
           </div>

@@ -14,7 +14,7 @@ const FAQAccordion = () => {
 
   return (
     <>
-      <div className="bg-[#F5F5F5] w-full relative h-[1784px]">
+      <div className="bg-[#F5F5F5] w-full relative h-[2000px]">
         <div className="absolute w-[1072px] left-1/2 top-[-111px] transform -translate-x-1/2 bg-[#FFF] rounded-[20px] py-[16px] px-[40px] shadow-lg max-900:px-[20px] max-1250:w-[900px] max-1100:w-[800px] max-900:w-[370px]">
           {faqs.map((faq, index) => (
             <>

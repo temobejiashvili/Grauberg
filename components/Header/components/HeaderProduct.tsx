@@ -33,7 +33,7 @@ const HeaderProduct = ({
             ref={headerImageRef}
             className={`w-[804px] text-center text-[70.56px]
              font-bold leading-[88px]  text-[#100F0F]
-              z-[2] pt-[220px] max-1100:text-[56px]
+              z-[2] pt-[130px] max-1100:text-[56px]
                max-900:w-[382px] max-900:text-[36px]
                 max-900:leading-[44px]
                 ${
