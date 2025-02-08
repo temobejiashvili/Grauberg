@@ -73,8 +73,8 @@ export default function ScrollBox() {
       <Image
         src={isCement ? CementPocket : CementTruck}
         alt="Cement"
-        width={is1100 ? (isCement ? 211 : 400) : isCement ? 240 : 500}
-        height={is1100 ? 319 : isCement ? 310 : 700}
+        width={is1100 ? (isCement ? 211 : 400) : isCement ? 220 : 500}
+        height={is1100 ? 319 : isCement ? 300 : 700}
         placeholder={CementTruck ? "empty" : "blur"}
       />
     </div>
