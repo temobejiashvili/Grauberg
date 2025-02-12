@@ -37,6 +37,7 @@ export default function ScrollBox() {
     }
     if (windowWidth <= 1100 && isCement) return "1100px";
     if (windowWidth <= 1100 && !isCement) return "1250px";
+    if (windowWidth <= 1540) return "calc(100% + 260px)";
     return isCement ? "calc(100% + 20px)" : "calc(100% + 40px)";
   })();
 
@@ -73,8 +74,8 @@ export default function ScrollBox() {
       <Image
         src={isCement ? CementPocket : CementTruck}
         alt="Cement"
-        width={is1100 ? (isCement ? 211 : 400) : isCement ? 220 : 500}
-        height={is1100 ? 319 : isCement ? 300 : 700}
+        width={is1100 ? (isCement ? 211 : 400) : isCement ? 210 : 500}
+        height={is1100 ? 319 : isCement ? 280 : 700}
         placeholder={CementTruck ? "empty" : "blur"}
       />
     </div>

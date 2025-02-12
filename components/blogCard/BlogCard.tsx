@@ -53,7 +53,7 @@ const BlogCard: React.FC<BlogCardProps> = async ({
 
   return (
     <Link
-      href={`/blog/article/`}
+      href={url}
       className="w-[375px] max-900:w-[370px] hover:shadow-little rounded-[16px]"
     >
       <aside className="w-full h-[292px] overflow-hidden rounded-tl-[16px] rounded-tr-[16px]">

@@ -25,20 +25,16 @@ const BlogSection = ({ style, needButton, headline }: BlogProps) => {
       id: 1,
       image: beton,
       title: "betonTypes",
-      description:
-        "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპო გრაფ იული ნაწარმის შემქმნელებს ასფოი ასკფჯოკას ფსაფსფა საფასფსაფ",
+      description: "concreteInArchitectureEngineering",
+      url: "/blog/article?=1",
     },
     {
       id: 2,
       image: factory,
-      title: "PrimeStandards",
-      description: "buildMix",
-    },
-    {
-      id: 3,
-      image: block,
-      title: "CemGuide",
-      description: "cemStrength",
+      title: "betonTypes",
+      description:
+        "ბეტონი ერთ-ერთი ყველაზე ფართოდ გამოყენებადი მასალაა მშენებლობაში, რომელიც გამოირჩევა სიმტკიცითა და გამძლეობით. ბეტონი მიიღება ბუნებრივი და ხელოვნური მასალების ურთიერთ შეზავებით და შედგება რამდენიმე ძირითადი კომპონენტისგან: ქვიშა, ღორღი, ცემენტი, წყალი, ცემენტისებრი შემავსებელი და სხვადასხვა ტიპის პლასტიფიკატორები.",
+      url: "/blog/article?=2",
     },
   ];
 
@@ -50,30 +46,32 @@ const BlogSection = ({ style, needButton, headline }: BlogProps) => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-11">
           {blogItems.map((item, i) => (
-            <AnimatedBox isFadeIn key={i}>
-              <div
-                key={item.id}
-                className="bg-white border-stroke border rounded-2xl overflow-hidden
+            <Link href={item.url}>
+              <AnimatedBox isFadeIn key={i}>
+                <div
+                  key={item.id}
+                  className="bg-white border-stroke border rounded-2xl overflow-hidden
                 hover:shadow-little "
-              >
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={300}
-                  height={300}
-                  className="w-full h-300 object-cover"
-                  placeholder="blur"
-                />
-                <div className="p-4">
-                  <h3 className="text-2xl font-bold text-darkPrimary mb-2">
-                    <TranslateText text={item.title} />
-                  </h3>
-                  <p className="text-sm line-clamp-3 font-normal w-full h-60 text-darkSecondary mb-4">
-                    <TranslateText text={item.description} />
-                  </p>
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={300}
+                    height={300}
+                    className="w-full h-300 object-cover"
+                    placeholder="blur"
+                  />
+                  <div className="p-4">
+                    <h3 className="text-2xl font-bold text-darkPrimary mb-2">
+                      <TranslateText text={item.title} />
+                    </h3>
+                    <p className="text-sm line-clamp-3 font-normal w-full h-60 text-darkSecondary mb-4">
+                      <TranslateText text={item.description} />
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </AnimatedBox>
+              </AnimatedBox>
+            </Link>
           ))}
         </div>
         {!needButton && (
