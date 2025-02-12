@@ -88,17 +88,19 @@ const Header: React.FC = () => {
   }, [pathname]);
 
   const AboutUsCover = ["/about-us"].includes(pathname);
-  const isWhite = [
-    "/contact",
-    "/blog/article",
-    "/about-grauberg",
-    "/terms-conditions",
-    "/product/cement",
-    "/product/concrete",
-  ].includes(pathname);
+  const isWhite =
+    [
+      "/contact",
+      "/blog/article",
+      "/about-grauberg",
+      "/terms-conditions",
+      "/product/cement",
+      "/product/concrete",
+    ].includes(pathname) || pathname.includes("/blog/article");
   const whiteOverlay = ["/product/cement", "/product/concrete"].includes(
     pathname
   );
+  const isCement = ["/product/cement"].includes(pathname);
   const cover = ["/faq"].includes(pathname);
   const catalog = ["/blog/catalog"].includes(pathname);
 
@@ -250,6 +252,7 @@ const Header: React.FC = () => {
           headerRef={headerRef}
           headerImageRef={headerImageRef}
           i18n={i18n}
+          isCement={isCement}
         />
       )}
       {!cover && !whiteOverlay && !isWhite && !AboutUsCover && !catalog && (
