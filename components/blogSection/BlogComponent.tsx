@@ -4,10 +4,10 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 
 import Arrow from "@/public/assets/arrow.svg";
-import beton from "@/public/images/beton.webp";
-import factory from "@/public/images/factory.webp";
-import block from "@/public/images/block.webp";
 import { TranslateText } from "../translateText/TranslateText";
+import BlogTranslate from "../blogTranslate/BlogTranslate";
+
+import { blogs } from "@/content/blogsContent";
 
 const AnimatedBox = dynamic(() => import("../animatedBox/AnimatedBox"), {
   ssr: true,
@@ -20,24 +20,6 @@ interface BlogProps {
 }
 
 const BlogSection = ({ style, needButton, headline }: BlogProps) => {
-  const blogItems = [
-    {
-      id: 1,
-      image: beton,
-      title: "betonTypes",
-      description: "concreteInArchitectureEngineering",
-      url: "/blog/article?=1",
-    },
-    {
-      id: 2,
-      image: factory,
-      title: "betonTypes",
-      description:
-        "ბეტონი ერთ-ერთი ყველაზე ფართოდ გამოყენებადი მასალაა მშენებლობაში, რომელიც გამოირჩევა სიმტკიცითა და გამძლეობით. ბეტონი მიიღება ბუნებრივი და ხელოვნური მასალების ურთიერთ შეზავებით და შედგება რამდენიმე ძირითადი კომპონენტისგან: ქვიშა, ღორღი, ცემენტი, წყალი, ცემენტისებრი შემავსებელი და სხვადასხვა ტიპის პლასტიფიკატორები.",
-      url: "/blog/article?=2",
-    },
-  ];
-
   return (
     <section className={`bg-backgroundGrey ${style} relative py-[46px]`}>
       <div className="container mx-auto flex flex-col justify-center items-center">
@@ -45,17 +27,17 @@ const BlogSection = ({ style, needButton, headline }: BlogProps) => {
           {headline ? headline : <TranslateText text="latestNews" />}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-11">
-          {blogItems.map((item, i) => (
+          {blogs.map((item, i) => (
             <Link href={item.url}>
               <AnimatedBox isFadeIn key={i}>
                 <div
-                  key={item.id}
+                  key={i}
                   className="bg-white border-stroke border rounded-2xl overflow-hidden
                 hover:shadow-little "
                 >
                   <Image
                     src={item.image}
-                    alt={item.title}
+                    alt={"image"}
                     width={300}
                     height={300}
                     className="w-full h-300 object-cover"
@@ -63,10 +45,10 @@ const BlogSection = ({ style, needButton, headline }: BlogProps) => {
                   />
                   <div className="p-4">
                     <h3 className="text-2xl font-bold text-darkPrimary mb-2">
-                      <TranslateText text={item.title} />
+                      <BlogTranslate index={i} info="header" />
                     </h3>
                     <p className="text-sm line-clamp-3 font-normal w-full h-60 text-darkSecondary mb-4">
-                      <TranslateText text={item.description} />
+                      <BlogTranslate index={i} info="headerDetails" />
                     </p>
                   </div>
                 </div>

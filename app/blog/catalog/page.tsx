@@ -45,7 +45,7 @@ async function getBlogs(page: number = 1, pageSize: number = 10) {
 }
 
 const Catalog = async () => {
-  const data = await getBlogs();
+  // const data = await getBlogs();
 
   return (
     <>
@@ -58,7 +58,7 @@ const Catalog = async () => {
 
           <div className="flex justify-center items-center gap-[38px] flex-wrap z-[40] max-900:gap-[26px]">
             {blogs.map((blog, index) => (
-              <dynamicImports.BlogCard key={index} {...blog} />
+              <dynamicImports.BlogCard key={index} index={index} {...blog} />
             ))}
           </div>
         </div>

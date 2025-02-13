@@ -212,5 +212,137 @@
   "concreteDetails": "The Gruberg plant, located in the city of Zugdidi, offers customers the highest quality concrete made with the latest technology. Concrete is an artificial stone obtained by mixing natural and artificial materials. In the production of modern concrete we use different types of plasticizers, taking into account the type of construction, the environment and specifications.",
   "concreteIngredients": "Concrete consists of several basic materials: sand, pork, cement, water, cement filler and various types of plasticizers.",
   "ourConcreteUsage": "Our concrete is used",
-  "concreteUsageDetails": "Grauberg concrete is ideal for any type of construction, including: for infrastructure buildings, for the construction of commercial and industrial facilities, roads, bridges and tunnels."
+  "concreteUsageDetails": "Grauberg concrete is ideal for any type of construction, including: for infrastructure buildings, for the construction of commercial and industrial facilities, roads, bridges and tunnels.",
+  "blogs": [
+    {
+      "header": "Types of concrete and their uses ",
+      "headerDetails": "Concrete is one of the most widely used materials in construction, which is distinguished by its strength and durability. Concrete is made by mixing natural and artificial materials and consists of several main components: sand, gravel, cement, water, cement filler and different types of plasticizers.",
+      "ulList": [
+        {
+          "header": "Types of concrete",
+          "list": [
+            {
+              "key": "Extra heavy concrete - ",
+              "desc": "2500 kg/m3 and more."
+            },
+            {
+              "key": "Heavy (ordinary) concrete -",
+              "desc": "1800-2500 kg/m3"
+            },
+            {
+              "key": "Lightweight concrete - ",
+              "desc": "500-1800 kg/m3 (sometimes lighter 1800-2200 kg/m3)."
+            },
+            {
+              "key": "Heat-insulating concrete (extremely lightweight concrete) - ",
+              "desc": "up to 500 kg/m3"
+            }
+          ],
+          "subText": "Concrete has the ability to withstand heavy loads and harsh environmental conditions, making it ideal for any type of construction, including infrastructural, commercial and industrial facilities, roads, bridges and tunnels."
+        },
+        {
+          "header": "We can also divide concrete according to different purposes:",
+          "list": [
+            {
+              "key": "Heavy (ordinary) concrete – ",
+              "desc": "used for buildings."
+            },
+            { "key": "Hydrotechnical concrete", "desc": "" },
+            { "key": "Concrete for road constructions", "desc": "" },
+            {
+              "key": "Biological – ",
+              "desc": "concrete that protects from radiation."
+            },
+            { "key": "Refractory concrete", "desc": "" },
+            { "key": "Decorative concrete", "desc": "" },
+            {
+              "key": "Chemical – ",
+              "desc": "acid and alkali resistant concrete."
+            },
+            { "key": "Fast-setting concrete", "desc": "" }
+          ]
+        }
+      ],
+      "footerTitle": "Manufacturing modern concrete",
+      "footerDetails": [
+        "In the production of modern concrete, two fractions of sand and gravel are used, which helps to accurately determine their dosage and as a result, a product with the best consistency is obtained. Also, different types of plasticizers are used, according to the type of construction, environment and other specifications.",
+        "Concrete remains an integral part of the construction industry and continues to evolve to meet both environmental challenges and industry demands. Modern technologies contribute to the sustainable and effective use of concrete in the infrastructural constructions."
+      ]
+    },
+    {
+      "header": "Types of cement and their uses",
+      "headerDetails": "Cement is a crucial material in modern construction, it is used in everything from building skyscrapers to simple pavements. But what exactly is cement, how is it made and what are its different types and uses?",
+      "ulList": [
+        {
+          "header": "Manufacturing Cement",
+          "subHeader": "Cement production involves several steps:",
+          "list": [
+            {
+              "key": "Extraction of raw materials - ",
+              "desc": "limestone, clay and silica sand are collected."
+            },
+            {
+              "key": "Mixing and Homogenization",
+              "desc": ""
+            },
+            {
+              "key": "Heating in a Kiln - ",
+              "desc": "the mixture is heated in a special Kiln, forming a clinker."
+            },
+            {
+              "key": "Grinding - ",
+              "desc": "the clinker is grounded into fine powder and mixed with gypsum."
+            },
+            {
+              "key": "Packaging and Distribution",
+              "desc": ""
+            }
+          ]
+        },
+        {
+          "header": "Types of cement",
+          "subHeader": "Different types of cement serve varied purposes:",
+          "list": [
+            {
+              "key": "Portland Cement (OPC) - ",
+              "desc": "used for general construction."
+            },
+            {
+              "key": "Portland Pozzolana Cement (PPC) - ",
+              "desc": "enhances durability and resistance to chemicals."
+            },
+            {
+              "key": "Rapid Hardening Cement - ",
+              "desc": "gains strength faster, ideal for quick projects."
+            },
+            {
+              "key": "Sulphate-Resistant Cement - ",
+              "desc": "suitable for sewage systems."
+            },
+            {
+              "key": "White Cement - ",
+              "desc": "used for architectural and decorative works."
+            },
+            {
+              "key": "Hydraulic Cement - ",
+              "desc": "useful for underwater structures."
+            }
+          ]
+        }
+      ],
+      "subHeader": "Portland Cement",
+      "subText": "Portland cement is the most widely used type of cement in construction due to its versatility and durability. It is a fine powder made by heating a mixture of limestone and clay in a kiln to form a clinker, which is then grounded and blended with gypsum. This cement is known for its strength and ability to set and harden under water. Portland cement is used in a vast range of construction projects, including bridges, highways, buildings and dams.",
+      "footerTitle": "Challenges of cement in modern world",
+      "footerDetails": [
+        "The environmental challenges of the modern world have an impact on the cement industry as well. That is why innovations such as green cement and carbon capture technologies aim to reduce environmental impact while maintaining the quality of construction. It should be noted that sustainable development is important for the cement industry.",
+        "Cement remains an integral part of modern constructions, providing durability and strength. It is the cement types focused on sustainable development that will meet the requirements of the market and make the constructions even stronger with minimal damage to the environment."
+      ]
+    },
+    {
+      "header": "Grauberg’s Factory",
+      "headerDetails": "Grauberg’s cement and concrete factory is located in the city of Zugdidi. It has been offering customers high-quality construction materials made with the latest technology for a long time. Our factory is a guarantee of the production of products that meet international and ecological standards, which will make a significant contribution to the development of the construction industry in Georgia.",
+      "subHeader": "Why is the existence of a factory important?",
+      "subText": "First of all, it should be mentioned that cement and concrete are important components of construction materials, which are widely used in building roads, bridges, buildings and other infrastructural constructions. By having a factory locally, we can ensure a steady and reliable supply of the products to meet the growing demand for construction materials. This promotes urbanization and economic progress by reducing dependence on external suppliers and transportation costs. Having a local factory reduces the risks associated with disruptions in the global supply chain, such as price fluctuations, trade restrictions or natural disasters, that affect transport routes. The cement and concrete plant is important part both from the economic and industrial point of view. It should be noted that it plays a crucial role in stimulating local economy - creates employment opportunities and develops local production. With the help of the Grauberg’s factory, we will be able to support the development of infrastructure projects in Georgia and contribute to the improvement of the existing quality in the market. Also, we will have the opportunity to offer customers a wide range of products, be an example of progress and become a market leader."
+    }
+  ]
 }
