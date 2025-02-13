@@ -10,6 +10,7 @@ import constructionImage1 from "@/public/assets/images/construction.png";
 import constructionImage2 from "@/public/assets/images/construction2.png";
 import loaderBackground from "@/public/assets/images/loaderBackground.webp";
 import { useSearchParams } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 const BlogSection = dynamic(
   () => import("@/components/blogSection/BlogComponent"),
@@ -65,14 +66,18 @@ const cementTypes = [
 
 const Blog = () => {
   const searchParams = useSearchParams();
+  const { t } = useTranslation();
   const search = searchParams.get("");
+  const blogBasic = t("blogs", { returnObjects: true });
+  const data = blogBasic?.[search - 1];
 
   return (
     <section className="bg-gray-100">
       <div className="pt-32 mx-auto max-w-7xl px-6 mb-24">
         <header className="flex flex-col gap-4">
           <h2 className="text-black text-3xl font-bold leading-11 max-w-xl max-900:text-2xl max-900:leading-8">
-            <TranslateText text="betonTypes" />
+            {/* <TranslateText text={data?.header} /> */}
+            {data?.header}
           </h2>
           <div className="flex justify-between items-center max-600:flex-col max-600:items-start max-600:gap-5">
             <aside className="flex items-center gap-8 text-gray-600">
@@ -96,25 +101,42 @@ const Blog = () => {
         </header>
 
         <section className="mt-7 flex flex-col gap-14">
-          <Image
+          {/* <Image
             src={constructionImage1}
             alt="Construction"
             width={902}
             height={529}
             className="self-center max-600:max-h-80"
             placeholder="blur"
-          />
-          {articles?.[search - 1] && (
+          /> */}
+          {data && (
             <article className="flex flex-col gap-7 text-gray-900 font-medium leading-7">
-              <h3 className="text-black font-bold text-xl">
-                <TranslateText text={articles?.[search - 1]?.header} />
-              </h3>
-              <TranslateText text={articles?.[search - 1]?.headerDetails} />
+              <h3 className="text-black font-bold text-xl">{data?.header}</h3>
+              {/* <TranslateText text={data?.headerDetails} /> */}
+              {data?.headerDetails}
             </article>
           )}
           <article className="flex flex-col gap-7">
-            {articles?.[search - 1]?.olList?.map(
-              ({ header, list, subText }, index) => (
+            {data?.olList?.map(({ header, list, subText }, index) => (
+              <div key={index} className="text-gray-900 font-medium leading-7">
+                <span className="text-black font-bold text-xl">
+                  <TranslateText text={header} />:
+                </span>{" "}
+                <ol className="list-disc ml-6 space-y-2 text-gray-800">
+                  {list.map((item, i) => (
+                    <li className="text-base font-medium" key={i}>
+                      <TranslateText text={item.key} />
+                      <TranslateText text={item.desc} />
+                    </li>
+                  ))}
+                </ol>
+                <p className="my-14 font-semibold">
+                  <TranslateText text={subText} />
+                </p>
+              </div>
+            ))}
+            {data?.ulList?.map(
+              ({ header, subHeader, list, subText }, index) => (
                 <div
                   key={index}
                   className="text-gray-900 font-medium leading-7"
@@ -122,29 +144,11 @@ const Blog = () => {
                   <span className="text-black font-bold text-xl">
                     <TranslateText text={header} />:
                   </span>{" "}
-                  <ol className="list-disc ml-6 space-y-2 text-gray-800">
-                    {list.map((item, i) => (
-                      <li className="text-base font-medium" key={i}>
-                        <TranslateText text={item.key} />
-                        <TranslateText text={item.desc} />
-                      </li>
-                    ))}
-                  </ol>
-                  <p className="my-14 font-semibold">
-                    <TranslateText text={subText} />
-                  </p>
-                </div>
-              )
-            )}
-            {articles?.[search - 1]?.ulList?.map(
-              ({ header, list, subText }, index) => (
-                <div
-                  key={index}
-                  className="text-gray-900 font-medium leading-7"
-                >
-                  <span className="text-black font-bold text-xl">
-                    <TranslateText text={header} />:
-                  </span>{" "}
+                  {subHeader && (
+                    <span className="block">
+                      <TranslateText text={subHeader} />
+                    </span>
+                  )}
                   <ul className="list-decimal ml-6 space-y-2 text-gray-800">
                     {list.map((item, i) => (
                       <li className="text-base font-medium" key={i}>
@@ -160,21 +164,31 @@ const Blog = () => {
               )
             )}
           </article>
-          <Image
+          {/* <Image
             src={constructionImage2}
             alt="Construction"
             layout="responsive"
             width={902}
             height={529}
             placeholder="blur"
-          />
-          <article className="flex flex-col gap-7">
-            <h3 className="text-black font-bold text-xl">
-              <TranslateText text={articles?.[search - 1]?.footerTitle} />
-            </h3>
-            <TranslateText text={articles?.[search - 1]?.footerDetails[0]} />
-            <TranslateText text={articles?.[search - 1]?.footerDetails[1]} />
-          </article>
+          /> */}
+          {data?.subHeader && (
+            <article className="flex flex-col gap-7 text-gray-900 font-medium leading-7">
+              <h3 className="text-black font-bold text-xl mb-7">
+                {data?.subHeader}
+              </h3>
+              <TranslateText text={data?.subText} />
+            </article>
+          )}
+          {data?.footerTitle && (
+            <article className="flex flex-col gap-7">
+              <h3 className="text-black font-bold text-xl">
+                <TranslateText text={data?.footerTitle} />
+              </h3>
+              <TranslateText text={data?.footerDetails[0]} />
+              <TranslateText text={data?.footerDetails[1]} />
+            </article>
+          )}
         </section>
       </div>
       <LoaderComponent>
