@@ -45,7 +45,7 @@ async function getBlogs(page: number = 1, pageSize: number = 10) {
 }
 
 const Catalog = async () => {
-  const data = await getBlogs();
+  // const data = await getBlogs();
 
   return (
     <>
