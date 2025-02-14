@@ -6,18 +6,12 @@ import parallelepiped from "../../public/images/parallelepiped.png";
 import ValueInput from "./ValueInput";
 import { TranslateText } from "../translateText/TranslateText";
 
-interface CalculatorComponentProps {
-  cement?: boolean;
-}
-
-const CalculatorComponent = ({ cement }: CalculatorComponentProps) => {
+const CalculatorComponent = () => {
   const [values, setValues] = useState({
     thickness: "",
     length: "",
     height: "",
   });
-  const [cubicMeters, setCubicMeters] = useState(0);
-  const [pocket, setPocket] = useState(0);
 
   const [cementVolume, setCementVolume] = useState(0);
   const [cementBags, setCementBags] = useState(0);
@@ -45,9 +39,7 @@ const CalculatorComponent = ({ cement }: CalculatorComponentProps) => {
     const bags = Math.ceil(volume * 28.8);
 
     setCementVolume(volume);
-    setCubicMeters(volume);
-    setCementBags(bags);
-    setPocket(pockets);
+    setCementBags(weight);
   };
 
   return (
@@ -64,14 +56,13 @@ const CalculatorComponent = ({ cement }: CalculatorComponentProps) => {
         />
         <div className="max-w-[516px] ml-[104px] mt-[43px] max-1100:ml-0 max-1100:mt-[26px] max-1100:px-[18px]">
           <h1 className="font-bold text-darkPrimary text-36 mb-5 max-1100:flex max-1100:flex-col max-1100:items-center max-1100:mb-[14px]">
-            <TranslateText text={cement ? "cementS" : "concretS"} />
+            <TranslateText text={"concretS"} />
             <span className="text-primary pl-3">
               <TranslateText text="calculator" />
             </span>
           </h1>
           <p className="font-normal text-darkPrimary max-1100:text-center">
-            შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპო
-            გრაფიკული ნაწარმის შემქმნელებს.
+            <TranslateText text="enterTheData" />
           </p>
         </div>
       </div>
@@ -111,13 +102,13 @@ const CalculatorComponent = ({ cement }: CalculatorComponentProps) => {
         {[
           {
             label: "cementNeeded",
-            value: cement ? cubicMeters.toFixed(4) : cementVolume.toFixed(4),
+            value: cementVolume.toFixed(4),
             unit: "cubicMeters",
           },
           {
             label: "howMuchCement",
-            value: cement ? pocket : cementBags,
-            unit: "cementPocket",
+            value: cementBags,
+            unit: "kilogram",
           },
         ].map(({ label, value, unit }) => (
           <div

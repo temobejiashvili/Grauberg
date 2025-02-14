@@ -48,12 +48,6 @@ const dynamicImports = {
       ssr: false,
     }
   ),
-  CalculatorComponent: dynamic(
-    () => import("@/components/calculator/CalculatorComponent"),
-    {
-      ssr: false,
-    }
-  ),
   LoaderComponent: dynamic(
     () => import("@/components/loaderComponent/LoaderComponent"),
     {
@@ -90,8 +84,7 @@ const Product = () => {
                   <TranslateText text="clinker" />
                 </h4>
                 <p className="font-normal text-[16px] leading-[26px] text-darkPrimary">
-                  შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპო
-                  გრაფიული ნაწარმის შემქმნელებს, რეალურთან მაქს.
+                  <TranslateText text="cementIsMade" />
                 </p>
               </div>
             </div>
@@ -114,11 +107,6 @@ const Product = () => {
           <dynamicImports.CarouselComponent />
         </div>
       </dynamicImports.LoaderComponent>
-
-      <div className="w-full flex justify-center mb-40 max-1100:px-6">
-        <dynamicImports.CalculatorComponent cement />
-      </div>
-
       <dynamicImports.AdvantagesCardComponent />
 
       <div

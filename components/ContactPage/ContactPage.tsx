@@ -66,8 +66,7 @@ const ContactPage: React.FC = () => {
               {t("contact")}
             </h2>
             <p className="text-[#100F0F] text-[16px] leading-[26px] max-w-[522px] max-900:text-[14px] max-900:leading-[20px] max-900:max-w-[370px]">
-              შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპო გრაფ
-              იული ნაწარმის შემქმნელებს, რეალურთან მაქს
+              {t("forMoreInfo")}
             </p>
           </div>
           <ul className="flex flex-col gap-[24px]">
@@ -92,7 +91,7 @@ const ContactPage: React.FC = () => {
                 />
               </div>
               <a className="font-medium leading-[26px] text-[#100F0F]" href="#">
-                +995 599 47-81-18
+                +995 595 15 33 33
               </a>
             </li>
             <li className="flex items-center gap-[16px]">
@@ -116,7 +115,7 @@ const ContactPage: React.FC = () => {
                 />
               </div>
               <a className="font-medium leading-[26px] text-[#100F0F]" href="#">
-                contact@grauberg.ge
+                info@grauberg.ge
               </a>
             </li>
             <li className="flex items-center gap-[16px]">
