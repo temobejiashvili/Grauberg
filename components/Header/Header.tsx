@@ -187,6 +187,7 @@ const Header: React.FC = () => {
             <ul className="flex justify-center items-center gap-[36px] whitespace-nowrap max-1250:gap-[22px] px-[20px]">
               {NAV_LINKS.map((link, index) => (
                 <dynamicImports.HeaderNavList
+                  key={index}
                   link={link}
                   index={index}
                   isHeaderImageInView={isHeaderImageInView}
@@ -209,6 +210,7 @@ const Header: React.FC = () => {
               {NAV_LINKS.map((link, index) =>
                 link.label === "products" ? (
                   <dynamicImports.HeaderProductMobile
+                    key={index}
                     link={link}
                     index={index}
                     pathname={pathname}
@@ -216,6 +218,7 @@ const Header: React.FC = () => {
                   />
                 ) : (
                   <dynamicImports.HeaderItemMobile
+                    key={index}
                     link={link}
                     index={index}
                     closeMenu={closeMenu}
