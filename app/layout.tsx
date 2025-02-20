@@ -15,7 +15,8 @@ const Header = dynamic(() => import("@/components/Header/Header"), {
     <Image
       src={loaderBackground}
       alt="Loading"
-      className="absolute w-[100vw] h-[100vh] top-0 left-0"
+      placeholder="blur"
+      className="absolute object-cover w-[100vw] h-[100vh] top-0 left-0"
     />
   ),
 });

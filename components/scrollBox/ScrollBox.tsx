@@ -29,21 +29,16 @@ export default function ScrollBox() {
 
   const topPosition = (() => {
     if (activeSection === "header") {
-      return windowWidth <= 1100 || !isCement ? "400px" : "150px";
+      if (windowWidth <= 1100 && isCement) {
+        return "150px";
+      } else {
+        return "360px";
+      }
     }
-    if (windowWidth <= 320) return "225%";
-    if (windowWidth <= 344) return "144%";
-    if (windowWidth <= 360) return "170%";
-    if (windowWidth <= 375) return "190%";
-    if (windowWidth <= 390) return "185%";
-    if (windowWidth <= 444) return "175%";
-    if (windowWidth <= 600) return "160%";
-    if (windowWidth <= 768) return "152%";
-    if (windowWidth <= 820) return "155%";
-    if (windowWidth <= 853) return "150%";
-    if (windowWidth <= 1024) return "175%";
-    if (windowWidth <= 1280) return "125%";
-    return "calc(100% + 99px)";
+    if (windowWidth <= 1100 && isCement) return "1100px";
+    if (windowWidth <= 1100 && !isCement) return "1250px";
+    if (windowWidth <= 1540) return "calc(100% + 260px)";
+    return isCement ? "calc(100% + 20px)" : "calc(100% + 40px)";
   })();
 
   const leftPosition =
@@ -73,14 +68,14 @@ export default function ScrollBox() {
         top: topPosition,
         left: leftPosition,
         transform: transformStyle,
-        rotate: activeSection === "header" ? "9.92deg" : "0deg",
+        rotate: activeSection === "header" && isCement ? "9.92deg" : "0deg",
       }}
     >
       <Image
         src={isCement ? CementPocket : CementTruck}
         alt="Cement"
-        width={is1100 ? 211 : isCement ? 306 : 500}
-        height={is1100 ? 319 : isCement ? 462 : 700}
+        width={is1100 ? (isCement ? 211 : 400) : isCement ? 210 : 500}
+        height={is1100 ? 319 : isCement ? 280 : 700}
         placeholder={CementTruck ? "empty" : "blur"}
       />
     </div>

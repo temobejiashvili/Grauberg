@@ -12,7 +12,8 @@ const AboutCard = () => {
       <div
         className="flex items-end shadow-custom
         bg-[#FFF] rounded-[30px] absolute
-          w-[1200px] max-1250:w-[900px]
+          w-[1200px] max-1250:w-[1010px]
+          max-1100:w-[900px]
           top-[-66px] left-1/2 transform
           min-h-[580px] max-900:flex-col
           -translate-x-1/2 z-[11] max-w-[1194px] h-[580px]
@@ -63,8 +64,10 @@ const AboutCard = () => {
           </div>
 
           <Link
-            href="/about-us"
-            className="group flex justify-center items-center rounded-[10px] w-[240px] h-[54px] border-[1px] border-solid border-transparent hover:border-[#D6D6D6] hover:bg-primary transition-colors text-sm text-darkPrimary hover:text-white"
+            href="/about-grauberg"
+            className="group flex justify-center items-center
+             rounded-[10px] w-[240px] h-[54px]
+              border-[1px] border-solid border-stroke hover:border-[#D6D6D6] hover:bg-primary transition-colors text-sm text-darkPrimary hover:text-white"
           >
             <TranslateText text="viewAll" />
             <Arrow className="w-2 object-cover ml-3 group-hover:filter group-hover:brightness-0 group-hover:invert" />

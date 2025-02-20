@@ -1,6 +1,6 @@
 import { TranslateText } from "@/components/translateText/TranslateText";
-import { blogs } from "@/content/blogsContent";
 import dynamic from "next/dynamic";
+import { blogs } from "@/content/blogsContent";
 import Image from "next/image";
 
 import loaderBackground from "@/public/assets/images/loaderBackground.webp";
@@ -16,26 +16,37 @@ const dynamicImports = {
           alt="Loading"
           width={1000}
           height={1000}
-          className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
+          placeholder="blur"
+          priority
+          className="fixed object-cover w-[100vw] h-[100vh] top-0 left-0 z-50"
         />
       ),
     }
   ),
   BlogCard: dynamic(() => import("@/components/blogCard/BlogCard"), {
     ssr: false,
-    loading: () => (
-      <Image
-        src={loaderBackground}
-        alt="Loading"
-        width={1000}
-        height={1000}
-        className="fixed w-[100vw] h-[100vh] top-0 left-0 z-50"
-      />
-    ),
+    loading: () => <p>Loading...</p>,
   }),
 };
 
-const Catalog = () => {
+async function getBlogs(page: number = 1, pageSize: number = 10) {
+  const res = await fetch(
+    `https://grauberg.com.ge/main/get-posts?page=${page}&pageSize=${pageSize}`,
+    {
+      cache: "no-cache",
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+const Catalog = async () => {
+  // const data = await getBlogs();
+
   return (
     <>
       <div className="flex relative justify-center min-h-[1200px] max-1300:h-[1700px] max-900:h-[3300px]">
@@ -45,19 +56,19 @@ const Catalog = () => {
             <TranslateText text="allBlogs" />
           </h3>
 
-          <dynamicImports.LoaderComponent>
-            <div className="flex justify-center items-center gap-[38px] flex-wrap z-[40] max-900:gap-[26px]">
-              {blogs.map((blog, index) => (
-                <dynamicImports.BlogCard key={index} {...blog} />
-              ))}
-            </div>
-          </dynamicImports.LoaderComponent>
+          <div className="flex justify-center items-center gap-[38px] flex-wrap z-[40] max-900:gap-[26px]">
+            {blogs.map((blog, index) => (
+              <dynamicImports.BlogCard key={index} index={index} {...blog} />
+            ))}
+          </div>
         </div>
       </div>
-      <div
-        className="w-full bg-white h-[140px]
-       rounded-b-60 absolute max-900:h-[100px]"
-      ></div>
+      <dynamicImports.LoaderComponent>
+        <div
+          className="w-full bg-white h-[140px]
+        rounded-b-60 absolute max-900:h-[100px]"
+        ></div>
+      </dynamicImports.LoaderComponent>
     </>
   );
 };

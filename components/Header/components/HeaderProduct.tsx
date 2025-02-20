@@ -9,6 +9,7 @@ interface HeaderProductProps {
   headerRef: any;
   headerImageRef: any;
   i18n: any;
+  isCement: boolean;
 }
 
 const HeaderProduct = ({
@@ -16,6 +17,7 @@ const HeaderProduct = ({
   headerRef,
   headerImageRef,
   i18n,
+  isCement,
 }: HeaderProductProps) => {
   return (
     <section className="flex flex-col items-center">
@@ -33,7 +35,7 @@ const HeaderProduct = ({
             ref={headerImageRef}
             className={`w-[804px] text-center text-[70.56px]
              font-bold leading-[88px]  text-[#100F0F]
-              z-[2] pt-[166px] max-1100:text-[56px]
+              z-[2] pt-[130px] max-1100:text-[56px]
                max-900:w-[382px] max-900:text-[36px]
                 max-900:leading-[44px]
                 ${
@@ -43,8 +45,14 @@ const HeaderProduct = ({
                 }
                 `}
           >
-            <TranslateText text="strengthYou" />
-            <TranslateText text="canBuildOn" />
+            {isCement ? (
+              <>
+                <TranslateText text="strengthYou" />{" "}
+                <TranslateText text="canBuildOn" />
+              </>
+            ) : (
+              <TranslateText text="highFirmness" />
+            )}
           </h2>
         </div>
       </div>

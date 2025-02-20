@@ -8,6 +8,7 @@ import rectangle1 from "@/public/assets/images/Rectangle3463531.webp";
 import maskGroup from "@/public/assets/images/MaskGroup.webp";
 import maskGroup1 from "@/public/assets/images/MaskGroup1.webp";
 import { TranslateText } from "@/components/translateText/TranslateText";
+import BlogTranslate from "@/components/blogTranslate/BlogTranslate";
 
 interface HeaderCatalogProps {
   is900: boolean;
@@ -36,7 +37,7 @@ const HeaderCatalog = ({ is900 }: HeaderCatalogProps) => {
         )}
       </div>
       <div className="w-full absolute top-[88px] flex justify-between max-900:flex-col max-900:items-center max-900:gap-[33px]">
-        <aside className="pt-[110px] pl-[107px] flex flex-col  max-w-[500px] mr-[30px] max-1100:pl-[80px] max-1100:max-w-[400px] max-900:pt-[0px] max-900:pl-[0px] max-900:max-w-[370px] max-900:mr-[0px]">
+        <aside className="pt-[110px] pl-[107px] flex flex-col  max-w-[600px] mr-[30px] max-1100:pl-[80px] max-1100:max-w-[400px] max-900:pt-[0px] max-900:pl-[0px] max-900:max-w-[370px] max-900:mr-[0px]">
           <Link
             href="#"
             className="text-[12px] text-[#FFFFFF] leading-[20px] px-[22px] py-[6px] rounded-[60px] bg-[#5C5C5C] w-fit "
@@ -45,16 +46,14 @@ const HeaderCatalog = ({ is900 }: HeaderCatalogProps) => {
           </Link>
           <article className="mt-[32px] mb-[40px] max-900:my-[19px]">
             <h2 className="text-[#F5F5F5] text-[28px] font-bold leading-[34px] max-900:text-[24px] max-900:leading-[32px]">
-              <TranslateText text="betonTypes" />
+              <BlogTranslate index={0} info="header" />
             </h2>
             <p className="text-[#FFFFFF] leading-[26px] mt-[21px] max-900:text-[14px] max-900:leading-[20px]">
-              შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და
-              ემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს დტიპო გრაფ
-              იული ნაწარმის შემქმნელებს...
+              <BlogTranslate index={0} info="headerDetails" />
             </p>
           </article>
           <Link
-            href="/blog/article"
+            href="/blog/article?=1"
             className="group bg-[#D6D6D6] flex justify-center items-center rounded-[10px] w-[240px] h-[54px] border-[1px] border-solid border-[#D6D6D6] hover:bg-primary transition-colors text-sm text-darkPrimary hover:text-white max-900:w-full max-1100:mt-[10px] max-900:mt-[0px]"
           >
             <TranslateText text="viewAll" />

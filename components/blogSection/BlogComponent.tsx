@@ -4,10 +4,10 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 
 import Arrow from "@/public/assets/arrow.svg";
-import beton from "@/public/images/beton.webp";
-import factory from "@/public/images/factory.webp";
-import block from "@/public/images/block.webp";
 import { TranslateText } from "../translateText/TranslateText";
+import BlogTranslate from "../blogTranslate/BlogTranslate";
+
+import { blogs } from "@/content/blogsContent";
 
 const AnimatedBox = dynamic(() => import("../animatedBox/AnimatedBox"), {
   ssr: true,
@@ -20,28 +20,6 @@ interface BlogProps {
 }
 
 const BlogSection = ({ style, needButton, headline }: BlogProps) => {
-  const blogItems = [
-    {
-      id: 1,
-      image: beton,
-      title: "betonTypes",
-      description:
-        "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპო გრაფ იული ნაწარმის შემქმნელებს ასფოი ასკფჯოკას ფსაფსფა საფასფსაფ",
-    },
-    {
-      id: 2,
-      image: factory,
-      title: "PrimeStandards",
-      description: "buildMix",
-    },
-    {
-      id: 3,
-      image: block,
-      title: "CemGuide",
-      description: "cemStrength",
-    },
-  ];
-
   return (
     <section className={`bg-backgroundGrey ${style} relative py-[46px]`}>
       <div className="container mx-auto flex flex-col justify-center items-center">
@@ -49,31 +27,33 @@ const BlogSection = ({ style, needButton, headline }: BlogProps) => {
           {headline ? headline : <TranslateText text="latestNews" />}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-11">
-          {blogItems.map((item, i) => (
-            <AnimatedBox isFadeIn key={i}>
-              <div
-                key={item.id}
-                className="bg-white border-stroke border rounded-2xl overflow-hidden
+          {blogs.map((item, i) => (
+            <Link href={item.url}>
+              <AnimatedBox isFadeIn key={i}>
+                <div
+                  key={i}
+                  className="bg-white border-stroke border rounded-2xl overflow-hidden
                 hover:shadow-little "
-              >
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={300}
-                  height={300}
-                  className="w-full h-300 object-cover"
-                  placeholder="blur"
-                />
-                <div className="p-4">
-                  <h3 className="text-2xl font-bold text-darkPrimary mb-2">
-                    <TranslateText text={item.title} />
-                  </h3>
-                  <p className="text-sm line-clamp-3 font-normal w-full h-60 text-darkSecondary mb-4">
-                    <TranslateText text={item.description} />
-                  </p>
+                >
+                  <Image
+                    src={item.image}
+                    alt={"image"}
+                    width={300}
+                    height={300}
+                    className="w-full h-300 object-cover"
+                    placeholder="blur"
+                  />
+                  <div className="p-4">
+                    <h3 className="text-2xl font-bold text-darkPrimary mb-2">
+                      <BlogTranslate index={i} info="header" />
+                    </h3>
+                    <p className="text-sm line-clamp-3 font-normal w-full h-60 text-darkSecondary mb-4">
+                      <BlogTranslate index={i} info="headerDetails" />
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </AnimatedBox>
+              </AnimatedBox>
+            </Link>
           ))}
         </div>
         {!needButton && (

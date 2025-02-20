@@ -26,7 +26,10 @@ const AdvantagesCardComponent = () => {
           className="rounded-tl-[50px] max-600:rounded-tl-[0px] max-600:w-full max-600:h-[465px]"
         />
       </div>
-      <div className="pt-[47px] pl-[54px] max-600:pl-[22px] max-600:pr-[22px]">
+      <div
+        className="pt-[47px] pl-[54px] max-600:pl-[22px]
+       max-600:pr-[22px] m-auto"
+      >
         <AnimatedBox isFadeIn>
           <h1 className="font-bold max-w-[672px] text-36 mb-[35px] text-darkPrimary opacity-0 animate-fadeIn">
             <TranslateText text="cementAdventages" />

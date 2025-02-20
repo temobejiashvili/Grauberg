@@ -52,21 +52,24 @@
   "viewAll": "View All",
   "portlandcement": "PORTLANDCEMENT",
   "portlandText": "Grauberg has been an important player in the Georgian market of construction materials for many years. The cement factory, which is located in the city of Zugdidi, has been offering its customers the highest quality cement and concrete made with the latest technology for a long time. After the recent rebranding, it positions itself on behalf of Grauberg. In a competitive environment In order to establish, Grauberg's products are objectively the best It has a price.",
+  "cementIsMade": "Cement is made primarily from the mixture of limestone and clay, that are heated together and form a clinker.",
   "ourCementUsage": "Our Cement Usage",
   "cementUsageInfo": "The Grauberg CEM II/A-P 42.5 N series is ideal for civil and industrial construction projects such as roads, bridges, residential buildings and infrastructure facilities where strong and durable materials are required.",
   "cementS": "Cement's",
   "concretS": "Concret's",
   "calculator": "Calculator",
-  "thickness": "Thickness",
+  "thickness": "Width",
   "length": "Length",
   "height": "Height",
   "sm": "SM",
   "calculate": "Calculate",
   "cementNeeded": "Required Volume Of Cement",
   "cubicMeters": "Cubic Meters",
-  "howMuchCement": "How many pieces of Grauberg cement will I need?",
+  "enterTheData": "Enter the data to calculate the needed amount of cement.",
+  "howMuchCement": "How many kilograms of Grauberg cement will I need?",
+  "kilogram": "Kilogram",
   "cementPocket": "Cement Pocket",
-  "cementAdventages": "What Are The Advantages Of Our Cement?",
+  "cementAdventages": "What Are The Advantages Of Our Concrete?",
   "highQuality": "High Quality",
   "internationalStandards": "Our products are made in accordance with international standards, which ensures the durability and reliability of the materials.",
   "endurance": "Endurance",
@@ -86,25 +89,39 @@
   "CemGuide": "How to Use Cement Correctly",
   "march20": "March 20, 2024",
   "minute5": "5 minute",
-  "cementBasics": "What is Cement and How Does It Work?",
-  "coreCement": "Cement is one of the most important construction materials...",
+  "makingCement": "Making Cement",
+  "rawMaterials": "Extraction of raw materials",
+  "rawMaterialsDesc": "Limestone, clay and silicon sand accumulate.",
+  "materials": "Mixing",
+  "materialsDesc": "Processing and mixing of raw materials",
+  "oven": "Heat in the oven",
+  "ovenDesc": "The resulting mass is heated in a special oven and forms a clinker",
+  "grinding": "Grinding",
+  "grindingDesc": "The clinker is poured into a fine powder and is mixed with plaster",
+  "distribution": "Distribution",
+  "distributionDesc": "Packing and Distribution",
+  "cementBasics": "Types of cement and their use",
+  "coreCement": "Cement is the most important material in modern construction, it is used for all types of infrastructure buildings be it high skyscrapers or simple sidewalks. But specifically what is cement, how is it made and what type is it?",
   "cementEssentials": "Cement is a powdered material that, when mixed with water and other ingredients...",
   "cementTypes": "Types of Cement",
-  "cementVarietie": "Portland cement is the most widely used...",
+  "cementVarietie": "Is used for common buildings",
+  "pozzolanaDesc": "Enhances durability and resistance to chemicals.",
+  "sulphatResistannce": "Sulfate-resistant cement",
+  "sulphatDesc": "Suitable for sewer systems.",
   "whiteCement": "White Cement",
-  "whiteCementOverview": "This is a product similar to Portland cement...",
+  "whiteCementOverview": "Used for architectural and decorative works.",
   "quickSetCement": "Rapid-Hardening Cement",
-  "cementTypesExplained": "This type of cement is relatively...",
+  "cementTypesExplained": "Gains strength faster, ideal for fast projects.",
   "hydroCem": "Hydraulic Cement",
-  "aquaCem": "This cement is characterized by its ability to set and harden in water...",
-  "conclusion": "Conclusion",
-  "cementCore": "Cement is a construction material without which modern...",
-  "rightCementChoice": "Choosing the right type of cement is essential for the success of a project...",
+  "aquaCem": "Used for underwater buildings.",
+  "conclusion": "Cement in the face of modern challenges",
+  "cementCore": "The challenges of the modern world also have an ecological impact on the cement industry. That is why innovations such as green cement and carbon capture technologies aim to reduce the impact on the environment by maintaining the quality of construction. It is noteworthy that sustainable development is important for the cement industry.",
+  "rightCementChoice": "Cement remains an integral part of modern constructions that provide durability and durability. It is the sustainable development-oriented cement types that will meet the requirements of the construction market and make the constructions even more proven, with minimal damage to the environment.",
   "relatedTopics": "You May Also Be Interested In",
   "navigation": "Navigation",
   "termsAndConditions": "Terms and Conditions",
   "rulesAndConditions": "Rules and Conditions",
-  "address": "Tbilisi, Chavchavadze 61a",
+  "address": "Zugdidi, Janashia Street N1",
   "comment": "Comment",
   "phoneNumber": "Phone number",
   "firstAndLustName": "First name, Last name",
@@ -146,6 +163,12 @@
   "answ18": "Our goal is to ensure maximum customer satisfaction. If the product is damaged, you can request a replacement; however, sold products cannot be returned.",
   "quest19": "How can I get consultation regarding Grauberg's products?",
   "answ19": "To receive consultation, please visit our website, click on the contact button, and fill in the necessary fields. Enter your first name, last name, phone number, email, and add any comments if needed. The Grauberg customer support team will contact you as soon as possible. Our employees will provide personalized advice for your project, assist you in selecting the right products, and explain the proper usage of Grauberg cement and concrete in detail.",
+  "quest20": "What types of strength concrete are there?",
+  "answ20": "According to the strength, concrete is divided into the following stamps: upper – 100-200 kg / cm2 (10-20 MPa); Heavy – 100-800 kg / cm2 (10-80 MPa); Light – 10-400 kg / cm2 (1-",
+  "quest21": "How to choose a concrete type?",
+  "answ21": "The type of concrete is also chosen according to the purpose: 1. For the construction of heavy (ordinary) – buildings and structures; 2 .For hydraulic – hydraulic building; 3. Road – for road construction; 4.Biological – Radiation Protective Concrete; 5. Firefighting; 6.Decorative; 7. Chemical – acid and tutegammon concrete; 8. Fast-paced and so on.",
+  "quest22": "What does concrete consist of?",
+  "answ22": "Concrete is an artificial stone obtained by mixing natural and artificial materials. Concrete consists of several basic materials: sand, pork, cement, water, cement filler and various types of plasticizers.",
   "highFirmness": "High Firmness Concrete",
   "cement": "Cement",
   "concrete": "Concrete",
@@ -167,5 +190,163 @@
   "concreteInArchitectureEngineering": "Concrete in Modern Architecture and Engineering is a Remarkable Material. Its Durability, Strength, and Environmental Impact",
   "factoryConcreteMixing": "In the factory, all the necessary ingredients of concrete, including cement, sand, and water, are mixed in precise proportions",
   "concreteStrengthDurability": "Concrete is distinguished by its strength and durability, playing a significant role in the construction of various structures",
-  "contactDescription": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპო გრაფ იული ნაწარმის შემქმნელებს, რეალურთან მაქს"
+  "contactDescription": "შემთხვევითად გენერირებული ტექსტი ეხმარება დიზაინერებს და ტიპო გრაფ იული ნაწარმის შემქმნელებს, რეალურთან მაქს",
+  "graubergFactory": "Grauberg’s Factory",
+  "factoryDetails": "The Grauberg Cement and Concrete Plant is located in the city of Zugdidi. It has long offered customers the highest quality building materials made with the latest technology. Our factory guarantees the production of products in accordance with international and ecological standards, which will make a significant contribution to the development of the construction industry in Georgia.",
+  "whyFactory": "Why is the existence of a Gruberg factory important?",
+  "substantiation1": "First of all, cement and concrete are an important component of building materials that are widely used in roads, bridges, buildings and other infrastructure constructions. Even with the presence of a local plant, we can ensure their stable and reliable supply to meet the growing demands on building materials. This contributes to urbanization and economic progress by reducing dependence on external suppliers and transportation costs.",
+  "substantiation2": "The existence of a local plant reduces the risks associated with delays in the global supply chain, such as price fluctuations, trade restrictions, or natural disasters that affect transport routes.",
+  "substantiation3": "The cement and concrete plant is an important link in both economic and industrial terms. It is noteworthy that it plays an important role in stimulating the local economy - creating employment opportunities and developing local production.",
+  "substantiation4": "With the help of the Gruberg plant, we will be able to support the development of infrastructure projects in Georgia and contribute to the improvement of the quality of the market. We will also have the opportunity to offer customers a wide range of products, to be an example of progress and to be a market leader.",
+  "termsConditions": "Terms & Conditions",
+  "termsDesc": "www.grauberg.ge (hereinafter referred as “Website”) is the property of “Grauberg Cement” Limited Liability Company, Identification number: 404583571 (hereinafter referred as “Company”) and Its use is governed by legislation of Georgia and the terms and conditions established by the Company. The Website is intended to support business activities of the Company, it can be used by any individual or legal entity (hereinafter referred to as the 'User'/“Users”) who, in case of using this Website, constitutes user of the Website. Any offer and/or specified product or service published on the Website is regulated by specific agreements, which can be familiarized with the Company representatives.",
+  "useOfWebsite": "Use of the Website",
+  "useOfWebsiteDesc": "The information published on the Website is for the personal/informational use of the Users only. This information, as well as the structure, image, design or any feature of the Website, may not be shared, transmitted, copied and / or reproduced (including on social media) for commercial purposes without the prior written consent of the Company. It is possible that any particular page on the Website may contain rules different from these Terms and Conditions. While using Company's Website (including contact page, evaluation chart, blogs or forums) illegal / fraudulent actions, discriminatory, defamatory, hate speech or posting, dissemination / transmission of information that may violate the law and / or damage the Company's business reputation, are prohibited. It is also not allowed to cause technical, software damage to the Website. Malfunction of any software module (phone, computer, etc.) used to get to the Website is risk of User. If access to the Website has been disabled for technical reasons or other reasons beyond Company’s control, the Company shall not be liable for any such circumstances or consequences/damages thereof.",
+  "intellectualProperty": "Intellectual property",
+  "intellectualDesc": "The Website, its content, structure and design are fully copyrighted by the Company. The Company exclusive rights also apply to any intellectual property created and registered by us (including the Company's brand name and trademarks). Unauthorized use, processing and publication of any information published on this Website (including logo, pictogram, graphics, image, image, patent, service / trademark, design, visual media created by the Company and other registered or unregistered intellectual property) (Including in social media) without the prior written consent of the Company is prohibited. The consent of the Company is not required if the information is used for personal or informational purposes only. The names, links, trademarks, logos of other people and organizations listed on our website belong to the relevant persons.",
+  "privacyPolicy": "Privacy Policy",
+  "privacyPolicyDesc": "The Company ensures the maximum protection of the confidential information provided to it in accordance with the provisions established by law. The Company requests the personal information of the User as needed, in accordance with the provisions established by law and to the extent necessary to provide services effectively. The User can at any time request information from the Company about the processing of his personal information. Confidential information is disclosed by the Company upon prior consent of the User or in other cases specified by law. The Company is constantly monitoring the accuracy of the possessed information and updating it. The Company also ensure the security of personal data that protects it from unauthorized encroachment. The Company reserves the right to make changes to the Data Protection Policy document from time to time within the limits established by the legislation of Georgia.The Company is authorized to recognize/record the user's activity while using the Website to produce statistics or to improve the quality of the Website. The Company processes the User's personal data (specifically: Name, Last name, Phone number and Email) in order to fulfill the obligations stipulated by the legislation of Georgia, in accordance with the rules and on the grounds specified by sub-paragraphs (a) and/or (b) of the first paragraph of Article 5 of the Law on Personal Data Protection. In case of questions/requests regarding the processing of User’s data, the User can contact the Company, the contact information is: TEL: ----------- Email: ---------- The Company may process the User's personal data in the manner and purpose indicated above in the following ways: storage, verification, transfer, viewing, request, retrieval and transmission. The Company may process above mentioned personal date for agreement and agreement fulfilment purposes, also for the purpose of providing information to the supervising administrative body and/or fulfilling the requirements of the administrative bodies authorized by the legislation of Georgia and the obligation imposed by the legislation. The Company reserves the right to use the User's email address and phone number to share marketing messages related to its products and/or services.",
+  "limitationOfLiability": "Limitation of Liability",
+  "limitationDesc": "The Company shall not be responsible any damage or loss caused by the use of the Website, even of a technical glitch, defect, computer virus or system malfunction. The Company will not be responsible if certain components of the Website are not available to Users. The company is not responsible for the result/damage arising from the use, analysis, and processing of the information published on the Website by Users, and therefore, it is the user's personal risk.",
+  "regulatoryLawJurisdiction": "Regulatory Law and Jurisdiction",
+  "regulatoryLawJurisdictionDesc": "These terms and conditions are regulated by the legislation of Georgia. A possible dispute should be ruled out by the common courts system of Georgia The invalidity of a particular provision shall not affect other provisions to the terms and conditions.",
+  "contactInformation": "Contact information",
+  "contactDesc": "Please read these terms and conditions carefully. If you do not consent, please let us know by sending an e-mail at: ------------",
+  "forMoreInfo": "For more information, leave us your message and our customer support team will contact you shortly.",
+  "concreteDetails": "The Gruberg plant, located in the city of Zugdidi, offers customers the highest quality concrete made with the latest technology. Concrete is an artificial stone obtained by mixing natural and artificial materials. In the production of modern concrete we use different types of plasticizers, taking into account the type of construction, the environment and specifications.",
+  "concreteIngredients": "Concrete consists of several basic materials: sand, pork, cement, water, cement filler and various types of plasticizers.",
+  "ourConcreteUsage": "Our concrete is used",
+  "concreteUsageDetails": "Grauberg concrete is ideal for any type of construction, including: for infrastructure buildings, for the construction of commercial and industrial facilities, roads, bridges and tunnels.",
+  "blogs": [
+    {
+      "header": "Types of concrete and their uses ",
+      "headerDetails": "Concrete is one of the most widely used materials in construction, which is distinguished by its strength and durability. Concrete is made by mixing natural and artificial materials and consists of several main components: sand, gravel, cement, water, cement filler and different types of plasticizers.",
+      "ulList": [
+        {
+          "header": "Types of concrete",
+          "list": [
+            {
+              "key": "Extra heavy concrete - ",
+              "desc": "2500 kg/m3 and more."
+            },
+            {
+              "key": "Heavy (ordinary) concrete -",
+              "desc": "1800-2500 kg/m3"
+            },
+            {
+              "key": "Lightweight concrete - ",
+              "desc": "500-1800 kg/m3 (sometimes lighter 1800-2200 kg/m3)."
+            },
+            {
+              "key": "Heat-insulating concrete (extremely lightweight concrete) - ",
+              "desc": "up to 500 kg/m3"
+            }
+          ],
+          "subText": "Concrete has the ability to withstand heavy loads and harsh environmental conditions, making it ideal for any type of construction, including infrastructural, commercial and industrial facilities, roads, bridges and tunnels."
+        },
+        {
+          "header": "We can also divide concrete according to different purposes:",
+          "list": [
+            {
+              "key": "Heavy (ordinary) concrete – ",
+              "desc": "used for buildings."
+            },
+            { "key": "Hydrotechnical concrete", "desc": "" },
+            { "key": "Concrete for road constructions", "desc": "" },
+            {
+              "key": "Biological – ",
+              "desc": "concrete that protects from radiation."
+            },
+            { "key": "Refractory concrete", "desc": "" },
+            { "key": "Decorative concrete", "desc": "" },
+            {
+              "key": "Chemical – ",
+              "desc": "acid and alkali resistant concrete."
+            },
+            { "key": "Fast-setting concrete", "desc": "" }
+          ]
+        }
+      ],
+      "footerTitle": "Manufacturing modern concrete",
+      "footerDetails": [
+        "In the production of modern concrete, two fractions of sand and gravel are used, which helps to accurately determine their dosage and as a result, a product with the best consistency is obtained. Also, different types of plasticizers are used, according to the type of construction, environment and other specifications.",
+        "Concrete remains an integral part of the construction industry and continues to evolve to meet both environmental challenges and industry demands. Modern technologies contribute to the sustainable and effective use of concrete in the infrastructural constructions."
+      ]
+    },
+    {
+      "header": "Types of cement and their uses",
+      "headerDetails": "Cement is a crucial material in modern construction, it is used in everything from building skyscrapers to simple pavements. But what exactly is cement, how is it made and what are its different types and uses?",
+      "ulList": [
+        {
+          "header": "Manufacturing Cement",
+          "subHeader": "Cement production involves several steps:",
+          "list": [
+            {
+              "key": "Extraction of raw materials - ",
+              "desc": "limestone, clay and silica sand are collected."
+            },
+            {
+              "key": "Mixing and Homogenization",
+              "desc": ""
+            },
+            {
+              "key": "Heating in a Kiln - ",
+              "desc": "the mixture is heated in a special Kiln, forming a clinker."
+            },
+            {
+              "key": "Grinding - ",
+              "desc": "the clinker is grounded into fine powder and mixed with gypsum."
+            },
+            {
+              "key": "Packaging and Distribution",
+              "desc": ""
+            }
+          ]
+        },
+        {
+          "header": "Types of cement",
+          "subHeader": "Different types of cement serve varied purposes:",
+          "list": [
+            {
+              "key": "Portland Cement (OPC) - ",
+              "desc": "used for general construction."
+            },
+            {
+              "key": "Portland Pozzolana Cement (PPC) - ",
+              "desc": "enhances durability and resistance to chemicals."
+            },
+            {
+              "key": "Rapid Hardening Cement - ",
+              "desc": "gains strength faster, ideal for quick projects."
+            },
+            {
+              "key": "Sulphate-Resistant Cement - ",
+              "desc": "suitable for sewage systems."
+            },
+            {
+              "key": "White Cement - ",
+              "desc": "used for architectural and decorative works."
+            },
+            {
+              "key": "Hydraulic Cement - ",
+              "desc": "useful for underwater structures."
+            }
+          ]
+        }
+      ],
+      "subHeader": "Portland Cement",
+      "subText": "Portland cement is the most widely used type of cement in construction due to its versatility and durability. It is a fine powder made by heating a mixture of limestone and clay in a kiln to form a clinker, which is then grounded and blended with gypsum. This cement is known for its strength and ability to set and harden under water. Portland cement is used in a vast range of construction projects, including bridges, highways, buildings and dams.",
+      "footerTitle": "Challenges of cement in modern world",
+      "footerDetails": [
+        "The environmental challenges of the modern world have an impact on the cement industry as well. That is why innovations such as green cement and carbon capture technologies aim to reduce environmental impact while maintaining the quality of construction. It should be noted that sustainable development is important for the cement industry.",
+        "Cement remains an integral part of modern constructions, providing durability and strength. It is the cement types focused on sustainable development that will meet the requirements of the market and make the constructions even stronger with minimal damage to the environment."
+      ]
+    },
+    {
+      "header": "Grauberg’s Factory",
+      "headerDetails": "Grauberg’s cement and concrete factory is located in the city of Zugdidi. It has been offering customers high-quality construction materials made with the latest technology for a long time. Our factory is a guarantee of the production of products that meet international and ecological standards, which will make a significant contribution to the development of the construction industry in Georgia.",
+      "subHeader": "Why is the existence of a factory important?",
+      "subText": "First of all, it should be mentioned that cement and concrete are important components of construction materials, which are widely used in building roads, bridges, buildings and other infrastructural constructions. By having a factory locally, we can ensure a steady and reliable supply of the products to meet the growing demand for construction materials. This promotes urbanization and economic progress by reducing dependence on external suppliers and transportation costs. Having a local factory reduces the risks associated with disruptions in the global supply chain, such as price fluctuations, trade restrictions or natural disasters, that affect transport routes. The cement and concrete plant is important part both from the economic and industrial point of view. It should be noted that it plays a crucial role in stimulating local economy - creates employment opportunities and develops local production. With the help of the Grauberg’s factory, we will be able to support the development of infrastructure projects in Georgia and contribute to the improvement of the existing quality in the market. Also, we will have the opportunity to offer customers a wide range of products, be an example of progress and become a market leader."
+    }
+  ]
 }

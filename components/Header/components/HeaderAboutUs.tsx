@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-import { TranslateText } from "@/components/translateText/TranslateText";
-
 import subtract1 from "@/public/assets/images/Subtttract.webp";
 import subtract2 from "@/public/assets/images/Subbbbtract.webp";
 import AnimatedText from "../AnimatedText";
