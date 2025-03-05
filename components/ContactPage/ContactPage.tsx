@@ -213,10 +213,10 @@ const ContactPage: React.FC = () => {
       <LoaderComponent>
         <section className="w-full h-[386px] border-[21px] border-solid border-[#FFFFFF] rounded-[30px] max-900:w-[370px] max-900:h-[473px]">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1539.526411855878!2d21.014668246839673!3d52.243065148393576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc6744146b3f%3A0x29d4dd8ead0dc6f6!2sPresidential%20Palace!5e0!3m2!1ska!2sge!4v1734501488978!5m2!1ska!2sge"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d559.6719688552271!2d41.83051592912467!3d42.49374260735031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sge!4v1740745716597!5m2!1sen!2sge"
             width="100%"
             height="100%"
-            style={{ border: 0 }}
+            style={{ border: "0" }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
