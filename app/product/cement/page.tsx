@@ -54,6 +54,12 @@ const dynamicImports = {
       ssr: false,
     }
   ),
+  FeaturesComponent: dynamic(
+    () => import("@/components/featuresComponent/FeaturesComponent"),
+    {
+      ssr: true,
+    }
+  ),
 };
 
 const Product = () => {
@@ -107,6 +113,9 @@ const Product = () => {
           <dynamicImports.CarouselComponent />
         </div>
       </dynamicImports.LoaderComponent>
+
+      <dynamicImports.FeaturesComponent />
+
       <dynamicImports.AdvantagesCardComponent />
 
       <div
